@@ -17,9 +17,9 @@ import Footer from "../components/Footer";
 import Yuktic from "../assets/Yuktic.png";
 
 import CandiQHome from "../assets/candiQhomepage.png";
-import CandiQCreateCandidate from "../assets/candiQCreateCandidatepage.png";
-import CandiQCreateJobs from "../assets/candiQCreateJobs.png";
-import CandiQPipeline from "../assets/candiQpipelineManage.png";
+import CandiQCreateCandidatepage from "../assets/candiQcreateCandidatepage.png";
+import CandiQCreateJobs from "../assets/candiQcreateJobs.png";
+import CandiQpipelineManage from "../assets/candiQpipelinemanage.png";
 
 
 const ProjectPage = () => {
