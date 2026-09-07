@@ -313,7 +313,7 @@ useLayoutEffect(() => {
     },
 
     {
-      image: CandiQCreateCandidate,
+      image: CandiQCreateCandidatepage,
       title: "Create Candidate",
       description:
         "Create and manage candidate profiles and recruitment information.",
@@ -327,7 +327,7 @@ useLayoutEffect(() => {
     },
 
     {
-      image: CandiQPipeline,
+      image: CandiQpipelineManage,
       title: "Interview Pipeline",
       description:
         "Track candidates through the recruitment journey from shortlist to offer.",
