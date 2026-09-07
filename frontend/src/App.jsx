@@ -13,7 +13,7 @@ import {
 import Navbar from "./components/Navbar";
 import Hero from "./components/hero";
 import Footer from "./components/Footer";
-import AboutPage from "./pages/AboutPage";
+import ProjectPage from "./pages/ProjectPage";
 // import Feedback from "./pages/Feedback";
 import ServicesPage from "./pages/ServicesPage";
 import ArticlePage from "./pages/ArticlePage";
@@ -39,7 +39,7 @@ function AppContent() {
   */
   const navbarVisible =
     showRealNavbar ||
-    location.pathname === "/about" ||
+    location.pathname === "/project" ||
     location.pathname === "/services" ||
     location.pathname === "/jobs" ||
     location.pathname.startsWith("/jobs/") ||
@@ -90,8 +90,8 @@ function AppContent() {
         =============================== */}
 
         <Route
-          path="/about"
-          element={<AboutPage />}
+          path="/project"
+          element={<ProjectPage />}
         />
 
         {/* ===============================

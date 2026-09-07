@@ -257,7 +257,7 @@ const Navbar = forwardRef(({ visible }, ref) => {
 
   
   <Link
-    to="/about"
+    to="/project"
     className={location.pathname === "/about" ? "active" : ""}
   >
     Project

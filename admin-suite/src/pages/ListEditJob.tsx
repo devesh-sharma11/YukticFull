@@ -27,6 +27,10 @@ interface Job {
   max_notice_period?: number | null;
 
   description: string;
+
+  // External application link
+  applyLink?: string | null;
+
   slug: string;
 
   published: boolean;
@@ -236,6 +240,20 @@ const ListEditJob = () => {
         155
       ) + "..."
     );
+  };
+
+  /* =========================================================
+     APPLICATION LINK
+  ========================================================= */
+
+  const getApplicationLink = (
+    applyLink?: string | null
+  ) => {
+    if (!applyLink) {
+      return "";
+    }
+
+    return applyLink.trim();
   };
 
   /* =========================================================
@@ -613,658 +631,822 @@ const ListEditJob = () => {
                 "stretch",
             }}
           >
-            {jobs.map((job) => (
-              <article
-                key={job._id}
-                style={{
-                  position:
-                    "relative",
-                  display:
-                    "flex",
-                  flexDirection:
-                    "column",
-                  background:
-                    "#ffffff",
-                  border:
-                    "1px solid #dce6ee",
-                  borderTop:
-                    "4px solid #3c83c7",
-                  borderRadius:
-                    "14px",
-                  overflow:
-                    "hidden",
-                  boxShadow:
-                    "0 8px 28px rgba(32,73,105,.07)",
-                  transition:
-                    "transform .25s ease, box-shadow .25s ease",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform =
-                    "translateY(-5px)";
-                  e.currentTarget.style.boxShadow =
-                    "0 16px 38px rgba(32,73,105,.13)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform =
-                    "translateY(0)";
-                  e.currentTarget.style.boxShadow =
-                    "0 8px 28px rgba(32,73,105,.07)";
-                }}
-              >
-                {/* =================================================
-                    CARD CONTENT
-                ================================================== */}
+            {jobs.map((job) => {
+              const applicationLink =
+                getApplicationLink(
+                  job.applyLink
+                );
 
-                <div
+              return (
+                <article
+                  key={job._id}
                   style={{
-                    padding:
-                      "25px 25px 22px",
-                    flex: 1,
+                    position:
+                      "relative",
+                    display:
+                      "flex",
+                    flexDirection:
+                      "column",
+                    background:
+                      "#ffffff",
+                    border:
+                      "1px solid #dce6ee",
+                    borderTop:
+                      "4px solid #3c83c7",
+                    borderRadius:
+                      "14px",
+                    overflow:
+                      "hidden",
+                    boxShadow:
+                      "0 8px 28px rgba(32,73,105,.07)",
+                    transition:
+                      "transform .25s ease, box-shadow .25s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform =
+                      "translateY(-5px)";
+                    e.currentTarget.style.boxShadow =
+                      "0 16px 38px rgba(32,73,105,.13)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform =
+                      "translateY(0)";
+                    e.currentTarget.style.boxShadow =
+                      "0 8px 28px rgba(32,73,105,.07)";
                   }}
                 >
-                  {/* BADGES */}
+                  {/* =================================================
+                      CARD CONTENT
+                  ================================================== */}
 
                   <div
                     style={{
-                      display:
-                        "flex",
-                      alignItems:
-                        "center",
-                      flexWrap:
-                        "wrap",
-                      gap: "8px",
-                      marginBottom:
-                        "17px",
+                      padding:
+                        "25px 25px 22px",
+                      flex: 1,
                     }}
                   >
-                    <span
+                    {/* BADGES */}
+
+                    <div
                       style={{
                         display:
-                          "inline-flex",
+                          "flex",
                         alignItems:
                           "center",
-                        padding:
-                          "8px 13px",
-                        borderRadius:
-                          "20px",
-                        background:
-                          "#eaf4fd",
-                        color:
-                          "#3c83c7",
-                        fontSize:
-                          "12px",
-                        fontWeight:
-                          600,
+                        flexWrap:
+                          "wrap",
+                        gap: "8px",
+                        marginBottom:
+                          "17px",
                       }}
                     >
-                      {job.job_type ||
-                        "Job"}
-                    </span>
+                      <span
+                        style={{
+                          display:
+                            "inline-flex",
+                          alignItems:
+                            "center",
+                          padding:
+                            "8px 13px",
+                          borderRadius:
+                            "20px",
+                          background:
+                            "#eaf4fd",
+                          color:
+                            "#3c83c7",
+                          fontSize:
+                            "12px",
+                          fontWeight:
+                            600,
+                        }}
+                      >
+                        {job.job_type ||
+                          "Job"}
+                      </span>
 
-                    <span
+                      <span
+                        style={{
+                          display:
+                            "inline-flex",
+                          alignItems:
+                            "center",
+                          padding:
+                            "8px 13px",
+                          borderRadius:
+                            "20px",
+                          background:
+                            job.published
+                              ? "#275d86"
+                              : "#edf1f4",
+                          color:
+                            job.published
+                              ? "#ffffff"
+                              : "#667887",
+                          fontSize:
+                            "12px",
+                          fontWeight:
+                            600,
+                        }}
+                      >
+                        {job.published
+                          ? "Published"
+                          : "Draft"}
+                      </span>
+
+                      {/* APPLICATION LINK STATUS */}
+
+                      <span
+                        style={{
+                          display:
+                            "inline-flex",
+                          alignItems:
+                            "center",
+                          padding:
+                            "8px 13px",
+                          borderRadius:
+                            "20px",
+                          background:
+                            applicationLink
+                              ? "#eef9f2"
+                              : "#f3f5f7",
+                          color:
+                            applicationLink
+                              ? "#287344"
+                              : "#7c8b96",
+                          fontSize:
+                            "12px",
+                          fontWeight:
+                            600,
+                        }}
+                      >
+                        {applicationLink
+                          ? "Apply Link Added"
+                          : "No Apply Link"}
+                      </span>
+                    </div>
+
+                    {/* TITLE */}
+
+                    <h2
+                      style={{
+                        margin:
+                          "0 0 9px",
+                        fontSize:
+                          "23px",
+                        lineHeight:
+                          1.35,
+                        fontWeight:
+                          500,
+                        color:
+                          "#173f63",
+                        letterSpacing:
+                          "-0.3px",
+                      }}
+                    >
+                      {job.title}
+                    </h2>
+
+                    {/* SLUG */}
+
+                    <div
+                      style={{
+                        color:
+                          "#8a9aa8",
+                        fontSize:
+                          "12px",
+                        marginBottom:
+                          "19px",
+                        wordBreak:
+                          "break-word",
+                      }}
+                    >
+                      /{job.slug}
+                    </div>
+
+                    {/* META */}
+
+                    <div
                       style={{
                         display:
-                          "inline-flex",
-                        alignItems:
-                          "center",
-                        padding:
-                          "8px 13px",
-                        borderRadius:
-                          "20px",
-                        background:
-                          job.published
-                            ? "#275d86"
-                            : "#edf1f4",
-                        color:
-                          job.published
-                            ? "#ffffff"
-                            : "#667887",
-                        fontSize:
-                          "12px",
-                        fontWeight:
-                          600,
-                      }}
-                    >
-                      {job.published
-                        ? "Published"
-                        : "Draft"}
-                    </span>
-                  </div>
-
-                  {/* TITLE */}
-
-                  <h2
-                    style={{
-                      margin:
-                        "0 0 9px",
-                      fontSize:
-                        "23px",
-                      lineHeight:
-                        1.35,
-                      fontWeight:
-                        500,
-                      color:
-                        "#173f63",
-                      letterSpacing:
-                        "-0.3px",
-                    }}
-                  >
-                    {job.title}
-                  </h2>
-
-                  {/* SLUG */}
-
-                  <div
-                    style={{
-                      color:
-                        "#8a9aa8",
-                      fontSize:
-                        "12px",
-                      marginBottom:
-                        "19px",
-                      wordBreak:
-                        "break-word",
-                    }}
-                  >
-                    /{job.slug}
-                  </div>
-
-                  {/* META */}
-
-                  <div
-                    style={{
-                      display:
-                        "grid",
-                      gridTemplateColumns:
-                        "1fr 1fr",
-                      gap:
-                        "10px",
-                      marginBottom:
-                        "19px",
-                    }}
-                  >
-                    <div
-                      style={{
-                        border:
-                          "1px solid #e5edf3",
-                        background:
-                          "#f8fbfd",
-                        borderRadius:
-                          "9px",
-                        padding:
-                          "11px 12px",
+                          "grid",
+                        gridTemplateColumns:
+                          "1fr 1fr",
+                        gap:
+                          "10px",
+                        marginBottom:
+                          "19px",
                       }}
                     >
                       <div
                         style={{
-                          color:
-                            "#8a9aa8",
-                          fontSize:
-                            "11px",
-                          marginBottom:
-                            "5px",
+                          border:
+                            "1px solid #e5edf3",
+                          background:
+                            "#f8fbfd",
+                          borderRadius:
+                            "9px",
+                          padding:
+                            "11px 12px",
                         }}
                       >
-                        LOCATION
-                      </div>
-
-                      <div
-                        style={{
-                          color:
-                            "#38566f",
-                          fontSize:
-                            "13px",
-                          fontWeight:
-                            600,
-                          lineHeight:
-                            1.4,
-                        }}
-                      >
-                        {job.location ||
-                          "Not specified"}
-                      </div>
-                    </div>
-
-                    <div
-                      style={{
-                        border:
-                          "1px solid #e5edf3",
-                        background:
-                          "#f8fbfd",
-                        borderRadius:
-                          "9px",
-                        padding:
-                          "11px 12px",
-                      }}
-                    >
-                      <div
-                        style={{
-                          color:
-                            "#8a9aa8",
-                          fontSize:
-                            "11px",
-                          marginBottom:
-                            "5px",
-                        }}
-                      >
-                        WORK MODE
-                      </div>
-
-                      <div
-                        style={{
-                          color:
-                            "#38566f",
-                          fontSize:
-                            "13px",
-                          fontWeight:
-                            600,
-                          lineHeight:
-                            1.4,
-                        }}
-                      >
-                        {job.work_mode &&
-                        job.work_mode
-                          .length >
-                          0
-                          ? job.work_mode.join(
-                              ", "
-                            )
-                          : "Not specified"}
-                      </div>
-                    </div>
-
-                    <div
-                      style={{
-                        border:
-                          "1px solid #e5edf3",
-                        background:
-                          "#f8fbfd",
-                        borderRadius:
-                          "9px",
-                        padding:
-                          "11px 12px",
-                      }}
-                    >
-                      <div
-                        style={{
-                          color:
-                            "#8a9aa8",
-                          fontSize:
-                            "11px",
-                          marginBottom:
-                            "5px",
-                        }}
-                      >
-                        EXPERIENCE
-                      </div>
-
-                      <div
-                        style={{
-                          color:
-                            "#38566f",
-                          fontSize:
-                            "13px",
-                          fontWeight:
-                            600,
-                        }}
-                      >
-                        {getExperience(
-                          job
-                        )}
-                      </div>
-                    </div>
-
-                    <div
-                      style={{
-                        border:
-                          "1px solid #e5edf3",
-                        background:
-                          "#f8fbfd",
-                        borderRadius:
-                          "9px",
-                        padding:
-                          "11px 12px",
-                      }}
-                    >
-                      <div
-                        style={{
-                          color:
-                            "#8a9aa8",
-                          fontSize:
-                            "11px",
-                          marginBottom:
-                            "5px",
-                        }}
-                      >
-                        PACKAGE
-                      </div>
-
-                      <div
-                        style={{
-                          color:
-                            "#38566f",
-                          fontSize:
-                            "13px",
-                          fontWeight:
-                            600,
-                        }}
-                      >
-                        {getPackage(
-                          job
-                        )}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* DESCRIPTION */}
-
-                  <p
-                    style={{
-                      margin:
-                        "0 0 18px",
-                      color:
-                        "#71869a",
-                      fontSize:
-                        "14px",
-                      lineHeight:
-                        1.75,
-                    }}
-                  >
-                    {getShortDescription(
-                      job.description
-                    )}
-                  </p>
-
-                  {/* MANDATORY SKILLS */}
-
-                  {job.mandatory_skills &&
-                    job.mandatory_skills
-                      .length > 0 && (
-                      <div>
                         <div
                           style={{
                             color:
-                              "#536f85",
+                              "#8a9aa8",
                             fontSize:
                               "11px",
-                            fontWeight:
-                              700,
-                            letterSpacing:
-                              "0.5px",
                             marginBottom:
-                              "8px",
+                              "5px",
                           }}
                         >
-                          SKILLS
+                          LOCATION
                         </div>
 
                         <div
                           style={{
-                            display:
-                              "flex",
-                            flexWrap:
-                              "wrap",
-                            gap:
-                              "6px",
+                            color:
+                              "#38566f",
+                            fontSize:
+                              "13px",
+                            fontWeight:
+                              600,
+                            lineHeight:
+                              1.4,
                           }}
                         >
-                          {job.mandatory_skills
-                            .slice(
-                              0,
-                              5
-                            )
-                            .map(
-                              (
-                                skill
-                              ) => (
-                                <span
-                                  key={
-                                    skill
-                                  }
-                                  style={{
-                                    padding:
-                                      "5px 9px",
-                                    borderRadius:
-                                      "15px",
-                                    background:
-                                      "#eef5fb",
-                                    border:
-                                      "1px solid #d8e8f5",
-                                    color:
-                                      "#3d6c90",
-                                    fontSize:
-                                      "11px",
-                                    fontWeight:
-                                      600,
-                                  }}
-                                >
-                                  {
-                                    skill
-                                  }
-                                </span>
-                              )
-                            )}
+                          {job.location ||
+                            "Not specified"}
+                        </div>
+                      </div>
 
-                          {job
-                            .mandatory_skills
+                      <div
+                        style={{
+                          border:
+                            "1px solid #e5edf3",
+                          background:
+                            "#f8fbfd",
+                          borderRadius:
+                            "9px",
+                          padding:
+                            "11px 12px",
+                        }}
+                      >
+                        <div
+                          style={{
+                            color:
+                              "#8a9aa8",
+                            fontSize:
+                              "11px",
+                            marginBottom:
+                              "5px",
+                          }}
+                        >
+                          WORK MODE
+                        </div>
+
+                        <div
+                          style={{
+                            color:
+                              "#38566f",
+                            fontSize:
+                              "13px",
+                            fontWeight:
+                              600,
+                            lineHeight:
+                              1.4,
+                          }}
+                        >
+                          {job.work_mode &&
+                          job.work_mode
                             .length >
-                            5 && (
-                            <span
-                              style={{
-                                padding:
-                                  "5px 9px",
-                                borderRadius:
-                                  "15px",
-                                background:
-                                  "#f3f5f7",
-                                color:
-                                  "#7c8b96",
-                                fontSize:
-                                  "11px",
-                                fontWeight:
-                                  600,
-                              }}
-                            >
-                              +
-                              {job
-                                .mandatory_skills
-                                .length -
-                                5}{" "}
-                              more
-                            </span>
+                            0
+                            ? job.work_mode.join(
+                                ", "
+                              )
+                            : "Not specified"}
+                        </div>
+                      </div>
+
+                      <div
+                        style={{
+                          border:
+                            "1px solid #e5edf3",
+                          background:
+                            "#f8fbfd",
+                          borderRadius:
+                            "9px",
+                          padding:
+                            "11px 12px",
+                        }}
+                      >
+                        <div
+                          style={{
+                            color:
+                              "#8a9aa8",
+                            fontSize:
+                              "11px",
+                            marginBottom:
+                              "5px",
+                          }}
+                        >
+                          EXPERIENCE
+                        </div>
+
+                        <div
+                          style={{
+                            color:
+                              "#38566f",
+                            fontSize:
+                              "13px",
+                            fontWeight:
+                              600,
+                          }}
+                        >
+                          {getExperience(
+                            job
                           )}
                         </div>
                       </div>
-                    )}
-                </div>
 
-                {/* =================================================
-                    CARD FOOTER
-                ================================================== */}
+                      <div
+                        style={{
+                          border:
+                            "1px solid #e5edf3",
+                          background:
+                            "#f8fbfd",
+                          borderRadius:
+                            "9px",
+                          padding:
+                            "11px 12px",
+                        }}
+                      >
+                        <div
+                          style={{
+                            color:
+                              "#8a9aa8",
+                            fontSize:
+                              "11px",
+                            marginBottom:
+                              "5px",
+                          }}
+                        >
+                          PACKAGE
+                        </div>
 
-                <div
-                  style={{
-                    borderTop:
-                      "1px solid #e7edf2",
-                    padding:
-                      "17px 20px",
-                    display:
-                      "flex",
-                    alignItems:
-                      "center",
-                    justifyContent:
-                      "space-between",
-                    gap:
-                      "10px",
-                    flexWrap:
-                      "wrap",
-                    background:
-                      "#fcfdfe",
-                  }}
-                >
-                  {/* PUBLISHED DATE */}
+                        <div
+                          style={{
+                            color:
+                              "#38566f",
+                            fontSize:
+                              "13px",
+                              fontWeight:
+                                600,
+                          }}
+                        >
+                          {getPackage(
+                            job
+                          )}
+                        </div>
+                      </div>
+                    </div>
 
-                  <div
-                    style={{
-                      color:
-                        "#8a9aa8",
-                      fontSize:
-                        "11px",
-                      lineHeight:
-                        1.5,
-                    }}
-                  >
-                    {job.published
-                      ? `Published ${formatDateTime(
-                          job.publishedAt
-                        )}`
-                      : "Not published"}
+                    {/* APPLICATION LINK */}
+
+                    <div
+                      style={{
+                        marginBottom:
+                          "18px",
+                        padding:
+                          "13px 14px",
+                        border:
+                          "1px solid #dce9f3",
+                        borderRadius:
+                          "9px",
+                        background:
+                          applicationLink
+                            ? "#f7fbfe"
+                            : "#fafbfc",
+                      }}
+                    >
+                      <div
+                        style={{
+                          color:
+                            "#536f85",
+                          fontSize:
+                            "11px",
+                          fontWeight:
+                            700,
+                          letterSpacing:
+                            "0.5px",
+                          marginBottom:
+                            "7px",
+                        }}
+                      >
+                        APPLICATION LINK
+                      </div>
+
+                      {applicationLink ? (
+                        <a
+                          href={
+                            applicationLink
+                          }
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          style={{
+                            display:
+                              "block",
+                            color:
+                              "#2f80c5",
+                            fontSize:
+                              "12px",
+                            lineHeight:
+                              1.5,
+                            textDecoration:
+                              "none",
+                            wordBreak:
+                              "break-all",
+                            fontWeight:
+                              600,
+                          }}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                          }}
+                        >
+                          {applicationLink}
+                        </a>
+                      ) : (
+                        <div
+                          style={{
+                            color:
+                              "#8a9aa8",
+                            fontSize:
+                              "12px",
+                          }}
+                        >
+                          No external application
+                          link added.
+                        </div>
+                      )}
+                    </div>
+
+                    {/* DESCRIPTION */}
+
+                    <p
+                      style={{
+                        margin:
+                          "0 0 18px",
+                        color:
+                          "#71869a",
+                        fontSize:
+                          "14px",
+                        lineHeight:
+                          1.75,
+                      }}
+                    >
+                      {getShortDescription(
+                        job.description
+                      )}
+                    </p>
+
+                    {/* MANDATORY SKILLS */}
+
+                    {job.mandatory_skills &&
+                      job.mandatory_skills
+                        .length > 0 && (
+                        <div>
+                          <div
+                            style={{
+                              color:
+                                "#536f85",
+                              fontSize:
+                                "11px",
+                              fontWeight:
+                                700,
+                              letterSpacing:
+                                "0.5px",
+                              marginBottom:
+                                "8px",
+                            }}
+                          >
+                            SKILLS
+                          </div>
+
+                          <div
+                            style={{
+                              display:
+                                "flex",
+                              flexWrap:
+                                "wrap",
+                              gap:
+                                "6px",
+                            }}
+                          >
+                            {job.mandatory_skills
+                              .slice(
+                                0,
+                                5
+                              )
+                              .map(
+                                (
+                                  skill
+                                ) => (
+                                  <span
+                                    key={
+                                      skill
+                                    }
+                                    style={{
+                                      padding:
+                                        "5px 9px",
+                                      borderRadius:
+                                        "15px",
+                                      background:
+                                        "#eef5fb",
+                                      border:
+                                        "1px solid #d8e8f5",
+                                      color:
+                                        "#3d6c90",
+                                      fontSize:
+                                        "11px",
+                                      fontWeight:
+                                        600,
+                                    }}
+                                  >
+                                    {
+                                      skill
+                                    }
+                                  </span>
+                                )
+                              )}
+
+                            {job
+                              .mandatory_skills
+                              .length >
+                              5 && (
+                              <span
+                                style={{
+                                  padding:
+                                    "5px 9px",
+                                  borderRadius:
+                                    "15px",
+                                  background:
+                                    "#f3f5f7",
+                                  color:
+                                    "#7c8b96",
+                                  fontSize:
+                                    "11px",
+                                  fontWeight:
+                                    600,
+                                }}
+                              >
+                                +
+                                {job
+                                  .mandatory_skills
+                                  .length -
+                                  5}{" "}
+                                more
+                              </span>
+                            )}
+                          </div>
+                        </div>
+                      )}
                   </div>
 
-                  {/* ACTIONS */}
+                  {/* =================================================
+                      CARD FOOTER
+                  ================================================== */}
 
                   <div
                     style={{
+                      borderTop:
+                        "1px solid #e7edf2",
+                      padding:
+                        "17px 20px",
                       display:
                         "flex",
                       alignItems:
                         "center",
+                      justifyContent:
+                        "space-between",
                       gap:
-                        "7px",
+                        "10px",
+                      flexWrap:
+                        "wrap",
+                      background:
+                        "#fcfdfe",
                     }}
                   >
-                    {/* EDIT */}
+                    {/* PUBLISHED DATE */}
 
-                    <button
-                      type="button"
-                      onClick={() => {
-                        window.scrollTo({
-                          top: 0,
-                          left: 0,
-                          behavior:
-                            "auto",
-                        });
-
-                        navigate(
-                          `/create-job?edit=${encodeURIComponent(
-                            job.slug
+                    <div
+                      style={{
+                        color:
+                          "#8a9aa8",
+                        fontSize:
+                          "11px",
+                        lineHeight:
+                          1.5,
+                      }}
+                    >
+                      {job.published
+                        ? `Published ${formatDateTime(
+                            job.publishedAt
                           )}`
-                        );
-                      }}
-                      disabled={
-                        actionLoading !==
-                        null
-                      }
+                        : "Not published"}
+                    </div>
+
+                    {/* ACTIONS */}
+
+                    <div
                       style={{
-                        border:
-                          "1px solid #d8e3ec",
-                        borderRadius:
-                          "8px",
-                        padding:
-                          "9px 14px",
-                        background:
-                          "#ffffff",
-                        color:
-                          "#3977a9",
-                        fontFamily:
-                          "'Comfortaa', sans-serif",
-                        fontSize:
-                          "12px",
-                        fontWeight:
-                          600,
-                        cursor:
-                          "pointer",
+                        display:
+                          "flex",
+                        alignItems:
+                          "center",
+                        gap:
+                          "7px",
+                        flexWrap:
+                          "wrap",
                       }}
                     >
-                      Edit
-                    </button>
+                      {/* VIEW APPLICATION */}
 
-                    {/* PUBLISH / UNPUBLISH */}
+                      {applicationLink && (
+                        <a
+                          href={
+                            applicationLink
+                          }
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                          }}
+                          style={{
+                            border:
+                              "1px solid #cfe1ee",
+                            borderRadius:
+                              "8px",
+                            padding:
+                              "9px 14px",
+                            background:
+                              "#eaf4fd",
+                            color:
+                              "#3478b3",
+                            fontFamily:
+                              "'Comfortaa', sans-serif",
+                            fontSize:
+                              "12px",
+                            fontWeight:
+                              600,
+                            cursor:
+                              "pointer",
+                            textDecoration:
+                              "none",
+                            display:
+                              "inline-flex",
+                            alignItems:
+                              "center",
+                            justifyContent:
+                              "center",
+                          }}
+                        >
+                          View Apply Link
+                        </a>
+                      )}
 
-                    <button
-                      type="button"
-                      onClick={() =>
-                        handlePublish(
-                          job.slug
-                        )
-                      }
-                      disabled={
-                        actionLoading !==
-                        null
-                      }
-                      style={{
-                        border:
-                          "1px solid #cfe1ee",
-                        borderRadius:
-                          "8px",
-                        padding:
-                          "9px 14px",
-                        background:
-                          job.published
-                            ? "#fff8e8"
-                            : "#eaf4fd",
-                        color:
-                          job.published
-                            ? "#8a6200"
-                            : "#3478b3",
-                        fontFamily:
-                          "'Comfortaa', sans-serif",
-                        fontSize:
-                          "12px",
-                        fontWeight:
-                          600,
-                        cursor:
-                          "pointer",
-                      }}
-                    >
-                      {actionLoading ===
-                      job.slug
-                        ? "..."
-                        : job.published
-                        ? "Unpublish"
-                        : "Publish"}
-                    </button>
+                      {/* EDIT */}
 
-                    {/* DELETE */}
+                      <button
+                        type="button"
+                        onClick={() => {
+                          window.scrollTo({
+                            top: 0,
+                            left: 0,
+                            behavior:
+                              "auto",
+                          });
 
-                    <button
-                      type="button"
-                      onClick={() =>
-                        setDeleteId(
-                          job._id
-                        )
-                      }
-                      disabled={
-                        actionLoading !==
-                        null
-                      }
-                      style={{
-                        border:
-                          "1px solid #f0d4d4",
-                        borderRadius:
-                          "8px",
-                        padding:
-                          "9px 14px",
-                        background:
-                          "#ffffff",
-                        color:
-                          "#d04444",
-                        fontFamily:
-                          "'Comfortaa', sans-serif",
-                        fontSize:
-                          "12px",
-                        fontWeight:
-                          600,
-                        cursor:
-                          "pointer",
-                      }}
-                    >
-                      Delete
-                    </button>
+                          navigate(
+                            `/create-job?edit=${encodeURIComponent(
+                              job.slug
+                            )}`
+                          );
+                        }}
+                        disabled={
+                          actionLoading !==
+                          null
+                        }
+                        style={{
+                          border:
+                            "1px solid #d8e3ec",
+                          borderRadius:
+                            "8px",
+                          padding:
+                            "9px 14px",
+                          background:
+                            "#ffffff",
+                          color:
+                            "#3977a9",
+                          fontFamily:
+                            "'Comfortaa', sans-serif",
+                          fontSize:
+                            "12px",
+                          fontWeight:
+                            600,
+                          cursor:
+                            "pointer",
+                        }}
+                      >
+                        Edit
+                      </button>
+
+                      {/* PUBLISH / UNPUBLISH */}
+
+                      <button
+                        type="button"
+                        onClick={() =>
+                          handlePublish(
+                            job.slug
+                          )
+                        }
+                        disabled={
+                          actionLoading !==
+                          null
+                        }
+                        style={{
+                          border:
+                            "1px solid #cfe1ee",
+                          borderRadius:
+                            "8px",
+                          padding:
+                            "9px 14px",
+                          background:
+                            job.published
+                              ? "#fff8e8"
+                              : "#eaf4fd",
+                          color:
+                            job.published
+                              ? "#8a6200"
+                              : "#3478b3",
+                          fontFamily:
+                            "'Comfortaa', sans-serif",
+                          fontSize:
+                            "12px",
+                          fontWeight:
+                            600,
+                          cursor:
+                            "pointer",
+                        }}
+                      >
+                        {actionLoading ===
+                        job.slug
+                          ? "..."
+                          : job.published
+                          ? "Unpublish"
+                          : "Publish"}
+                      </button>
+
+                      {/* DELETE */}
+
+                      <button
+                        type="button"
+                        onClick={() =>
+                          setDeleteId(
+                            job._id
+                          )
+                        }
+                        disabled={
+                          actionLoading !==
+                          null
+                        }
+                        style={{
+                          border:
+                            "1px solid #f0d4d4",
+                          borderRadius:
+                            "8px",
+                          padding:
+                            "9px 14px",
+                          background:
+                            "#ffffff",
+                          color:
+                            "#d04444",
+                          fontFamily:
+                            "'Comfortaa', sans-serif",
+                          fontSize:
+                            "12px",
+                          fontWeight:
+                            600,
+                          cursor:
+                            "pointer",
+                        }}
+                      >
+                        Delete
+                      </button>
+                    </div>
                   </div>
-                </div>
-              </article>
-            ))}
+                </article>
+              );
+            })}
           </div>
         )}
 

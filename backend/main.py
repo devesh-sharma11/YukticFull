@@ -3156,7 +3156,6 @@ def get_featured_testimonial():
 # JOBS
 # =========================================================
 
-
 @app.post("/jobs")
 def create_job(
     data: Job,
@@ -3176,18 +3175,43 @@ def create_job(
 
     now = datetime.utcnow()
 
+    # Convert Pydantic model to Mongo document
     job = data.model_dump()
+
+    # =====================================================
+    # EXTERNAL APPLICATION LINK
+    # =====================================================
+
+    if data.applyLink:
+        job["applyLink"] = data.applyLink.strip()
+    else:
+        job["applyLink"] = None
+
+    # =====================================================
+    # METADATA
+    # =====================================================
 
     job["createdAt"] = now
     job["updatedAt"] = now
     job["createdBy"] = user["email"]
     job["updatedBy"] = user["email"]
 
-    # Store exact publish date + time
+    # =====================================================
+    # PUBLISH DATE
+    # =====================================================
+
     if job.get("published") is True:
         job["publishedAt"] = now
     else:
         job["publishedAt"] = None
+
+    # DEBUG
+    print("====================================")
+    print("CREATING JOB")
+    print("TITLE:", data.title)
+    print("APPLY LINK:", data.applyLink)
+    print("MONGO APPLY LINK:", job["applyLink"])
+    print("====================================")
 
     result = jobs.insert_one(job)
 
@@ -3290,7 +3314,21 @@ def update_job(
 
     now = datetime.utcnow()
 
+    # Convert Pydantic model to dictionary
     job = data.model_dump()
+
+    # =====================================================
+    # EXTERNAL APPLICATION LINK
+    # =====================================================
+
+    if data.applyLink:
+        job["applyLink"] = data.applyLink.strip()
+    else:
+        job["applyLink"] = None
+
+    # =====================================================
+    # METADATA
+    # =====================================================
 
     job["updatedAt"] = now
     job["updatedBy"] = user["email"]
@@ -3310,13 +3348,11 @@ def update_job(
     )
 
     # Unpublished -> Published
-    # Store NEW publish date/time
     if new_published and not old_published:
 
         job["publishedAt"] = now
 
     # Published -> Published
-    # Keep ORIGINAL publish date/time
     elif new_published and old_published:
 
         job["publishedAt"] = old_job.get(
@@ -3324,10 +3360,18 @@ def update_job(
         )
 
     # Published -> Unpublished
-    # Remove publish date/time
     else:
 
         job["publishedAt"] = None
+
+    # DEBUG
+    print("====================================")
+    print("UPDATING JOB")
+    print("SLUG:", slug)
+    print("TITLE:", data.title)
+    print("APPLY LINK:", data.applyLink)
+    print("MONGO APPLY LINK:", job["applyLink"])
+    print("====================================")
 
     result = jobs.update_one(
         {
@@ -3356,8 +3400,7 @@ def update_job(
         "success": True,
         "message": "Job Updated Successfully"
     }
-
-
+    
 # =========================================================
 # DELETE JOB
 # =========================================================

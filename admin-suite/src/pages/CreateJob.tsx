@@ -3,6 +3,7 @@ import React, {
   useEffect,
   useState,
 } from "react";
+
 import {
   useNavigate,
   useSearchParams,
@@ -36,6 +37,9 @@ interface JobData {
 
   description: string;
 
+  // External Application Link
+  applyLink: string;
+
   slug: string;
   published: boolean;
 }
@@ -61,6 +65,9 @@ const emptyForm: JobData = {
   max_notice_period: "",
 
   description: "",
+
+  // External Application Link
+  applyLink: "",
 
   slug: "",
   published: true,
@@ -225,6 +232,14 @@ const CreateJob = () => {
 
           description:
             job?.description ?? "",
+
+          /*
+           * NEW:
+           * Load existing external application
+           * link when editing.
+           */
+          applyLink:
+            job?.applyLink ?? "",
 
           slug: job?.slug ?? editSlug,
 
@@ -488,6 +503,25 @@ const CreateJob = () => {
       return "Job Description is required.";
     }
 
+    /*
+     * Apply Link is optional.
+     *
+     * If admin enters one, it must be
+     * a proper external HTTP/HTTPS URL.
+     */
+    if (formData.applyLink.trim()) {
+      const applyLink =
+        formData.applyLink.trim();
+
+      if (
+        !/^https?:\/\/.+/i.test(
+          applyLink
+        )
+      ) {
+        return "Apply Link must start with http:// or https://";
+      }
+    }
+
     if (!formData.slug.trim()) {
       return "Job slug is required.";
     }
@@ -580,6 +614,16 @@ const CreateJob = () => {
         description:
           formData.description.trim(),
 
+        /*
+         * NEW:
+         * Send empty link as null so MongoDB
+         * stores a clean null value.
+         */
+        applyLink:
+          formData.applyLink.trim() === ""
+            ? null
+            : formData.applyLink.trim(),
+
         slug: formData.slug.trim(),
 
         published:
@@ -643,6 +687,8 @@ const CreateJob = () => {
           background: "#f7f8fa",
           padding: "30px",
           boxSizing: "border-box",
+          fontFamily:
+            "'Comfortaa', sans-serif",
         }}
       >
         <div
@@ -660,6 +706,8 @@ const CreateJob = () => {
               textAlign: "center",
               color: "#68737d",
               fontSize: "15px",
+              fontFamily:
+                "'Comfortaa', sans-serif",
             }}
           >
             Loading job details...
@@ -676,6 +724,8 @@ const CreateJob = () => {
         background: "#f7f8fa",
         padding: "30px",
         boxSizing: "border-box",
+        fontFamily:
+          "'Comfortaa', sans-serif",
       }}
     >
       <div
@@ -697,6 +747,8 @@ const CreateJob = () => {
               fontSize: "28px",
               fontWeight: 700,
               color: "#263746",
+              fontFamily:
+                "'Comfortaa', sans-serif",
             }}
           >
             {isEditMode
@@ -709,6 +761,8 @@ const CreateJob = () => {
               marginTop: "8px",
               color: "#68737d",
               fontSize: "15px",
+              fontFamily:
+                "'Comfortaa', sans-serif",
             }}
           >
             {isEditMode
@@ -728,6 +782,8 @@ const CreateJob = () => {
               padding: "14px 16px",
               borderRadius: "8px",
               marginBottom: "18px",
+              fontFamily:
+                "'Comfortaa', sans-serif",
             }}
           >
             {error}
@@ -745,6 +801,8 @@ const CreateJob = () => {
               padding: "14px 16px",
               borderRadius: "8px",
               marginBottom: "18px",
+              fontFamily:
+                "'Comfortaa', sans-serif",
             }}
           >
             {success}
@@ -838,6 +896,8 @@ const CreateJob = () => {
                             "10px",
                           cursor:
                             "pointer",
+                          fontFamily:
+                            "'Comfortaa', sans-serif",
                         }}
                       >
                         <input
@@ -1327,6 +1387,58 @@ const CreateJob = () => {
             />
           </section>
 
+          {/* EXTERNAL APPLICATION LINK */}
+
+          <section style={sectionStyle}>
+            <h2 style={sectionTitleStyle}>
+              Application
+            </h2>
+
+            <div>
+              <label style={labelStyle}>
+                Apply Link{" "}
+                <span
+                  style={{
+                    color: "#929aa2",
+                    fontWeight: 400,
+                  }}
+                >
+                  (Optional)
+                </span>
+              </label>
+
+              <input
+                type="url"
+                name="applyLink"
+                value={
+                  formData.applyLink
+                }
+                onChange={handleChange}
+                placeholder="https://example.com/apply"
+                style={inputStyle}
+              />
+
+              <p
+                style={{
+                  margin:
+                    "8px 0 0",
+                  color: "#7a858e",
+                  fontSize: "13px",
+                  lineHeight: 1.5,
+                  fontFamily:
+                    "'Comfortaa', sans-serif",
+                }}
+              >
+                Add the external application
+                page where candidates should
+                apply for this job. When
+                provided, the frontend will
+                show an Apply Now button that
+                opens this link.
+              </p>
+            </div>
+          </section>
+
           {/* PUBLISHING */}
 
           <section style={sectionStyle}>
@@ -1359,6 +1471,8 @@ const CreateJob = () => {
                 alignItems: "center",
                 gap: "10px",
                 cursor: "pointer",
+                fontFamily:
+                  "'Comfortaa', sans-serif",
               }}
             >
               <input
@@ -1438,12 +1552,16 @@ const sectionStyle: React.CSSProperties = {
   padding: "26px",
   marginBottom: "22px",
   border: "1px solid #e1e5e9",
+  fontFamily:
+    "'Comfortaa', sans-serif",
 };
 
 const sectionTitleStyle: React.CSSProperties = {
   margin: "0 0 22px",
   fontSize: "20px",
   color: "#34495e",
+  fontFamily:
+    "'Comfortaa', sans-serif",
 };
 
 const labelStyle: React.CSSProperties = {
@@ -1452,6 +1570,8 @@ const labelStyle: React.CSSProperties = {
   fontSize: "14px",
   fontWeight: 600,
   color: "#34495e",
+  fontFamily:
+    "'Comfortaa', sans-serif",
 };
 
 const inputStyle: React.CSSProperties = {
@@ -1464,6 +1584,8 @@ const inputStyle: React.CSSProperties = {
   color: "#303840",
   background: "#ffffff",
   outline: "none",
+  fontFamily:
+    "'Comfortaa', sans-serif",
 };
 
 const primaryButtonStyle: React.CSSProperties = {
@@ -1475,6 +1597,8 @@ const primaryButtonStyle: React.CSSProperties = {
   fontSize: "15px",
   fontWeight: 600,
   cursor: "pointer",
+  fontFamily:
+    "'Comfortaa', sans-serif",
 };
 
 const secondaryButtonStyle: React.CSSProperties = {
@@ -1486,6 +1610,8 @@ const secondaryButtonStyle: React.CSSProperties = {
   fontSize: "14px",
   fontWeight: 600,
   cursor: "pointer",
+  fontFamily:
+    "'Comfortaa', sans-serif",
 };
 
 const cancelButtonStyle: React.CSSProperties = {
@@ -1497,6 +1623,8 @@ const cancelButtonStyle: React.CSSProperties = {
   fontSize: "15px",
   fontWeight: 600,
   cursor: "pointer",
+  fontFamily:
+    "'Comfortaa', sans-serif",
 };
 
 const tagStyle: React.CSSProperties = {
@@ -1509,6 +1637,8 @@ const tagStyle: React.CSSProperties = {
   borderRadius: "20px",
   padding: "6px 10px",
   fontSize: "13px",
+  fontFamily:
+    "'Comfortaa', sans-serif",
 };
 
 const tagRemoveStyle: React.CSSProperties = {
@@ -1519,6 +1649,8 @@ const tagRemoveStyle: React.CSSProperties = {
   padding: 0,
   fontSize: "17px",
   lineHeight: 1,
+  fontFamily:
+    "'Comfortaa', sans-serif",
 };
 
 export default CreateJob;

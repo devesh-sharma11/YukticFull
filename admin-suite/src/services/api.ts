@@ -121,16 +121,51 @@ export const getCaseStudy = (slug: string) =>
   API.get(`/case-studies/${slug}`);
 
 
+
+// =========================================================
+// JOB TYPES
+// =========================================================
+
+export interface JobPayload {
+  title: string;
+  location: string;
+  work_mode: string[];
+  job_type: string;
+
+  recruiter_ids: string[];
+
+  mandatory_skills: string[];
+  optional_skills: string[];
+
+  min_experience: number;
+  max_experience: number;
+
+  min_package: number;
+  max_package: number;
+
+  min_notice_period: number;
+  max_notice_period: number;
+
+  description: string;
+
+  // =======================================================
+  // EXTERNAL APPLICATION LINK
+  // =======================================================
+  applyLink?: string | null;
+
+  slug: string;
+  published: boolean;
+}
+
 // =========================================================
 // JOBS - ADMIN
 // =========================================================
 
 // Create Job
-export const createJob = async (data: any) => {
+export const createJob = async (data: JobPayload) => {
   const res = await API.post("/jobs", data);
   return res.data;
 };
-
 
 // Get all jobs for Admin
 export const getAdminJobs = async () => {
@@ -138,21 +173,16 @@ export const getAdminJobs = async () => {
   return res.data;
 };
 
-
 // Get single job for Admin
 export const getAdminJob = async (slug: string) => {
-  const res = await API.get(
-    `/admin/jobs/${slug}`
-  );
-
+  const res = await API.get(`/admin/jobs/${slug}`);
   return res.data;
 };
-
 
 // Update Job
 export const updateJob = async (
   slug: string,
-  data: any
+  data: JobPayload
 ) => {
   const res = await API.put(
     `/jobs/${slug}`,
@@ -162,18 +192,14 @@ export const updateJob = async (
   return res.data;
 };
 
-
 // Delete Job
-export const deleteJob = async (
-  jobId: string
-) => {
+export const deleteJob = async (jobId: string) => {
   const res = await API.delete(
     `/jobs/${jobId}`
   );
 
   return res.data;
 };
-
 
 // Publish / Unpublish Job
 export const publishJob = async (
@@ -186,7 +212,6 @@ export const publishJob = async (
   return res.data;
 };
 
-
 // Check Job Slug
 export const checkJobSlug = async (
   slug: string
@@ -198,7 +223,6 @@ export const checkJobSlug = async (
   return res.data;
 };
 
-
 // =========================================================
 // JOBS - PUBLIC FRONTEND
 // =========================================================
@@ -208,7 +232,6 @@ export const getJobs = async () => {
   const res = await API.get("/jobs");
   return res.data;
 };
-
 
 // Get one published job
 export const getJob = async (
@@ -221,7 +244,7 @@ export const getJob = async (
   return res.data;
 };
 
-
 // =========================================================
 
 export default API;
+

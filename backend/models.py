@@ -188,6 +188,9 @@ class Job(BaseModel):
 
     # Description
     description: str
+    
+    # External Application Link
+    applyLink: Optional[str] = None
 
     # Routing
     slug: str
@@ -201,3 +204,5 @@ class Job(BaseModel):
     updatedAt: Optional[datetime] = None
     createdBy: Optional[str] = None
     updatedBy: Optional[str] = None
+    
+   

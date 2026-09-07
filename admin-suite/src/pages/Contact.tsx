@@ -4,25 +4,13 @@ import API from "../services/api";
 
 interface Contact {
   _id: string;
-  firstName: string;
-  lastName: string;
-  organisation: string;
+  name: string;
   email: string;
-  phone?: string;
-  service: string;
-  overview: string;
-  additional?: string;
+  phone: string;
+  subject: string;
+  message: string;
   status?: string;
   submittedAt?: string;
-  jobTitle?: string;
-  contactMethod?: string;
-  orgType?: string;
-  orgSize?: string;
-  stage?: string;
-  timescale?: string;
-  platform?: string;
-  source?: string;
-  buttonSource?: string;
 }
 
 const styles = `
@@ -79,9 +67,18 @@ const styles = `
     min-height: 0;
   }
 
-  .contact-list-container::-webkit-scrollbar { width: 6px; }
-  .contact-list-container::-webkit-scrollbar-track { background: transparent; }
-  .contact-list-container::-webkit-scrollbar-thumb { background: #c9e3f4; border-radius: 4px; }
+  .contact-list-container::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .contact-list-container::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .contact-list-container::-webkit-scrollbar-thumb {
+    background: #c9e3f4;
+    border-radius: 4px;
+  }
 
   .contact-card {
     background: #ffffff;
@@ -110,6 +107,7 @@ const styles = `
     justify-content: space-between;
     align-items: flex-start;
     margin-bottom: 8px;
+    gap: 10px;
   }
 
   .card-name {
@@ -117,18 +115,21 @@ const styles = `
     font-weight: 600;
     color: #102f4d;
     margin: 0;
+    word-break: break-word;
   }
 
   .card-date {
     font-size: 0.75rem;
     color: #6b7280;
     font-weight: 500;
+    white-space: nowrap;
   }
 
-  .card-org {
+  .card-email {
     font-size: 0.9rem;
     color: #4b5563;
     margin: 0 0 12px 0;
+    word-break: break-word;
   }
 
   .tag-service {
@@ -158,6 +159,7 @@ const styles = `
     border-bottom: 2px solid #e8f4fc;
     padding-bottom: 24px;
     margin-bottom: 32px;
+    gap: 20px;
   }
 
   .details-name {
@@ -166,12 +168,14 @@ const styles = `
     color: #155b8a;
     margin: 0 0 8px 0;
     letter-spacing: -0.02em;
+    word-break: break-word;
   }
 
   .details-email {
     font-size: 1rem;
     color: #6b7280;
     margin: 0;
+    word-break: break-word;
   }
 
   .btn-delete {
@@ -188,6 +192,7 @@ const styles = `
     align-items: center;
     gap: 8px;
     box-shadow: 0 4px 6px -1px rgba(220, 38, 38, 0.2);
+    white-space: nowrap;
   }
 
   .btn-delete:hover {
@@ -225,9 +230,10 @@ const styles = `
     padding: 12px 16px;
     border-radius: 12px;
     border: 1px solid #e8f4fc;
+    word-break: break-word;
   }
 
-  .overview-section {
+  .message-section {
     background: #155b8a;
     color: white;
     padding: 32px;
@@ -235,26 +241,20 @@ const styles = `
     margin-top: 32px;
   }
 
-  .overview-title {
+  .message-title {
     font-size: 1.25rem;
     font-weight: 700;
     margin: 0 0 16px 0;
     color: #e8f4fc;
   }
 
-  .overview-text {
+  .message-text {
     font-size: 1.05rem;
     line-height: 1.7;
     opacity: 0.95;
     margin: 0;
-  }
-
-  .additional-section {
-    background: #fdfdfd;
-    border: 1px dashed #c9e3f4;
-    padding: 24px;
-    border-radius: 16px;
-    margin-top: 24px;
+    white-space: pre-wrap;
+    word-break: break-word;
   }
 
   .empty-state {
@@ -274,9 +274,12 @@ const styles = `
     opacity: 0.5;
   }
 
-   .modal-overlay {
+  .modal-overlay {
     position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background: rgba(16, 47, 77, 0.6);
     backdrop-filter: blur(4px);
     display: flex;
@@ -332,8 +335,13 @@ const styles = `
   }
 
   @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
   }
 
   @keyframes slideUp {
@@ -341,6 +349,7 @@ const styles = `
       opacity: 0;
       transform: translateY(20px);
     }
+
     to {
       opacity: 1;
       transform: translateY(0);
@@ -358,13 +367,19 @@ const styles = `
   }
 
   @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
   }
 
   /* =========================================
      MOBILE & TABLET RESPONSIVENESS
      ========================================= */
+
   @media (max-width: 1024px) {
     .dashboard-wrapper {
       grid-template-columns: 1fr;
@@ -401,30 +416,33 @@ const styles = `
       gap: 16px;
     }
 
-    .overview-section {
+    .message-section {
       padding: 24px;
     }
   }
 `;
 
 export default function Contact() {
-  const [contacts, setContacts] =
-    useState<Contact[]>([]);
+  const [contacts, setContacts] = useState<Contact[]>([]);
   const [selected, setSelected] = useState<Contact | null>(null);
   const [loading, setLoading] = useState(true);
-  const [contactToDelete, setContactToDelete] = useState<Contact | null>(null);
+
+  const [contactToDelete, setContactToDelete] =
+    useState<Contact | null>(null);
+
   const [deleteAllModal, setDeleteAllModal] =
     useState(false);
 
   const confirmDeleteAll = async () => {
     try {
-      await API.delete("/admin/contact");
+      const response = await API.delete("/admin/contact");
 
-      setContacts([]);
-      setSelected(null);
-
+      if (response.data?.success) {
+        setContacts([]);
+        setSelected(null);
+      }
     } catch (error) {
-      console.error(error);
+      console.error("Delete all contacts failed:", error);
     } finally {
       setDeleteAllModal(false);
     }
@@ -432,12 +450,20 @@ export default function Contact() {
 
   const fetchContacts = async () => {
     try {
-      const response =
-        await API.get("/admin/contact");
+      setLoading(true);
 
-      setContacts(response.data);
+      const response = await API.get("/admin/contact");
+
+      setContacts(response.data || []);
+
+      // Automatically select the first contact
+      if (response.data?.length > 0) {
+        setSelected(response.data[0]);
+      } else {
+        setSelected(null);
+      }
     } catch (error) {
-      console.error(error);
+      console.error("Failed to fetch contacts:", error);
     } finally {
       setLoading(false);
     }
@@ -449,24 +475,25 @@ export default function Contact() {
 
   const confirmDelete = async () => {
     if (!contactToDelete) return;
+
     const id = contactToDelete._id;
 
     try {
-      const response =
-        await API.delete(
-          `/admin/contact/${id}`
+      const response = await API.delete(
+        `/admin/contact/${id}`
+      );
+
+      if (response.data?.success) {
+        setContacts((prev) =>
+          prev.filter((item) => item._id !== id)
         );
 
-      const result = response.data;
-
-      if (result.success) {
-        setContacts((prev) => prev.filter((item) => item._id !== id));
         if (selected?._id === id) {
           setSelected(null);
         }
       }
     } catch (error) {
-      console.error(error);
+      console.error("Delete contact failed:", error);
     } finally {
       setContactToDelete(null);
     }
@@ -474,22 +501,33 @@ export default function Contact() {
 
   const formatDate = (dateString?: string) => {
     if (!dateString) return "No date";
+
     const date = new Date(dateString);
+
+    if (Number.isNaN(date.getTime())) {
+      return "Invalid date";
+    }
+
     return new Intl.DateTimeFormat("en-US", {
       month: "short",
       day: "numeric",
+      year: "numeric",
       hour: "2-digit",
-      minute: "2-digit"
+      minute: "2-digit",
     }).format(date);
   };
 
   const handleSelectContact = (contact: Contact) => {
     setSelected(contact);
 
-    // Smooth scroll to details panel on mobile/tablet devices
+    // Smooth scroll to details panel on mobile/tablet
     if (window.innerWidth <= 1024) {
       setTimeout(() => {
-        document.getElementById('mobile-details-view')?.scrollIntoView({ behavior: 'smooth' });
+        document
+          .getElementById("mobile-details-view")
+          ?.scrollIntoView({
+            behavior: "smooth",
+          });
       }, 100);
     }
   };
@@ -507,8 +545,7 @@ export default function Contact() {
         new Blob([response.data])
       );
 
-      const link =
-        document.createElement("a");
+      const link = document.createElement("a");
 
       link.href = url;
       link.download = "contacts.xlsx";
@@ -520,19 +557,19 @@ export default function Contact() {
       link.remove();
 
       window.URL.revokeObjectURL(url);
-
     } catch (error) {
-      console.error(
-        "Export failed",
-        error
-      );
+      console.error("Export failed:", error);
     }
   };
 
   return (
     <>
       <style>{styles}</style>
-      
+
+      {/* =========================================
+          SINGLE DELETE MODAL
+         ========================================= */}
+
       {contactToDelete && (
         <div
           className="modal-overlay"
@@ -540,16 +577,18 @@ export default function Contact() {
         >
           <div
             className="modal-content"
-            onClick={e => e.stopPropagation()}
+            onClick={(e) => e.stopPropagation()}
           >
-            <h3 className="modal-title">Delete Request?</h3>
+            <h3 className="modal-title">
+              Delete Request?
+            </h3>
 
             <p className="modal-text">
-              Are you sure you want to delete the inquiry from{" "}
-              <b>
-                {contactToDelete.firstName} {contactToDelete.lastName}
-              </b>
-              ? This action cannot be undone.
+              Are you sure you want to delete the inquiry
+              from{" "}
+              <b>{contactToDelete.name}</b>?
+              <br />
+              This action cannot be undone.
             </p>
 
             <div className="modal-actions">
@@ -571,6 +610,10 @@ export default function Contact() {
         </div>
       )}
 
+      {/* =========================================
+          DELETE ALL MODAL
+         ========================================= */}
+
       {deleteAllModal && (
         <div
           className="modal-overlay"
@@ -586,8 +629,9 @@ export default function Contact() {
 
             <p className="modal-text">
               WARNING: Are you sure you want to permanently
-              delete all contact inquiries? This action
-              cannot be undone.
+              delete all contact inquiries?
+              <br />
+              This action cannot be undone.
             </p>
 
             <div className="modal-actions">
@@ -609,10 +653,19 @@ export default function Contact() {
         </div>
       )}
 
+      {/* =========================================
+          MAIN DASHBOARD
+         ========================================= */}
+
       <div className="admin-dashboard">
         <div className="dashboard-wrapper">
-          
+
+          {/* =====================================
+              LEFT CONTACT LIST
+             ===================================== */}
+
           <div className="left-sidebar">
+
             <div
               style={{
                 display: "flex",
@@ -623,7 +676,10 @@ export default function Contact() {
                 flexWrap: "wrap",
               }}
             >
-              <h2 className="header-title" style={{ marginBottom: 0 }}>
+              <h2
+                className="header-title"
+                style={{ marginBottom: 0 }}
+              >
                 Inquiries Received
 
                 <span className="badge-count">
@@ -673,6 +729,7 @@ export default function Contact() {
             </div>
 
             {loading ? (
+
               <div
                 style={{
                   flex: 1,
@@ -685,7 +742,9 @@ export default function Contact() {
               >
                 <div className="spinner"></div>
               </div>
+
             ) : contacts.length === 0 ? (
+
               <div
                 style={{
                   flex: 1,
@@ -701,70 +760,114 @@ export default function Contact() {
               >
                 No Contacts Found
               </div>
+
             ) : (
+
               <div className="contact-list-container">
+
                 {contacts.map((contact) => (
+
                   <div
                     key={contact._id}
-                    onClick={() => handleSelectContact(contact)}
+                    onClick={() =>
+                      handleSelectContact(contact)
+                    }
                     className={`contact-card ${
-                      selected?._id === contact._id ? "active" : ""
+                      selected?._id === contact._id
+                        ? "active"
+                        : ""
                     }`}
                   >
+
                     <div className="card-header">
+
                       <h4 className="card-name">
-                        {contact.firstName} {contact.lastName}
+                        {contact.name}
                       </h4>
 
                       <span className="card-date">
-                        {formatDate(contact.submittedAt)}
+                        {formatDate(
+                          contact.submittedAt
+                        )}
                       </span>
+
                     </div>
 
-                    <p className="card-org">
-                      🏢 {contact.organisation || "No Organisation"}
+                    <p className="card-email">
+                      ✉️ {contact.email}
                     </p>
 
                     <span className="tag-service">
-                      {contact.service}
+                      {contact.subject || "Other"}
                     </span>
+
                   </div>
+
                 ))}
+
               </div>
+
             )}
+
           </div>
+
+
+          {/* =====================================
+              DETAILS PANEL
+             ===================================== */}
 
           <div
             className="details-panel"
             id="mobile-details-view"
           >
-            {!selected ? (
-              <div className="empty-state">
-                <div className="empty-icon">✉️</div>
 
-                <h3>Select an inquiry</h3>
+            {!selected ? (
+
+              <div className="empty-state">
+
+                <div className="empty-icon">
+                  ✉️
+                </div>
+
+                <h3>
+                  Select an inquiry
+                </h3>
 
                 <p>
-                  Choose a contact request from the list to view details.
+                  Choose a contact request from the
+                  list to view details.
                 </p>
+
               </div>
+
             ) : (
-              <div className="details-content fade-in">
+
+              <div className="details-content">
+
+                {/* HEADER */}
+
                 <div className="details-header">
+
                   <div>
+
                     <h2 className="details-name">
-                      {selected.firstName} {selected.lastName}
+                      {selected.name}
                     </h2>
 
                     <p className="details-email">
                       {selected.email}
                     </p>
+
                   </div>
 
+
                   <button
-                    onClick={() => setContactToDelete(selected)}
+                    onClick={() =>
+                      setContactToDelete(selected)
+                    }
                     className="btn-delete"
                   >
+
                     <svg
                       width="18"
                       height="18"
@@ -781,177 +884,124 @@ export default function Contact() {
                     </svg>
 
                     Delete
+
                   </button>
+
                 </div>
 
-                {selected.buttonSource && (
-                  <div
-                    style={{
-                      background: "#edf7fd",
-                      border: "2px solid #155b8a",
-                      borderRadius: "14px",
-                      padding: "18px",
-                      marginBottom: "28px",
-                    }}
-                  >
-                    <div
-                      style={{
-                        fontSize: "12px",
-                        fontWeight: 700,
-                        color: "#58758b",
-                        letterSpacing: "1px",
-                        textTransform: "uppercase",
-                        marginBottom: "10px",
-                      }}
-                    >
-                      Lead Source
-                    </div>
 
-                    <div
-                      style={{
-                        fontSize: "16px",
-                        fontWeight: 700,
-                        color: "#155b8a",
-                      }}
-                    >
-                      {selected.buttonSource}
-                    </div>
-                  </div>
-                )}
+                {/* CONTACT INFORMATION */}
 
                 <div className="info-grid">
+
                   <div className="info-group">
-                    <span className="info-label">Organisation</span>
+
+                    <span className="info-label">
+                      Name
+                    </span>
 
                     <span className="info-value">
-                      {selected.organisation || "-"}
+                      {selected.name || "-"}
                     </span>
+
                   </div>
 
+
                   <div className="info-group">
-                    <span className="info-label">Phone</span>
+
+                    <span className="info-label">
+                      Email
+                    </span>
+
+                    <span className="info-value">
+                      {selected.email || "-"}
+                    </span>
+
+                  </div>
+
+
+                  <div className="info-group">
+
+                    <span className="info-label">
+                      Phone
+                    </span>
 
                     <span className="info-value">
                       {selected.phone || "-"}
                     </span>
+
                   </div>
 
-                  <div className="info-group">
-                    <span className="info-label">Job Title</span>
 
-                    <span className="info-value">
-                      {selected.jobTitle || "-"}
+                  <div className="info-group">
+
+                    <span className="info-label">
+                      Subject
                     </span>
-                  </div>
-
-                  <div className="info-group">
-                    <span className="info-label">Preferred Contact</span>
-
-                    <span className="info-value">
-                      {selected.contactMethod || "-"}
-                    </span>
-                  </div>
-
-                  <div className="info-group">
-                    <span className="info-label">Service Required</span>
 
                     <span
                       className="info-value"
                       style={{
                         color: "#155b8a",
-                        fontWeight: 700
+                        fontWeight: 700,
                       }}
                     >
-                      {selected.service}
+                      {selected.subject || "Other"}
                     </span>
+
                   </div>
+
 
                   <div className="info-group">
-                    <span className="info-label">Current Stage</span>
+
+                    <span className="info-label">
+                      Status
+                    </span>
 
                     <span className="info-value">
-                      {selected.stage || "-"}
+                      {selected.status || "new"}
                     </span>
+
                   </div>
+
 
                   <div className="info-group">
-                    <span className="info-label">Timescale</span>
+
+                    <span className="info-label">
+                      Submitted At
+                    </span>
 
                     <span className="info-value">
-                      {selected.timescale || "-"}
+                      {formatDate(
+                        selected.submittedAt
+                      )}
                     </span>
+
                   </div>
 
-                  <div className="info-group">
-                    <span className="info-label">Platform</span>
-
-                    <span className="info-value">
-                      {selected.platform || "-"}
-                    </span>
-                  </div>
-
-                  <div className="info-group">
-                    <span className="info-label">Organisation Type</span>
-
-                    <span className="info-value">
-                      {selected.orgType || "-"}
-                    </span>
-                  </div>
-
-                  <div className="info-group">
-                    <span className="info-label">Organisation Size</span>
-
-                    <span className="info-value">
-                      {selected.orgSize || "-"}
-                    </span>
-                  </div>
-
-                  <div className="info-group">
-                    <span className="info-label">Source / Referral</span>
-
-                    <span className="info-value">
-                      {selected.source || "-"}
-                    </span>
-                  </div>
                 </div>
 
-                <div className="overview-section">
-                  <h3 className="overview-title">
-                    Project Overview
+
+                {/* MESSAGE */}
+
+                <div className="message-section">
+
+                  <h3 className="message-title">
+                    Message
                   </h3>
 
-                  <p className="overview-text">
-                    {selected.overview}
+                  <p className="message-text">
+                    {selected.message || "-"}
                   </p>
+
                 </div>
 
-                {selected.additional && (
-                  <div className="additional-section">
-                    <span
-                      className="info-label"
-                      style={{
-                        marginBottom: "12px",
-                        display: "block"
-                      }}
-                    >
-                      Additional Information
-                    </span>
-
-                    <p
-                      style={{
-                        margin: 0,
-                        color: "#4b5563",
-                        lineHeight: 1.6
-                      }}
-                    >
-                      {selected.additional}
-                    </p>
-                  </div>
-                )}
               </div>
+
             )}
+
           </div>
-          
+
         </div>
       </div>
     </>
