@@ -1,0 +1,740 @@
+/* =========================================
+   NAVBAR
+========================================= */
+
+.navbar {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 88px;
+
+  z-index: 5000;
+
+  background: transparent;
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.08);
+
+  backdrop-filter:
+    blur(0px);
+
+  -webkit-backdrop-filter:
+    blur(0px);
+
+  transition:
+    background 0.4s ease,
+    backdrop-filter 0.4s ease,
+    -webkit-backdrop-filter 0.4s ease,
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+
+/* =========================================
+   SCROLLED TRANSLUCENT / FROSTED STATE
+========================================= */
+
+.navbar.navbar-scrolled {
+  background:
+    rgba(255, 255, 255, 0.05);
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.15);
+
+  backdrop-filter:
+    blur(20px) saturate(140%);
+
+  -webkit-backdrop-filter:
+    blur(20px) saturate(140%);
+
+  box-shadow:
+    0 8px 32px 0
+    rgba(0, 0, 0, 0.18);
+}
+
+/* =========================================
+   SCROLLED NAVBAR — TEXT VISIBILITY
+   ONLY ADDS TEXT SHADOW
+========================================= */
+
+.navbar.navbar-scrolled .navbar-links a {
+  color: #ffffff;
+
+  text-shadow:
+     0 1px 4px rgba(0, 0, 0, 0.65);
+   
+}
+
+
+/* Contact button text */
+
+.navbar.navbar-scrolled .navbar-links a:last-child {
+  color: #ffffff;
+
+  text-shadow:
+    0 1px 4px rgba(0, 0, 0, 0.65);
+}
+
+
+/* Hover */
+
+.navbar.navbar-scrolled .navbar-links a:hover {
+  color: #ffffff;
+
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.8),
+    0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* =========================================
+   NAVBAR HIDDEN
+     
+   COMPLETELY INSTANT
+     
+   No fade.
+   No transition.
+   No visual flash.
+========================================= */
+
+.navbar-hidden {
+  display:
+    none !important;
+
+  opacity:
+    0 !important;
+
+  visibility:
+    hidden !important;
+
+  pointer-events:
+    none !important;
+
+  transition:
+    none !important;
+
+  animation:
+    none !important;
+
+  backdrop-filter:
+    none !important;
+
+  -webkit-backdrop-filter:
+    none !important;
+
+  box-shadow:
+    none !important;
+}
+
+
+/* =========================================
+   NAVBAR VISIBLE
+========================================= */
+
+.navbar-visible {
+  display:
+    block !important;
+
+  opacity:
+    1 !important;
+
+  visibility:
+    visible !important;
+
+  pointer-events:
+    auto;
+}
+
+
+/* =========================================
+   NAVBAR CONTAINER
+========================================= */
+
+.navbar-container {
+  width:
+    100%;
+
+  max-width:
+    1440px;
+
+  height:
+    100%;
+
+  margin:
+    0 auto;
+
+  padding:
+    0 34px;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    space-between;
+
+  gap:
+    40px;
+}
+
+
+/* =========================================
+   LOGO
+========================================= */
+
+.navbar-logo {
+  position:
+    relative;
+
+  width:
+    64px;
+
+  height:
+    64px;
+
+  flex-shrink:
+    0;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  text-decoration:
+    none;
+
+  border-radius:
+    14px;
+
+  transition:
+    transform 260ms ease,
+    filter 260ms ease;
+}
+
+
+.navbar-logo img {
+  display:
+    block;
+
+  width:
+    64px;
+
+  height:
+    64px;
+
+  object-fit:
+    contain;
+
+  backface-visibility:
+    hidden;
+
+  -webkit-backface-visibility:
+    hidden;
+}
+
+
+.navbar-logo:hover {
+  transform:
+    scale(1.06);
+
+  filter:
+    drop-shadow(
+      0 0 12px
+      rgba(56, 189, 248, 0.4)
+    );
+}
+
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+.navbar-links {
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    flex-end;
+
+  gap:
+    34px;
+
+  height:
+    100%;
+
+  margin-left:
+    auto;
+}
+
+
+/* =========================================
+   NAVIGATION LINK
+========================================= */
+
+.navbar-links a {
+  position:
+    relative;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  height:
+    100%;
+
+  color:
+    rgba(255, 255, 255, 0.85);
+
+  text-decoration:
+    none;
+
+  font-size:
+    15px;
+
+  font-weight:
+    500;
+
+  letter-spacing:
+    0.2px;
+
+  white-space:
+    nowrap;
+
+  transition:
+    color 220ms ease,
+    transform 220ms ease;
+}
+
+
+/* =========================================
+   NORMAL HOVER
+========================================= */
+
+.navbar-links a:hover {
+  color:
+    #ffffff;
+
+  transform:
+    translateY(-1px);
+}
+
+
+/* =========================================
+   HOVER UNDERLINE
+========================================= */
+
+.navbar-links a::after {
+  content:
+    "";
+
+  position:
+    absolute;
+
+  left:
+    50%;
+
+  bottom:
+    20px;
+
+  width:
+    0;
+
+  height:
+    2px;
+
+  border-radius:
+    10px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #ffffff,
+      #38bdf8
+    );
+
+  transform:
+    translateX(-50%);
+
+  transition:
+    width 240ms
+    cubic-bezier(
+      0.22,
+      1,
+      0.36,
+      1
+    );
+}
+
+
+.navbar-links a:hover::after {
+  width:
+    70%;
+}
+
+
+/* =========================================
+   SERVICES LINK
+========================================= */
+
+.navbar-links a:nth-child(3) {
+  padding:
+    0 2px;
+}
+
+
+/* =========================================
+   CONTACT BUTTON
+========================================= */
+
+.navbar-links a:last-child {
+  height:
+    auto;
+
+  padding:
+    11px 20px;
+
+  border-radius:
+    30px;
+
+  color:
+    #ffffff;
+
+  background:
+    rgba(255, 255, 255, 0.08);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.2);
+
+  backdrop-filter:
+    blur(8px);
+
+  -webkit-backdrop-filter:
+    blur(8px);
+
+  transition:
+    all 0.25s ease;
+}
+
+
+/* =========================================
+   CONTACT NO UNDERLINE
+========================================= */
+
+.navbar-links a:last-child::after {
+  display:
+    none;
+}
+
+
+/* =========================================
+   CONTACT HOVER
+========================================= */
+
+.navbar-links a:last-child:hover {
+  background:
+    rgba(56, 189, 248, 0.22);
+
+  border-color:
+    rgba(56, 189, 248, 0.6);
+
+  transform:
+    translateY(-2px);
+
+  box-shadow:
+    0 4px 15px
+    rgba(56, 189, 248, 0.25);
+}
+
+
+/* =========================================
+   MOBILE MENU BUTTON
+========================================= */
+
+.navbar-menu-button {
+  display:
+    none;
+
+  width:
+    44px;
+
+  height:
+    44px;
+
+  padding:
+    0;
+
+  border:
+    0;
+
+  background:
+    transparent;
+
+  cursor:
+    pointer;
+
+  flex-direction:
+    column;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  gap:
+    5px;
+}
+
+
+.navbar-menu-button span {
+  display:
+    block;
+
+  width:
+    23px;
+
+  height:
+    2px;
+
+  border-radius:
+    5px;
+
+  background:
+    #ffffff;
+}
+
+
+/* =========================================
+   RESPONSIVE — 1200px
+========================================= */
+
+@media (max-width: 1200px) {
+
+  .navbar-container {
+    padding:
+      0 26px;
+  }
+
+
+  .navbar-links {
+    gap:
+      24px;
+  }
+
+
+  .navbar-links a {
+    font-size:
+      14px;
+  }
+
+}
+
+
+/* =========================================
+   RESPONSIVE — 980px
+========================================= */
+
+@media (max-width: 980px) {
+
+  .navbar {
+    height:
+      82px;
+  }
+
+
+  .navbar-container {
+    padding:
+      0 22px;
+  }
+
+
+  .navbar-logo,
+  .navbar-logo img {
+    width:
+      58px;
+
+    height:
+      58px;
+  }
+
+
+  .navbar-links {
+    gap:
+      17px;
+  }
+
+
+  .navbar-links a {
+    font-size:
+      13px;
+  }
+
+
+  .navbar-links a:last-child {
+    padding:
+      9px 15px;
+  }
+
+}
+
+
+/* =========================================
+   RESPONSIVE — 760px
+========================================= */
+
+@media (max-width: 760px) {
+
+  .navbar {
+    height:
+      76px;
+  }
+
+
+  .navbar-container {
+    padding:
+      0 18px;
+  }
+
+
+  .navbar-links {
+    display:
+      none;
+  }
+
+
+  .navbar-menu-button {
+    display:
+      flex;
+  }
+
+
+  .navbar-logo,
+  .navbar-logo img {
+    width:
+      54px;
+
+    height:
+      54px;
+  }
+
+}
+
+
+/* =========================================
+   RESPONSIVE — 400px
+========================================= */
+
+@media (max-width: 400px) {
+
+  .navbar-container {
+    padding:
+      0 14px;
+  }
+
+
+  .navbar-logo,
+  .navbar-logo img {
+    width:
+      50px;
+
+    height:
+      50px;
+  }
+
+}
+
+
+
+
+/* =========================================
+   ACTIVE PAGE — ORANGE BOTTOM LINE
+   Home page is intentionally excluded
+========================================= */
+
+.navbar-links a.active:not([href="/"])::after {
+  width: 70%;
+
+  background: #ff8a00;
+}
+
+
+/* =========================================
+   ACTIVE LINK TEXT STAYS WHITE
+========================================= */
+
+.navbar-links a.active:not([href="/"]) {
+  color: rgba(255, 255, 255, 0.85);
+
+  text-shadow: none;
+}
+
+
+/* =========================================
+   ACTIVE LINK HOVER
+========================================= */
+
+.navbar-links a.active:not([href="/"]):hover {
+  color: #ffffff;
+}
+
+
+/* =========================================
+   CONTACT ACTIVE
+   Only orange bottom/edge indicator,
+   NOT orange background
+========================================= */
+
+.navbar-links a:last-child.active {
+  color: #ffffff;
+
+  background:
+    rgba(255, 255, 255, 0.08);
+
+  border-color:
+    rgba(255, 255, 255, 0.2);
+
+  box-shadow: none;
+
+  text-shadow: none;
+}
+
+
+/* Contact doesn't use the normal ::after,
+   so create orange bottom line */
+
+.navbar-links a:last-child.active::after {
+  display: block;
+
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+
+  bottom: -6px;
+
+  width: 55%;
+
+  height: 2px;
+
+  border-radius: 10px;
+
+  background: #ff8a00;
+
+  transform: translateX(-50%);
+}
+

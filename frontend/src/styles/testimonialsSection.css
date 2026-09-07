@@ -1,0 +1,1535 @@
+/* =========================================================
+   FONT
+========================================================= */
+
+.testimonials-section,
+.testimonials-section *,
+.testimonial-modal-overlay,
+.testimonial-modal-overlay * {
+  font-family: "Comfortaa", sans-serif;
+}
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+/* =========================================================
+   TESTIMONIALS SECTION
+   GREEN → DARK GREEN → BLACK
+
+   IMPORTANT:
+   - NO IMAGE
+   - NO RADIAL GRADIENT
+   - NO LEFT/RIGHT GRADIENT
+   - SAME TRANSITION ACROSS ENTIRE WIDTH
+
+   TOP:
+   Inherits the exact background from .green-flow
+
+   MIDDLE:
+   Darkening begins early
+
+   BOTTOM:
+   Completely black
+========================================================= */
+
+.testimonials-section {
+  position: relative;
+
+  width: 100%;
+
+  padding: 80px 32px 70px;
+
+  /*
+     DO NOT ADD A BACKGROUND HERE.
+
+     The background comes from .green-flow.
+     This keeps the top perfectly connected to
+     the Capabilities section.
+  */
+  background: transparent;
+
+  font-family:
+    "Avenir Next",
+    "Helvetica Neue",
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
+  color: #101b16;
+
+  box-sizing: border-box;
+
+  margin: 0;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   MAIN DARK TRANSITION
+
+   0–25%
+   Completely transparent.
+
+   30–40%
+   Darkening starts.
+
+   40–65%
+   Strong dark-green transition.
+
+   65–85%
+   Very dark.
+
+   85–100%
+   Black.
+
+   IMPORTANT:
+   This is ONLY a vertical gradient.
+   Therefore LEFT = RIGHT exactly.
+========================================================= */
+
+.testimonials-section::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: 100%;
+
+  pointer-events: none;
+
+  z-index: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+
+      /* =========================================
+         TOP — FULLY TRANSPARENT
+      ========================================= */
+
+      rgba(0, 0, 0, 0) 0%,
+
+      rgba(0, 0, 0, 0) 18%,
+
+      rgba(0, 0, 0, 0) 27%,
+
+      /*
+         Very tiny beginning of darkness
+      */
+      rgba(0, 0, 0, 0.015) 33%,
+
+      /* =========================================
+         BLACK STARTS EARLIER
+      ========================================= */
+
+      rgba(0, 4, 2, 0.06) 38%,
+
+      rgba(0, 5, 3, 0.13) 44%,
+
+      rgba(0, 6, 4, 0.23) 50%,
+
+      /*
+         =========================================
+         DARK GREEN
+      =========================================
+      */
+
+      rgba(0, 6, 4, 0.36) 57%,
+
+      rgba(0, 5, 3, 0.50) 64%,
+
+      rgba(0, 4, 3, 0.64) 71%,
+
+      /*
+         =========================================
+         VERY DARK
+      =========================================
+      */
+
+      rgba(0, 3, 2, 0.76) 78%,
+
+      rgba(0, 2, 1, 0.87) 84%,
+
+      /*
+         =========================================
+         ALMOST BLACK
+      =========================================
+      */
+
+      rgba(0, 1, 1, 0.95) 91%,
+
+      rgba(0, 0, 0, 0.985) 96%,
+
+      /*
+         =========================================
+         FULL BLACK
+      =========================================
+      */
+
+      #000000 100%
+    );
+}
+
+
+/* =========================================================
+   KEEP ALL TESTIMONIAL CONTENT ABOVE DARK OVERLAY
+========================================================= */
+
+.testimonials-section > * {
+  position: relative;
+  z-index: 2;
+}
+
+
+/* =========================================================
+   NO SECONDARY EFFECTS
+
+   This is intentional.
+
+   DO NOT use:
+   - radial-gradient
+   - image
+   - glow
+   - side gradient
+   - right gradient
+   - left gradient
+========================================================= */
+
+.testimonials-section::after {
+  display: none;
+  content: none;
+}
+
+
+
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.testimonials-heading {
+  width: min(
+    900px,
+    calc(100% - 40px)
+  );
+
+  margin: 0 auto 55px;
+
+  text-align: center;
+}
+
+
+.testimonials-eyebrow {
+  display: inline-block;
+
+  margin-bottom: 18px;
+
+  color: #087d1c;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+}
+
+
+.testimonials-main-heading {
+  margin: 0;
+
+  color: #087d1c;
+
+  font-family: "Comfortaa", sans-serif;
+
+  font-size: clamp(
+    34px,
+    4.3vw,
+    58px
+  );
+
+  font-weight: 300;
+
+  line-height: 1.15;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+
+.testimonials-subheading {
+  max-width: 780px;
+
+  margin: 24px auto 0;
+
+  color: rgba(0, 0, 0, 0.68);
+
+  font-family: "Comfortaa", sans-serif;
+
+  font-size: 14px;
+
+  font-weight: 500;
+
+  line-height: 1.8;
+
+  letter-spacing: 0.2px;
+}
+
+
+.testimonials-heading-line {
+  width: 68px;
+
+  height: 3px;
+
+  margin: 28px auto 0;
+
+  border-radius: 50px;
+
+  background: #036917;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.testimonials-container {
+  width: min(
+    1250px,
+    calc(100% - 50px)
+  );
+
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   CAROUSEL
+========================================================= */
+
+.testimonials-carousel-wrapper {
+  width: 100%;
+
+  overflow: hidden;
+}
+
+
+.testimonials-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      3,
+      minmax(0, 1fr)
+    );
+
+  gap: 24px;
+
+  width: 100%;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.testimonial-card {
+  position: relative;
+
+  min-width: 0;
+
+  min-height: 390px;
+
+  padding: 30px;
+
+  border: 1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.09
+    );
+
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(
+        18,
+        62,
+        48,
+        0.96
+      ),
+      rgba(
+        8,
+        35,
+        27,
+        0.96
+      )
+    );
+
+  box-shadow:
+    0 20px 55px
+    rgba(
+      0,
+      0,
+      0,
+      0.22
+    );
+
+  cursor: pointer;
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+.testimonial-card:hover {
+  transform: translateY(-4px);
+
+  border-color:
+    rgba(
+      237,
+      107,
+      23,
+      0.65
+    );
+
+  box-shadow:
+    0 28px 65px
+    rgba(
+      0,
+      0,
+      0,
+      0.32
+    );
+}
+
+
+.testimonial-card:focus-visible {
+  outline: 2px solid #ed6b17;
+
+  outline-offset: 4px;
+}
+
+
+/* =========================================================
+   TOP ROW
+========================================================= */
+
+.card-top-row {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 15px;
+
+  margin-bottom: 25px;
+}
+
+
+/* =========================================================
+   TAG
+========================================================= */
+
+.testimonial-tag {
+  display: inline-flex;
+
+  align-items: center;
+
+  max-width: 60%;
+
+  min-height: 28px;
+
+  padding: 6px 12px;
+
+  border:
+    1px solid
+    rgba(
+      237,
+      107,
+      23,
+      0.25
+    );
+
+  border-radius: 999px;
+
+  background:
+    rgba(
+      237,
+      107,
+      23,
+      0.12
+    );
+
+  color: #f58a42;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.7px;
+
+  text-transform: uppercase;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+}
+
+
+/* =========================================================
+   STARS
+========================================================= */
+
+.testimonial-stars {
+  display: flex;
+
+  align-items: center;
+
+  gap: 4px;
+
+  flex-shrink: 0;
+}
+
+
+.testimonial-star {
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.18
+    );
+
+  font-size: 13px;
+}
+
+
+.testimonial-star.active {
+  color: #f5b942;
+}
+
+
+/* =========================================================
+   QUOTE
+========================================================= */
+
+.quote-icon-box {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 45px;
+
+  height: 45px;
+
+  margin-bottom: 20px;
+
+  border-radius: 13px;
+
+  background:
+    rgba(
+      237,
+      107,
+      23,
+      0.12
+    );
+
+  color: #ed6b17;
+
+  font-size: 17px;
+}
+
+
+/* =========================================================
+   LIMITED TEXT
+========================================================= */
+
+.testimonial-quote {
+  display: -webkit-box;
+
+  height: 100px;
+
+  margin: 0;
+
+  overflow: hidden;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.82
+    );
+
+  font-size: 14px;
+
+  font-weight: 500;
+
+  line-height: 1.8;
+
+  -webkit-box-orient: vertical;
+
+  -webkit-line-clamp: 4;
+}
+
+
+
+
+/* =========================================================
+   PROFILE
+========================================================= */
+
+.testimonial-profile {
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  margin-top: 28px;
+
+  padding-top: 22px;
+
+  border-top:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.08
+    );
+}
+
+
+.profile-info {
+  min-width: 0;
+}
+
+
+.profile-name {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 15px;
+
+  font-weight: 700;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+}
+
+
+.profile-role {
+  margin: 4px 0 0;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.58
+    );
+
+  font-size: 11px;
+
+  font-weight: 500;
+
+  line-height: 1.4;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+}
+
+
+.profile-org {
+  display: block;
+
+  margin-top: 4px;
+
+  color: #ed6b17;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+}
+
+
+/* =========================================================
+   DB AVATAR
+========================================================= */
+
+.profile-avatar,
+.modal-avatar {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  overflow: hidden;
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      135deg,
+      #15b8ad,
+      #0e8d1d
+    );
+
+  color: #ffffff;
+
+  font-weight: 700;
+
+  box-shadow:
+    0 8px 22px
+    rgba(
+      237,
+      107,
+      23,
+      0.22
+    );
+}
+
+
+.profile-avatar {
+  width: 54px;
+
+  height: 54px;
+
+  border:
+    2px solid
+    rgba(
+      237,
+      107,
+      23,
+      0.5
+    );
+
+  font-size: 15px;
+}
+
+
+.db-avatar-image {
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+}
+
+
+.db-avatar-initials {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 100%;
+
+  height: 100%;
+
+  color: #ffffff;
+
+  font-size: inherit;
+
+  font-weight: 800;
+
+  letter-spacing: 0.5px;
+}
+
+
+/* =========================================================
+   CONTROLS
+========================================================= */
+
+.testimonials-controls {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 24px;
+
+  margin-top: 38px;
+}
+
+
+/* =========================================================
+   ORANGE CAROUSEL BUTTONS
+========================================================= */
+
+.control-btn {
+  position: relative;
+  z-index: 5;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 48px;
+  height: 48px;
+
+  padding: 0;
+
+  border: 2px solid #ed6b17;
+  border-radius: 50%;
+
+  background: #ed6b17;
+
+  color: #ffffff;
+
+  font-size: 14px;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 20px rgba(237, 107, 23, 0.25);
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.control-btn:hover {
+  background: #f47a2a;
+  border-color: #f47a2a;
+
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 12px 28px rgba(237, 107, 23, 0.35);
+}
+
+.control-btn:active {
+  transform: translateY(0);
+}
+
+
+.carousel-counter {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 7px;
+
+  min-width: 65px;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.85
+    );
+
+  font-size: 13px;
+
+  font-weight: 700;
+}
+
+
+.carousel-counter span:first-child {
+  color: #ed6b17;
+}
+
+
+.counter-divider {
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.3
+    );
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.testimonials-status {
+  width: 100%;
+
+  padding: 55px 20px;
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.08
+    );
+
+  border-radius: 20px;
+
+  background:
+    rgba(
+      0,
+      0,
+      0,
+      0.12
+    );
+
+  text-align: center;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.62
+    );
+
+  font-size: 14px;
+}
+
+
+.testimonials-status.error {
+  color: #ff9c9c;
+}
+
+
+/* =========================================================
+   MODAL OVERLAY
+========================================================= */
+
+.testimonial-modal-overlay {
+  position: fixed;
+
+  z-index: 99999;
+
+  inset: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 25px;
+
+  background:
+    rgba(
+      0,
+      0,
+      0,
+      0.72
+    );
+
+  backdrop-filter: blur(10px);
+
+  -webkit-backdrop-filter: blur(10px);
+
+  animation:
+    testimonialOverlayIn
+    0.22s ease;
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.testimonial-modal {
+  position: relative;
+
+  width: min(
+    720px,
+    100%
+  );
+
+  max-height: 85vh;
+
+  overflow-y: auto;
+
+  padding: 42px;
+
+  border:
+    1px solid
+    rgba(
+      237,
+      107,
+      23,
+      0.28
+    );
+
+  border-radius: 26px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #123e30,
+      #082319
+    );
+
+  box-shadow:
+    0 35px 100px
+    rgba(
+      0,
+      0,
+      0,
+      0.55
+    );
+
+  animation:
+    testimonialModalIn
+    0.28s ease;
+}
+
+
+/* =========================================================
+   CLOSE
+========================================================= */
+
+.testimonial-modal-close {
+  position: absolute;
+
+  top: 18px;
+
+  right: 18px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 38px;
+
+  height: 38px;
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.1
+    );
+
+  border-radius: 50%;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.05
+    );
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.7
+    );
+
+  font-size: 14px;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+
+.testimonial-modal-close:hover {
+  background: #ed6b17;
+
+  color: #ffffff;
+
+  transform: rotate(90deg);
+}
+
+
+/* =========================================================
+   MODAL QUOTE
+========================================================= */
+
+.modal-quote-icon {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 52px;
+
+  height: 52px;
+
+  margin-bottom: 25px;
+
+  border-radius: 15px;
+
+  background:
+    rgba(
+      237,
+      107,
+      23,
+      0.13
+    );
+
+  color: #ed6b17;
+
+  font-size: 19px;
+}
+
+
+/* =========================================================
+   MODAL PROFILE
+========================================================= */
+
+.modal-top-content {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 25px;
+}
+
+
+.modal-profile {
+  display: flex;
+
+  align-items: center;
+
+  gap: 16px;
+
+  min-width: 0;
+}
+
+
+.modal-avatar {
+  width: 72px;
+
+  height: 72px;
+
+  border:
+    2px solid
+    rgba(
+      237,
+      107,
+      23,
+      0.55
+    );
+
+  font-size: 20px;
+}
+
+
+.modal-profile-info {
+  min-width: 0;
+}
+
+
+.modal-name {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 21px;
+
+  font-weight: 700;
+}
+
+
+.modal-role {
+  margin: 6px 0 0;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.65
+    );
+
+  font-size: 13px;
+
+  line-height: 1.5;
+}
+
+
+.modal-organisation {
+  display: block;
+
+  margin-top: 5px;
+
+  color: #ed6b17;
+
+  font-size: 12px;
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   MODAL DIVIDER
+========================================================= */
+
+.modal-divider {
+  width: 100%;
+
+  height: 1px;
+
+  margin: 28px 0;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.1
+    );
+}
+
+
+/* =========================================================
+   MODAL TAG
+========================================================= */
+
+.modal-tag {
+  display: inline-flex;
+
+  padding: 7px 13px;
+
+  margin-bottom: 18px;
+
+  border:
+    1px solid
+    rgba(
+      237,
+      107,
+      23,
+      0.25
+    );
+
+  border-radius: 999px;
+
+  background:
+    rgba(
+      237,
+      107,
+      23,
+      0.12
+    );
+
+  color: #f58a42;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.7px;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   FULL TEXT
+========================================================= */
+
+.modal-full-quote {
+  margin: 0;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.87
+    );
+
+  font-size: 17px;
+
+  font-weight: 500;
+
+  line-height: 1.9;
+}
+
+
+/* =========================================================
+   MODAL FOOTER
+========================================================= */
+
+.modal-footer {
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  margin-top: 30px;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.4
+    );
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.5px;
+
+  text-transform: uppercase;
+}
+
+
+.modal-footer-dot {
+  color: #ed6b17;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes testimonialOverlayIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+@keyframes testimonialModalIn {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(20px)
+      scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .testimonials-container {
+    width: min(
+      700px,
+      calc(100% - 40px)
+    );
+  }
+
+  .testimonials-grid {
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+  .testimonials-section {
+    padding-top: 65px;
+  }
+
+
+  .testimonials-heading {
+    width:
+      calc(100% - 30px);
+
+    margin-bottom: 38px;
+  }
+
+
+  .testimonials-main-heading {
+    font-size: 32px;
+
+    letter-spacing: 1px;
+  }
+
+
+  .testimonials-subheading {
+    font-size: 14px;
+
+    line-height: 1.75;
+  }
+
+
+  .testimonials-container {
+    width:
+      calc(100% - 30px);
+  }
+
+
+  .testimonials-grid {
+    grid-template-columns:
+      minmax(0, 1fr);
+  }
+
+
+  .testimonial-card {
+    min-height: 370px;
+
+    padding: 25px;
+  }
+
+
+  .testimonial-quote {
+    height: 100px;
+  }
+
+
+  .testimonials-controls {
+    margin-top: 28px;
+  }
+
+
+  .control-btn {
+    width: 44px;
+
+    height: 44px;
+  }
+
+
+  /* MODAL */
+
+  .testimonial-modal-overlay {
+    padding: 15px;
+  }
+
+
+  .testimonial-modal {
+    max-height: 90vh;
+
+    padding: 30px 22px;
+
+    border-radius: 21px;
+  }
+
+
+  .modal-top-content {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 18px;
+  }
+
+
+  .modal-avatar {
+    width: 60px;
+
+    height: 60px;
+
+    font-size: 17px;
+  }
+
+
+  .modal-name {
+    font-size: 18px;
+  }
+
+
+  .modal-full-quote {
+    font-size: 15px;
+
+    line-height: 1.8;
+  }
+
+
+  .modal-footer {
+    flex-wrap: wrap;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+
+  .testimonials-main-heading {
+    font-size: 29px;
+  }
+
+
+  .testimonial-card {
+    padding: 22px;
+  }
+
+}

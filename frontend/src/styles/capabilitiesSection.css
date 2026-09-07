@@ -1,0 +1,2230 @@
+/* =========================================================
+   YUKTIC CAPABILITIES
+   COMPLETELY UNIQUE NAMESPACE
+========================================================= */
+
+.ykc2026-section {
+  position: relative;
+
+  width: 100%;
+  max-width: 100%;
+
+  margin: 0;
+
+  padding: 72px 32px 90px;
+
+  box-sizing: border-box;
+
+  overflow: hidden;
+
+  font-family:
+    "Avenir Next",
+    "Helvetica Neue",
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
+  color: #0c3453;
+
+  z-index: 2;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.ykc2026-header {
+  position: relative;
+
+  width: 100%;
+  max-width: 850px;
+
+  margin: 0 auto 50px;
+
+  padding: 0 20px;
+
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  text-align: center;
+
+  z-index: 5;
+}
+
+.ykc2026-eyebrow {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  margin-bottom: 16px;
+
+  color: #3097ca;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 0.34em;
+
+  text-transform: uppercase;
+}
+
+.ykc2026-eyebrow-mark {
+  width: 18px;
+  height: 18px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  color: #0789cf;
+
+  font-size: 13px;
+}
+
+.ykc2026-title {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: clamp(38px, 5vw, 64px);
+
+  line-height: 1.08;
+
+  font-weight: 300;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+
+  text-shadow:
+    0 2px 18px rgba(255, 255, 255, 0.65);
+}
+
+.ykc2026-subtitle {
+  width: 100%;
+  max-width: 660px;
+
+  margin: 17px auto 0;
+
+  color: #ffffff;
+
+  font-size: 15px;
+
+  line-height: 1.7;
+
+  font-weight: 450;
+
+  letter-spacing: 0.015em;
+}
+
+.ykc2026-divider {
+  width: 55px;
+  height: 4px;
+
+  margin-top: 21px;
+
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #3eb4f0,
+      #1f8bd3
+    );
+
+  box-shadow:
+    0 3px 12px rgba(0, 132, 199, 0.2);
+}
+
+
+/* =========================================================
+   MAIN DASHBOARD
+   =========================================================
+
+   THIS CONTROLS THE LEFT / RIGHT SPACE.
+
+   The dashboard is:
+   - maximum 1648px
+   - centered automatically
+   - never wider than viewport minus 64px
+   - equal space on both sides
+
+========================================================= */
+
+.ykc2026-layout {
+  position: relative;
+
+  width: 100%;
+
+  max-width: 1648px;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  padding: 0;
+
+  box-sizing: border-box;
+
+  display: grid;
+
+  grid-template-columns:
+    500px
+    minmax(0, 1fr);
+
+  gap: 34px;
+
+  height: 650px;
+  min-height: 650px;
+
+  min-width: 0;
+
+  z-index: 4;
+}
+
+
+/* =========================================================
+   LEFT TABS
+========================================================= */
+
+.ykc2026-tabs {
+  width: 100%;
+  height: 100%;
+
+  min-width: 0;
+
+  display: grid;
+
+  grid-template-rows:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 16px;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   TAB
+========================================================= */
+
+.ykc2026-tab {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  min-width: 0;
+  min-height: 0;
+
+  overflow: hidden;
+
+  border-radius: 24px;
+
+  cursor: pointer;
+
+  background:
+    linear-gradient(
+      135deg,
+      #0b4168 0%,
+      #092f50 100%
+    );
+
+  border:
+    1px solid rgba(255, 255, 255, 0.13);
+
+  box-shadow:
+    0 9px 25px rgba(7, 53, 83, 0.17);
+
+  box-sizing: border-box;
+
+  isolation: isolate;
+
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.ykc2026-tab:hover {
+  border-color:
+    rgba(105, 207, 255, 0.55);
+
+  box-shadow:
+    0 15px 34px rgba(5, 64, 101, 0.28);
+}
+
+.ykc2026-tab.is-active {
+  border-color:
+    rgba(84, 196, 255, 0.92);
+
+  box-shadow:
+    0 0 0 1px rgba(52, 181, 246, 0.28),
+    0 12px 34px rgba(2, 105, 168, 0.28),
+    0 0 28px rgba(0, 157, 255, 0.17);
+}
+
+.ykc2026-tab.is-active::before {
+  content: "";
+
+  position: absolute;
+
+  inset: -1px;
+
+  border-radius: 25px;
+
+  border:
+    1px solid rgba(87, 205, 255, 0.75);
+
+  box-shadow:
+    inset 0 0 20px rgba(45, 177, 255, 0.13);
+
+  pointer-events: none;
+
+  z-index: 6;
+}
+
+
+/* =========================================================
+   TAB BACKGROUND IMAGE
+========================================================= */
+
+.ykc2026-tab-bg {
+  position: absolute;
+
+  top: 0;
+  right: 0;
+
+  width: 72%;
+  height: 100%;
+
+  background-repeat: no-repeat;
+
+  background-size: cover;
+
+  background-position: center;
+
+  opacity: 0.42;
+
+  filter:
+    grayscale(75%)
+    contrast(1.05);
+
+  transform: scale(1.01);
+
+  transition:
+    opacity 0.45s ease,
+    transform 0.6s ease;
+
+  z-index: 0;
+}
+
+.ykc2026-tab:hover .ykc2026-tab-bg,
+.ykc2026-tab.is-active .ykc2026-tab-bg {
+  opacity: 0.66;
+
+  transform: scale(1.055);
+}
+
+
+/* =========================================================
+   TAB OVERLAY
+========================================================= */
+
+.ykc2026-tab-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      #092e4c 0%,
+      #0a3455 38%,
+      rgba(10, 52, 85, 0.88) 60%,
+      rgba(10, 52, 85, 0.34) 100%
+    );
+
+  z-index: 1;
+}
+
+.ykc2026-tab.is-active .ykc2026-tab-overlay {
+  background:
+    linear-gradient(
+      90deg,
+      #082b48 0%,
+      #083455 35%,
+      rgba(7, 54, 91, 0.78) 58%,
+      rgba(7, 54, 91, 0.18) 100%
+    );
+}
+
+
+/* =========================================================
+   TAB SHINE
+========================================================= */
+
+.ykc2026-tab-shine {
+  position: absolute;
+
+  top: -100%;
+  left: -30%;
+
+  width: 45%;
+  height: 300%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.08),
+      transparent
+    );
+
+  transform: rotate(18deg);
+
+  opacity: 0;
+
+  transition:
+    left 0.7s ease,
+    opacity 0.4s ease;
+
+  z-index: 3;
+
+  pointer-events: none;
+}
+
+.ykc2026-tab:hover .ykc2026-tab-shine {
+  left: 120%;
+
+  opacity: 1;
+}
+
+
+/* =========================================================
+   TAB CONTENT
+========================================================= */
+
+.ykc2026-tab-content {
+  position: relative;
+
+  z-index: 5;
+
+  width: 100%;
+  height: 100%;
+
+  min-width: 0;
+
+  padding: 0 30px;
+
+  box-sizing: border-box;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 17px;
+
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   TAB ICON
+========================================================= */
+
+.ykc2026-tab-icon {
+  width: 46px;
+  height: 46px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  color: #e5f7ff;
+
+  background:
+    rgba(255, 255, 255, 0.075);
+
+  border:
+    1px solid rgba(255, 255, 255, 0.25);
+
+  box-shadow:
+    inset 0 0 12px rgba(255, 255, 255, 0.04);
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+.ykc2026-tab-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.ykc2026-tab:hover .ykc2026-tab-icon,
+.ykc2026-tab.is-active .ykc2026-tab-icon {
+  background:
+    rgba(55, 175, 242, 0.17);
+
+  border-color:
+    rgba(121, 216, 255, 0.65);
+
+  box-shadow:
+    0 0 18px rgba(29, 167, 245, 0.22);
+
+  transform:
+    scale(1.04);
+}
+
+
+/* =========================================================
+   TAB DIVIDER
+========================================================= */
+
+.ykc2026-tab-divider {
+  width: 1px;
+  height: 31px;
+
+  flex-shrink: 0;
+
+  background:
+    rgba(255, 255, 255, 0.22);
+}
+
+
+/* =========================================================
+   TAB LABEL
+========================================================= */
+
+.ykc2026-tab-label {
+  flex: 1;
+
+  min-width: 0;
+
+  color: #ffffff;
+
+  font-size: 12.5px;
+
+  line-height: 1.25;
+
+  font-weight: 750;
+
+  letter-spacing: 0.065em;
+
+  white-space: nowrap;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   TAB ARROW
+========================================================= */
+
+.ykc2026-tab-arrow {
+  width: 38px;
+  height: 38px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  color: #ffffff;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.28);
+
+  background:
+    rgba(255, 255, 255, 0.035);
+
+  transition:
+    transform 0.35s ease,
+    background 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.ykc2026-tab-arrow svg {
+  width: 17px;
+  height: 17px;
+}
+
+.ykc2026-tab:hover .ykc2026-tab-arrow {
+  border-color:
+    rgba(112, 213, 255, 0.65);
+
+  background:
+    rgba(64, 177, 239, 0.13);
+}
+
+.ykc2026-tab.is-active .ykc2026-tab-arrow {
+  transform:
+    rotate(-90deg);
+
+  background:
+    rgba(75, 186, 246, 0.18);
+
+  border-color:
+    rgba(102, 211, 255, 0.7);
+
+  box-shadow:
+    0 0 14px rgba(35, 174, 245, 0.18);
+}
+
+
+/* =========================================================
+   RIGHT PANEL
+========================================================= */
+
+.ykc2026-panel {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  min-width: 0;
+  min-height: 0;
+
+  overflow: hidden;
+
+  padding: 34px 48px 24px;
+
+  box-sizing: border-box;
+
+  border-radius: 28px;
+
+  border:
+    1px solid rgba(54, 133, 181, 0.38);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(247, 252, 255, 0.94) 0%,
+      rgba(229, 243, 253, 0.89) 52%,
+      rgba(208, 233, 249, 0.82) 100%
+    );
+
+  box-shadow:
+    0 15px 40px rgba(13, 75, 110, 0.12);
+
+  backdrop-filter:
+    blur(15px);
+
+  -webkit-backdrop-filter:
+    blur(15px);
+}
+
+.ykc2026-panel::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at 15% 5%,
+      rgba(255, 255, 255, 0.95),
+      transparent 35%
+    );
+
+  pointer-events: none;
+
+  z-index: 0;
+}
+
+
+/* =========================================================
+   WATERMARK
+========================================================= */
+
+.ykc2026-watermark {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background-repeat: no-repeat;
+
+  background-size: cover;
+
+  background-position: center;
+
+  filter:
+    grayscale(100%)
+    contrast(0.9)
+    brightness(1.25);
+
+  mix-blend-mode: multiply;
+
+  pointer-events: none;
+
+  z-index: 1;
+}
+
+
+/* =========================================================
+   PANEL GLOWS
+========================================================= */
+
+.ykc2026-glow {
+  position: absolute;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  z-index: 1;
+}
+
+.ykc2026-glow-one {
+  width: 280px;
+  height: 280px;
+
+  top: -160px;
+  right: -70px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(75, 187, 242, 0.17),
+      transparent 68%
+    );
+}
+
+.ykc2026-glow-two {
+  width: 250px;
+  height: 250px;
+
+  bottom: -150px;
+  left: 20%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(29, 153, 220, 0.12),
+      transparent 70%
+    );
+}
+
+
+/* =========================================================
+   PANEL WAVES
+========================================================= */
+
+.ykc2026-wave {
+  position: absolute;
+
+  width: 360px;
+  height: 520px;
+
+  right: -120px;
+  bottom: -120px;
+
+  border:
+    1px solid rgba(71, 170, 222, 0.13);
+
+  border-radius: 50%;
+
+  transform:
+    rotate(-28deg);
+
+  pointer-events: none;
+
+  z-index: 1;
+}
+
+.ykc2026-wave-two {
+  width: 270px;
+  height: 470px;
+
+  right: -45px;
+  bottom: -100px;
+
+  opacity: 0.65;
+}
+
+
+/* =========================================================
+   DOTS
+========================================================= */
+
+.ykc2026-dots {
+  position: absolute;
+
+  right: 30px;
+  bottom: 22px;
+
+  width: 110px;
+  height: 110px;
+
+  opacity: 0.15;
+
+  background-image:
+    radial-gradient(
+      circle,
+      #168ac7 1.3px,
+      transparent 1.3px
+    );
+
+  background-size: 10px 10px;
+
+  pointer-events: none;
+
+  z-index: 1;
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.ykc2026-content {
+  position: relative;
+
+  z-index: 4;
+
+  width: 100%;
+  height: 100%;
+
+  min-width: 0;
+  min-height: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.ykc2026-heading {
+  width: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  gap: 10px;
+
+  margin-bottom: 8px;
+
+  flex-shrink: 0;
+}
+
+.ykc2026-heading-icon {
+  width: 54px;
+  height: 54px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  color: #0879c0;
+
+  background:
+    rgba(255, 255, 255, 0.56);
+
+  border:
+    1px solid rgba(37, 145, 203, 0.27);
+
+  box-shadow:
+    0 7px 18px rgba(26, 122, 174, 0.1);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.ykc2026-heading-icon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.ykc2026-heading-icon:hover {
+  transform:
+    translateY(-2px)
+    scale(1.04);
+
+  box-shadow:
+    0 10px 24px rgba(26, 122, 174, 0.16);
+}
+
+.ykc2026-heading-copy {
+  width: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.ykc2026-detail-title {
+  margin: 0;
+
+  color: #0b3b5d;
+
+  font-size: clamp(31px, 3.1vw, 47px);
+
+  line-height: 1.05;
+
+  font-weight: 300;
+
+  letter-spacing: 0.025em;
+
+  text-align: center;
+}
+
+.ykc2026-title-line {
+  width: 48px;
+  height: 2px;
+
+  margin-top: 10px;
+
+  border-radius: 999px;
+
+  background: #0b91d2;
+
+  box-shadow:
+    0 2px 8px rgba(8, 145, 210, 0.22);
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.ykc2026-intro {
+  width: 100%;
+  max-width: 920px;
+
+  min-height: 42px;
+
+  margin: 0 auto 15px;
+
+  color: #3b607a;
+
+  font-size: 13.5px;
+
+  line-height: 1.5;
+
+  font-weight: 450;
+
+  letter-spacing: 0.008em;
+
+  text-align: center;
+
+  flex-shrink: 0;
+}
+
+
+/* =========================================================
+   SHARED LABEL
+========================================================= */
+
+.ykc2026-label {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  color: #0b3b5b;
+
+  font-size: 10.5px;
+
+  line-height: 1;
+
+  font-weight: 800;
+
+  letter-spacing: 0.17em;
+
+  text-transform: uppercase;
+}
+
+.ykc2026-label > span {
+  width: 22px;
+  height: 2px;
+
+  flex-shrink: 0;
+
+  background: #078bc9;
+
+  box-shadow:
+    0 1px 6px rgba(7, 139, 201, 0.25);
+}
+
+
+/* =========================================================
+   CONTEXT
+========================================================= */
+
+.ykc2026-context {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+
+  width: 100%;
+  height: 88px;
+
+  flex-shrink: 0;
+
+  margin-bottom: 17px;
+
+  padding: 13px 18px;
+
+  box-sizing: border-box;
+
+  border-radius: 13px;
+
+  border:
+    1px solid rgba(56, 143, 191, 0.22);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.6),
+      rgba(238, 248, 254, 0.47)
+    );
+
+  box-shadow:
+    0 5px 20px rgba(31, 105, 143, 0.055);
+
+  backdrop-filter:
+    blur(8px);
+
+  -webkit-backdrop-filter:
+    blur(8px);
+}
+
+.ykc2026-context-icon {
+  width: 48px;
+  height: 48px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  color: #ffffff;
+
+  background:
+    linear-gradient(
+      145deg,
+      #168bd5,
+      #1264bb
+    );
+
+  box-shadow:
+    0 7px 17px rgba(8, 114, 187, 0.19);
+}
+
+.ykc2026-context-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.ykc2026-context-content {
+  min-width: 0;
+
+  flex: 1;
+}
+
+.ykc2026-context-content .ykc2026-label {
+  margin-bottom: 7px;
+}
+
+.ykc2026-context-content p {
+  margin: 0;
+
+  color: #41677f;
+
+  font-size: 12.5px;
+
+  line-height: 1.45;
+}
+
+
+/* =========================================================
+   TWO COLUMNS
+========================================================= */
+
+.ykc2026-columns {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr);
+
+  gap: 34px;
+
+  height: 140px;
+
+  flex-shrink: 0;
+
+  margin-bottom: 14px;
+}
+
+.ykc2026-what,
+.ykc2026-approach {
+  min-width: 0;
+}
+
+.ykc2026-main-label {
+  margin-bottom: 10px;
+}
+
+
+/* =========================================================
+   TIMELINE
+========================================================= */
+
+.ykc2026-timeline {
+  position: relative;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+
+  padding-left: 2px;
+}
+
+.ykc2026-timeline-item {
+  position: relative;
+
+  min-height: 29px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 11px;
+
+  color: #315974;
+
+  font-size: 12px;
+
+  line-height: 1.25;
+
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.ykc2026-timeline-item:hover {
+  color: #0a4267;
+
+  transform:
+    translateX(3px);
+}
+
+.ykc2026-timeline-icon {
+  position: relative;
+
+  z-index: 3;
+
+  width: 27px;
+  height: 27px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  color: #078bd0;
+
+  background:
+    rgba(245, 252, 255, 0.72);
+
+  border:
+    1px solid rgba(12, 148, 214, 0.43);
+
+  box-shadow:
+    0 3px 9px rgba(12, 135, 193, 0.08);
+}
+
+.ykc2026-timeline-icon svg {
+  width: 15px;
+  height: 15px;
+}
+
+.ykc2026-timeline-line {
+  position: absolute;
+
+  left: 13px;
+  top: 27px;
+
+  width: 1px;
+  height: 7px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(13, 143, 207, 0.35),
+      rgba(13, 143, 207, 0.03)
+    );
+
+  z-index: 1;
+}
+
+.ykc2026-timeline-item:last-child
+.ykc2026-timeline-line {
+  display: none;
+}
+
+.ykc2026-timeline-text {
+  min-width: 0;
+
+  display: block;
+}
+
+
+/* =========================================================
+   APPROACH
+========================================================= */
+
+.ykc2026-approach-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.ykc2026-approach-item {
+  display: flex;
+
+  align-items: center;
+
+  gap: 11px;
+
+  min-height: 29px;
+
+  padding: 1px 7px 1px 2px;
+
+  box-sizing: border-box;
+
+  border-radius: 7px;
+
+  color: #315974;
+
+  font-size: 12px;
+
+  line-height: 1.25;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    color 0.2s ease;
+}
+
+.ykc2026-approach-item:hover {
+  color: #0a4267;
+
+  background:
+    rgba(255, 255, 255, 0.3);
+
+  transform:
+    translateX(3px);
+}
+
+.ykc2026-approach-icon {
+  width: 27px;
+  height: 27px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  color: #087fc5;
+
+  background:
+    rgba(247, 252, 255, 0.65);
+
+  border:
+    1px solid rgba(15, 143, 208, 0.34);
+}
+
+.ykc2026-approach-icon svg {
+  width: 14px;
+  height: 14px;
+}
+
+.ykc2026-approach-text {
+  min-width: 0;
+
+  display: block;
+}
+
+
+/* =========================================================
+   OUTCOME
+========================================================= */
+
+.ykc2026-outcome {
+  position: relative;
+
+  width: 100%;
+
+  height: 76px;
+  min-height: 76px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 16px;
+
+  margin-top: auto;
+
+  margin-bottom: 0;
+
+  padding: 10px 18px;
+
+  box-sizing: border-box;
+
+  overflow: hidden;
+
+  border-radius: 12px;
+
+  border:
+    1px solid rgba(48, 132, 180, 0.24);
+
+  border-left:
+    4px solid #0799d9;
+
+  background:
+    linear-gradient(
+      105deg,
+      rgba(255, 255, 255, 0.78),
+      rgba(231, 245, 253, 0.72)
+    );
+
+  box-shadow:
+    0 6px 20px rgba(24, 100, 142, 0.07);
+
+  backdrop-filter:
+    blur(10px);
+
+  -webkit-backdrop-filter:
+    blur(10px);
+}
+
+
+/* =========================================================
+   OUTCOME ICON
+========================================================= */
+
+.ykc2026-outcome-icon {
+  width: 42px;
+  height: 42px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  color: #ffffff;
+
+  background:
+    linear-gradient(
+      145deg,
+      #188ed7,
+      #1767bc
+    );
+
+  box-shadow:
+    0 6px 15px rgba(8, 109, 184, 0.17);
+}
+
+.ykc2026-outcome-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+
+/* =========================================================
+   OUTCOME CONTENT
+========================================================= */
+
+.ykc2026-outcome-content {
+  position: relative;
+
+  z-index: 2;
+
+  min-width: 0;
+
+  flex: 1;
+}
+
+.ykc2026-outcome-top {
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  margin-bottom: 3px;
+}
+
+.ykc2026-outcome-number {
+  color: #078bc9;
+
+  font-size: 9.5px;
+
+  line-height: 1;
+
+  font-weight: 800;
+
+  letter-spacing: 0.08em;
+}
+
+.ykc2026-outcome-heading {
+  margin: 0;
+
+  color: #113d5b;
+
+  font-size: 10.5px;
+
+  line-height: 1;
+
+  font-weight: 800;
+
+  letter-spacing: 0.2em;
+
+  text-transform: uppercase;
+}
+
+.ykc2026-outcome-desc {
+  margin: 0;
+
+  color: #42657d;
+
+  font-size: 12px;
+
+  line-height: 1.4;
+
+  font-weight: 450;
+}
+
+
+/* =========================================================
+   READ MORE
+========================================================= */
+
+.ykc2026-read-wrapper {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  height: 100%;
+}
+
+.ykc2026-read-btn {
+  position: relative;
+
+  z-index: 5;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  flex-shrink: 0;
+
+  min-width: 140px;
+  height: 42px;
+
+  padding: 0 20px;
+
+  box-sizing: border-box;
+
+  background:
+    linear-gradient(
+      135deg,
+      #0284c7 0%,
+      #0ea5e9 50%,
+      #38bdf8 100%
+    );
+
+  border:
+    1px solid rgba(56, 189, 248, 0.45);
+
+  border-radius: 999px;
+
+  color: #062085 !important;
+
+  font-size: 10.5px;
+
+  line-height: 1;
+
+  font-weight: 800;
+
+  letter-spacing: 0.14em;
+
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 4px 16px rgba(14, 165, 233, 0.35);
+
+  transition:
+    all 0.25s
+    cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ykc2026-read-btn:hover {
+  background:
+    linear-gradient(
+      135deg,
+      #0369a1 0%,
+      #0284c7 50%,
+      #0ea5e9 100%
+    );
+
+  border-color:
+    #38bdf8;
+
+  color: #ffffff !important;
+
+  transform:
+    translateY(-2px);
+
+  box-shadow:
+    0 8px 24px rgba(14, 165, 233, 0.55);
+}
+
+.ykc2026-button-arrow {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  color: #ce360c;
+}
+
+.ykc2026-button-arrow svg {
+  width: 15px;
+  height: 15px;
+
+  transition:
+    transform 0.25s ease;
+}
+
+.ykc2026-read-btn:hover
+.ykc2026-button-arrow svg {
+  transform:
+    translateX(4px);
+}
+
+
+/* =========================================================
+   LARGE DESKTOP
+========================================================= */
+
+@media (min-width: 1500px) {
+
+  .ykc2026-section {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .ykc2026-layout {
+    /*
+      NEVER use width: 100vw here.
+      NEVER use a negative margin.
+    */
+    width: 100%;
+
+    max-width: 1648px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    grid-template-columns:
+      500px
+      minmax(0, 1fr);
+
+    gap: 34px;
+  }
+}
+
+
+/* =========================================================
+   DESKTOP / LAPTOP
+========================================================= */
+
+@media (max-width: 1499px) and (min-width: 1101px) {
+
+  .ykc2026-layout {
+    width: 100%;
+
+    max-width: 1280px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    grid-template-columns:
+      minmax(360px, 0.85fr)
+      minmax(0, 1.65fr);
+
+    gap: 24px;
+
+    height: 620px;
+
+    min-height: 620px;
+  }
+
+  .ykc2026-panel {
+    padding:
+      29px
+      28px
+      22px;
+  }
+
+  .ykc2026-tab-content {
+    padding-left: 20px;
+    padding-right: 20px;
+
+    gap: 13px;
+  }
+
+  .ykc2026-tab-icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .ykc2026-tab-label {
+    font-size: 10.5px;
+
+    letter-spacing: 0.055em;
+  }
+
+  .ykc2026-detail-title {
+    font-size: 33px;
+  }
+
+  .ykc2026-columns {
+    gap: 20px;
+  }
+
+  .ykc2026-timeline-item,
+  .ykc2026-approach-item {
+    font-size: 11px;
+  }
+
+  .ykc2026-context-content p {
+    font-size: 11.5px;
+  }
+
+  .ykc2026-read-btn {
+    min-width: 125px;
+
+    height: 38px;
+
+    font-size: 8.5px;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .ykc2026-section {
+    padding:
+      60px
+      24px
+      75px;
+  }
+
+  .ykc2026-header {
+    margin-bottom: 42px;
+  }
+
+  .ykc2026-layout {
+    width: 100%;
+
+    max-width: 900px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    grid-template-columns:
+      370px
+      minmax(0, 1fr);
+
+    gap: 20px;
+
+    height: 620px;
+
+    min-height: 620px;
+  }
+
+  .ykc2026-panel {
+    padding:
+      29px
+      28px
+      22px;
+  }
+
+  .ykc2026-tab-content {
+    padding-left: 20px;
+    padding-right: 20px;
+
+    gap: 13px;
+  }
+
+  .ykc2026-tab-icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .ykc2026-tab-label {
+    font-size: 10.5px;
+
+    letter-spacing: 0.055em;
+  }
+
+  .ykc2026-detail-title {
+    font-size: 33px;
+  }
+
+  .ykc2026-columns {
+    gap: 20px;
+  }
+
+  .ykc2026-timeline-item,
+  .ykc2026-approach-item {
+    font-size: 11px;
+  }
+
+  .ykc2026-context-content p {
+    font-size: 11.5px;
+  }
+
+  .ykc2026-read-btn {
+    min-width: 125px;
+
+    height: 38px;
+
+    font-size: 8.5px;
+  }
+}
+
+
+/* =========================================================
+   SMALL TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .ykc2026-section {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .ykc2026-layout {
+    width: 100%;
+
+    max-width: 700px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+
+    height: auto;
+
+    min-height: auto;
+  }
+
+  .ykc2026-tabs {
+    height: 450px;
+  }
+
+  .ykc2026-panel {
+    height: 620px;
+
+    min-height: 620px;
+  }
+
+  .ykc2026-outcome {
+    height: auto;
+
+    min-height: auto;
+
+    flex-wrap: wrap;
+
+    padding:
+      14px
+      16px;
+  }
+
+  .ykc2026-read-wrapper {
+    width: 100%;
+
+    justify-content: flex-end;
+
+    margin-top: 8px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .ykc2026-section {
+    padding:
+      48px
+      15px
+      65px;
+  }
+
+  .ykc2026-header {
+    margin-bottom: 34px;
+
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .ykc2026-eyebrow {
+    font-size: 9px;
+
+    letter-spacing: 0.25em;
+
+    margin-bottom: 13px;
+  }
+
+  .ykc2026-title {
+    font-size: 29px;
+
+    line-height: 1.13;
+
+    letter-spacing: 0.075em;
+  }
+
+  .ykc2026-subtitle {
+    margin-top: 13px;
+
+    font-size: 12.5px;
+
+    line-height: 1.6;
+  }
+
+  .ykc2026-divider {
+    width: 45px;
+
+    height: 2px;
+
+    margin-top: 16px;
+  }
+
+  .ykc2026-layout {
+    width: 100%;
+
+    max-width: 100%;
+
+    gap: 16px;
+  }
+
+  .ykc2026-tabs {
+    height: 370px;
+
+    gap: 9px;
+  }
+
+  .ykc2026-tab {
+    border-radius: 17px;
+  }
+
+  .ykc2026-tab-content {
+    padding:
+      0
+      14px;
+
+    gap: 9px;
+  }
+
+  .ykc2026-tab-icon {
+    width: 35px;
+    height: 35px;
+  }
+
+  .ykc2026-tab-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .ykc2026-tab-divider {
+    height: 23px;
+  }
+
+  .ykc2026-tab-label {
+    font-size: 9px;
+
+    letter-spacing: 0.045em;
+  }
+
+  .ykc2026-tab-arrow {
+    width: 29px;
+    height: 29px;
+  }
+
+  .ykc2026-tab-arrow svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .ykc2026-panel {
+    width: 100%;
+
+    height: 720px;
+
+    min-height: 720px;
+
+    padding:
+      25px
+      17px
+      18px;
+
+    border-radius: 21px;
+  }
+
+  .ykc2026-heading {
+    gap: 10px;
+
+    margin-bottom: 9px;
+  }
+
+  .ykc2026-heading-icon {
+    width: 45px;
+    height: 45px;
+  }
+
+  .ykc2026-heading-icon svg {
+    width: 21px;
+    height: 21px;
+  }
+
+  .ykc2026-detail-title {
+    font-size: 26px;
+
+    line-height: 1.08;
+
+    white-space: normal;
+  }
+
+  .ykc2026-title-line {
+    width: 38px;
+
+    margin-top: 9px;
+  }
+
+  .ykc2026-intro {
+    min-height: 58px;
+
+    font-size: 11.7px;
+
+    line-height: 1.52;
+
+    margin-bottom: 13px;
+  }
+
+  .ykc2026-context {
+    height: 100px;
+
+    gap: 11px;
+
+    padding: 12px;
+
+    margin-bottom: 15px;
+
+    border-radius: 11px;
+  }
+
+  .ykc2026-context-icon {
+    width: 39px;
+    height: 39px;
+  }
+
+  .ykc2026-context-icon svg {
+    width: 19px;
+    height: 19px;
+  }
+
+  .ykc2026-label {
+    font-size: 8.5px;
+
+    letter-spacing: 0.12em;
+
+    gap: 7px;
+  }
+
+  .ykc2026-label > span {
+    width: 17px;
+  }
+
+  .ykc2026-context-content .ykc2026-label {
+    margin-bottom: 7px;
+  }
+
+  .ykc2026-context-content p {
+    font-size: 10.8px;
+
+    line-height: 1.45;
+  }
+
+  .ykc2026-columns {
+    grid-template-columns: 1fr;
+
+    height: 272px;
+
+    gap: 11px;
+
+    margin-bottom: 12px;
+  }
+
+  .ykc2026-main-label {
+    margin-bottom: 8px;
+  }
+
+  .ykc2026-timeline {
+    gap: 2px;
+  }
+
+  .ykc2026-timeline-item {
+    min-height: 27px;
+
+    gap: 9px;
+
+    font-size: 10.8px;
+  }
+
+  .ykc2026-timeline-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .ykc2026-timeline-icon svg {
+    width: 13px;
+    height: 13px;
+  }
+
+  .ykc2026-timeline-line {
+    left: 11px;
+
+    top: 24px;
+
+    height: 6px;
+  }
+
+  .ykc2026-approach-list {
+    gap: 2px;
+  }
+
+  .ykc2026-approach-item {
+    min-height: 27px;
+
+    gap: 9px;
+
+    padding:
+      1px
+      4px
+      1px
+      2px;
+
+    font-size: 10.8px;
+  }
+
+  .ykc2026-approach-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .ykc2026-approach-icon svg {
+    width: 13px;
+    height: 13px;
+  }
+
+  .ykc2026-outcome {
+    height: auto;
+
+    min-height: auto;
+
+    gap: 10px;
+
+    padding: 12px;
+
+    border-radius: 9px;
+  }
+
+  .ykc2026-outcome-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .ykc2026-outcome-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .ykc2026-outcome-top {
+    gap: 7px;
+
+    margin-bottom: 3px;
+  }
+
+  .ykc2026-outcome-heading {
+    font-size: 9px;
+
+    letter-spacing: 0.14em;
+  }
+
+  .ykc2026-outcome-number {
+    font-size: 8px;
+  }
+
+  .ykc2026-outcome-desc {
+    font-size: 10.5px;
+
+    line-height: 1.35;
+  }
+
+  .ykc2026-read-btn {
+    min-width: 110px;
+
+    height: 36px;
+
+    font-size: 8px;
+
+    letter-spacing: 0.1em;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+
+  .ykc2026-section {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .ykc2026-tab-content {
+    padding-left: 11px;
+    padding-right: 11px;
+  }
+
+  .ykc2026-tab-label {
+    font-size: 8px;
+  }
+
+  .ykc2026-panel {
+    padding-left: 13px;
+    padding-right: 13px;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .ykc2026-tab,
+  .ykc2026-tab-bg,
+  .ykc2026-tab-shine,
+  .ykc2026-tab-icon,
+  .ykc2026-tab-arrow,
+  .ykc2026-timeline-item,
+  .ykc2026-approach-item,
+  .ykc2026-heading-icon,
+  .ykc2026-read-btn,
+  .ykc2026-button-arrow svg {
+    transition: none !important;
+  }
+}

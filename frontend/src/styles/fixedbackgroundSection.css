@@ -1,0 +1,693 @@
+/* =========================================================
+   FONTS
+========================================================= */
+
+.fixed-story-wrapper2 {
+  --heading-font: 'Comfortaa', sans-serif;
+  --body-font: 'Comfortaa', sans-serif;
+}
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.fixed-story-wrapper2 {
+  position: relative;
+
+  width: 100%;
+  min-height: 100vh;
+
+  padding: 110px 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+
+  overflow: hidden;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   OVERLAY
+========================================================= */
+
+.story-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(5, 14, 24, 0.38) 0%,
+      rgba(5, 14, 24, 0.22) 45%,
+      rgba(5, 14, 24, 0.42) 100%
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.story-content2 {
+  position: relative;
+
+  width: 100%;
+  max-width: 1120px;
+
+  margin: 0 auto;
+
+  padding: 55px 20px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  z-index: 2;
+}
+
+
+/* =========================================================
+   EYEBROW
+========================================================= */
+
+.story-eyebrow {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 17px;
+
+  margin-bottom: 28px;
+  margin-top: 428px;
+
+  font-family: var(--body-font);
+
+  font-size: 13px;
+  font-weight: 700;
+
+  line-height: 1;
+
+  letter-spacing: 4px;
+
+  color: #ffffff;
+
+  text-transform: uppercase;
+
+  text-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.8);
+
+  opacity: 0;
+
+  transform: translateY(18px);
+}
+
+
+/* =========================================================
+   EYEBROW LINES
+========================================================= */
+
+.eyebrow-line {
+  width: 43px;
+  height: 1px;
+
+  background: rgba(255, 255, 255, 0.7);
+
+  transform: scaleX(0);
+}
+
+
+/* =========================================================
+   EYEBROW ANIMATION
+========================================================= */
+
+.is-visible .story-eyebrow {
+  animation:
+    eyebrowIn 0.7s
+    0.05s
+    cubic-bezier(0.2, 0.8, 0.2, 1)
+    forwards;
+}
+
+.is-visible .eyebrow-line {
+  animation:
+    eyebrowLineIn 0.7s
+    0.15s
+    ease forwards;
+}
+
+
+@keyframes eyebrowIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes eyebrowLineIn {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+
+/* =========================================================
+   CENTER DOT
+========================================================= */
+
+.story-marker {
+  width: 8px;
+  height: 8px;
+
+  margin-bottom: 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.8);
+
+  border-radius: 50%;
+
+  opacity: 0;
+
+  transform: scale(0.4);
+}
+
+
+.story-marker span {
+  width: 3px;
+  height: 3px;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+}
+
+
+.is-visible .story-marker {
+  animation:
+    markerIn 0.65s
+    0.2s
+    cubic-bezier(0.16, 1, 0.3, 1)
+    forwards;
+}
+
+
+@keyframes markerIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+
+  70% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+/* =========================================================
+   MAIN HEADING
+========================================================= */
+
+.story-title {
+  position: relative;
+
+  width: 100%;
+
+  margin: 0 0 34px;
+
+  font-family: var(--heading-font) !important;
+
+  font-size: clamp(
+    2.4rem,
+    6.2vw,
+    5.8rem
+  );
+
+  font-weight: 500 !important;
+
+  font-style: normal;
+
+  line-height: 0.94;
+
+  letter-spacing: -0.065em;
+
+  color: #ffffff;
+
+  text-align: center;
+
+  text-shadow:
+    0 2px 10px rgba(53, 92, 231, 0.75),
+    0 2px 10px rgba(39, 145, 198, 0.547);
+
+  opacity: 0;
+
+  transform:
+    translateY(45px)
+    scale(0.97);
+}
+
+
+/* =========================================================
+   SECOND LINE
+========================================================= */
+
+.story-title span {
+  display: inline-block;
+
+  font-family: var(--heading-font) !important;
+
+  font-weight: 500 !important;
+
+  color: #ffffff;
+
+  position: relative;
+}
+
+
+/* =========================================================
+   TITLE UNDERLINE
+========================================================= */
+
+.story-title span::after {
+  content: '';
+
+  position: absolute;
+
+  left: 4%;
+  right: 4%;
+
+  bottom: -13px;
+
+  height: 3px;
+
+  background: #ffffff;
+
+  border-radius: 999px;
+
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.7);
+
+  transform: scaleX(0);
+
+  transform-origin: center;
+}
+
+
+/* =========================================================
+   TITLE ANIMATION
+========================================================= */
+
+.is-visible .story-title {
+  animation:
+    titleIn 1s
+    0.28s
+    cubic-bezier(0.16, 1, 0.3, 1)
+    forwards;
+}
+
+
+.is-visible .story-title span::after {
+  animation:
+    underlineIn 0.75s
+    0.85s
+    cubic-bezier(0.2, 0.8, 0.2, 1)
+    forwards;
+}
+
+
+@keyframes titleIn {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(45px)
+      scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+
+@keyframes underlineIn {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.story-desc {
+  width: 100%;
+
+  max-width: 790px;
+
+  margin: 0 auto 36px;
+
+  font-family: var(--body-font) !important;
+
+  font-size: clamp(
+    0.9rem,
+    1.05vw,
+    1.08rem
+  );
+
+  font-weight: 300 !important;
+
+  font-style: normal;
+
+  line-height: 1.85;
+
+  letter-spacing: -0.01em;
+
+  color: #ffffff;
+
+  text-align: center;
+
+  text-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.85);
+
+  opacity: 0;
+
+  transform: translateY(28px);
+}
+
+
+/* =========================================================
+   DESCRIPTION ANIMATION
+========================================================= */
+
+.is-visible .story-desc {
+  animation:
+    descriptionIn 0.9s
+    0.48s
+    cubic-bezier(0.2, 0.8, 0.2, 1)
+    forwards;
+}
+
+
+@keyframes descriptionIn {
+  from {
+    opacity: 0;
+
+    transform: translateY(28px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================================
+   META
+========================================================= */
+
+.story-meta {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 15px;
+
+  margin-top: 3px;
+
+  font-family: var(--heading-font) !important;
+
+  font-size: 11px;
+
+  font-weight: 800 !important;
+
+  letter-spacing: 3.5px;
+
+  color: #ffffff;
+
+  text-transform: uppercase;
+
+  text-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.9);
+
+  opacity: 0;
+
+  transform: translateY(20px);
+}
+
+
+/* =========================================================
+   META DOT
+========================================================= */
+
+.meta-dot {
+  width: 4px;
+  height: 4px;
+
+  flex: 0 0 4px;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+}
+
+
+/* =========================================================
+   META ANIMATION
+========================================================= */
+
+.is-visible .story-meta {
+  animation:
+    metaIn 0.8s
+    0.68s
+    cubic-bezier(0.2, 0.8, 0.2, 1)
+    forwards;
+}
+
+
+@keyframes metaIn {
+  from {
+    opacity: 0;
+
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .fixed-story-wrapper2 {
+    min-height: 90vh;
+
+    padding: 90px 20px;
+  }
+
+  .story-content2 {
+    padding: 45px 10px;
+  }
+
+  .story-title {
+    font-size: clamp(
+      3rem,
+      9vw,
+      5.2rem
+    );
+  }
+
+  .story-desc {
+    max-width: 680px;
+
+    font-size: 0.95rem;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .fixed-story-wrapper2 {
+    min-height: 80vh;
+
+    padding: 75px 18px;
+
+    background-attachment: scroll;
+  }
+
+  .story-content2 {
+    padding: 35px 5px;
+  }
+
+  .story-eyebrow {
+    gap: 10px;
+
+    font-size: 9px;
+
+    letter-spacing: 2.2px;
+
+    margin-bottom: 22px;
+  }
+
+  .eyebrow-line {
+    width: 25px;
+  }
+
+  .story-marker {
+    margin-bottom: 23px;
+  }
+
+  .story-title {
+    font-size: clamp(
+      2.5rem,
+      12vw,
+      4rem
+    );
+
+    line-height: 0.98;
+
+    letter-spacing: -0.06em;
+
+    margin-bottom: 28px;
+  }
+
+  .story-title span::after {
+    bottom: -8px;
+
+    height: 2px;
+  }
+
+  .story-desc {
+    max-width: 560px;
+
+    font-size: 0.8rem;
+
+    line-height: 1.8;
+
+    margin-bottom: 28px;
+  }
+
+  .story-meta {
+    gap: 10px;
+
+    font-size: 8px;
+
+    letter-spacing: 2.4px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+
+  .fixed-story-wrapper2 {
+    min-height: 78vh;
+
+    padding: 60px 15px;
+  }
+
+  .story-title {
+    font-size: 2.3rem;
+  }
+
+  .story-desc {
+    font-size: 0.75rem;
+  }
+
+  .story-eyebrow {
+    font-size: 8px;
+
+    letter-spacing: 1.8px;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .story-eyebrow,
+  .story-marker,
+  .story-title,
+  .story-title span::after,
+  .story-desc,
+  .story-meta,
+  .eyebrow-line {
+    animation: none !important;
+
+    opacity: 1 !important;
+
+    transform: none !important;
+  }
+
+  .story-title span::after {
+    transform: scaleX(1);
+  }
+
+  .eyebrow-line {
+    transform: scaleX(1);
+  }
+}

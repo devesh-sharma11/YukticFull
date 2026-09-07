@@ -1,0 +1,672 @@
+/* =========================================================
+   BLUE FLOW WRAPPER: SEAMLESS DARK (TOP) TO LIGHT (BOTTOM)
+========================================================= */
+
+.blue-flow {
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+  background:
+    /* 1. Top dark atmosphere blending with Hero */
+    radial-gradient(
+      ellipse 100% 40% at 50% 0%,
+      rgba(3, 7, 18, 1) 0%,
+      rgba(4, 14, 30, 0.95) 28%,
+      rgba(8, 28, 56, 0.85) 55%,
+      rgba(18, 58, 98, 0.5) 80%,
+      transparent 100%
+    ),
+    /* 2. Top right cyan atmosphere */
+    radial-gradient(
+      circle at 85% 6%,
+      rgba(56, 189, 248, 0.22) 0%,
+      rgba(14, 116, 144, 0.08) 50%,
+      transparent 75%
+    ),
+    /* 3. Mid-level blue aura */
+    radial-gradient(
+      ellipse 65% 70% at 4% 65%,
+      rgba(14, 45, 82, 0.6) 0%,
+      rgba(32, 85, 135, 0.45) 40%,
+      rgba(96, 165, 250, 0.2) 75%,
+      transparent 92%
+    ),
+    /* 4. Base linear gradient (Dark Top -> Crisp Light Sky Bottom) */
+    linear-gradient(
+      180deg,
+      #030712 0%,      /* Seamless dark hero connection */
+      #05152e 12%,
+      #0a284e 24%,
+      #144675 36%,
+      #2d6999 48%,
+      #5792be 60%,
+      #8fbddc 72%,
+      #bdd9ed 84%,
+      #dceefa 94%,
+      #cce4f5 100%     /* Light bottom base */
+    );
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  isolation: isolate;
+}
+
+/* Atmospheric Glow Accents */
+.blue-flow::before {
+  content: "";
+  position: absolute;
+  top: 4%;
+  left: -12%;
+  width: 60%;
+  height: 35%;
+  background: radial-gradient(
+    ellipse,
+    rgba(56, 189, 248, 0.18) 0%,
+    rgba(14, 116, 144, 0.06) 45%,
+    transparent 75%
+  );
+  filter: blur(35px);
+  transform: rotate(-6deg);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.blue-flow::after {
+  content: "";
+  position: absolute;
+  right: -20%;
+  bottom: 2%;
+  width: 75%;
+  height: 45%;
+  background: radial-gradient(
+    ellipse,
+    rgba(34, 126, 194, 0.24) 0%,
+    rgba(38, 135, 201, 0.13) 38%,
+    rgba(49, 143, 204, 0.05) 58%,
+    transparent 76%
+  );
+  filter: blur(38px);
+  transform: rotate(-14deg);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* =========================================================
+   ABOUT YUKTIC SECTION
+========================================================= */
+
+.about-yuktic-section {
+  position: relative;
+  width: 100%;
+  padding: 80px 32px 110px;
+  margin: 0;
+  background: transparent;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", sans-serif;
+  color: #f1f5f9;
+  box-sizing: border-box;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* =========================================================
+   TOP AREA: FLOATING STATS BAR (Dark Frosted Glass)
+========================================================= */
+
+.about-stats-wrapper2 {
+  position: relative;
+  z-index: 4;
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+  opacity: 0;
+  transform: translateY(35px) scale(0.98);
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.about-yuktic-section.in-view .about-stats-wrapper2 {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition-delay: 0.1s;
+}
+
+.about-stats-container2 {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  background: rgba(6, 18, 38, 0.65);
+  border: 1px solid rgba(56, 189, 248, 0.28);
+  border-radius: 999px;
+  padding: 24px 20px;
+  box-shadow: 
+    0 0 0 1px rgba(255, 255, 255, 0.05),
+    0 20px 45px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.stat-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-right: 1px solid rgba(56, 189, 248, 0.18);
+  padding: 0 12px;
+}
+
+.stat-box:last-child {
+  border-right: none;
+}
+
+.stat-number-wrap2 {
+  display: flex;
+  align-items: baseline;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.stat-number2 {
+  font-size: 58px;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+}
+
+.stat-suffix {
+  font-size: 34px;
+  font-weight: 600;
+  color: #38bdf8;
+  margin-left: 2px;
+}
+
+.stat-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #94a3b8;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   TOP AREA: CENTERED CAPABILITIES HEADING
+========================================================= */
+
+.capabilities-header-center {
+  position: relative;
+  z-index: 4;
+  text-align: center;
+  max-width: 860px;
+  margin: 40px auto 60px auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.capabilities-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.35em;
+  color: #38bdf8;
+  margin-bottom: 18px;
+  text-transform: uppercase;
+  background: rgba(56, 189, 248, 0.1);
+  padding: 6px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  backdrop-filter: blur(8px);
+}
+
+.eyebrow-icon {
+  font-size: 14px;
+  color: #34d399;
+}
+
+.capabilities-title {
+  font-size: clamp(38px, 5.2vw, 64px);
+  font-weight: 300;
+  letter-spacing: 0.14em;
+  color: #ffffff;
+  margin: 0 0 16px 0;
+  text-transform: uppercase;
+  line-height: 1.15;
+}
+
+.capabilities-subtitle {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #cbd5e1;
+  margin: 0 0 24px 0;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  max-width: 620px;
+}
+
+.capabilities-divider {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #38bdf8, #0ea5e9);
+  border-radius: 999px;
+}
+
+/* =========================================================
+   MAIN 2-COLUMN CONTAINER
+========================================================= */
+
+.about-yuktic-container {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  max-width: 1220px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 60px;
+  align-items: center;
+}
+
+/* =========================================================
+   TEXT CONTENT (LEFT COLUMN) - HIGH CONTRAST & VISIBILITY
+========================================================= */
+
+.about-yuktic-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  z-index: 5;
+  order: 1;
+}
+
+/* Bubble Pill Eyebrow */
+.about-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #38bdf8;
+  background: rgba(14, 165, 233, 0.14);
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.15);
+  margin-bottom: 20px;
+  width: fit-content;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.eyebrow-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #38bdf8;
+  box-shadow: 0 0 8px #38bdf8;
+}
+
+/* Heading (Crisp White) */
+.about-heading {
+  margin: 0;
+  font-size: clamp(34px, 4.2vw, 52px);
+  line-height: 1.18;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.highlight-text {
+  font-weight: 700;
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    #38bdf8 50%,
+    #0ea5e9 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.about-line {
+  margin: 22px 0 26px;
+  width: 55px;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    #38bdf8,
+    #0284c7
+  );
+  border-radius: 999px;
+}
+
+.about-lead {
+  font-size: 16.5px;
+  line-height: 1.7;
+  font-weight: 500;
+  letter-spacing: 0.015em;
+  color: #f1f5f9;
+  margin: 0 0 14px;
+}
+
+.about-desc {
+  font-size: 14.5px;
+  line-height: 1.75;
+  color: #cbd5e1;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  margin: 0 0 36px;
+}
+
+/* =========================================================
+   PILLARS GRID & CARDS
+========================================================= */
+
+.about-pillars-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+
+.pillar-item {
+  background: rgba(10, 24, 48, 0.55);
+  border-radius: 24px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(56, 189, 248, 0.22);
+  box-shadow: 
+    0 0 0 1px rgba(255, 255, 255, 0.05),
+    0 14px 30px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pillar-item:hover {
+  transform: translateY(-4px);
+  background: rgba(14, 34, 68, 0.75);
+  border-color: #38bdf8;
+  box-shadow: 
+    0 0 20px rgba(56, 189, 248, 0.25),
+    0 18px 36px rgba(0, 0, 0, 0.5);
+}
+
+.pillar-num {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  color: #38bdf8;
+}
+
+.pillar-info h4 {
+  margin: 0 0 6px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+}
+
+.pillar-info p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #94a3b8;
+}
+
+/* =========================================================
+   IMAGE VISUAL (FADED DARK BLUE / CYAN OUTLINE)
+========================================================= */
+
+.about-yuktic-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+  order: 2;
+}
+
+.about-image-card {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+  border-radius: 38px;
+  overflow: hidden;
+  background: rgba(6, 18, 38, 0.45);
+  
+  /* Dark Faded Outline & Ambient Shadow */
+  border: 1px solid rgba(56, 189, 248, 0.22);
+  box-shadow: 
+    0 0 0 4px rgba(3, 7, 18, 0.6),
+    0 24px 50px rgba(0, 0, 0, 0.7),
+    0 0 30px rgba(56, 189, 248, 0.08);
+  
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.about-image-card:hover {
+  border-color: rgba(56, 189, 248, 0.45);
+  box-shadow: 
+    0 0 0 4px rgba(3, 7, 18, 0.7),
+    0 28px 60px rgba(0, 0, 0, 0.8),
+    0 0 35px rgba(56, 189, 248, 0.18);
+}
+
+.about-yuktic-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.about-image-card:hover .about-yuktic-image {
+  transform: scale(1.03);
+}
+
+.image-overlay-glow {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(3, 7, 18, 0.1) 0%,
+    transparent 50%,
+    rgba(3, 7, 18, 0.45) 100%
+  );
+  pointer-events: none;
+}
+
+/* Floating Badge (Dark Faded Glass) */
+.about-badge-card {
+  position: absolute;
+  bottom: -15px;
+  left: -15px;
+  right: auto;
+  background: rgba(8, 22, 44, 0.85);
+  border: 1px solid rgba(56, 189, 248, 0.28);
+  border-radius: 24px;
+  padding: 14px 22px;
+  box-shadow: 
+    0 0 0 3px rgba(3, 7, 18, 0.5),
+    0 16px 36px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  z-index: 5;
+}
+
+.badge-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: #38bdf8;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.badge-text {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #cbd5e1;
+}
+
+/* =========================================================
+   RIGHT EARTH DECORATION
+========================================================= */
+
+.contact-earth-decor {
+  position: absolute;
+  top: 48%;
+  right: -50px;
+  transform: translateY(-50%);
+  width: min(42vw, 620px);
+  height: auto;
+  pointer-events: none;
+  z-index: 1;
+  mix-blend-mode: screen;
+  opacity: 0;
+
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 0%);
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 0%);
+
+  transition: opacity 2.8s cubic-bezier(0.2, 0.8, 0.2, 1), 
+              -webkit-mask-image 2.8s cubic-bezier(0.2, 0.8, 0.2, 1),
+              mask-image 2.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: opacity, mask-image;
+}
+
+.about-yuktic-section.in-view .contact-earth-decor {
+  opacity: 0.9;
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 100%, rgba(0,0,0,1) 100%);
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 100%, rgba(0,0,0,1) 100%);
+}
+
+.leaf-earth-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: right center;
+}
+
+/* =========================================================
+   RESPONSIVE BREAKPOINTS
+========================================================= */
+
+@media (max-width: 960px) {
+  .about-yuktic-section {
+    padding: 70px 24px 90px;
+  }
+
+  .capabilities-header-center {
+    margin-bottom: 44px;
+  }
+
+  .about-yuktic-container {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .about-yuktic-content {
+    order: 1;
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-yuktic-visual {
+    order: 2;
+  }
+
+  .about-line {
+    margin: 22px auto 26px;
+  }
+
+  .about-eyebrow {
+    justify-content: center;
+  }
+
+  .about-badge-card {
+    left: auto;
+    right: 15px;
+    bottom: -15px;
+  }
+
+  .about-stats-container {
+    border-radius: 40px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px 0;
+  }
+
+  .stat-box:nth-child(3) {
+    border-right: none;
+  }
+
+  .contact-earth-decor {
+    width: 440px;
+    max-width: 75vw;
+    right: -100px;
+    top: 40%;
+  }
+}
+
+@media (max-width: 540px) {
+  .about-yuktic-section {
+    padding: 60px 20px 80px;
+  }
+
+  .about-pillars-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-heading {
+    font-size: 31px;
+  }
+
+  .about-image-card {
+    border-radius: 28px;
+  }
+
+  .about-badge-card {
+    right: 8px;
+    bottom: -18px;
+    padding: 14px 18px;
+  }
+
+  .about-stats-container {
+    border-radius: 32px;
+    grid-template-columns: 1fr;
+    gap: 16px 0;
+    padding: 24px 16px;
+  }
+
+  .stat-box {
+    border-right: none;
+    border-bottom: 1px solid rgba(56, 189, 248, 0.15);
+    padding-bottom: 14px;
+  }
+
+  .stat-box:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .stat-number {
+    font-size: 34px;
+  }
+}
