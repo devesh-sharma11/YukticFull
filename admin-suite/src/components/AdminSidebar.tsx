@@ -111,23 +111,23 @@ const AdminSidebar = () => {
       ],
     },
 
-    {
-      name: "Feedback",
-      icon: <MessageSquareText size={18} strokeWidth={2.1} />,
-      isClickable: false,
-      children: [
-        {
-          name: "Responses",
-          path: "/feedback-responses",
-          icon: <ListTodo size={15} strokeWidth={2.1} />,
-        },
-        {
-          name: "Request Tracker",
-          path: "/feedback-request-tracker",
-          icon: <Bell size={15} strokeWidth={2.1} />,
-        },
-      ],
-    },
+    // {
+    //   name: "Feedback",
+    //   icon: <MessageSquareText size={18} strokeWidth={2.1} />,
+    //   isClickable: false,
+    //   children: [
+    //     {
+    //       name: "Responses",
+    //       path: "/feedback-responses",
+    //       icon: <ListTodo size={15} strokeWidth={2.1} />,
+    //     },
+    //     {
+    //       name: "Request Tracker",
+    //       path: "/feedback-request-tracker",
+    //       icon: <Bell size={15} strokeWidth={2.1} />,
+    //     },
+    //   ],
+    // },
 
     {
       name: "Testimonials",

@@ -32,5 +32,3 @@ testimonials = db["testimonials"]
 
 jobs = db["jobs"]
 
-
-

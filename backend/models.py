@@ -132,36 +132,11 @@ class CaseStudy(BaseModel):
 
 
 class ContactEnquiry(BaseModel):
-    firstName: str
-    lastName: str
-    jobTitle: Optional[str] = ""
-    organisation: str
-
+    name: str
     email: EmailStr
-    phone: Optional[str] = ""
-
-    contactMethod: Optional[str] = ""
-
-    orgType: Optional[str] = ""
-    orgSize: Optional[str] = ""
-
-    service: str
-    stage: Optional[str] = ""
-    timescale: Optional[str] = ""
-    platform: Optional[str] = ""
-    source: Optional[str] = ""
-    
-    
-   
-    buttonSource: Optional[str] = "Contact Page"
-    
-
-
-    overview: str
-    additional: Optional[str] = ""
-
-    submittedAt: Optional[datetime] = None
-    
+    phone: str
+    subject: str = "Other"
+    message: str
     
     
 class LoginRequest(BaseModel):

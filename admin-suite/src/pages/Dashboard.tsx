@@ -12,7 +12,7 @@ import {
   SendIcon,
   Lock,
   Link2,
-  Activity,
+ 
   Mail,
   Users,
   FileText,
@@ -21,7 +21,7 @@ import {
 } from "lucide-react";
 
 import GoogleMail from "../assets/google-mail.png";
-import { FaLinkedinIn } from "react-icons/fa";
+
 import API from "../services/api";
 import { Link } from "react-router-dom";
 
@@ -596,7 +596,7 @@ const Dashboard = () => {
               FEEDBACK CENTRE
           =================================================== */}
 
-          <div className="relative overflow-hidden rounded-[30px] border border-[#dbeaf2] bg-white shadow-[0_15px_45px_rgba(28,78,110,0.07)]">
+          {/* <div className="relative overflow-hidden rounded-[30px] border border-[#dbeaf2] bg-white shadow-[0_15px_45px_rgba(28,78,110,0.07)]">
 
             <div className="absolute left-0 top-0 h-full w-1.5 bg-[#1683c4]" />
 
@@ -638,11 +638,11 @@ const Dashboard = () => {
 
               </div>
 
-              {/* ACTIONS */}
+            
 
               <div className="mt-8 grid grid-cols-1 gap-3 md:grid-cols-2">
 
-                {/* LIVE FORM */}
+               
 
                 <a
                   href={`${import.meta.env.VITE_WEBSITE_URL}/feedback`}
@@ -679,7 +679,7 @@ const Dashboard = () => {
 
                 </a>
 
-                {/* SEND REQUEST */}
+                
 
                 <button
                   onClick={() =>
@@ -721,7 +721,7 @@ const Dashboard = () => {
 
             </div>
 
-          </div>
+          </div> */}
 
           {/* ===================================================
               NOTIFICATIONS

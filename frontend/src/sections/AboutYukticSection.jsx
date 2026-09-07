@@ -79,7 +79,7 @@ const AboutYukticSection = () => {
       </div>
 
       {/* Floating Stats Bar */}
-      <div className="about-stats-wrapper2">
+      {/* <div className="about-stats-wrapper2">
         <div className="about-stats-container2">
           {stats.map((stat, idx) => (
             <div key={idx} className="stat-box">
@@ -91,7 +91,7 @@ const AboutYukticSection = () => {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
 
       {/* Centered Top Heading Block */}
       <div className="capabilities-header-center">
@@ -128,10 +128,7 @@ const AboutYukticSection = () => {
 
         {/* Right Side: Narrative */}
         <div className="about-yuktic-content">
-          <div className="about-eyebrow">
-            <span className="eyebrow-dot"></span>
-            About Us
-          </div>
+          
           
           <h2 className="about-heading">
             Engineering Precision with <span className="highlight-text">Yuktic</span>.

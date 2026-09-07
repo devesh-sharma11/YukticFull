@@ -14,12 +14,12 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/hero";
 import Footer from "./components/Footer";
 import AboutPage from "./pages/AboutPage";
-import Feedback from "./pages/Feedback";
+// import Feedback from "./pages/Feedback";
 import ServicesPage from "./pages/ServicesPage";
 import ArticlePage from "./pages/ArticlePage";
 import ContactPage from "./pages/ContactPage";
 import JobPage from "./pages/JobsPage";
-import AiBot from "./components/AiBot";
+// import AiBot from "./components/AiBot";
 import ArticleOpenPage from "./pages/ArticleOpenPage";
 import JobDetail from "./pages/JobDetail";
 
@@ -148,10 +148,10 @@ function AppContent() {
             FEEDBACK PAGE
         =============================== */}
 
-        <Route
+        {/* <Route
           path="/feedback"
           element={<Feedback />}
-        />
+        /> */}
 
       </Routes>
 
@@ -159,7 +159,7 @@ function AppContent() {
           GLOBAL AI ASSISTANT
       ====================================== */}
 
-      <AiBot />
+      {/* <AiBot /> */}
     </>
   );
 }

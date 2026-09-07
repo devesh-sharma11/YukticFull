@@ -508,7 +508,10 @@ def send_email(subject: str, html: str):
             MIMEText(html, "html")
         )
 
-        with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
+        with smtplib.SMTP(
+            SMTP_SERVER,
+            SMTP_PORT
+        ) as server:
 
             server.starttls()
 
@@ -527,9 +530,9 @@ def send_email(subject: str, html: str):
 
     except Exception as e:
 
-        print("❌ Email Error:", e)
-        
-      
+        print("❌ Email Error:", repr(e))
+
+        raise
       
       
 
@@ -1225,1078 +1228,324 @@ def delete_all_feedback_requests():
     
 def send_contact_email(data):
 
+    name = data.get("name") or "-"
+    email = data.get("email") or "-"
+    phone = data.get("phone") or "-"
+    subject = data.get("subject") or "Other"
+    message = data.get("message") or "-"
+
     html = f"""
-<!DOCTYPE html>
-<html>
-
-<head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>New Contact Enquiry</title>
-
-</head>
-
-<body style="margin:0;padding:0;background:#eef3f0;font-family:Arial,Helvetica,sans-serif;">
-
-<table
-width="100%"
-border="0"
-cellpadding="0"
-cellspacing="0"
-style="
-background:#eef3f0;
-padding:40px 15px;
-">
-
-<tr>
-
-<td align="center">
-
-<table
-width="720"
-border="0"
-cellpadding="0"
-cellspacing="0"
-style="
-width:720px;
-max-width:720px;
-background:#ffffff;
-border-radius:18px;
-overflow:hidden;
-box-shadow:0 10px 35px rgba(0,0,0,.10);
-">
-
-<!-- HEADER -->
-
-<tr>
-
-<td
-style="
-background:linear-gradient(135deg,#2A6049,#234D3A);
-padding:45px 40px;
-text-align:center;
-">
-
-<div
-style="
-display:inline-block;
-background:white;
-padding:12px 26px;
-border-radius:50px;
-font-size:30px;
-font-weight:bold;
-color:#2A6049;
-letter-spacing:2px;
-">
-
-YUKTIC
-
-</div>
-
-<div
-style="
-height:24px;
-">
-</div>
-
-<div
-style="
-font-size:34px;
-font-weight:bold;
-color:white;
-line-height:42px;
-">
-
-New Contact Enquiry
-
-</div>
-
-<div
-style="
-height:18px;
-">
-</div>
-
-<div
-style="
-font-size:17px;
-line-height:28px;
-color:#DDEBE5;
-max-width:520px;
-margin:auto;
-">
-
-A visitor has submitted a new enquiry through the
-<strong>YUKTIC</strong> website.
-
-Our team should review this enquiry and respond as soon as possible.
-
-</div>
-
-<div style="height:35px;"></div>
-
-<table
-align="center"
-border="0"
-cellpadding="0"
-cellspacing="0"
->
-
-<tr>
-
-<td
-style="
-background:#ffffff22;
-padding:12px 18px;
-border-radius:10px;
-color:white;
-font-size:15px;
-">
-
-📅 {datetime.now().strftime("%d %B %Y")}
-
-</td>
-
-<td width="12"></td>
-
-<td
-style="
-background:#E64013;
-padding:12px 18px;
-border-radius:10px;
-color:white;
-font-size:15px;
-font-weight:bold;
-">
-
-New Website Lead
-
-</td>
-
-</tr>
-
-</table>
-
-</td>
-
-</tr>
-
-<!-- BODY -->
-
-<tr>
-
-<td
-style="
-padding:40px;
-background:white;
-">
-
-<div
-style="
-font-size:27px;
-font-weight:bold;
-color:#2A6049;
-">
-
-Contact Information
-
-</div>
-
-<div
-style="
-margin-top:10px;
-font-size:15px;
-line-height:26px;
-color:#66756E;
-">
-
-Below are the details submitted by the visitor through the contact form.
-
-</div>
-
-<div style="height:30px;"></div>
-
-<table
-width="100%"
-border="0"
-cellpadding="0"
-cellspacing="0"
-style="
-border-collapse:separate;
-border-spacing:0 18px;
-">
-
-<!-- Row 1 -->
-
-<tr>
-
-<td width="48%" valign="top"
-style="
-background:#F7FAF8;
-border:1px solid #E3ECE7;
-border-radius:14px;
-padding:20px;
-">
-
-<div
-style="
-font-size:13px;
-font-weight:bold;
-color:#7B8C84;
-text-transform:uppercase;
-letter-spacing:1px;
-">
-
-First Name
-
-</div>
-
-<div
-style="
-margin-top:8px;
-font-size:18px;
-font-weight:bold;
-color:#234D3A;
-line-height:28px;
-word-break:break-word;
-overflow-wrap:anywhere;
-">
-
-{data.get("firstName") or "-"}
-
-</div>
-
-</td>
-
-<td width="4%"></td>
-
-<td width="48%" valign="top"
-style="
-background:#F7FAF8;
-border:1px solid #E3ECE7;
-border-radius:14px;
-padding:20px;
-">
-
-<div
-style="
-font-size:13px;
-font-weight:bold;
-color:#7B8C84;
-text-transform:uppercase;
-letter-spacing:1px;
-">
-
-Last Name
-
-</div>
-
-<div
-style="
-margin-top:8px;
-font-size:18px;
-font-weight:bold;
-color:#234D3A;
-line-height:28px;
-word-break:break-word;
-overflow-wrap:anywhere;
-">
-
-{data.get("lastName") or "-"}
-
-</div>
-
-</td>
-
-</tr>
-
-<!-- Row 2 -->
-
-<tr>
-
-<td valign="top"
-style="
-background:#F7FAF8;
-border:1px solid #E3ECE7;
-border-radius:14px;
-padding:20px;
-">
-
-<div
-style="
-font-size:13px;
-font-weight:bold;
-color:#7B8C84;
-text-transform:uppercase;
-">
-
-Email Address
-
-</div>
-
-<div
-style="
-margin-top:8px;
-font-size:16px;
-font-weight:bold;
-color:#2A6049;
-line-height:28px;
-word-break:break-all;
-overflow-wrap:anywhere;
-">
-
-{data.get("email") or "-"}
-
-</div>
-
-</td>
-
-<td></td>
-
-<td valign="top"
-style="
-background:#F7FAF8;
-border:1px solid #E3ECE7;
-border-radius:14px;
-padding:20px;
-">
-
-<div
-style="
-font-size:13px;
-font-weight:bold;
-color:#7B8C84;
-text-transform:uppercase;
-">
-
-Phone Number
-
-</div>
-
-<div
-style="
-margin-top:8px;
-font-size:18px;
-font-weight:bold;
-color:#234D3A;
-line-height:28px;
-word-break:break-word;
-overflow-wrap:anywhere;
-">
-
-{data.get("phone") or "-"}
-
-</div>
-
-</td>
-
-</tr>
-
-<!-- Row 3 -->
-
-<tr>
-
-<td valign="top"
-style="
-background:#F7FAF8;
-border:1px solid #E3ECE7;
-border-radius:14px;
-padding:20px;
-">
-
-<div
-style="
-font-size:13px;
-font-weight:bold;
-color:#7B8C84;
-text-transform:uppercase;
-">
-
-Organisation
-
-</div>
-
-<div
-style="
-margin-top:8px;
-font-size:18px;
-font-weight:bold;
-color:#234D3A;
-line-height:28px;
-word-break:break-word;
-overflow-wrap:anywhere;
-">
-
-{data.get("organisation") or "-"}
-
-</div>
-
-</td>
-
-<td></td>
-
-<td valign="top"
-style="
-background:#F7FAF8;
-border:1px solid #E3ECE7;
-border-radius:14px;
-padding:20px;
-">
-
-<div
-style="
-font-size:13px;
-font-weight:bold;
-color:#7B8C84;
-text-transform:uppercase;
-">
-
-Job Title
-
-</div>
-
-<div
-style="
-margin-top:8px;
-font-size:18px;
-font-weight:bold;
-color:#234D3A;
-line-height:28px;
-word-break:break-word;
-overflow-wrap:anywhere;
-">
-
-{data.get("jobTitle") or "-"}
-
-</div>
-
-</td>
-
-</tr>
-
-</table>
-
-<div style="height:40px;"></div>
-
-
-<!-- ORGANISATION DETAILS -->
-
-<div
-style="
-font-size:27px;
-font-weight:bold;
-color:#2A6049;
-">
-
-Organisation Details
-
-</div>
-
-<div style="height:22px;"></div>
-
-<table
-width="100%"
-border="0"
-cellpadding="0"
-cellspacing="0"
-style="
-border-collapse:separate;
-border-spacing:16px;
-">
-
-<tr>
-
-<td
-style="
-background:#F7FAF8;
-border:1px solid #E3ECE7;
-border-radius:14px;
-padding:20px;
-width:33%;
-vertical-align:top;
-">
-
-<div
-style="
-font-size:12px;
-font-weight:bold;
-color:#888;
-text-transform:uppercase;
-">
-
-Preferred Contact Method
-
-</div>
-
-<div
-style="
-margin-top:10px;
-font-size:18px;
-font-weight:bold;
-color:#234D3A;
-line-height:28px;
-word-break:break-word;
-overflow-wrap:anywhere;
-">
-
-{data.get("contactMethod") or "-"}
-
-</div>
-
-</td>
-
-<td
-style="
-background:#F7FAF8;
-border:1px solid #E3ECE7;
-border-radius:14px;
-padding:20px;
-width:33%;
-vertical-align:top;
-">
-
-<div
-style="
-font-size:12px;
-font-weight:bold;
-color:#888;
-text-transform:uppercase;
-">
-
-Organisation Type
-
-</div>
-
-<div
-style="
-margin-top:10px;
-font-size:18px;
-font-weight:bold;
-color:#234D3A;
-line-height:28px;
-word-break:break-word;
-overflow-wrap:anywhere;
-">
-
-{data.get("orgType") or "-"}
-
-</div>
-
-</td>
-
-<td
-style="
-background:#F7FAF8;
-border:1px solid #E3ECE7;
-border-radius:14px;
-padding:20px;
-width:33%;
-vertical-align:top;
-">
-
-<div
-style="
-font-size:12px;
-font-weight:bold;
-color:#888;
-text-transform:uppercase;
-">
-
-Organisation Size
-
-</div>
-
-<div
-style="
-margin-top:10px;
-font-size:18px;
-font-weight:bold;
-color:#234D3A;
-line-height:28px;
-word-break:break-word;
-overflow-wrap:anywhere;
-">
-
-{data.get("orgSize") or "-"}
-
-</div>
-
-</td>
-
-</tr>
-
-</table>
-
-<div style="height:40px;"></div>
-
-
-<div
-style="
-font-size:27px;
-font-weight:bold;
-color:#2A6049;
-">
-
-Project Details
-
-</div>
-
-<div style="height:22px;"></div>
-
-<table
-width="100%"
-border="0"
-cellpadding="0"
-cellspacing="0"
-style="
-border-collapse:separate;
-border-spacing:16px;
-">
-
-<tr>
-
-<td
-style="
-background:#FFF6F2;
-border-left:6px solid #E64013;
-border-radius:14px;
-padding:20px;
-width:50%;
-vertical-align:top;
-">
-
-<div
-style="
-font-size:12px;
-font-weight:bold;
-color:#888;
-text-transform:uppercase;
-">
-
-Service Required
-
-</div>
-
-<div
-style="
-margin-top:8px;
-font-size:20px;
-font-weight:bold;
-color:#2A6049;
-line-height:30px;
-word-break:break-word;
-overflow-wrap:anywhere;
-">
-
-{data.get("service") or "-"}
-
-</div>
-
-</td>
-
-<td
-style="
-background:#F6FBF8;
-border-left:6px solid #2A6049;
-border-radius:14px;
-padding:20px;
-width:50%;
-vertical-align:top;
-">
-
-<div
-style="
-font-size:12px;
-font-weight:bold;
-color:#888;
-text-transform:uppercase;
-">
-
-Project Stage
-
-</div>
-
-<div
-style="
-margin-top:8px;
-font-size:20px;
-font-weight:bold;
-color:#2A6049;
-line-height:30px;
-word-break:break-word;
-overflow-wrap:anywhere;
-">
-
-{data.get("stage") or "-"}
-
-</div>
-
-</td>
-
-</tr>
-
-<tr>
-
-<td
-style="
-background:#F7FAF8;
-border-radius:14px;
-padding:20px;
-">
-
-<div
-style="
-font-size:12px;
-font-weight:bold;
-color:#888;
-text-transform:uppercase;
-">
-
-Timescale
-
-</div>
-
-<div
-style="
-margin-top:8px;
-font-size:18px;
-font-weight:bold;
-color:#234D3A;
-word-break:break-word;
-overflow-wrap:anywhere;
-">
-
-{data.get("timescale") or "-"}
-
-</div>
-
-</td>
-
-<td
-style="
-background:#F7FAF8;
-border-radius:14px;
-padding:20px;
-">
-
-<div
-style="
-font-size:12px;
-font-weight:bold;
-color:#888;
-text-transform:uppercase;
-">
-
-Platform / System
-
-</div>
-
-<div
-style="
-margin-top:8px;
-font-size:18px;
-font-weight:bold;
-color:#234D3A;
-word-break:break-word;
-overflow-wrap:anywhere;
-">
-
-{data.get("platform") or "-"}
-
-</div>
-
-</td>
-
-</tr>
-
-<tr>
-
-<td colspan="2"
-style="
-background:#F7FAF8;
-border-radius:14px;
-padding:20px;
-">
-
-<div
-style="
-font-size:12px;
-font-weight:bold;
-color:#888;
-text-transform:uppercase;
-">
-
-How did they hear about YUKTIC?
-
-</div>
-
-<div
-style="
-margin-top:8px;
-font-size:18px;
-font-weight:bold;
-color:#234D3A;
-word-break:break-word;
-overflow-wrap:anywhere;
-">
-
-{data.get("source") or "-"}
-
-</div>
-
-</td>
-
-</tr>
-
-<tr>
-
-<td colspan="2"
-style="
-background:#EEF8F2;
-border-left:6px solid #2A6049;
-border-radius:14px;
-padding:20px;
-">
-
-<div
-style="
-font-size:12px;
-font-weight:bold;
-color:#888;
-text-transform:uppercase;
-">
-
-Lead Source
-
-</div>
-
-<div
-style="
-margin-top:8px;
-font-size:18px;
-font-weight:bold;
-color:#234D3A;
-line-height:30px;
-white-space:pre-wrap;
-word-break:break-word;
-overflow-wrap:anywhere;
-">
-
-{data.get("buttonSource") or "-"}
-
-</div>
-
-</td>
-
-</tr>
-
-</table>
-
-<div style="height:36px;"></div>
-
-<!-- PROJECT OVERVIEW -->
-
-<div
-style="
-font-size:27px;
-font-weight:bold;
-color:#2A6049;
-">
-
-Project Overview
-
-</div>
-
-<div style="height:20px;"></div>
-
-<div
-style="
-background:#F8FBF9;
-border:1px solid #E4ECE8;
-border-left:6px solid #2A6049;
-border-radius:16px;
-padding:28px;
-font-size:16px;
-line-height:30px;
-color:#394843;
-white-space:pre-wrap;
-word-break:break-word;
-overflow-wrap:anywhere;
-">
-
-{data.get("overview") or "No project overview provided."}
-
-</div>
-
-<div style="height:35px;"></div>
-
-<!-- ADDITIONAL INFORMATION -->
-
-<div
-style="
-font-size:27px;
-font-weight:bold;
-color:#2A6049;
-">
-
-Additional Information
-
-</div>
-
-<div style="height:20px;"></div>
-
-<div
-style="
-background:#FFF7F3;
-border:1px solid #F4D8CB;
-border-left:6px solid #E64013;
-border-radius:16px;
-padding:28px;
-font-size:16px;
-line-height:30px;
-color:#394843;
-white-space:pre-wrap;
-word-break:break-word;
-overflow-wrap:anywhere;
-">
-
-{data.get("additional") or "No additional information provided."}
-
-</div>
-
-<div style="height:40px;"></div>
-
-<!-- Divider -->
-
-<div
-style="
-height:1px;
-background:#E5ECE8;
-">
-</div>
-
-<div style="height:35px;"></div>
-
-<!-- FOOTER -->
-
-<table
-width="100%"
-border="0"
-cellpadding="0"
-cellspacing="0">
-
-<tr>
-
-<td
-align="center">
-
-<div
-style="
-font-size:24px;
-font-weight:bold;
-color:#2A6049;
-">
-
-YUKTIC
-
-</div>
-
-<div style="height:15px;"></div>
-
-<div
-style="
-font-size:15px;
-line-height:28px;
-color:#6B7772;
-max-width:500px;
-margin:auto;
-">
-
-This email was automatically generated from the
-<strong>YUKTIC</strong> website after a visitor submitted
-the Contact Enquiry form.
-
-Please review the enquiry and respond to the client at your earliest convenience.
-
-</div>
-
-<div style="height:30px;"></div>
-
-<table
-align="center"
-border="0"
-cellpadding="0"
-cellspacing="0">
-
-<tr>
-
-<td
-style="
-background:#2A6049;
-color:white;
-padding:14px 28px;
-border-radius:8px;
-font-size:15px;
-font-weight:bold;
-">
-
-New Website Lead
-
-</td>
-
-</tr>
-
-</table>
-
-<div style="height:30px;"></div>
-
-<div
-style="
-font-size:13px;
-color:#8B9792;
-line-height:24px;
-">
-
-© {datetime.now().year} YUKTIC
-
-<br>
-
-Healthcare • Digital Transformation • Consultancy
-
-<br><br>
-
-This is an automated notification email.
-
-</div>
-
-</td>
-
-</tr>
-
-</table>
-
-</td>
-
-</tr>
-
-</table>
-
-</body>
-
-</html>
-
-"""
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>New Contact Enquiry</title>
+    </head>
+
+    <body style="margin:0;padding:0;background:#eef3f0;font-family:Arial,Helvetica,sans-serif;">
+
+        <table
+            width="100%"
+            cellpadding="0"
+            cellspacing="0"
+            style="background:#eef3f0;padding:40px 15px;"
+        >
+            <tr>
+                <td align="center">
+
+                    <table
+                        width="720"
+                        cellpadding="0"
+                        cellspacing="0"
+                        style="
+                            width:720px;
+                            max-width:720px;
+                            background:#ffffff;
+                            border-radius:18px;
+                            overflow:hidden;
+                        "
+                    >
+
+                        <!-- HEADER -->
+                        <tr>
+                            <td
+                                style="
+                                    background:linear-gradient(135deg,#2A6049,#234D3A);
+                                    padding:45px 40px;
+                                    text-align:center;
+                                "
+                            >
+
+                                <div
+                                    style="
+                                        display:inline-block;
+                                        background:white;
+                                        padding:12px 26px;
+                                        border-radius:50px;
+                                        font-size:30px;
+                                        font-weight:bold;
+                                        color:#2A6049;
+                                        letter-spacing:2px;
+                                    "
+                                >
+                                    YUKTIC
+                                </div>
+
+                                <div style="height:24px;"></div>
+
+                                <div
+                                    style="
+                                        font-size:34px;
+                                        font-weight:bold;
+                                        color:white;
+                                    "
+                                >
+                                    New Contact Enquiry
+                                </div>
+
+                            </td>
+                        </tr>
+
+
+                        <!-- BODY -->
+                        <tr>
+                            <td style="padding:40px;background:white;">
+
+                                <div
+                                    style="
+                                        font-size:27px;
+                                        font-weight:bold;
+                                        color:#2A6049;
+                                    "
+                                >
+                                    Contact Information
+                                </div>
+
+                                <div style="height:25px;"></div>
+
+
+                                <!-- NAME -->
+                                <div
+                                    style="
+                                        background:#F7FAF8;
+                                        border:1px solid #E3ECE7;
+                                        border-radius:14px;
+                                        padding:20px;
+                                        margin-bottom:15px;
+                                    "
+                                >
+                                    <div
+                                        style="
+                                            font-size:13px;
+                                            font-weight:bold;
+                                            color:#7B8C84;
+                                            text-transform:uppercase;
+                                            letter-spacing:1px;
+                                        "
+                                    >
+                                        Name
+                                    </div>
+
+                                    <div
+                                        style="
+                                            margin-top:8px;
+                                            font-size:18px;
+                                            font-weight:bold;
+                                            color:#234D3A;
+                                        "
+                                    >
+                                        {name}
+                                    </div>
+                                </div>
+
+
+                                <!-- EMAIL -->
+                                <div
+                                    style="
+                                        background:#F7FAF8;
+                                        border:1px solid #E3ECE7;
+                                        border-radius:14px;
+                                        padding:20px;
+                                        margin-bottom:15px;
+                                    "
+                                >
+                                    <div
+                                        style="
+                                            font-size:13px;
+                                            font-weight:bold;
+                                            color:#7B8C84;
+                                            text-transform:uppercase;
+                                            letter-spacing:1px;
+                                        "
+                                    >
+                                        Email
+                                    </div>
+
+                                    <div
+                                        style="
+                                            margin-top:8px;
+                                            font-size:18px;
+                                            font-weight:bold;
+                                            color:#234D3A;
+                                        "
+                                    >
+                                        {email}
+                                    </div>
+                                </div>
+
+
+                                <!-- PHONE -->
+                                <div
+                                    style="
+                                        background:#F7FAF8;
+                                        border:1px solid #E3ECE7;
+                                        border-radius:14px;
+                                        padding:20px;
+                                        margin-bottom:15px;
+                                    "
+                                >
+                                    <div
+                                        style="
+                                            font-size:13px;
+                                            font-weight:bold;
+                                            color:#7B8C84;
+                                            text-transform:uppercase;
+                                            letter-spacing:1px;
+                                        "
+                                    >
+                                        Phone
+                                    </div>
+
+                                    <div
+                                        style="
+                                            margin-top:8px;
+                                            font-size:18px;
+                                            font-weight:bold;
+                                            color:#234D3A;
+                                        "
+                                    >
+                                        {phone}
+                                    </div>
+                                </div>
+
+
+                                <!-- SUBJECT -->
+                                <div
+                                    style="
+                                        background:#F7FAF8;
+                                        border:1px solid #E3ECE7;
+                                        border-radius:14px;
+                                        padding:20px;
+                                        margin-bottom:15px;
+                                    "
+                                >
+                                    <div
+                                        style="
+                                            font-size:13px;
+                                            font-weight:bold;
+                                            color:#7B8C84;
+                                            text-transform:uppercase;
+                                            letter-spacing:1px;
+                                        "
+                                    >
+                                        Subject
+                                    </div>
+
+                                    <div
+                                        style="
+                                            margin-top:8px;
+                                            font-size:18px;
+                                            font-weight:bold;
+                                            color:#234D3A;
+                                        "
+                                    >
+                                        {subject}
+                                    </div>
+                                </div>
+
+
+                                <!-- MESSAGE -->
+                                <div style="height:20px;"></div>
+
+                                <div
+                                    style="
+                                        font-size:27px;
+                                        font-weight:bold;
+                                        color:#2A6049;
+                                    "
+                                >
+                                    Message
+                                </div>
+
+                                <div style="height:15px;"></div>
+
+                                <div
+                                    style="
+                                        background:#F8FBF9;
+                                        border:1px solid #E4ECE8;
+                                        border-left:6px solid #2A6049;
+                                        border-radius:16px;
+                                        padding:28px;
+                                        font-size:16px;
+                                        line-height:30px;
+                                        color:#394843;
+                                        white-space:pre-wrap;
+                                        word-break:break-word;
+                                    "
+                                >
+                                    {message}
+                                </div>
+
+                            </td>
+                        </tr>
+
+
+                        <!-- FOOTER -->
+                        <tr>
+                            <td
+                                style="
+                                    padding:30px;
+                                    text-align:center;
+                                    background:#ffffff;
+                                "
+                            >
+                                <div
+                                    style="
+                                        font-size:13px;
+                                        color:#8B9792;
+                                    "
+                                >
+                                    © {datetime.now().year} YUKTIC
+                                </div>
+
+                                <div style="height:8px;"></div>
+
+                                <div
+                                    style="
+                                        font-size:13px;
+                                        color:#8B9792;
+                                    "
+                                >
+                                    This is an automated notification email.
+                                </div>
+                            </td>
+                        </tr>
+
+                    </table>
+
+                </td>
+            </tr>
+        </table>
+
+    </body>
+    </html>
+    """
 
     send_email(
         "New Contact Enquiry | YUKTIC",
         html
     )
-    
-
-
 
  
 
@@ -3571,19 +2820,16 @@ def create_contact(data: ContactEnquiry):
 
     enquiry["submittedAt"] = datetime.utcnow()
     enquiry["status"] = "new"
-    
-    try:
-        send_contact_email(enquiry)
-    except Exception as e:
-        print(e)
+
+    send_contact_email(enquiry)
 
     result = contact_enquiries.insert_one(enquiry)
-    
+
     create_notification(
         title="New Contact Request",
         message=f"{enquiry.get('name', 'Unknown')} submitted an enquiry",
         notif_type="contact",
-        target_id=result.inserted_id,
+        target_id=str(result.inserted_id),
         url="/contact"
     )
 
@@ -3592,8 +2838,6 @@ def create_contact(data: ContactEnquiry):
         "message": "Enquiry submitted successfully",
         "id": str(result.inserted_id)
     }
-    
-    
 
 
 @app.get("/admin/contact")

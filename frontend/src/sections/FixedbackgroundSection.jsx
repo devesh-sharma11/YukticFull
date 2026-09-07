@@ -64,16 +64,17 @@ const FixedbackgroundSection = () => {
 
         {/* Main heading */}
         <h2 className="story-title">
-  Your Challenge.
-  <br />
-  <span>Our Commitment.</span>
-</h2>
+          Your Ambition.
+          <br />
+          <span>Your Impact.</span>
+        </h2>
 
-<p className="story-desc">
-  Every challenge is an opportunity to create something better, stronger,
-  and more impactful, let’s work together to turn your vision into
-  solutions that move your organization forward.
-</p>
+        {/* Description */}
+        <p className="story-desc">
+          Build meaningful work, take ownership of your ideas, and grow
+          alongside people who believe that great careers are created by
+          creating real impact.
+        </p>
 
         {/* Bottom meta */}
         <div className="story-meta">

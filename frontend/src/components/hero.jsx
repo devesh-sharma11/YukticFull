@@ -129,8 +129,9 @@ const Hero = ({ onLogoAnimationComplete }) => {
 
             <nav className="fake-navbar-links" aria-hidden="true">
               <span>Home</span>
-              <span>About</span>
-              <span>Our Services</span>
+              
+              <span>Services</span>
+              <span>Project</span>
             
               <span>Jobs</span>
               <span>Article</span>
