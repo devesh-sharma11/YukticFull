@@ -210,10 +210,10 @@
 
 .capabilities-eyebrow {
   display: flex;
-  align-items: center;
+  align-items: end;
   gap: 10px;
   font-size: 12px;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 0.35em;
   color: #38bdf8;
   margin-bottom: 18px;

@@ -1827,3 +1827,101 @@ body.article-page-active nav,
 body.article-page-active nav * {
   text-shadow: none !important;
 }
+
+
+
+/* =========================================================
+   ARTICLE PAGE — NAVBAR
+   DESKTOP ONLY
+   Mobile uses the GLOBAL navbar.css
+========================================================= */
+
+@media (min-width: 761px) {
+
+  body.article-page-active .navbar,
+  body.article-page-active nav {
+    color: #173f50;
+  }
+
+  /* Navbar links */
+  body.article-page-active .navbar a,
+  body.article-page-active nav a,
+  body.article-page-active .navbar .nav-link,
+  body.article-page-active nav .nav-link {
+    color: #173f50 !important;
+  }
+
+  /* Navbar text / buttons */
+  body.article-page-active .navbar button,
+  body.article-page-active nav button {
+    color: #173f50 !important;
+  }
+
+  /* Navbar spans */
+  body.article-page-active .navbar span,
+  body.article-page-active nav span {
+    color: #173f50;
+  }
+
+  /* Navbar hamburger/menu icon */
+  body.article-page-active .navbar svg,
+  body.article-page-active nav svg {
+    color: #173f50;
+    stroke: #173f50;
+  }
+
+  /* Remove navbar text shadow on desktop */
+  body.article-page-active .navbar,
+  body.article-page-active .navbar *,
+  body.article-page-active nav,
+  body.article-page-active nav * {
+    text-shadow: none !important;
+  }
+
+}
+
+/* =========================================================
+   ARTICLE PAGE — MOBILE NAVBAR RESET
+   Uses the same mobile navbar as every other page
+========================================================= */
+
+@media (max-width: 760px) {
+
+  body.article-page-active .mobile-navigation,
+  body.article-page-active .mobile-navigation-panel {
+    color: #fff !important;
+  }
+
+  body.article-page-active .mobile-navigation a,
+  body.article-page-active .mobile-navigation-links a {
+    color: rgba(255, 255, 255, 0.92) !important;
+    text-shadow: none !important;
+  }
+
+  body.article-page-active .mobile-navigation a.active,
+  body.article-page-active .mobile-navigation-links a.active {
+    color: #fff !important;
+  }
+
+  body.article-page-active .mobile-navigation a span,
+  body.article-page-active .mobile-navigation-links a span {
+    color: inherit !important;
+  }
+
+  body.article-page-active .mobile-navigation li,
+  body.article-page-active .mobile-navigation-links li {
+    color: #fff !important;
+  }
+
+  body.article-page-active .mobile-navigation button,
+  body.article-page-active .mobile-navigation-panel button {
+    color: #fff !important;
+  }
+
+  body.article-page-active .mobile-navigation svg,
+  body.article-page-active .mobile-navigation-panel svg {
+    color: #fff !important;
+    stroke: currentColor !important;
+  }
+
+}

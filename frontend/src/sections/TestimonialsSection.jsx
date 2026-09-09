@@ -384,7 +384,7 @@ export default function TestimonialsSection() {
         <div className="testimonials-heading">
 
           <span className="testimonials-eyebrow">
-            ☘︎ &nbsp; Client Feedback
+           Client Feedback
           </span>
 
           <h2 className="testimonials-main-heading">

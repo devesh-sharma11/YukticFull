@@ -15,7 +15,7 @@ const services = [
     id: "founder-led-accountability",
     number: "01",
     label: "FOUNDER-LED ACCOUNTABILITY",
-    title: "Founder-led accountability",
+    title: "Founder-Led Accountability",
     bgImage: courageImg,
     description:
       "Senior-led engagement that brings clear ownership, decisive direction and accountable delivery to complex healthcare programmes.",
@@ -60,7 +60,7 @@ const services = [
     id: "logic-driven-execution",
     number: "02",
     label: "LOGIC-DRIVEN EXECUTION",
-    title: "Logic-driven execution",
+    title: "Logic-Driven Execution",
     bgImage: integrityImg,
     description:
       "Structured delivery built around clear logic, disciplined execution and practical solutions that move complex programmes forward.",
@@ -103,7 +103,7 @@ const services = [
     id: "flexible-engagement",
     number: "03",
     label: "FLEXIBLE ENGAGEMENT",
-    title: "Flexible engagement",
+    title: "Flexible Engagement",
     bgImage: respectImg,
     description:
       "Engagement models designed around the programme's needs, from targeted specialist support to hands-on delivery leadership.",
@@ -147,7 +147,7 @@ const services = [
     id: "strong-technology-network",
     number: "04",
     label: "STRONG TECHNOLOGY NETWORK",
-    title: "Strong technology network",
+    title: "Strong Technology Network",
     bgImage: courageImg,
     description:
       "Access to a trusted network of technology, clinical and delivery specialists to strengthen capability where it matters most.",
@@ -655,74 +655,17 @@ const CapabilitiesSection = () => {
               </div>
 
 
-              {/* =================================================
-                  OUTCOME
-              ================================================= */}
+              
 
-              <div className="ykc2026-outcome">
-
-                <div className="ykc2026-outcome-icon">
-
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.7"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M8 21h8" />
-                    <path d="M9 17h6" />
-                    <path d="M7 4h10" />
-                    <path d="M7 4c0 5 2 7 5 9 3-2 5-4 5-9" />
-                    <path d="M7 4c-2 0-3 1-3 2.5S5.5 9 8 9" />
-                    <path d="M17 4c2 0 3 1 3 2.5S18.5 9 16 9" />
-                  </svg>
-
-                </div>
+             
 
 
-                <div className="ykc2026-outcome-content">
-
-                  <div className="ykc2026-outcome-top">
-
-                    <span className="ykc2026-outcome-number">
-                      {String(activeIndex + 1).padStart(2, "0")}
-                    </span>
-
-                    <h4 className="ykc2026-outcome-heading">
-                      OUTCOME
-                    </h4>
-
-                  </div>
-
-                  <p className="ykc2026-outcome-desc">
-                    {currentService.outcome}
-                  </p>
-
-                </div>
+                
 
 
-                <div className="ykc2026-read-wrapper">
+                
 
-                  <button
-                    type="button"
-                    className="ykc2026-read-btn"
-                  >
-
-                    <span>
-                      READ MORE
-                    </span>
-
-                    <span className="ykc2026-button-arrow">
-                      <ArrowIcon />
-                    </span>
-
-                  </button>
-
-                </div>
-
-              </div>
+              
 
             </motion.div>
 

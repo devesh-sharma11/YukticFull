@@ -48,53 +48,59 @@
   font-family: "Comfortaa", sans-serif;
 }
 
-
 /* =========================================================
-   NAVBAR
+   CONTACT PAGE — NAVBAR
+   DESKTOP ONLY
+   Mobile uses the GLOBAL navbar.css
 ========================================================= */
 
-body:has(.contact-page) .navbar {
-  color: var(--ink) !important;
-}
+@media (min-width: 761px) {
 
-body:has(.contact-page) .navbar .navbar-links a {
-  color: var(--ink) !important;
-  text-shadow: none !important;
+  body:has(.contact-page) .navbar {
+    color: var(--ink) !important;
+  }
 
-  font-family: "Comfortaa", sans-serif !important;
+  body:has(.contact-page) .navbar .navbar-links a {
+    color: var(--ink) !important;
 
-  transition:
-    color 0.25s ease,
-    background 0.25s ease,
-    border-color 0.25s ease;
-}
+    text-shadow: none !important;
 
-body:has(.contact-page) .navbar.scrolled .navbar-links a,
-body:has(.contact-page) .navbar.scrolling .navbar-links a {
-  color: var(--ink) !important;
-  text-shadow: none !important;
-}
+    font-family: "Comfortaa", sans-serif !important;
 
-body:has(.contact-page) .navbar .navbar-links a:hover {
-  color: var(--green) !important;
-  text-shadow: none !important;
-}
+    transition:
+      color 0.25s ease,
+      background 0.25s ease,
+      border-color 0.25s ease;
+  }
 
-body:has(.contact-page) .navbar .navbar-links a:last-child {
-  color: var(--ink) !important;
+  body:has(.contact-page) .navbar.scrolled .navbar-links a,
+  body:has(.contact-page) .navbar.scrolling .navbar-links a {
+    color: var(--ink) !important;
+    text-shadow: none !important;
+  }
 
-  border-color:
-    rgba(18, 50, 71, 0.2) !important;
-}
+  body:has(.contact-page) .navbar .navbar-links a:hover {
+    color: var(--green) !important;
+    text-shadow: none !important;
+  }
 
-body:has(.contact-page) .navbar .navbar-links a:last-child:hover {
-  color: #ffffff !important;
-  background: var(--green) !important;
-  border-color: var(--green) !important;
-}
+  body:has(.contact-page) .navbar .navbar-links a:last-child {
+    color: var(--ink) !important;
 
-body:has(.contact-page) .navbar .navbar-menu-button span {
-  background-color: var(--green) !important;
+    border-color:
+      rgba(18, 50, 71, 0.2) !important;
+  }
+
+  body:has(.contact-page) .navbar .navbar-links a:last-child:hover {
+    color: #ffffff !important;
+    background: var(--green) !important;
+    border-color: var(--green) !important;
+  }
+
+  body:has(.contact-page) .navbar .navbar-menu-button span {
+    background-color: var(--green) !important;
+  }
+
 }
 
 

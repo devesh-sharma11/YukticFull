@@ -10,7 +10,7 @@ import {
 import courageImg from "../assets/courage.avif";
 import integrityImg from "../assets/integrity.jpg";
 import respectImg from "../assets/Respect.avif";
-
+import Yuktic from "../assets/Yuktic.png";
 import "../styles/heroSection.css";
 
 const STROKE_DURATION = 0.7;
@@ -239,7 +239,11 @@ const LightHeartSection = () => {
 
                   {/* Centered Green Clover Node */}
                   <div className="hub-center-node anim-item anim-hub-center" title="Yuktic Core">
-                    <span className="clover-symbol">☘︎</span>
+                    <img
+  src={Yuktic}
+  alt="Yuktic"
+  className="hub-yuktic-logo"
+/>
                   </div>
 
                   {/* 4 Outer Nodes */}
@@ -296,7 +300,7 @@ const LightHeartSection = () => {
                             <p className="service-card-sub">{item.subtitle}</p>
                           </div>
                         </div>
-                        <FaArrowRight className="card-arrow" />
+                       
                         {isActive && <div className="active-glow-bar" />}
                       </div>
                     );

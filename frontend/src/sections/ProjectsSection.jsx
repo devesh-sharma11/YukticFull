@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 import "../styles/projectsSection.css";
-import {
-  FaArrowRight,
-  FaExternalLinkAlt,
-  FaGithub,
-} from "react-icons/fa";
+import { FaArrowRight, FaGithub } from "react-icons/fa";
 import stoneImage from "../assets/stoneimage.png";
 
 const projectData = [
@@ -27,11 +23,9 @@ const projectData = [
       { label: "ACTIVE PIPELINES", value: "50K+" },
       { label: "PARSING ACCURACY", value: "98.8%" },
     ],
-    detailedCase:
-      "Engineered high-throughput candidate indexing with instant semantic search and algorithmic fit-scoring. Built real-time collaboration dashboards for enterprise hiring teams with automated interview scheduling and custom workflow builders.",
     tags: ["React", "TypeScript", "Node.js", "PostgreSQL", "Tailwind CSS"],
-    liveLink: "#",
     githubLink: "#",
+    projectPath: "/project#candiq",
   },
 
   {
@@ -53,11 +47,9 @@ const projectData = [
       { label: "SYNC LATENCY", value: "<180ms" },
       { label: "UPTIME SLA", value: "99.99%" },
     ],
-    detailedCase:
-      "Constructed secure patient charts with role-based access control, cryptographic audit logging, and sub-second telemetry streaming for inpatient vitals. Implemented end-to-end encrypted video consultation pipelines with automated clinical notes.",
     tags: ["React", "FHIR API", "Redis", "WebSockets", "Docker"],
-    liveLink: "#",
     githubLink: "#",
+    projectPath: "/project#yudi",
   },
 
   {
@@ -79,11 +71,9 @@ const projectData = [
       { label: "TRANSACTIONS", value: "1M+" },
       { label: "INTEGRITY", value: "100%" },
     ],
-    detailedCase:
-      "Developed high-velocity internal suites with dynamic form builders, audit history, automated notifications, and interactive BI dashboards. Reduced operational bottlenecks by replacing disjointed legacy spreadsheets with central cloud tools.",
     tags: ["React", "Next.js", "Python", "FastAPI", "GraphQL"],
-    liveLink: "#",
     githubLink: "#",
+    projectPath: null,
   },
 ];
 
@@ -111,6 +101,7 @@ export default function ProjectsSection() {
       {/* =====================================================
           STONE BACKGROUND
       ===================================================== */}
+
       <div className="projects-stone-bg-v2">
         <img
           src={stoneImage}
@@ -124,17 +115,17 @@ export default function ProjectsSection() {
       {/* =====================================================
           MAIN CONTENT
       ===================================================== */}
+
       <div className="projects-content-v2">
 
         {/* =====================================================
             SECTION INTRO
         ===================================================== */}
+
         <div className="projects-intro-v2">
 
           <div className="projects-eyebrow-v2">
-            <span className="projects-eyebrow-icon-v2">
-              ☘
-            </span>
+            
 
             <span>YUKTIC</span>
           </div>
@@ -154,26 +145,13 @@ export default function ProjectsSection() {
         {/* =====================================================
             FILTERS
         ===================================================== */}
-        <div className="projects-filter-v2">
 
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              type="button"
-              className={`projects-filter-btn-v2 ${
-                activeFilter === cat ? "active" : ""
-              }`}
-              onClick={() => setActiveFilter(cat)}
-            >
-              {cat}
-            </button>
-          ))}
-
-        </div>
+       
 
         {/* =====================================================
             PROJECT GRID
         ===================================================== */}
+
         <div className="projects-grid-v2">
 
           {filteredProjects.map((project) => (
@@ -185,6 +163,7 @@ export default function ProjectsSection() {
               {/* =================================================
                   TOP
               ================================================= */}
+
               <div className="project-top-v2">
 
                 <div className="project-meta-v2">
@@ -216,8 +195,6 @@ export default function ProjectsSection() {
                     <FaGithub />
                   </a>
 
-                  
-
                 </div>
 
               </div>
@@ -225,6 +202,7 @@ export default function ProjectsSection() {
               {/* =================================================
                   TITLE
               ================================================= */}
+
               <div className="project-main-content-v2">
 
                 <h3 className="project-name-v2">
@@ -244,6 +222,7 @@ export default function ProjectsSection() {
               {/* =================================================
                   CAPABILITIES
               ================================================= */}
+
               <div className="project-capabilities-v2">
 
                 <span className="project-section-label-v2">
@@ -268,6 +247,7 @@ export default function ProjectsSection() {
               {/* =================================================
                   STATS
               ================================================= */}
+
               <div className="project-stats-v2">
 
                 {project.impactStats.map((stat, idx) => (
@@ -290,6 +270,7 @@ export default function ProjectsSection() {
               {/* =================================================
                   TECHNOLOGIES
               ================================================= */}
+
               <div className="project-tags-v2">
 
                 {project.tags.map((tag, idx) => (
@@ -306,16 +287,26 @@ export default function ProjectsSection() {
               {/* =================================================
                   FOOTER
               ================================================= */}
+
               <div className="project-footer-v2">
 
-                <a
-                  href={project.liveLink}
-                  className="project-view-btn-v2"
-                >
-                  <span>View Case Study</span>
+                {project.projectPath ? (
+                  <a
+                    href={project.projectPath}
+                    className="project-view-btn-v2"
+                  >
+                    <span>View Project</span>
 
-                  <FaArrowRight className="project-arrow-v2" />
-                </a>
+                    <FaArrowRight className="project-arrow-v2" />
+                  </a>
+                ) : (
+                  <span
+                    className="project-view-btn-v2 project-update-soon"
+                    aria-disabled="true"
+                  >
+                    <span>Update Soon</span>
+                  </span>
+                )}
 
               </div>
 

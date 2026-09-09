@@ -1961,40 +1961,39 @@ body {
 /* =========================================================
    NAVBAR
    ARTICLE OPEN PAGE ONLY
+   DESKTOP ONLY
 ========================================================= */
 
-body.article-open-active nav a,
-body.article-open-active nav button,
-body.article-open-active header nav a,
-body.article-open-active header nav button,
-body.article-open-active .navbar a,
-body.article-open-active .navbar button,
-body.article-open-active .nav-links a,
-body.article-open-active .nav-links button,
-body.article-open-active .navbar-nav a,
-body.article-open-active .navbar-nav button {
-  color:
-    var(--sw-dark-blue) !important;
+@media (min-width: 761px) {
 
-  text-shadow:
-    none !important;
-}
+  body.article-open-active nav a,
+  body.article-open-active nav button,
+  body.article-open-active header nav a,
+  body.article-open-active header nav button,
+  body.article-open-active .navbar a,
+  body.article-open-active .navbar button,
+  body.article-open-active .nav-links a,
+  body.article-open-active .nav-links button,
+  body.article-open-active .navbar-nav a,
+  body.article-open-active .navbar-nav button {
+    color: var(--sw-dark-blue) !important;
+    text-shadow: none !important;
+  }
 
-body.article-open-active nav a:hover,
-body.article-open-active nav button:hover,
-body.article-open-active header nav a:hover,
-body.article-open-active header nav button:hover,
-body.article-open-active .navbar a:hover,
-body.article-open-active .navbar button:hover,
-body.article-open-active .nav-links a:hover,
-body.article-open-active .nav-links button:hover,
-body.article-open-active .navbar-nav a:hover,
-body.article-open-active .navbar-nav button:hover {
-  color:
-    var(--sw-blue-dark) !important;
+  body.article-open-active nav a:hover,
+  body.article-open-active nav button:hover,
+  body.article-open-active header nav a:hover,
+  body.article-open-active header nav button:hover,
+  body.article-open-active .navbar a:hover,
+  body.article-open-active .navbar button:hover,
+  body.article-open-active .nav-links a:hover,
+  body.article-open-active .nav-links button:hover,
+  body.article-open-active .navbar-nav a:hover,
+  body.article-open-active .navbar-nav button:hover {
+    color: var(--sw-blue-dark) !important;
+    text-shadow: none !important;
+  }
 
-  text-shadow:
-    none !important;
 }
 
 /* =========================================================
@@ -2144,33 +2143,153 @@ body.article-open-active .navbar-nav button:hover {
     right: -380px;
   }
 }
-
 /* =========================================================
    MOBILE
+   FINAL MOBILE WIDTH / OVERFLOW FIX
 ========================================================= */
 
 @media (max-width: 600px) {
 
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .sw-page {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* =======================================================
+     MAIN LAYOUT
+  ======================================================= */
+
   .sw-layout {
+    width: 100%;
+    max-width: 100%;
+
+    grid-template-columns: minmax(0, 1fr);
+
     margin-top: 60px;
   }
 
-  .sw-content {
-    padding:
-      38px
-      20px
-      65px;
+  /* =======================================================
+     SIDEBAR
+  ======================================================= */
+
+  .sw-sidebar {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    overflow: visible;
   }
+
+  .sw-sidebar-inner {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    padding:
+      24px 20px 30px;
+  }
+
+  .sw-sidebar-nav-sticky {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    position: relative;
+
+    top: auto;
+
+    max-height: none;
+
+    overflow: visible;
+
+    margin-top: 20px;
+
+    padding:
+      15px 0;
+
+    box-shadow: none;
+  }
+
+  /* Jump navigation stays hidden on mobile */
+  .sw-sidebar-jump {
+    display: none;
+  }
+
+  .sw-sidebar-contact {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  /* =======================================================
+     CONTENT
+  ======================================================= */
+
+  .sw-content {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    padding:
+      38px 20px 65px;
+  }
+
+  /* =======================================================
+     TEXT SAFETY
+  ======================================================= */
+
+  .sw-main-title,
+  .sw-main-subtitle,
+  .sw-case-slug,
+  .sw-section-title,
+  .sw-section-heading,
+  .sw-section-intro,
+  .sw-landmark-description,
+  .sw-step-content,
+  .sw-glance-value,
+  .sw-role-list p,
+  .sw-client-quote blockquote,
+  .sw-result-row p,
+  .sw-text-row p,
+  .sw-event-row p,
+  .sw-challenge-item p,
+  .sw-difficulty-row p {
+    max-width: 100%;
+    min-width: 0;
+    overflow-wrap: anywhere;
+    word-break: normal;
+  }
+
+  /* =======================================================
+     HERO
+  ======================================================= */
 
   .sw-main-title {
     font-size: 37px;
+    line-height: 1.08;
   }
 
   .sw-main-subtitle {
     font-size: 14px;
+    line-height: 1.75;
   }
 
+  /* =======================================================
+     SECTIONS
+  ======================================================= */
+
   .sw-section {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
     margin-bottom: 60px;
   }
 
@@ -2182,7 +2301,14 @@ body.article-open-active .navbar-nav button:hover {
     font-size: 15px;
   }
 
+  /* =======================================================
+     TEXT ROWS
+  ======================================================= */
+
   .sw-text-row {
+    width: 100%;
+    min-width: 0;
+
     grid-template-columns:
       30px minmax(0, 1fr);
 
@@ -2191,24 +2317,98 @@ body.article-open-active .navbar-nav button:hover {
 
   .sw-challenge-item,
   .sw-difficulty-row {
+    width: 100%;
+    min-width: 0;
+
     grid-template-columns:
       35px minmax(0, 1fr);
 
     gap: 12px;
   }
 
+  /* =======================================================
+     STEPS
+  ======================================================= */
+
   .sw-step-row {
+    width: 100%;
+    min-width: 0;
+
     grid-template-columns: 1fr;
 
     gap: 8px;
   }
 
+  /* =======================================================
+     IMAGES
+  ======================================================= */
+
+  .sw-image-frame {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .sw-image-frame img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* =======================================================
+     RESULTS
+  ======================================================= */
+
+  .sw-stats {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    grid-template-columns: 1fr;
+  }
+
+  .sw-stat {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .sw-result-row {
+    width: 100%;
+    min-width: 0;
+
+    grid-template-columns:
+      42px minmax(0, 1fr);
+
+    gap: 12px;
+  }
+
+  /* =======================================================
+     MY ROLE
+  ======================================================= */
+
   .sw-role-section {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
     padding:
       25px 20px;
   }
 
+  .sw-role-list {
+    width: 100%;
+    min-width: 0;
+  }
+
+  /* =======================================================
+     CLIENT QUOTE
+  ======================================================= */
+
   .sw-client-quote {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
     padding:
       38px 22px;
   }
@@ -2217,7 +2417,15 @@ body.article-open-active .navbar-nav button:hover {
     font-size: 16px;
   }
 
+  /* =======================================================
+     LANDMARK
+  ======================================================= */
+
   .sw-landmark-section {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
     padding:
       45px 20px;
   }
@@ -2230,35 +2438,48 @@ body.article-open-active .navbar-nav button:hover {
     font-size: 14px;
   }
 
+  /* =======================================================
+     MORE CASE STUDIES
+  ======================================================= */
+
+  .sw-more-section {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
   .sw-more-grid {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
     grid-template-columns: 1fr;
   }
 
   .sw-more-card {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
     min-height: 170px;
   }
-}
 
-/* =========================================================
-   REDUCED MOTION
-========================================================= */
+  /* =======================================================
+     BACKGROUND CIRCLES
+  ======================================================= */
 
-@media (prefers-reduced-motion: reduce) {
+  .sw-background-circle-left {
+    width: 430px;
+    height: 430px;
 
-  html {
-    scroll-behavior: auto;
+    left: -330px;
   }
 
-  *,
-  *::before,
-  *::after {
-    animation-duration:
-      0.01ms !important;
+  .sw-background-circle-right {
+    width: 500px;
+    height: 500px;
 
-    animation-iteration-count:
-      1 !important;
-
-    transition-duration:
-      0.01ms !important;
+    right: -380px;
   }
+
 }

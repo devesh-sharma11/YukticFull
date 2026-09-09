@@ -96,7 +96,7 @@ const AboutYukticSection = () => {
       {/* Centered Top Heading Block */}
       <div className="capabilities-header-center">
         <div className="capabilities-eyebrow">
-          <span className="eyebrow-icon">☘</span> YUKTIC
+          Yuktic
         </div>
         <h2 className="capabilities-title">About US.</h2>
         <p className="capabilities-subtitle">

@@ -254,6 +254,14 @@
   gap: 12px;
 }
 
+/* Mobile only */
+@media (max-width: 768px) {
+  .footer-bottom-bar {
+    justify-content: center;
+    text-align: center;
+  }
+}
+
 .powered-by {
   display: inline-flex;
   align-items: center;

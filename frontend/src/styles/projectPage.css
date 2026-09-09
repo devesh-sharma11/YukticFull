@@ -59,14 +59,13 @@ body.project-page-active header {
   text-shadow: none !important;
 }
 
-body.project-page-active nav a,
+
 body.project-page-active nav button,
 body.project-page-active nav span,
 body.project-page-active nav li,
 body.project-page-active .navbar a,
 body.project-page-active .navbar button,
-body.project-page-active .navbar span,
-body.project-page-active .navbar li,
+
 body.project-page-active .nav-link {
   color: #123f6b !important;
 
@@ -79,6 +78,25 @@ body.project-page-active .navbar-logo-text {
 
   text-shadow: none !important;
 }
+
+
+/* =========================================================
+   PROJECT PAGE — NAVBAR
+   Desktop only
+   Mobile uses the main/global navbar styling
+   ========================================================= */
+
+/* =========================================================
+   PROJECT PAGE — NAVBAR
+   Desktop only
+   Mobile uses the GLOBAL navbar.css
+   ========================================================= */
+
+/* =========================================================
+   PROJECT PAGE — NAVBAR
+   DESKTOP ONLY
+   ========================================================= */
+
 
 
 /* =========================================================
@@ -3627,4 +3645,53 @@ body.project-page-active .navbar-logo-text {
 
     transform: none !important;
   }
+}
+
+
+
+.project-detail-section {
+  scroll-margin-top: 90px;
+}
+
+
+
+
+/* =========================================================
+   PROJECT PAGE — MOBILE NAVBAR
+   FORCE GLOBAL MOBILE NAVBAR COLORS
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+  body.project-page-active .mobile-navigation,
+  body.project-page-active .mobile-navigation-panel {
+    color: #fff !important;
+  }
+
+  body.project-page-active .mobile-navigation a,
+  body.project-page-active .mobile-navigation-links a {
+    color: rgba(255, 255, 255, 0.92) !important;
+    text-shadow: none !important;
+  }
+
+  body.project-page-active .mobile-navigation a.active,
+  body.project-page-active .mobile-navigation-links a.active {
+    color: #fff !important;
+  }
+
+  body.project-page-active .mobile-navigation a span,
+  body.project-page-active .mobile-navigation-links a span {
+    color: inherit !important;
+  }
+
+  body.project-page-active .mobile-navigation li,
+  body.project-page-active .mobile-navigation-links li {
+    color: #fff !important;
+  }
+
+  body.project-page-active .mobile-navigation button,
+  body.project-page-active .mobile-navigation-panel button {
+    color: #fff !important;
+  }
+
 }

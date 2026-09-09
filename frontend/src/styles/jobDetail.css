@@ -785,3 +785,49 @@ body:has(.job-detail-page) .navbar .nav-link {
     min-height: 47px;
   }
 }
+
+
+/* =========================================================
+   JOB DETAILS PAGE — NAVBAR
+   DESKTOP ONLY
+   Mobile uses the GLOBAL navbar.css
+========================================================= */
+
+@media (min-width: 761px) {
+
+  body:has(.job-detail-page) .navbar a,
+  body:has(.job-detail-page) .navbar button,
+  body:has(.job-detail-page) .navbar span,
+  body:has(.job-detail-page) .navbar .nav-link {
+    color: #123b68 !important;
+    text-shadow: none !important;
+  }
+
+}
+
+
+
+/* =========================================================
+   JOB DETAILS — MOBILE NAVBAR RESET
+========================================================= */
+
+@media (max-width: 760px) {
+
+  body:has(.job-detail-page) .mobile-navigation a,
+  body:has(.job-detail-page) .mobile-navigation-links a {
+    color: rgba(255, 255, 255, 0.92) !important;
+    text-shadow: none !important;
+  }
+
+  body:has(.job-detail-page) .mobile-navigation a.active,
+  body:has(.job-detail-page) .mobile-navigation-links a.active {
+    color: #fff !important;
+  }
+
+  body:has(.job-detail-page) .mobile-navigation a span,
+  body:has(.job-detail-page) .mobile-navigation-links a span {
+    color: inherit !important;
+  }
+
+}
+

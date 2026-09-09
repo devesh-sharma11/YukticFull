@@ -2540,3 +2540,88 @@ body.jobs-page-active .navbar a:hover {
     transition: none !important;
   }
 }
+
+
+
+
+/* =========================================================
+   JOBS PAGE ONLY — NAVBAR
+   DESKTOP ONLY
+   Mobile uses the GLOBAL navbar.css
+========================================================= */
+
+@media (min-width: 761px) {
+
+  body.jobs-page-active nav,
+  body.jobs-page-active .navbar {
+    color: #17354a !important;
+    text-shadow: none !important;
+  }
+
+  body.jobs-page-active nav *,
+  body.jobs-page-active .navbar * {
+    text-shadow: none !important;
+  }
+
+  body.jobs-page-active nav a,
+  body.jobs-page-active .navbar a,
+  body.jobs-page-active nav span,
+  body.jobs-page-active .navbar span,
+  body.jobs-page-active nav button,
+  body.jobs-page-active .navbar button,
+  body.jobs-page-active nav p,
+  body.jobs-page-active .navbar p,
+  body.jobs-page-active nav li,
+  body.jobs-page-active .navbar li {
+    color: #17354a !important;
+    text-shadow: none !important;
+  }
+
+  body.jobs-page-active nav a:hover,
+  body.jobs-page-active .navbar a:hover {
+    color: #285f96 !important;
+    text-shadow: none !important;
+  }
+
+}
+
+
+
+/* =========================================================
+   JOBS PAGE — MOBILE NAVBAR RESET
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+  body.jobs-page-active .mobile-navigation,
+  body.jobs-page-active .mobile-navigation-panel {
+    color: #fff !important;
+  }
+
+  body.jobs-page-active .mobile-navigation a,
+  body.jobs-page-active .mobile-navigation-links a {
+    color: rgba(255, 255, 255, 0.92) !important;
+    text-shadow: none !important;
+  }
+
+  body.jobs-page-active .mobile-navigation a.active,
+  body.jobs-page-active .mobile-navigation-links a.active {
+    color: #fff !important;
+  }
+
+  body.jobs-page-active .mobile-navigation a span,
+  body.jobs-page-active .mobile-navigation-links a span {
+    color: inherit !important;
+  }
+
+  body.jobs-page-active .mobile-navigation li,
+  body.jobs-page-active .mobile-navigation-links li {
+    color: #fff !important;
+  }
+
+  body.jobs-page-active .mobile-navigation button,
+  body.jobs-page-active .mobile-navigation-panel button {
+    color: #fff !important;
+  }
+
+}

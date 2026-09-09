@@ -111,7 +111,7 @@ const ContactSection = () => {
       <div className="contact-header-center">
 
         <span className="contact-main-eyebrow">
-          ☘︎ GET IN TOUCH
+          GET IN TOUCH
         </span>
 
         <h2 className="contact-main-title">

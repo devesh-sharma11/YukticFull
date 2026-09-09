@@ -182,8 +182,8 @@
 
   gap: 34px;
 
-  height: 650px;
-  min-height: 650px;
+  height: 550px;
+  min-height: 350px;
 
   min-width: 0;
 
@@ -1642,9 +1642,9 @@
 
     gap: 24px;
 
-    height: 620px;
+    height: 550px;
 
-    min-height: 620px;
+    min-height: 550px;
   }
 
   .ykc2026-panel {
@@ -1730,9 +1730,9 @@
 
     gap: 20px;
 
-    height: 620px;
+    height: 550px;
 
-    min-height: 620px;
+    min-height: 550px;
   }
 
   .ykc2026-panel {

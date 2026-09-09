@@ -14,8 +14,11 @@ body {
   margin: 0;
   padding: 0;
 
-  background: #050505;
-  color: #ffffff;
+  background:
+    #050505;
+
+  color:
+    #ffffff;
 
   font-family:
     -apple-system,
@@ -24,7 +27,8 @@ body {
     Roboto,
     sans-serif;
 
-  overflow-x: hidden;
+  overflow-x:
+    hidden;
 }
 
 
@@ -33,14 +37,21 @@ body {
 ========================================================= */
 
 .hero-page {
-  position: relative;
 
-  width: 100%;
-  min-height: 100vh;
+  position:
+    relative;
 
-  background: #050505;
+  width:
+    100%;
 
-  overflow-x: hidden;
+  min-height:
+    100vh;
+
+  background:
+    #050505;
+
+  overflow-x:
+    hidden;
 }
 
 
@@ -49,41 +60,61 @@ body {
 ========================================================= */
 
 .hero-section-wrapper {
-  position: relative;
 
-  width: 100%;
-  min-height: 100vh;
+  position:
+    relative;
 
-  background: transparent;
+  width:
+    100%;
 
-  overflow: hidden;
+  min-height:
+    100vh;
 
-  z-index: 1;
+  background:
+    transparent;
+
+  overflow:
+    hidden;
+
+  z-index:
+    1;
 }
 
 
 /* =========================================================
    FAKE NAVBAR
-   EXACT SAME DESIGN AS REAL NAVBAR
+
+   This MUST visually match the real Navbar.
 ========================================================= */
 
 .fake-navbar {
-  position: fixed;
 
-  top: 0;
-  left: 0;
+  position:
+    fixed;
 
-  width: 100%;
-  height: 88px;
+  top:
+    0;
 
-  z-index: 3000;
+  left:
+    0;
 
-  /* EXACT REAL NAVBAR DEFAULT STATE */
+  width:
+    100%;
 
-  background: transparent;
+  height:
+    88px;
+
+  z-index:
+    3000;
+
+  /* Same as desktop real navbar */
+
+  background:
+    transparent;
 
   border-bottom:
-    1px solid rgba(255, 255, 255, 0.08);
+    1px solid
+    rgba(255, 255, 255, 0.08);
 
   backdrop-filter:
     blur(0px);
@@ -91,21 +122,24 @@ body {
   -webkit-backdrop-filter:
     blur(0px);
 
-  /*
-    Fake navbar is visual only.
-    Real navbar handles navigation.
-  */
+  box-shadow:
+    none;
 
-  pointer-events: none;
+  pointer-events:
+    none;
 
-  user-select: none;
+  user-select:
+    none;
+
+  box-sizing:
+    border-box;
 
   transition:
-    background 0.4s ease,
-    backdrop-filter 0.4s ease,
-    -webkit-backdrop-filter 0.4s ease,
-    border-color 0.4s ease,
-    box-shadow 0.4s ease;
+    background 0.35s ease,
+    backdrop-filter 0.35s ease,
+    -webkit-backdrop-filter 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
 }
 
 
@@ -114,159 +148,206 @@ body {
 ========================================================= */
 
 .fake-navbar-container {
-  width: 100%;
 
-  max-width: 1440px;
+  width:
+    100%;
 
-  height: 100%;
+  max-width:
+    1440px;
 
-  margin: 0 auto;
+  height:
+    100%;
+
+  margin:
+    0 auto;
 
   padding:
     0 34px;
 
-  display: flex;
+  display:
+    flex;
 
-  align-items: center;
+  align-items:
+    center;
 
-  justify-content: space-between;
+  justify-content:
+    space-between;
 
-  gap: 40px;
+  gap:
+    40px;
+
+  box-sizing:
+    border-box;
 }
 
 
 /* =========================================================
    FAKE NAVBAR LOGO
+
+   Invisible because travelling hero logo
+   occupies this exact destination.
 ========================================================= */
 
 .fake-navbar-logo {
-  position: relative;
 
-  width: 64px;
-  height: 64px;
+  position:
+    relative;
 
-  flex-shrink: 0;
+  width:
+    64px;
 
-  display: flex;
+  height:
+    64px;
 
-  align-items: center;
-  justify-content: center;
+  flex-shrink:
+    0;
 
-  text-decoration: none;
+  display:
+    flex;
 
-  border-radius: 14px;
+  align-items:
+    center;
 
-  /*
-    Keep invisible because the animated
-    Hero logo travels into this exact position.
-  */
+  justify-content:
+    center;
 
-  opacity: 0;
+  border-radius:
+    14px;
 
-  pointer-events: none;
+  opacity:
+    0;
 
-  transition:
-    transform 260ms ease,
-    filter 260ms ease;
+  visibility:
+    visible;
+
+  pointer-events:
+    none;
+
+  isolation:
+    isolate;
+
+  box-sizing:
+    border-box;
 }
 
 
 .fake-navbar-logo img {
-  display: block;
 
-  width: 64px;
-  height: 64px;
+  display:
+    block;
 
-  object-fit: contain;
+  width:
+    64px;
 
-  backface-visibility: hidden;
+  height:
+    64px;
 
-  -webkit-backface-visibility: hidden;
+  object-fit:
+    contain;
+
+  filter:
+    none !important;
+
+  opacity:
+    1;
+
+  backface-visibility:
+    hidden;
+
+  -webkit-backface-visibility:
+    hidden;
 }
 
 
-/*
-   If you ever want the fake logo permanently
-   visible instead of the travelling logo:
-
-   .fake-navbar-logo {
-      opacity: 1;
-   }
-*/
-
-
 /* =========================================================
-   NAVIGATION
+   FAKE DESKTOP NAVIGATION
 ========================================================= */
 
 .fake-navbar-links {
-  display: flex;
 
-  align-items: center;
+  display:
+    flex;
 
-  justify-content: flex-end;
+  align-items:
+    center;
 
-  gap: 34px;
+  justify-content:
+    flex-end;
 
-  height: 100%;
+  gap:
+    34px;
 
-  margin-left: auto;
+  height:
+    100%;
 
-  pointer-events: none;
+  margin-left:
+    auto;
+
+  pointer-events:
+    none;
+
+  box-sizing:
+    border-box;
 }
 
 
 /* =========================================================
-   NAVIGATION LINK
+   FAKE DESKTOP LINK
 ========================================================= */
 
 .fake-navbar-links span {
-  position: relative;
 
-  display: flex;
+  position:
+    relative;
 
-  align-items: center;
+  display:
+    flex;
 
-  height: 100%;
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  height:
+    100%;
 
   color:
     rgba(255, 255, 255, 0.85);
 
-  text-decoration: none;
+  text-decoration:
+    none;
 
-  font-size: 15px;
+  font-size:
+    15px;
 
-  font-weight: 500;
+  font-weight:
+    500;
 
-  letter-spacing: 0.2px;
+  letter-spacing:
+    0.2px;
 
-  white-space: nowrap;
+  white-space:
+    nowrap;
 
-  pointer-events: none;
+  pointer-events:
+    none;
 
-  transition:
-    color 220ms ease,
-    transform 220ms ease;
+  box-sizing:
+    border-box;
 }
 
 
 /* =========================================================
-   SERVICES LINK
+   FAKE CONTACT BUTTON
+   Same as real navbar.
 ========================================================= */
 
-.fake-navbar-links span:nth-child(3) {
-  padding:
-    0 2px;
-}
+.fake-navbar-links
+span.fake-contact {
 
-
-/* =========================================================
-   CONTACT BUTTON
-   EXACT REAL NAVBAR STYLE
-========================================================= */
-
-.fake-navbar-links span:last-child {
-  height: auto;
+  height:
+    auto;
 
   padding:
     11px 20px;
@@ -281,13 +362,17 @@ body {
     rgba(255, 255, 255, 0.08);
 
   border:
-    1px solid rgba(255, 255, 255, 0.2);
+    1px solid
+    rgba(255, 255, 255, 0.20);
 
   backdrop-filter:
     blur(8px);
 
   -webkit-backdrop-filter:
     blur(8px);
+
+  box-sizing:
+    border-box;
 }
 
 
@@ -296,38 +381,85 @@ body {
 ========================================================= */
 
 .fake-navbar-menu-button {
-  display: none;
 
-  width: 44px;
-  height: 44px;
+  display:
+    none;
 
-  padding: 0;
+  position:
+    relative;
 
-  border: 0;
+  width:
+    44px;
 
-  background: transparent;
+  height:
+    44px;
 
-  cursor: pointer;
+  padding:
+    0;
 
-  flex-direction: column;
+  margin:
+    0;
 
-  align-items: center;
+  flex-shrink:
+    0;
 
-  justify-content: center;
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.18);
 
-  gap: 5px;
+  border-radius:
+    12px;
 
-  pointer-events: none;
+  background:
+    rgba(255, 255, 255, 0.08);
+
+  backdrop-filter:
+    blur(14px);
+
+  -webkit-backdrop-filter:
+    blur(14px);
+
+  box-shadow:
+    0 4px 18px
+    rgba(0, 0, 0, 0.12);
+
+  flex-direction:
+    column;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  gap:
+    5px;
+
+  pointer-events:
+    none;
+
+  box-sizing:
+    border-box;
 }
 
 
+/* =========================================================
+   FAKE HAMBURGER
+========================================================= */
+
 .fake-navbar-menu-button span {
-  display: block;
 
-  width: 23px;
-  height: 2px;
+  display:
+    block;
 
-  border-radius: 5px;
+  width:
+    22px;
+
+  height:
+    2px;
+
+  border-radius:
+    5px;
 
   background:
     #ffffff;
@@ -339,13 +471,21 @@ body {
 ========================================================= */
 
 .hero-logo-animation {
-  position: fixed;
 
-  top: 50%;
-  left: 50%;
+  position:
+    fixed;
 
-  width: 320px;
-  height: 320px;
+  top:
+    50%;
+
+  left:
+    50%;
+
+  width:
+    320px;
+
+  height:
+    320px;
 
   transform:
     translate3d(-50%, -50%, 0)
@@ -354,39 +494,57 @@ body {
   transform-origin:
     center center;
 
-  display: flex;
+  display:
+    flex;
 
-  align-items: center;
+  align-items:
+    center;
 
-  justify-content: center;
+  justify-content:
+    center;
 
-  z-index: 6000;
+  z-index:
+    6000;
 
-  pointer-events: none;
+  pointer-events:
+    none;
 
-  opacity: 1;
+  opacity:
+    1;
 
-  backface-visibility: hidden;
+  visibility:
+    visible;
 
-  -webkit-backface-visibility: hidden;
+  backface-visibility:
+    hidden;
+
+  -webkit-backface-visibility:
+    hidden;
 
   will-change:
     transform,
     opacity;
 
-  animation: none;
+  animation:
+    none;
 }
 
 
 /* =========================================================
-   LOGO TRAVEL STATE
+   LOGO READY
 ========================================================= */
 
 .hero-logo-ready {
+
   animation:
     travel-to-fake-navbar
     0.65s
-    cubic-bezier(0.4, 0, 0.15, 1)
+    cubic-bezier(
+      0.4,
+      0,
+      0.15,
+      1
+    )
     2s
     forwards;
 }
@@ -397,40 +555,56 @@ body {
 ========================================================= */
 
 .hero-logo-finished {
-  display: none !important;
 
-  opacity: 0;
+  display:
+    none !important;
 
-  visibility: hidden;
+  opacity:
+    0;
 
-  pointer-events: none;
+  visibility:
+    hidden;
+
+  pointer-events:
+    none;
 }
 
 
 /* =========================================================
-   LOGO IMAGE
+   HERO LOGO IMAGE
 ========================================================= */
 
 .hero-logo-animation img {
-  position: relative;
 
-  z-index: 2;
+  position:
+    relative;
 
-  display: block;
+  z-index:
+    2;
 
-  width: 100%;
-  height: 100%;
+  display:
+    block;
 
-  object-fit: contain;
+  width:
+    100%;
 
-  backface-visibility: hidden;
+  height:
+    100%;
 
-  -webkit-backface-visibility: hidden;
+  object-fit:
+    contain;
+
+  backface-visibility:
+    hidden;
+
+  -webkit-backface-visibility:
+    hidden;
 
   transform:
     translate3d(0, 0, 0);
 
-  will-change: filter;
+  will-change:
+    filter;
 
   animation:
     logo-edge-highlight
@@ -441,50 +615,71 @@ body {
 
 
 /* =========================================================
-   LOGO GLOW
+   HERO LOGO GLOW
 ========================================================= */
 
 .hero-logo-glow {
-  position: absolute;
 
-  width: 0;
-  height: 0;
+  position:
+    absolute;
 
-  opacity: 0;
+  width:
+    0;
 
-  display: none;
+  height:
+    0;
 
-  pointer-events: none;
+  opacity:
+    0;
+
+  display:
+    none;
+
+  pointer-events:
+    none;
 }
 
 
 /* =========================================================
-   LOGO TRAVEL ANIMATION
+   TRAVEL ANIMATION
 ========================================================= */
 
 @keyframes travel-to-fake-navbar {
 
   from {
+
     transform:
-      translate3d(-50%, -50%, 0)
+      translate3d(
+        -50%,
+        -50%,
+        0
+      )
       scale(1);
 
-    opacity: 1;
+    opacity:
+      1;
   }
 
 
   to {
+
     transform:
       translate3d(
-        calc(-50% + var(--move-x)),
-        calc(-50% + var(--move-y)),
+        calc(
+          -50% + var(--move-x)
+        ),
+        calc(
+          -50% + var(--move-y)
+        ),
         0
       )
-      scale(var(--final-scale));
+      scale(
+        var(--final-scale)
+      );
 
-    opacity: 1;
+    opacity:
+      1;
   }
-
 }
 
 
@@ -495,6 +690,7 @@ body {
 @keyframes logo-edge-highlight {
 
   0% {
+
     filter:
       drop-shadow(
         0 0 0
@@ -504,17 +700,16 @@ body {
 
 
   15% {
+
     filter:
       drop-shadow(
         0 0 5px
         rgba(255, 235, 180, 0.95)
       )
-
       drop-shadow(
         0 0 14px
         rgba(255, 190, 75, 0.8)
       )
-
       drop-shadow(
         0 0 28px
         rgba(255, 145, 30, 0.4)
@@ -523,17 +718,16 @@ body {
 
 
   40% {
+
     filter:
       drop-shadow(
         0 0 7px
         rgba(255, 240, 190, 1)
       )
-
       drop-shadow(
         0 0 18px
         rgba(255, 195, 80, 0.9)
       )
-
       drop-shadow(
         0 0 36px
         rgba(255, 145, 30, 0.5)
@@ -542,17 +736,16 @@ body {
 
 
   60% {
+
     filter:
       drop-shadow(
         0 0 7px
         rgba(255, 235, 180, 0.95)
       )
-
       drop-shadow(
         0 0 18px
         rgba(255, 190, 75, 0.8)
       )
-
       drop-shadow(
         0 0 32px
         rgba(255, 145, 30, 0.4)
@@ -561,12 +754,12 @@ body {
 
 
   75% {
+
     filter:
       drop-shadow(
         0 0 4px
         rgba(255, 220, 150, 0.55)
       )
-
       drop-shadow(
         0 0 11px
         rgba(255, 175, 60, 0.3)
@@ -575,6 +768,7 @@ body {
 
 
   90% {
+
     filter:
       drop-shadow(
         0 0 2px
@@ -584,55 +778,64 @@ body {
 
 
   100% {
+
     filter:
       drop-shadow(
         0 0 0
         rgba(255, 190, 90, 0)
       );
   }
-
 }
 
 
 /* =========================================================
-   RESPONSIVE — 1200px
+   DESKTOP — 1200px
 ========================================================= */
 
 @media (max-width: 1200px) {
 
   .fake-navbar-container {
+
     padding:
       0 26px;
   }
 
 
   .fake-navbar-links {
+
     gap:
       24px;
   }
 
 
   .fake-navbar-links span {
+
     font-size:
       14px;
   }
-
 }
 
 
 /* =========================================================
-   RESPONSIVE — 980px
+   TABLET — 980px
+
+   Matches REAL NAVBAR exactly.
 ========================================================= */
 
 @media (max-width: 980px) {
 
   .fake-navbar {
+
     height:
       82px;
   }
 
 
   .fake-navbar-container {
+
+    height:
+      82px;
+
     padding:
       0 22px;
   }
@@ -640,6 +843,7 @@ body {
 
   .fake-navbar-logo,
   .fake-navbar-logo img {
+
     width:
       58px;
 
@@ -649,115 +853,369 @@ body {
 
 
   .fake-navbar-links {
+
     gap:
       17px;
   }
 
 
   .fake-navbar-links span {
+
     font-size:
       13px;
   }
 
 
-  .fake-navbar-links span:last-child {
+  .fake-navbar-links
+  span.fake-contact {
+
     padding:
       9px 15px;
   }
 
 
   .hero-logo-animation {
+
     width:
       280px;
 
     height:
       280px;
   }
-
 }
 
 
 /* =========================================================
-   RESPONSIVE — 760px
+   MOBILE — 760px
+
+   EXACT MATCH TO REAL NAVBAR
 ========================================================= */
 
 @media (max-width: 760px) {
 
+  /* -------------------------------------------------------
+     FAKE NAVBAR
+  ------------------------------------------------------- */
+
   .fake-navbar {
+
     height:
       76px;
+
+    width:
+      100vw;
+
+    max-width:
+      100vw;
+
+    left:
+      0;
+
+    right:
+      0;
+
+    background:
+      rgba(18, 31, 44, 0.88);
+
+    border-bottom:
+      1px solid
+      rgba(255, 255, 255, 0.13);
+
+    backdrop-filter:
+      blur(18px)
+      saturate(120%);
+
+    -webkit-backdrop-filter:
+      blur(18px)
+      saturate(120%);
+
+    box-shadow:
+      0 5px 20px
+      rgba(0, 0, 0, 0.10);
+
+    isolation:
+      isolate;
   }
 
+
+  /* -------------------------------------------------------
+     CONTAINER
+  ------------------------------------------------------- */
 
   .fake-navbar-container {
+
+    width:
+      100%;
+
+    max-width:
+      none;
+
+    height:
+      76px;
+
+    margin:
+      0;
+
     padding:
-      0 18px;
+      0 14px;
+
+    box-sizing:
+      border-box;
+
+    gap:
+      0;
   }
 
 
+  /* -------------------------------------------------------
+     LOGO
+
+     Exact same destination size as real navbar.
+  ------------------------------------------------------- */
+
+  .fake-navbar-logo {
+
+    width:
+      54px;
+
+    height:
+      54px;
+
+    margin:
+      0;
+
+    filter:
+      none !important;
+  }
+
+
+  .fake-navbar-logo img {
+
+    width:
+      54px;
+
+    height:
+      54px;
+
+    filter:
+      none !important;
+  }
+
+
+  /* -------------------------------------------------------
+     DESKTOP LINKS OFF
+  ------------------------------------------------------- */
+
   .fake-navbar-links {
+
     display:
       none;
   }
 
 
+  /* -------------------------------------------------------
+     MOBILE MENU BUTTON
+  ------------------------------------------------------- */
+
   .fake-navbar-menu-button {
+
     display:
       flex;
-  }
 
-
-  .fake-navbar-logo,
-  .fake-navbar-logo img {
     width:
-      54px;
+      44px;
 
     height:
-      54px;
+      44px;
+
+    margin:
+      0;
   }
 
+
+  /* -------------------------------------------------------
+     HERO LOGO
+
+     Initial size is reduced for mobile.
+     Destination is automatically calculated from
+     the 54px fake navbar logo.
+  ------------------------------------------------------- */
 
   .hero-logo-animation {
+
     width:
       230px;
 
     height:
       230px;
   }
-
 }
 
 
 /* =========================================================
-   RESPONSIVE — 400px
+   MOBILE — 480px
+
+   EXACT MATCH TO REAL NAVBAR
 ========================================================= */
 
-@media (max-width: 400px) {
+@media (max-width: 480px) {
+
+  .fake-navbar {
+
+    height:
+      74px;
+
+    width:
+      100vw;
+
+    max-width:
+      100vw;
+  }
+
 
   .fake-navbar-container {
+
+    height:
+      74px;
+
     padding:
-      0 14px;
+      0 13px;
   }
 
 
   .fake-navbar-logo,
   .fake-navbar-logo img {
+
     width:
-      50px;
+      52px;
 
     height:
-      50px;
+      52px;
+  }
+
+
+  .fake-navbar-menu-button {
+
+    width:
+      43px;
+
+    height:
+      43px;
   }
 
 
   .hero-logo-animation {
+
+    width:
+      220px;
+
+    height:
+      220px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE — 400px
+
+   EXACT MATCH TO REAL NAVBAR
+========================================================= */
+
+@media (max-width: 400px) {
+
+  .fake-navbar {
+
+    height:
+      72px;
+  }
+
+
+  .fake-navbar-container {
+
+    height:
+      72px;
+
+    padding:
+      0 11px;
+  }
+
+
+  .fake-navbar-logo,
+  .fake-navbar-logo img {
+
+    width:
+      49px;
+
+    height:
+      49px;
+  }
+
+
+  .fake-navbar-menu-button {
+
+    width:
+      41px;
+
+    height:
+      41px;
+  }
+
+
+  .hero-logo-animation {
+
     width:
       210px;
 
     height:
       210px;
   }
+}
 
+
+/* =========================================================
+   VERY SMALL — 360px
+
+   EXACT MATCH TO REAL NAVBAR
+========================================================= */
+
+@media (max-width: 360px) {
+
+  .fake-navbar-container {
+
+    padding:
+      0 10px;
+  }
+
+
+  .fake-navbar-logo,
+  .fake-navbar-logo img {
+
+    width:
+      47px;
+
+    height:
+      47px;
+  }
+
+
+  .fake-navbar-menu-button {
+
+    width:
+      40px;
+
+    height:
+      40px;
+  }
+
+
+  .hero-logo-animation {
+
+    width:
+      200px;
+
+    height:
+      200px;
+  }
 }
 
 
@@ -768,16 +1226,22 @@ body {
 @media (prefers-reduced-motion: reduce) {
 
   .hero-logo-animation {
+
     animation:
       none !important;
 
     transform:
-      translate3d(-50%, -50%, 0)
+      translate3d(
+        -50%,
+        -50%,
+        0
+      )
       scale(1);
   }
 
 
   .hero-logo-animation img {
+
     animation:
       none !important;
 
@@ -787,8 +1251,8 @@ body {
 
 
   .hero-logo-glow {
+
     display:
       none;
   }
-
 }

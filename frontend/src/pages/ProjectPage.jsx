@@ -44,23 +44,40 @@ useLayoutEffect(() => {
     window.history.scrollRestoration = "manual";
   }
 
-  // Project page specific navbar styling
   document.body.classList.add("project-page-active");
 
-  window.scrollTo(0, 0);
-  document.documentElement.scrollTop = 0;
-  document.body.scrollTop = 0;
+  const hash = window.location.hash;
 
-  const frame1 = requestAnimationFrame(() => {
+  const scrollToTarget = () => {
+    if (hash) {
+      const target = document.querySelector(hash);
+
+      if (target) {
+        target.scrollIntoView({
+          behavior: "auto",
+          block: "start",
+        });
+
+        return;
+      }
+    }
+
+    // No hash = normal project page opening.
     window.scrollTo(0, 0);
     document.documentElement.scrollTop = 0;
     document.body.scrollTop = 0;
+  };
+
+  // First attempt.
+  scrollToTarget();
+
+  // Second attempt after browser layout/navigation finishes.
+  const frame1 = requestAnimationFrame(() => {
+    scrollToTarget();
   });
 
   const frame2 = requestAnimationFrame(() => {
-    window.scrollTo(0, 0);
-    document.documentElement.scrollTop = 0;
-    document.body.scrollTop = 0;
+    scrollToTarget();
   });
 
   return () => {
@@ -698,7 +715,10 @@ useLayoutEffect(() => {
           CANDIQ
       ===================================================== */}
 
-      <section className="project-detail-section project-detail-candiq">
+      <section
+        className="project-detail-section project-detail-candiq"
+        id="candiq"
+      >
 
         <div className="project-detail-container">
 
@@ -1101,7 +1121,10 @@ useLayoutEffect(() => {
           YUDIHEALTH
       ===================================================== */}
 
-      <section className="project-detail-section project-detail-yudi">
+      <section
+        className="project-detail-section project-detail-yudi"
+        id="yudi"
+      >
 
         <div className="project-detail-container">
 

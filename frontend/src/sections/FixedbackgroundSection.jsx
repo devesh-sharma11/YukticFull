@@ -2,98 +2,136 @@ import React, { useEffect, useRef } from 'react';
 import '../styles/fixedbackgroundSection.css';
 import fixedImg from '../assets/fixedimage.jpg';
 
+const storyData = [
+  {
+    eyebrow: 'BUILD WITH PURPOSE',
+    title: 'Your Vision.',
+    titleHighlight: 'Our Commitment.',
+    description:
+      'Every great outcome starts with a bold idea. We listen, understand, and bring the right thinking together to turn your vision into something real.',
+    meta: ['VISION', 'TRUST', 'PURPOSE'],
+  },
+
+  {
+    eyebrow: 'CREATE TOGETHER',
+    title: 'Think Beyond.',
+    titleHighlight: 'Build What Matters.',
+    description:
+      'The best work happens when ideas are shared, challenges are embraced, and both sides move forward with one clear purpose — creating something that truly matters.',
+    meta: ['THINK', 'CREATE', 'COLLABORATE'],
+  },
+
+  {
+    eyebrow: 'MOVE FORWARD',
+    title: 'Big Challenges.',
+    titleHighlight: 'Bigger Possibilities.',
+    description:
+      'Whatever comes next, we are ready to build it with you. Because progress is not just about reaching the destination — it is about creating what comes after it.',
+    meta: ['CHALLENGE', 'INNOVATE', 'GROW'],
+  },
+];
+
 const FixedbackgroundSection = () => {
-  const sectionRef = useRef(null);
+  const sectionRefs = useRef([]);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-        } else {
-          entry.target.classList.remove('is-visible');
+    const observers = [];
+
+    sectionRefs.current.forEach((section) => {
+      if (!section) return;
+
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          } else {
+            entry.target.classList.remove('is-visible');
+          }
+        },
+        {
+          root: null,
+          threshold: 0.3,
         }
-      },
-      {
-        root: null,
-        threshold: 0.3,
-      }
-    );
+      );
 
-    const section = sectionRef.current;
-
-    if (section) {
       observer.observe(section);
-    }
+      observers.push(observer);
+    });
 
     return () => {
-      if (section) {
-        observer.unobserve(section);
-      }
+      observers.forEach((observer) => observer.disconnect());
     };
   }, []);
 
   return (
-    
-    <section
-      ref={sectionRef}
-      className="fixed-story-wrapper2"
-      style={{
-        backgroundImage: `url(${fixedImg})`,
-      }}
-    >
-      
-      <div className="story-overlay"></div>
-      
+    <section className="fixed-story-container">
 
-      <div className="story-content2">
+      {storyData.map((story, index) => (
+        <div
+          key={index}
+          ref={(el) => {
+            sectionRefs.current[index] = el;
+          }}
+          className="fixed-story-wrapper2"
+          style={{
+            backgroundImage: `url(${fixedImg})`,
+          }}
+        >
 
-        {/* Small top label */}
-        <div className="story-eyebrow">
-          <span className="eyebrow-line"></span>
+          {/* DARK OVERLAY */}
+          <div className="story-overlay"></div>
 
-          <span>BUILD WITH PURPOSE</span>
+          {/* CONTENT */}
+          <div className="story-content2">
 
-          <span className="eyebrow-line"></span>
+            {/* EYEBROW */}
+            <div className="story-eyebrow">
+              <span className="eyebrow-line"></span>
+
+              <span>{story.eyebrow}</span>
+
+              <span className="eyebrow-line"></span>
+            </div>
+
+            {/* CENTER MARKER */}
+            <div className="story-marker">
+              <span></span>
+            </div>
+
+            {/* TITLE */}
+            <h2 className="story-title">
+              {story.title}
+              <br />
+              <span>{story.titleHighlight}</span>
+            </h2>
+
+            {/* DESCRIPTION */}
+            <p className="story-desc">
+              {story.description}
+            </p>
+
+            {/* META */}
+            <div className="story-meta">
+              {story.meta.map((item, metaIndex) => (
+                <React.Fragment key={item}>
+
+                  <span>{item}</span>
+
+                  {metaIndex < story.meta.length - 1 && (
+                    <span className="meta-dot"></span>
+                  )}
+
+                </React.Fragment>
+              ))}
+            </div>
+
+            
+
+          </div>
+
         </div>
+      ))}
 
-        {/* Small center indicator */}
-        <div className="story-marker">
-          <span></span>
-        </div>
-
-        {/* Main heading */}
-        <h2 className="story-title">
-          Your Ambition.
-          <br />
-          <span>Your Impact.</span>
-        </h2>
-
-        {/* Description */}
-        <p className="story-desc">
-          Build meaningful work, take ownership of your ideas, and grow
-          alongside people who believe that great careers are created by
-          creating real impact.
-        </p>
-
-        {/* Bottom meta */}
-        <div className="story-meta">
-          <span>CREATE</span>
-
-          <span className="meta-dot"></span>
-
-          <span>GROW</span>
-
-          <span className="meta-dot"></span>
-
-          <span>LEAD</span>
-        </div>
-
-         <br/>  <br/>  <br/>   <br/>  <br/>  <br/>   <br/>  <br/>  <br/>
-         <br/>  <br/>  <br/>   <br/>  <br/>  <br/>   <br/>  <br/>  <br/>
-
-      </div>
-     
     </section>
   );
 };
