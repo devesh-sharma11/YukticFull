@@ -59,13 +59,11 @@ body.project-page-active header {
   text-shadow: none !important;
 }
 
-
 body.project-page-active nav button,
 body.project-page-active nav span,
 body.project-page-active nav li,
 body.project-page-active .navbar a,
 body.project-page-active .navbar button,
-
 body.project-page-active .nav-link {
   color: #123f6b !important;
 
@@ -78,25 +76,6 @@ body.project-page-active .navbar-logo-text {
 
   text-shadow: none !important;
 }
-
-
-/* =========================================================
-   PROJECT PAGE — NAVBAR
-   Desktop only
-   Mobile uses the main/global navbar styling
-   ========================================================= */
-
-/* =========================================================
-   PROJECT PAGE — NAVBAR
-   Desktop only
-   Mobile uses the GLOBAL navbar.css
-   ========================================================= */
-
-/* =========================================================
-   PROJECT PAGE — NAVBAR
-   DESKTOP ONLY
-   ========================================================= */
-
 
 
 /* =========================================================
@@ -150,7 +129,7 @@ body.project-page-active .navbar-logo-text {
   display: grid;
 
   /*
-   * IMPORTANT
+   * DESKTOP
    *
    * Column 1 = visual
    * Column 2 = text
@@ -199,7 +178,7 @@ body.project-page-active .navbar-logo-text {
 
 .project-hero-content {
   /*
-   * FORCE RIGHT COLUMN
+   * DESKTOP = RIGHT COLUMN
    */
 
   grid-column: 2;
@@ -366,7 +345,7 @@ body.project-page-active .navbar-logo-text {
 
 .project-hero-visual {
   /*
-   * FORCE LEFT COLUMN
+   * DESKTOP = LEFT COLUMN
    */
 
   grid-column: 1;
@@ -479,14 +458,6 @@ body.project-page-active .navbar-logo-text {
     var(--orange);
 }
 
-
-/*
- * Yuktic is TEXT here.
- *
- * The only Yuktic IMAGE should be the
- * center logo.
- */
-
 .project-visual-brand-text {
   font-size: 14px;
 
@@ -531,11 +502,6 @@ body.project-page-active .navbar-logo-text {
 
   justify-content: center;
 }
-
-
-/*
- * ONE AND ONLY YUKTIC IMAGE
- */
 
 .project-visual-logo-wrap {
   width: 195px;
@@ -1177,10 +1143,6 @@ body.project-page-active .navbar-logo-text {
 .project-section-heading h3 span {
   color: var(--green-dark);
 }
-
-/*
- * FIXED SELECTOR
- */
 
 .project-detail-yudi .project-section-heading h3 span {
   color: var(--blue-dark);
@@ -2817,6 +2779,7 @@ body.project-page-active .navbar-logo-text {
 
 
   /*
+   * TABLET:
    * VISUAL FIRST
    */
 
@@ -2838,6 +2801,7 @@ body.project-page-active .navbar-logo-text {
 
 
   /*
+   * TABLET:
    * CONTENT SECOND
    */
 
@@ -3044,10 +3008,19 @@ body.project-page-active .navbar-logo-text {
 
   /* =======================================================
      HERO
+     
+     IMPORTANT MOBILE ORDER:
+     
+     1. TEXT / CONTENT
+     2. LOGO / PRODUCT VISUAL
+     
+     This overrides the tablet order above.
      ======================================================= */
 
   .project-hero {
     min-height: auto;
+
+    display: grid;
 
     grid-template-columns:
       1fr;
@@ -3056,7 +3029,10 @@ body.project-page-active .navbar-logo-text {
       auto
       auto;
 
-    gap: 15px;
+    /*
+     * Space between text and logo.
+     */
+    gap: 35px;
 
     padding:
       100px
@@ -3067,29 +3043,53 @@ body.project-page-active .navbar-logo-text {
   }
 
 
-  .project-hero-visual {
-    grid-column: 1;
-
-    grid-row: 1;
-
-    min-height: 390px;
-
-    width: 100%;
-  }
-
+  /* =======================================================
+     HERO CONTENT
+     FIRST ON MOBILE
+     ======================================================= */
 
   .project-hero-content {
     grid-column: 1;
 
-    grid-row: 2;
+    grid-row: 1;
 
     width: 100%;
 
     max-width: 100%;
 
     text-align: center;
+
+    justify-self: center;
+
+    align-self: start;
   }
 
+
+  /* =======================================================
+     HERO VISUAL
+     SECOND ON MOBILE
+     ======================================================= */
+
+  .project-hero-visual {
+    grid-column: 1;
+
+    grid-row: 2;
+
+    width: 100%;
+
+    min-height: 390px;
+
+    justify-self: center;
+
+    align-self: center;
+
+    order: 2;
+  }
+
+
+  /* =======================================================
+     EYEBROW
+     ======================================================= */
 
   .project-eyebrow {
     font-size: 8px;
@@ -3101,6 +3101,10 @@ body.project-page-active .navbar-logo-text {
     width: 20px;
   }
 
+
+  /* =======================================================
+     HERO HEADING
+     ======================================================= */
 
   .project-hero h1 {
     max-width: 100%;
@@ -3120,13 +3124,19 @@ body.project-page-active .navbar-logo-text {
   .project-hero-content > p {
     max-width: 100%;
 
+    margin-left: auto;
+
+    margin-right: auto;
+
     font-size: 13.5px;
 
     line-height: 1.75;
   }
 
 
-  /* BUTTONS */
+  /* =======================================================
+     BUTTONS
+     ======================================================= */
 
   .project-hero-buttons {
     width: 100%;
@@ -3206,7 +3216,9 @@ body.project-page-active .navbar-logo-text {
   }
 
 
-  /* BADGES */
+  /* =======================================================
+     BADGES
+     ======================================================= */
 
   .project-floating-badge {
     font-size: 8.5px;
@@ -3551,13 +3563,41 @@ body.project-page-active .navbar-logo-text {
 @media (max-width: 430px) {
 
   .project-hero {
+    /*
+     * Keep mobile order:
+     * TEXT = row 1
+     * VISUAL = row 2
+     */
+
+    grid-template-columns: 1fr;
+
+    grid-template-rows:
+      auto
+      auto;
+
     padding:
       90px
       15px
       55px;
   }
 
+
+  /* TEXT STAYS FIRST */
+
+  .project-hero-content {
+    grid-column: 1;
+
+    grid-row: 1;
+  }
+
+
+  /* LOGO STAYS SECOND */
+
   .project-hero-visual {
+    grid-column: 1;
+
+    grid-row: 2;
+
     min-height: 350px;
   }
 
@@ -3648,12 +3688,13 @@ body.project-page-active .navbar-logo-text {
 }
 
 
+/* =========================================================
+   PROJECT DETAIL SCROLL OFFSET
+   ========================================================= */
 
 .project-detail-section {
   scroll-margin-top: 90px;
 }
-
-
 
 
 /* =========================================================
@@ -3671,6 +3712,7 @@ body.project-page-active .navbar-logo-text {
   body.project-page-active .mobile-navigation a,
   body.project-page-active .mobile-navigation-links a {
     color: rgba(255, 255, 255, 0.92) !important;
+
     text-shadow: none !important;
   }
 
@@ -3693,5 +3735,4 @@ body.project-page-active .navbar-logo-text {
   body.project-page-active .mobile-navigation-panel button {
     color: #fff !important;
   }
-
 }

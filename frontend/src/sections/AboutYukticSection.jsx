@@ -77,6 +77,8 @@ const AboutYukticSection = () => {
           fetchPriority="low"
         />
       </div>
+      <br/>  <br/>  <br/>  <br/>
+     
 
       {/* Floating Stats Bar */}
       {/* <div className="about-stats-wrapper2">
@@ -98,12 +100,17 @@ const AboutYukticSection = () => {
         <div className="capabilities-eyebrow">
           Yuktic
         </div>
+         
         <h2 className="capabilities-title">About US.</h2>
+         <br/> 
         <p className="capabilities-subtitle">
-          Specialist expertise to transform complex healthcare programmes into confident, sustainable delivery.
-        </p>
+Specialist expertise to transform complex healthcare programmes into confident, sustainable delivery. We work alongside healthcare organisations, NHS Trusts, prime contractors and private-sector partners to bring clarity, structure and momentum to challenging programmes.        </p>
+         <br/> 
         <div className="capabilities-divider"></div>
+         
       </div>
+
+      
 
       {/* Main 2-Column Content */}
       <div className="about-yuktic-container">
