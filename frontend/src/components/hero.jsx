@@ -170,7 +170,7 @@ const Hero = ({ onLogoAnimationComplete }) => {
 
       <div className="green-flow">
         <ProjectsSection />
-        <ContactSection />
+        {/* <ContactSection /> */}
         <TestimonialsSection />
       </div>
     </main>

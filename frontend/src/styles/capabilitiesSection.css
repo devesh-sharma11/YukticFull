@@ -148,16 +148,6 @@
 
 /* =========================================================
    MAIN DASHBOARD
-   =========================================================
-
-   THIS CONTROLS THE LEFT / RIGHT SPACE.
-
-   The dashboard is:
-   - maximum 1648px
-   - centered automatically
-   - never wider than viewport minus 64px
-   - equal space on both sides
-
 ========================================================= */
 
 .ykc2026-layout {
@@ -835,12 +825,17 @@
 
   text-align: center;
 
-  gap: 10px;
+  gap: 11px;
 
-  margin-bottom: 8px;
+  margin-bottom: 13px;
 
   flex-shrink: 0;
 }
+
+
+/* =========================================================
+   CENTER SERVICE ICON
+========================================================= */
 
 .ykc2026-heading-icon {
   width: 54px;
@@ -858,17 +853,19 @@
   color: #0879c0;
 
   background:
-    rgba(255, 255, 255, 0.56);
+    rgba(255, 255, 255, 0.62);
 
   border:
-    1px solid rgba(37, 145, 203, 0.27);
+    1px solid rgba(37, 145, 203, 0.30);
 
   box-shadow:
-    0 7px 18px rgba(26, 122, 174, 0.1);
+    0 7px 18px rgba(26, 122, 174, 0.11),
+    inset 0 0 14px rgba(255, 255, 255, 0.55);
 
   transition:
     transform 0.3s ease,
-    box-shadow 0.3s ease;
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
 }
 
 .ykc2026-heading-icon svg {
@@ -881,9 +878,18 @@
     translateY(-2px)
     scale(1.04);
 
+  border-color:
+    rgba(37, 145, 203, 0.48);
+
   box-shadow:
-    0 10px 24px rgba(26, 122, 174, 0.16);
+    0 10px 24px rgba(26, 122, 174, 0.16),
+    0 0 20px rgba(31, 157, 218, 0.10);
 }
+
+
+/* =========================================================
+   HEADING COPY
+========================================================= */
 
 .ykc2026-heading-copy {
   width: 100%;
@@ -894,23 +900,60 @@
 
   align-items: center;
   justify-content: center;
+
+  text-align: center;
 }
+
+
+/* =========================================================
+   SERVICE NAME
+========================================================= */
+
+.ykc2026-detail-label {
+  margin: 0 0 8px;
+
+  color: #078bc9;
+
+  font-size: 10px;
+
+  line-height: 1.2;
+
+  font-weight: 800;
+
+  letter-spacing: 0.20em;
+
+  text-transform: uppercase;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   SERVICE SUBTITLE
+========================================================= */
 
 .ykc2026-detail-title {
   margin: 0;
 
   color: #0b3b5d;
 
-  font-size: clamp(31px, 3.1vw, 47px);
+  font-size: clamp(27px, 2.7vw, 42px);
 
-  line-height: 1.05;
+  line-height: 1.08;
 
   font-weight: 300;
 
   letter-spacing: 0.025em;
 
   text-align: center;
+
+  max-width: 900px;
 }
+
+
+/* =========================================================
+   TITLE LINE
+========================================================= */
 
 .ykc2026-title-line {
   width: 48px;
@@ -924,34 +967,6 @@
 
   box-shadow:
     0 2px 8px rgba(8, 145, 210, 0.22);
-}
-
-
-/* =========================================================
-   INTRO
-========================================================= */
-
-.ykc2026-intro {
-  width: 100%;
-  max-width: 920px;
-
-  min-height: 42px;
-
-  margin: 0 auto 15px;
-
-  color: #3b607a;
-
-  font-size: 13.5px;
-
-  line-height: 1.5;
-
-  font-weight: 450;
-
-  letter-spacing: 0.008em;
-
-  text-align: center;
-
-  flex-shrink: 0;
 }
 
 
@@ -1092,6 +1107,7 @@
 
 /* =========================================================
    TWO COLUMNS
+   EVEN / BALANCED EXPANDED LAYOUT
 ========================================================= */
 
 .ykc2026-columns {
@@ -1103,77 +1119,88 @@
     minmax(0, 1fr)
     minmax(0, 1fr);
 
-  gap: 34px;
+  column-gap: 58px;
 
-  height: 140px;
+  height: 155px;
 
   flex-shrink: 0;
 
+  margin-top: 2px;
+
   margin-bottom: 14px;
-}
 
-.ykc2026-what,
-.ykc2026-approach {
-  min-width: 0;
-}
-
-.ykc2026-main-label {
-  margin-bottom: 10px;
+  box-sizing: border-box;
 }
 
 
 /* =========================================================
-   TIMELINE
+   LEFT / RIGHT COLUMN
 ========================================================= */
 
-.ykc2026-timeline {
-  position: relative;
+.ykc2026-what,
+.ykc2026-approach {
+  min-width: 0;
 
-  display: flex;
+  width: 100%;
 
-  flex-direction: column;
-
-  gap: 3px;
-
-  padding-left: 2px;
+  box-sizing: border-box;
 }
 
-.ykc2026-timeline-item {
-  position: relative;
 
-  min-height: 29px;
+/* =========================================================
+   SECTION HEADINGS
+========================================================= */
+
+.ykc2026-main-label {
+  width: 100%;
 
   display: flex;
 
   align-items: center;
 
-  gap: 11px;
+  gap: 10px;
 
-  color: #315974;
+  margin-bottom: 12px;
 
-  font-size: 12px;
-
-  line-height: 1.25;
-
-  transition:
-    color 0.2s ease,
-    transform 0.2s ease;
+  box-sizing: border-box;
 }
 
-.ykc2026-timeline-item:hover {
-  color: #0a4267;
-
-  transform:
-    translateX(3px);
-}
-
-.ykc2026-timeline-icon {
-  position: relative;
-
-  z-index: 3;
-
+.ykc2026-main-label > span {
   width: 27px;
-  height: 27px;
+  height: 2px;
+
+  flex-shrink: 0;
+}
+
+
+/* =========================================================
+   WHAT WE DO CONTENT
+========================================================= */
+
+.ykc2026-what-content {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns: 36px minmax(0, 1fr);
+
+  align-items: start;
+
+  column-gap: 12px;
+
+  box-sizing: border-box;
+
+   
+}
+
+
+/* =========================================================
+   WHAT WE DO ICON
+========================================================= */
+
+.ykc2026-what-icon {
+  width: 32px;
+  height: 32px;
 
   flex-shrink: 0;
 
@@ -1182,78 +1209,88 @@
   align-items: center;
   justify-content: center;
 
+  margin-top: 1px;
+
   border-radius: 50%;
 
-  color: #078bd0;
+  color: #087fc5;
 
   background:
-    rgba(245, 252, 255, 0.72);
+    rgba(247, 252, 255, 0.70);
 
   border:
-    1px solid rgba(12, 148, 214, 0.43);
+    1px solid rgba(15, 143, 208, 0.34);
 
   box-shadow:
     0 3px 9px rgba(12, 135, 193, 0.08);
+
+  box-sizing: border-box;
 }
 
-.ykc2026-timeline-icon svg {
-  width: 15px;
-  height: 15px;
-}
-
-.ykc2026-timeline-line {
-  position: absolute;
-
-  left: 13px;
-  top: 27px;
-
-  width: 1px;
-  height: 7px;
-
-  background:
-    linear-gradient(
-      to bottom,
-      rgba(13, 143, 207, 0.35),
-      rgba(13, 143, 207, 0.03)
-    );
-
-  z-index: 1;
-}
-
-.ykc2026-timeline-item:last-child
-.ykc2026-timeline-line {
-  display: none;
-}
-
-.ykc2026-timeline-text {
-  min-width: 0;
-
-  display: block;
+.ykc2026-what-icon svg {
+  width: 16px;
+  height: 16px;
 }
 
 
 /* =========================================================
-   APPROACH
+   WHAT WE DO TEXT
+========================================================= */
+
+.ykc2026-what-content p {
+  width: 100%;
+
+  margin: 0;
+
+  color: #315974;
+
+  font-size: 12px;
+
+  line-height: 1.52;
+
+  font-weight: 450;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   CAPABILITY IN ACTION
 ========================================================= */
 
 .ykc2026-approach-list {
+  width: 100%;
+
   display: flex;
 
   flex-direction: column;
 
   gap: 3px;
+
+  box-sizing: border-box;
 }
 
+
+/* =========================================================
+   APPROACH ITEM
+========================================================= */
+
 .ykc2026-approach-item {
-  display: flex;
+  width: 100%;
 
-  align-items: center;
-
-  gap: 11px;
+  min-width: 0;
 
   min-height: 29px;
 
-  padding: 1px 7px 1px 2px;
+  display: grid;
+
+  grid-template-columns: 36px minmax(0, 1fr);
+
+  align-items: center;
+
+  column-gap: 12px;
+
+  padding: 0;
 
   box-sizing: border-box;
 
@@ -1263,7 +1300,7 @@
 
   font-size: 12px;
 
-  line-height: 1.25;
+  line-height: 1.3;
 
   transition:
     background 0.2s ease,
@@ -1281,9 +1318,14 @@
     translateX(3px);
 }
 
+
+/* =========================================================
+   APPROACH ICON
+========================================================= */
+
 .ykc2026-approach-icon {
-  width: 27px;
-  height: 27px;
+  width: 32px;
+  height: 32px;
 
   flex-shrink: 0;
 
@@ -1297,296 +1339,35 @@
   color: #087fc5;
 
   background:
-    rgba(247, 252, 255, 0.65);
+    rgba(247, 252, 255, 0.70);
 
   border:
     1px solid rgba(15, 143, 208, 0.34);
+
+  box-shadow:
+    0 3px 9px rgba(12, 135, 193, 0.07);
+
+  box-sizing: border-box;
 }
 
 .ykc2026-approach-icon svg {
-  width: 14px;
-  height: 14px;
+  width: 15px;
+  height: 15px;
 }
+
+
+/* =========================================================
+   APPROACH TEXT
+========================================================= */
 
 .ykc2026-approach-text {
   min-width: 0;
 
-  display: block;
-}
-
-
-/* =========================================================
-   OUTCOME
-========================================================= */
-
-.ykc2026-outcome {
-  position: relative;
-
   width: 100%;
 
-  height: 76px;
-  min-height: 76px;
+  display: block;
 
-  flex-shrink: 0;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: space-between;
-
-  gap: 16px;
-
-  margin-top: auto;
-
-  margin-bottom: 0;
-
-  padding: 10px 18px;
-
-  box-sizing: border-box;
-
-  overflow: hidden;
-
-  border-radius: 12px;
-
-  border:
-    1px solid rgba(48, 132, 180, 0.24);
-
-  border-left:
-    4px solid #0799d9;
-
-  background:
-    linear-gradient(
-      105deg,
-      rgba(255, 255, 255, 0.78),
-      rgba(231, 245, 253, 0.72)
-    );
-
-  box-shadow:
-    0 6px 20px rgba(24, 100, 142, 0.07);
-
-  backdrop-filter:
-    blur(10px);
-
-  -webkit-backdrop-filter:
-    blur(10px);
-}
-
-
-/* =========================================================
-   OUTCOME ICON
-========================================================= */
-
-.ykc2026-outcome-icon {
-  width: 42px;
-  height: 42px;
-
-  flex-shrink: 0;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 50%;
-
-  color: #ffffff;
-
-  background:
-    linear-gradient(
-      145deg,
-      #188ed7,
-      #1767bc
-    );
-
-  box-shadow:
-    0 6px 15px rgba(8, 109, 184, 0.17);
-}
-
-.ykc2026-outcome-icon svg {
-  width: 20px;
-  height: 20px;
-}
-
-
-/* =========================================================
-   OUTCOME CONTENT
-========================================================= */
-
-.ykc2026-outcome-content {
-  position: relative;
-
-  z-index: 2;
-
-  min-width: 0;
-
-  flex: 1;
-}
-
-.ykc2026-outcome-top {
-  display: flex;
-
-  align-items: center;
-
-  gap: 9px;
-
-  margin-bottom: 3px;
-}
-
-.ykc2026-outcome-number {
-  color: #078bc9;
-
-  font-size: 9.5px;
-
-  line-height: 1;
-
-  font-weight: 800;
-
-  letter-spacing: 0.08em;
-}
-
-.ykc2026-outcome-heading {
-  margin: 0;
-
-  color: #113d5b;
-
-  font-size: 10.5px;
-
-  line-height: 1;
-
-  font-weight: 800;
-
-  letter-spacing: 0.2em;
-
-  text-transform: uppercase;
-}
-
-.ykc2026-outcome-desc {
-  margin: 0;
-
-  color: #42657d;
-
-  font-size: 12px;
-
-  line-height: 1.4;
-
-  font-weight: 450;
-}
-
-
-/* =========================================================
-   READ MORE
-========================================================= */
-
-.ykc2026-read-wrapper {
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  flex-shrink: 0;
-
-  height: 100%;
-}
-
-.ykc2026-read-btn {
-  position: relative;
-
-  z-index: 5;
-
-  display: inline-flex;
-
-  align-items: center;
-  justify-content: center;
-
-  gap: 10px;
-
-  flex-shrink: 0;
-
-  min-width: 140px;
-  height: 42px;
-
-  padding: 0 20px;
-
-  box-sizing: border-box;
-
-  background:
-    linear-gradient(
-      135deg,
-      #0284c7 0%,
-      #0ea5e9 50%,
-      #38bdf8 100%
-    );
-
-  border:
-    1px solid rgba(56, 189, 248, 0.45);
-
-  border-radius: 999px;
-
-  color: #062085 !important;
-
-  font-size: 10.5px;
-
-  line-height: 1;
-
-  font-weight: 800;
-
-  letter-spacing: 0.14em;
-
-  text-transform: uppercase;
-
-  cursor: pointer;
-
-  box-shadow:
-    0 4px 16px rgba(14, 165, 233, 0.35);
-
-  transition:
-    all 0.25s
-    cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.ykc2026-read-btn:hover {
-  background:
-    linear-gradient(
-      135deg,
-      #0369a1 0%,
-      #0284c7 50%,
-      #0ea5e9 100%
-    );
-
-  border-color:
-    #38bdf8;
-
-  color: #ffffff !important;
-
-  transform:
-    translateY(-2px);
-
-  box-shadow:
-    0 8px 24px rgba(14, 165, 233, 0.55);
-}
-
-.ykc2026-button-arrow {
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  color: #ce360c;
-}
-
-.ykc2026-button-arrow svg {
-  width: 15px;
-  height: 15px;
-
-  transition:
-    transform 0.25s ease;
-}
-
-.ykc2026-read-btn:hover
-.ykc2026-button-arrow svg {
-  transform:
-    translateX(4px);
+  line-height: 1.3;
 }
 
 
@@ -1602,10 +1383,6 @@
   }
 
   .ykc2026-layout {
-    /*
-      NEVER use width: 100vw here.
-      NEVER use a negative margin.
-    */
     width: 100%;
 
     max-width: 1648px;
@@ -1672,6 +1449,10 @@
     letter-spacing: 0.055em;
   }
 
+  .ykc2026-detail-label {
+    font-size: 9px;
+  }
+
   .ykc2026-detail-title {
     font-size: 33px;
   }
@@ -1680,21 +1461,13 @@
     gap: 20px;
   }
 
-  .ykc2026-timeline-item,
+  .ykc2026-what-content p,
   .ykc2026-approach-item {
     font-size: 11px;
   }
 
   .ykc2026-context-content p {
     font-size: 11.5px;
-  }
-
-  .ykc2026-read-btn {
-    min-width: 125px;
-
-    height: 38px;
-
-    font-size: 8.5px;
   }
 }
 
@@ -1760,6 +1533,10 @@
     letter-spacing: 0.055em;
   }
 
+  .ykc2026-detail-label {
+    font-size: 9px;
+  }
+
   .ykc2026-detail-title {
     font-size: 33px;
   }
@@ -1768,21 +1545,13 @@
     gap: 20px;
   }
 
-  .ykc2026-timeline-item,
+  .ykc2026-what-content p,
   .ykc2026-approach-item {
     font-size: 11px;
   }
 
   .ykc2026-context-content p {
     font-size: 11.5px;
-  }
-
-  .ykc2026-read-btn {
-    min-width: 125px;
-
-    height: 38px;
-
-    font-size: 8.5px;
   }
 }
 
@@ -1823,26 +1592,6 @@
     height: 620px;
 
     min-height: 620px;
-  }
-
-  .ykc2026-outcome {
-    height: auto;
-
-    min-height: auto;
-
-    flex-wrap: wrap;
-
-    padding:
-      14px
-      16px;
-  }
-
-  .ykc2026-read-wrapper {
-    width: 100%;
-
-    justify-content: flex-end;
-
-    margin-top: 8px;
   }
 }
 
@@ -1970,10 +1719,15 @@
     border-radius: 21px;
   }
 
-  .ykc2026-heading {
-    gap: 10px;
 
-    margin-bottom: 9px;
+  /* =======================================================
+     MOBILE CENTERED HEADING
+  ======================================================= */
+
+  .ykc2026-heading {
+    gap: 9px;
+
+    margin-bottom: 11px;
   }
 
   .ykc2026-heading-icon {
@@ -1986,12 +1740,24 @@
     height: 21px;
   }
 
-  .ykc2026-detail-title {
-    font-size: 26px;
+  .ykc2026-detail-label {
+    margin-bottom: 7px;
 
-    line-height: 1.08;
+    font-size: 8.5px;
+
+    letter-spacing: 0.15em;
+
+    line-height: 1.25;
+  }
+
+  .ykc2026-detail-title {
+    font-size: 24px;
+
+    line-height: 1.1;
 
     white-space: normal;
+
+    max-width: 100%;
   }
 
   .ykc2026-title-line {
@@ -2000,15 +1766,10 @@
     margin-top: 9px;
   }
 
-  .ykc2026-intro {
-    min-height: 58px;
 
-    font-size: 11.7px;
-
-    line-height: 1.52;
-
-    margin-bottom: 13px;
-  }
+  /* =======================================================
+     CONTEXT
+  ======================================================= */
 
   .ykc2026-context {
     height: 100px;
@@ -2054,6 +1815,11 @@
     line-height: 1.45;
   }
 
+
+  /* =======================================================
+     MOBILE COLUMNS
+  ======================================================= */
+
   .ykc2026-columns {
     grid-template-columns: 1fr;
 
@@ -2068,35 +1834,30 @@
     margin-bottom: 8px;
   }
 
-  .ykc2026-timeline {
-    gap: 2px;
-  }
-
-  .ykc2026-timeline-item {
-    min-height: 27px;
-
-    gap: 9px;
-
+  .ykc2026-what-content p {
     font-size: 10.8px;
+
+    line-height: 1.45;
   }
 
-  .ykc2026-timeline-icon {
+  .ykc2026-what-content {
+    gap: 9px;
+  }
+
+  .ykc2026-what-icon {
     width: 24px;
     height: 24px;
   }
 
-  .ykc2026-timeline-icon svg {
+  .ykc2026-what-icon svg {
     width: 13px;
     height: 13px;
   }
 
-  .ykc2026-timeline-line {
-    left: 11px;
 
-    top: 24px;
-
-    height: 6px;
-  }
+  /* =======================================================
+     MOBILE APPROACH
+  ======================================================= */
 
   .ykc2026-approach-list {
     gap: 2px;
@@ -2125,60 +1886,6 @@
     width: 13px;
     height: 13px;
   }
-
-  .ykc2026-outcome {
-    height: auto;
-
-    min-height: auto;
-
-    gap: 10px;
-
-    padding: 12px;
-
-    border-radius: 9px;
-  }
-
-  .ykc2026-outcome-icon {
-    width: 36px;
-    height: 36px;
-  }
-
-  .ykc2026-outcome-icon svg {
-    width: 18px;
-    height: 18px;
-  }
-
-  .ykc2026-outcome-top {
-    gap: 7px;
-
-    margin-bottom: 3px;
-  }
-
-  .ykc2026-outcome-heading {
-    font-size: 9px;
-
-    letter-spacing: 0.14em;
-  }
-
-  .ykc2026-outcome-number {
-    font-size: 8px;
-  }
-
-  .ykc2026-outcome-desc {
-    font-size: 10.5px;
-
-    line-height: 1.35;
-  }
-
-  .ykc2026-read-btn {
-    min-width: 110px;
-
-    height: 36px;
-
-    font-size: 8px;
-
-    letter-spacing: 0.1em;
-  }
 }
 
 
@@ -2206,6 +1913,16 @@
     padding-left: 13px;
     padding-right: 13px;
   }
+
+  .ykc2026-detail-label {
+    font-size: 8px;
+
+    letter-spacing: 0.12em;
+  }
+
+  .ykc2026-detail-title {
+    font-size: 22px;
+  }
 }
 
 
@@ -2220,11 +1937,164 @@
   .ykc2026-tab-shine,
   .ykc2026-tab-icon,
   .ykc2026-tab-arrow,
-  .ykc2026-timeline-item,
   .ykc2026-approach-item,
-  .ykc2026-heading-icon,
-  .ykc2026-read-btn,
-  .ykc2026-button-arrow svg {
+  .ykc2026-heading-icon {
     transition: none !important;
+  }
+}
+
+
+
+
+
+/* ---------------------------------------------------------
+   LAPTOP / TABLET
+--------------------------------------------------------- */
+
+@media (max-width: 1499px) and (min-width: 901px) {
+
+  .ykc2026-panel {
+    height: 550px;
+    min-height: 0;
+  }
+
+  .ykc2026-content {
+    justify-content: center;
+  }
+
+  .ykc2026-columns {
+    height: auto;
+    min-height: 155px;
+    margin-bottom: 0;
+  }
+}
+
+
+/* ---------------------------------------------------------
+   SMALL TABLET
+--------------------------------------------------------- */
+
+@media (max-width: 900px) {
+
+  .ykc2026-panel {
+    height: auto;
+    min-height: 560px;
+  }
+
+  .ykc2026-content {
+    height: auto;
+    min-height: 100%;
+
+    justify-content: center;
+  }
+
+  .ykc2026-columns {
+    height: auto;
+    min-height: 0;
+    margin-bottom: 0;
+  }
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE
+--------------------------------------------------------- */
+
+@media (max-width: 600px) {
+
+  .ykc2026-panel {
+    height: auto;
+    min-height: 0;
+
+    /*
+     * 720px was causing the huge empty area.
+     * Let content determine the height instead.
+     */
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+
+  .ykc2026-content {
+    height: auto;
+    min-height: 0;
+
+    justify-content: flex-start;
+  }
+
+
+  /* -----------------------------------------------
+     Heading
+  ----------------------------------------------- */
+
+  .ykc2026-heading {
+    margin-bottom: 13px;
+  }
+
+
+  /* -----------------------------------------------
+     Context
+  ----------------------------------------------- */
+
+  .ykc2026-context {
+    height: auto;
+    min-height: 88px;
+
+    margin-bottom: 18px;
+  }
+
+
+  /* -----------------------------------------------
+     Columns
+  ----------------------------------------------- */
+
+  .ykc2026-columns {
+    height: auto;
+    min-height: 0;
+
+    gap: 18px;
+
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+
+  .ykc2026-what,
+  .ykc2026-approach {
+    height: auto;
+  }
+
+
+  .ykc2026-main-label {
+    margin-bottom: 9px;
+  }
+
+
+  /* -----------------------------------------------
+     Approach items
+  ----------------------------------------------- */
+
+  .ykc2026-approach-list {
+    gap: 4px;
+  }
+
+  .ykc2026-approach-item {
+    min-height: 28px;
+  }
+}
+
+
+/* ---------------------------------------------------------
+   VERY SMALL MOBILE
+--------------------------------------------------------- */
+
+@media (max-width: 400px) {
+
+  .ykc2026-panel {
+    padding-top: 22px;
+    padding-bottom: 22px;
+  }
+
+  .ykc2026-columns {
+    gap: 16px;
   }
 }

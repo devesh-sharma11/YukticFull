@@ -28,7 +28,7 @@ export default function Footer() {
             </p>
             <div className="footer-social-wrapper">
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/company/yuktic/posts/"
                 target="_blank"
                 rel="noreferrer"
                 className="footer-social-box-wide"

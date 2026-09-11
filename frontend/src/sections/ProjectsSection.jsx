@@ -9,13 +9,13 @@ const projectData = [
     num: "1",
     accentColor: "#f97316",
     category: "Recruitment / ATS",
-    title: "CandiQ — Intelligent Recruitment & Talent Platform",
+    title: "CandilQ — Intelligent Recruitment & Talent Platform",
     subtitle: "Enterprise Talent Intake & Candidate Management",
     description:
       "Candidate management, resume intake, intelligent search, scoring algorithms, and full recruiter pipeline workflows.",
     challenges: [
-      "Resume Parsing AI",
-      "Multi-Tenant Workflows",
+      "AI Resume Parsing",
+      "Multi-Tenant ",
       "High-Speed Search",
     ],
     impactStats: [
@@ -33,13 +33,13 @@ const projectData = [
     num: "2",
     accentColor: "#0284c7",
     category: "Digital Health / EHR",
-    title: "YuDi Health — Connected Healthcare & Patient Platform",
+    title: "YuDi Health — Yuktic Digital Health Platform",
     subtitle: "Clinical Care Coordination & Digital Health Concept",
     description:
       "Digital platform concept focused on connected healthcare workflows, unified patient records, and modern clinical user experience.",
     challenges: [
-      "HIPAA Compliance",
-      "FHIR / HL7 Bridges",
+      "ABHA Compliance",
+      "Clinic friendly",
       "Telehealth Streams",
     ],
     impactStats: [
@@ -57,7 +57,7 @@ const projectData = [
     num: "3",
     accentColor: "#eab308",
     category: "Custom Business Apps",
-    title: "Custom Business & Workflow Automation Apps",
+    title: "Yuktic SME Business Operating System",
     subtitle: "Web • Mobile • Workflow",
     description:
       "Bespoke applications, multi-system integrations, and specialized internal tools shaped directly around enterprise business processes.",
@@ -183,19 +183,7 @@ export default function ProjectsSection() {
 
                 </div>
 
-                <div className="project-links-v2">
-
-                  <a
-                    href={project.githubLink}
-                    aria-label="GitHub Repository"
-                    className="project-icon-v2"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <FaGithub />
-                  </a>
-
-                </div>
+               
 
               </div>
 
@@ -248,7 +236,7 @@ export default function ProjectsSection() {
                   STATS
               ================================================= */}
 
-              <div className="project-stats-v2">
+              {/* <div className="project-stats-v2">
 
                 {project.impactStats.map((stat, idx) => (
                   <div
@@ -265,24 +253,13 @@ export default function ProjectsSection() {
                   </div>
                 ))}
 
-              </div>
+              </div> */}
 
               {/* =================================================
                   TECHNOLOGIES
               ================================================= */}
 
-              <div className="project-tags-v2">
-
-                {project.tags.map((tag, idx) => (
-                  <span
-                    key={idx}
-                    className="project-tag-v2"
-                  >
-                    {tag}
-                  </span>
-                ))}
-
-              </div>
+             
 
               {/* =================================================
                   FOOTER

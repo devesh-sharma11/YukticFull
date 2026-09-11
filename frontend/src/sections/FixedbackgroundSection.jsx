@@ -4,30 +4,30 @@ import fixedImg from '../assets/fixedimage.jpg';
 
 const storyData = [
   {
-    eyebrow: 'BUILD WITH PURPOSE',
-    title: 'Your Vision.',
-    titleHighlight: 'Our Commitment.',
+    eyebrow: 'WHAT WE BELIEVE',
+    title: 'WE LEAD WITH',
+    titleHighlight: 'INTEGRITY',
     description:
-      'Every great outcome starts with a bold idea. We listen, understand, and bring the right thinking together to turn your vision into something real.',
-    meta: ['VISION', 'TRUST', 'PURPOSE'],
+      'We believe trust is built through honesty, transparency, and accountability. We do what we say, take responsibility for our decisions, and stay true to our commitments — even when the easier choice is not the right one.',
+    meta: ['HONESTY', 'ACCOUNTABILITY', 'TRUST'],
   },
 
   {
-    eyebrow: 'CREATE TOGETHER',
-    title: 'Think Beyond.',
-    titleHighlight: 'Build What Matters.',
+    eyebrow: 'WHAT WE BELIEVE',
+    title: 'WE WORK WITH',
+    titleHighlight: 'RESPECT',
     description:
-      'The best work happens when ideas are shared, challenges are embraced, and both sides move forward with one clear purpose — creating something that truly matters.',
-    meta: ['THINK', 'CREATE', 'COLLABORATE'],
+      'We believe great work begins with respect for people, ideas, and different perspectives. We listen before we act, value every contribution, and build relationships where people feel heard, trusted, and valued.',
+    meta: ['LISTEN', 'VALUE', 'COLLABORATE'],
   },
 
   {
-    eyebrow: 'MOVE FORWARD',
-    title: 'Big Challenges.',
-    titleHighlight: 'Bigger Possibilities.',
+    eyebrow: 'WHAT WE BELIEVE',
+    title: 'WE MOVE WITH',
+    titleHighlight: 'COURAGE',
     description:
-      'Whatever comes next, we are ready to build it with you. Because progress is not just about reaching the destination — it is about creating what comes after it.',
-    meta: ['CHALLENGE', 'INNOVATE', 'GROW'],
+      'We believe meaningful progress requires the courage to challenge what exists, make difficult decisions, and step into the unknown. We are willing to question, adapt, and take bold action when it creates a better path forward.',
+    meta: ['CHALLENGE', 'DECIDE', 'MOVE FORWARD'],
   },
 ];
 
@@ -114,21 +114,16 @@ const FixedbackgroundSection = () => {
             <div className="story-meta">
               {story.meta.map((item, metaIndex) => (
                 <React.Fragment key={item}>
-
                   <span>{item}</span>
 
                   {metaIndex < story.meta.length - 1 && (
                     <span className="meta-dot"></span>
                   )}
-
                 </React.Fragment>
               ))}
             </div>
 
-            
-
           </div>
-
         </div>
       ))}
 
