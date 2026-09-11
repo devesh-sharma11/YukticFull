@@ -101,10 +101,10 @@
 
     linear-gradient(
       135deg,
-      #052e68 0%,
-      #063c7e 30%,
-      #07509b 62%,
-      #145fa8 100%
+      #021632 0%,
+      #042b5b 30%,
+      #053d74 62%,
+      #0f457c 100%
     );
 
   color: #ffffff;
@@ -700,9 +700,9 @@
 
     linear-gradient(
       135deg,
-      #dceee9 0%,
-      #cfe5e3 48%,
-      #bcd9d7 100%
+      #479a66 0%,
+      #a2bebc 48%,
+      #479a66 100%
     );
 }
 
@@ -776,7 +776,7 @@
     3px;
 
   color:
-    #23715c;
+    #0e3a2e;
 }
 
 
@@ -803,19 +803,20 @@
 
 .services-intro-heading h2 span {
   color:
-    #438f82;
+    #1b3b36;
 }
 
 
 .services-intro-heading h2 span2 {
   color:
-    #5ca77b;
+    #177c41;
 
   font-weight:
     900;
 
   font-size:
     120px;
+  
 }
 
 
@@ -839,7 +840,7 @@
     1.85;
 
   color:
-    #527269;
+    #123229;
 }
 
 
@@ -873,11 +874,11 @@
 
     linear-gradient(
       135deg,
-      #c5dfe5 0%,
-      #b7d2d6 28%,
+      #00275a 0%,
+      #4f9fa9 28%,
       #8eb4bd 52%,
-      #a8c8c2 75%,
-      #cde3db 100%
+      #7dbaa4 75%,
+      #0a6543 100%
     );
 }
 
@@ -929,13 +930,13 @@
     300;
 
   color:
-    #123f4c;
+    #031d51;
 }
 
 
 .services-section-heading h2 span {
   color:
-    #4f9871;
+    #05582c;
 }
 
 
@@ -2557,7 +2558,7 @@
 
     linear-gradient(
       135deg,
-      #dceee4 0%,
+      #5aa17a 0%,
       #cce5d8 42%,
       #b2d2c1 70%,
       #8eb59f 100%
@@ -2600,13 +2601,13 @@
     300;
 
   color:
-    #123f35;
+    #0c2c25;
 }
 
 
 .capabilities-heading h2 span {
   color:
-    #4b966d;
+    #1c5f3a;
 }
 
 
@@ -3736,4 +3737,336 @@
     transition:
       none;
   }
+}
+
+
+/* =========================================================
+   STAFF + RECRUITMENT FLIP CARDS
+   SAME BACKGROUND + SAME TEXT COLOUR ON BOTH SIDES
+   ========================================================= */
+
+
+/* =========================================================
+   03 — STAFF AUGMENTATION
+   FRONT + BACK = SAME LIGHT BLUE BACKGROUND
+   ========================================================= */
+
+.service-card-staff .service-card-front,
+.service-card-staff .service-card-back {
+  background:
+    radial-gradient(
+      ellipse 70% 60% at 85% 10%,
+      rgba(125, 205, 243, 0.48),
+      transparent 65%
+    ),
+    radial-gradient(
+      ellipse 70% 80% at 5% 100%,
+      rgba(75, 150, 205, 0.27),
+      transparent 70%
+    ),
+    linear-gradient(
+      145deg,
+      #c6e1ec 0%,
+      #b5d8e6 42%,
+      #96c3d6 72%,
+      #78aabd 100%
+    );
+}
+
+
+/* ---------------------------------------------------------
+   STAFF — SAME DARK BLUE TEXT ON FRONT + BACK
+   --------------------------------------------------------- */
+
+.service-card-staff .service-card-front,
+.service-card-staff .service-card-back {
+  color: #083c65;
+}
+
+
+/* eyebrow */
+.service-card-staff .service-card-category {
+  color: #17648e !important;
+}
+
+
+/* main title */
+.service-card-staff .service-card-content h3,
+.service-card-staff .service-card-back-content h3 {
+  color: #073b61 !important;
+}
+
+
+/* subtitle / description */
+.service-card-staff .service-card-subtitle {
+  color: #35637b !important;
+}
+
+
+/* back description */
+.service-card-staff .service-card-back-content > p {
+  color: #35637b !important;
+}
+
+
+/* back points */
+.service-card-staff .service-card-point p {
+  color: #35637b !important;
+}
+
+
+/* plus icons */
+.service-card-staff .service-card-point > span {
+  color: #0750a0 !important;
+  background: rgba(235, 248, 255, 0.48);
+  border-color: rgba(7, 80, 181, 0.16);
+}
+
+
+/* hover to explore */
+.service-card-staff .service-card-flip-hint {
+  color: #35657e !important;
+  border-color: rgba(7, 80, 181, 0.15);
+}
+
+
+/* flip icon */
+.service-card-staff .service-card-flip-hint strong {
+  color: #0750a0 !important;
+  border-color: rgba(7, 80, 181, 0.16);
+}
+
+
+/* back footer */
+.service-card-staff .service-card-back-footer {
+  color: #35637b !important;
+}
+
+
+/* back arrow */
+.service-card-staff .service-card-back-icon {
+  color: #0750a0 !important;
+  border-color: rgba(7, 80, 181, 0.15);
+  background: rgba(235, 248, 255, 0.48);
+}
+
+
+/* background word */
+.service-card-staff .service-card-background span {
+  color: #1267a3 !important;
+  opacity: 0.10;
+}
+
+
+/* =========================================================
+   04 — RECRUITMENT
+   FRONT + BACK = SAME LIGHT GREEN BACKGROUND
+   ========================================================= */
+
+.service-card-recruitment .service-card-front,
+.service-card-recruitment .service-card-back {
+  background:
+    radial-gradient(
+      ellipse 70% 60% at 85% 10%,
+      rgba(145, 218, 166, 0.44),
+      transparent 65%
+    ),
+    radial-gradient(
+      ellipse 70% 80% at 5% 100%,
+      rgba(80, 159, 108, 0.23),
+      transparent 70%
+    ),
+    linear-gradient(
+      145deg,
+      #cde9d8 0%,
+      #bde0cb 42%,
+      #9bc9ae 72%,
+      #7eb294 100%
+    );
+}
+
+
+/* ---------------------------------------------------------
+   RECRUITMENT — SAME DARK GREEN TEXT ON FRONT + BACK
+   --------------------------------------------------------- */
+
+.service-card-recruitment .service-card-front,
+.service-card-recruitment .service-card-back {
+  color: #0b4934;
+}
+
+
+/* eyebrow */
+.service-card-recruitment .service-card-category {
+  color: #176046 !important;
+}
+
+
+/* main title */
+.service-card-recruitment .service-card-content h3,
+.service-card-recruitment .service-card-back-content h3 {
+  color: #0a4933 !important;
+}
+
+
+/* subtitle */
+.service-card-recruitment .service-card-subtitle {
+  color: #4f7062 !important;
+}
+
+
+/* back description */
+.service-card-recruitment .service-card-back-content > p {
+  color: #4f7062 !important;
+}
+
+
+/* back points */
+.service-card-recruitment .service-card-point p {
+  color: #4f7062 !important;
+}
+
+
+/* plus icons */
+.service-card-recruitment .service-card-point > span {
+  color: #175c42 !important;
+  background: rgba(239, 251, 243, 0.48);
+  border-color: rgba(23, 92, 66, 0.16);
+}
+
+
+/* hover to explore */
+.service-card-recruitment .service-card-flip-hint {
+  color: #527269 !important;
+  border-color: rgba(23, 92, 66, 0.15);
+}
+
+
+/* flip icon */
+.service-card-recruitment .service-card-flip-hint strong {
+  color: #175c42 !important;
+  border-color: rgba(23, 92, 66, 0.16);
+}
+
+
+/* back footer */
+.service-card-recruitment .service-card-back-footer {
+  color: #527269 !important;
+}
+
+
+/* back arrow */
+.service-card-recruitment .service-card-back-icon {
+  color: #175c42 !important;
+  border-color: rgba(23, 92, 66, 0.14);
+  background: rgba(239, 251, 243, 0.48);
+}
+
+
+/* background word */
+.service-card-recruitment .service-card-background span {
+  color: #216e4b !important;
+  opacity: 0.10;
+}
+
+
+/* =========================================================
+   IMPORTANT:
+   DO NOT FORCE WHITE TEXT ON THESE LIGHT CARDS
+   ========================================================= */
+
+.service-card-staff .service-card-back,
+.service-card-recruitment .service-card-back {
+  color: inherit;
+}
+
+.service-card-staff .service-card-back *,
+.service-card-recruitment .service-card-back * {
+  color: inherit;
+}
+
+
+/* Re-apply exact individual colours after inherit */
+.service-card-staff .service-card-back .service-card-category {
+  color: #17648e !important;
+}
+
+.service-card-staff .service-card-back .service-card-back-content h3 {
+  color: #073b61 !important;
+}
+
+.service-card-staff .service-card-back .service-card-back-content > p,
+.service-card-staff .service-card-back .service-card-point p {
+  color: #35637b !important;
+}
+
+.service-card-recruitment .service-card-back .service-card-category {
+  color: #176046 !important;
+}
+
+.service-card-recruitment .service-card-back .service-card-back-content h3 {
+  color: #0a4933 !important;
+}
+
+.service-card-recruitment .service-card-back .service-card-back-content > p,
+.service-card-recruitment .service-card-back .service-card-point p {
+  color: #4f7062 !important;
+}
+
+
+/* =========================================================
+   KEEP ORANGE ACCENT ONLY ON THE FINAL BACK ARROW
+   ========================================================= */
+
+.service-card-staff .service-card-back-footer span:last-child,
+.service-card-recruitment .service-card-back-footer span:last-child {
+  color: var(--orange) !important;
+}
+
+/* =========================================================
+   01 + 02 — FIXED COST / TIME & MATERIAL
+   FRONT TEXT = WHITE
+   ========================================================= */
+
+/* Fixed Cost */
+.service-card-fixed .service-card-front {
+  color: #ffffff;
+}
+
+.service-card-fixed .service-card-front .service-card-category,
+.service-card-fixed .service-card-front .service-card-content h3,
+.service-card-fixed .service-card-front .service-card-subtitle,
+.service-card-fixed .service-card-front .service-card-flip-hint,
+.service-card-fixed .service-card-front .service-card-arrow {
+  color: #ffffff !important;
+}
+
+.service-card-fixed .service-card-front .service-card-flip-hint {
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.service-card-fixed .service-card-front .service-card-arrow {
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+
+/* Time & Material */
+.service-card-tm .service-card-front {
+  color: #ffffff;
+}
+
+.service-card-tm .service-card-front .service-card-category,
+.service-card-tm .service-card-front .service-card-content h3,
+.service-card-tm .service-card-front .service-card-subtitle,
+.service-card-tm .service-card-front .service-card-flip-hint,
+.service-card-tm .service-card-front .service-card-arrow {
+  color: #ffffff !important;
+}
+
+.service-card-tm .service-card-front .service-card-flip-hint {
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.service-card-tm .service-card-front .service-card-arrow {
+  border-color: rgba(255, 255, 255, 0.25);
 }

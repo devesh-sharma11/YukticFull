@@ -925,7 +925,7 @@ const ServicesPage = () => {
               <h2>
                 Built around
                 <br />
-                <span>your requirements.</span>
+                <span>Your Requirements.</span>
               </h2>
             </div>
           </div>
