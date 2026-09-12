@@ -1,754 +1,260 @@
-// import React, {
-//   forwardRef,
-//   useState,
-//   useEffect,
-//   useLayoutEffect,
-//   useRef,
-// } from "react";
-
-// import Yuktic from "../assets/Yuktic.png";
-// import "../styles/navbar.css";
-// import { Link, useLocation } from "react-router-dom";
-
-
-// const Navbar = forwardRef(({ visible }, ref) => {
-
-//   /* =========================================================
-//      ROUTE
-//   ========================================================= */
-
-//   const location = useLocation();
-
-
-//   /* =========================================================
-//      SCROLL STATE
-//   ========================================================= */
-
-//   const [scrolled, setScrolled] = useState(false);
-
-
-//   /* =========================================================
-//      HOME NAVBAR HIDE
-     
-//      Navbar remains completely hidden for 5 seconds
-//      whenever Home is loaded.
-//   ========================================================= */
-
-//   const [homeLoading, setHomeLoading] = useState(
-//     location.pathname === "/"
-//   );
-
-
-//   /* =========================================================
-//      ROUTE CHANGE TIMER
-//   ========================================================= */
-
-//   const homeTimerRef = useRef(null);
-
-
-//   /* =========================================================
-//      SCROLL LISTENER
-//   ========================================================= */
-
-//   useEffect(() => {
-
-//     const handleScroll = () => {
-//       setScrolled(window.scrollY > 40);
-//     };
-
-
-//     handleScroll();
-
-
-//     window.addEventListener(
-//       "scroll",
-//       handleScroll,
-//       {
-//         passive: true,
-//       }
-//     );
-
-
-//     return () => {
-//       window.removeEventListener(
-//         "scroll",
-//         handleScroll
-//       );
-//     };
-
-//   }, []);
-
-
-//   /* =========================================================
-//      HOME PAGE 5 SECOND HIDE
-     
-//      IMPORTANT:
-     
-//      This works on:
-     
-//      1. Fresh reload on Home
-//      2. About -> Home
-//      3. Services -> Home
-//      4. Career -> Home
-//      5. Jobs -> Home
-//      6. Article -> Home
-//      7. Contact -> Home
-//   ========================================================= */
-
-//   useLayoutEffect(() => {
-
-//     /* -----------------------------------------
-//        CLEAR PREVIOUS TIMER
-//     ----------------------------------------- */
-
-//     if (homeTimerRef.current) {
-
-//       clearTimeout(homeTimerRef.current);
-
-//       homeTimerRef.current = null;
-//     }
-
-
-//     /* -----------------------------------------
-//        HOME PAGE
-//     ----------------------------------------- */
-
-//     if (location.pathname === "/") {
-
-//       /*
-//         Hide navbar immediately.
-//       */
-
-//       setHomeLoading(true);
-
-
-//       /*
-//         Keep it hidden for exactly 5 seconds.
-//       */
-
-//       homeTimerRef.current = setTimeout(() => {
-
-//         setHomeLoading(false);
-
-//         homeTimerRef.current = null;
-
-//       }, 2850);
-
-//     } else {
-
-//       /*
-//         Other pages:
-//         navbar immediately available.
-//       */
-
-//       setHomeLoading(false);
-
-//     }
-
-
-//     /* -----------------------------------------
-//        CLEANUP
-//     ----------------------------------------- */
-
-//     return () => {
-
-//       if (homeTimerRef.current) {
-
-//         clearTimeout(homeTimerRef.current);
-
-//         homeTimerRef.current = null;
-//       }
-
-//     };
-
-//   }, [location.pathname]);
-
-
-//   /* =========================================================
-//      FINAL NAVBAR VISIBILITY
-     
-//      Hidden when:
-     
-//      - parent says visible=false
-//      OR
-//      - Home is still in its 5 second loading period
-//   ========================================================= */
-
-//   const shouldHideNavbar =
-//     !visible ||
-//     homeLoading;
-
-
-//   /* =========================================================
-//      NAVBAR CLASS
-//   ========================================================= */
-
-//   const navbarClassName = [
-//     "navbar",
-
-//     shouldHideNavbar
-//       ? "navbar-hidden"
-//       : "navbar-visible",
-
-//     scrolled
-//       ? "navbar-scrolled"
-//       : "",
-
-//   ]
-//     .filter(Boolean)
-//     .join(" ");
-
-
-//   /* =========================================================
-//      RENDER
-//   ========================================================= */
-
-//   return (
-
-//     <header
-//       ref={ref}
-//       className={navbarClassName}
-//     >
-
-//       <div className="navbar-container">
-
-
-//         {/* =====================================================
-//             LOGO
-//         ===================================================== */}
-
-//         <Link
-//           to="/"
-//           className="navbar-logo"
-//           aria-label="Yuktic Home"
-//         >
-
-//           <img
-//             src={Yuktic}
-//             alt="Yuktic"
-//           />
-
-//         </Link>
-
-
-//         {/* =====================================================
-//             NAVIGATION
-//         ===================================================== */}
-
-      
-// <nav
-//   className="navbar-links"
-//   aria-label="Main navigation"
-// >
-//   <Link
-//     to="/"
-//     className={location.pathname === "/" ? "active" : ""}
-//   >
-//     Home
-//   </Link>
-
-
-//   <Link
-//     to="/services"
-//     className={location.pathname === "/services" ? "active" : ""}
-//   >
-//     Services
-//   </Link>
-
-  
-//   <Link
-//     to="/project"
-//     className={location.pathname === "/project" ? "active" : ""}
-//   >
-//     Project
-//   </Link>
-
-//   <Link
-//     to="/jobs"
-//     className={location.pathname === "/jobs" ? "active" : ""}
-//   >
-//     Jobs
-//   </Link>
-
-//   <Link
-//     to="/article"
-//     className={location.pathname === "/article" ? "active" : ""}
-//   >
-//     Article
-//   </Link>
-
-//   <Link
-//     to="/contact"
-//     className={location.pathname === "/contact" ? "active" : ""}
-//   >
-//     Contact
-//   </Link>
-// </nav>
-
-
-
-
-//         {/* =====================================================
-//             MOBILE MENU
-//         ===================================================== */}
-
-//         <button
-//           className="navbar-menu-button"
-//           aria-label="Open navigation menu"
-//           type="button"
-//         >
-
-//           <span></span>
-//           <span></span>
-//           <span></span>
-
-//         </button>
-
-
-//       </div>
-
-//     </header>
-
-//   );
-
-// });
-
-
-// Navbar.displayName = "Navbar";
-
-
-// export default Navbar;
-
-
-
-
-
-
-
-
 import React, {
   forwardRef,
   useState,
   useEffect,
-  useLayoutEffect,
   useRef,
+  useCallback,
 } from "react";
-
+import { Link, useLocation } from "react-router-dom";
 import Yuktic from "../assets/Yuktic.png";
 import "../styles/navbar.css";
-import { Link, useLocation } from "react-router-dom";
 
-const Navbar = forwardRef(({ visible }, ref) => {
-  /* =========================================================
-     ROUTE
-  ========================================================= */
+const NAVIGATION_ITEMS = [
+  { label: "Services", path: "/services" },
+  { label: "Projects", path: "/project" },
+  { label: "Careers", path: "/jobs" },
+  { label: "Articles", path: "/article" },
+];
 
+const Navbar = forwardRef(({ visible = true }, ref) => {
   const location = useLocation();
 
-  /* =========================================================
-     SCROLL STATE
-  ========================================================= */
-
   const [scrolled, setScrolled] = useState(false);
-
-  /* =========================================================
-     MOBILE MENU STATE
-  ========================================================= */
-
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
 
-  /* =========================================================
-     HOME LOADING STATE
+  const [pillStyle, setPillStyle] = useState({ opacity: 0, left: 0, width: 0 });
+  const navTrackRef = useRef(null);
 
-     Navbar stays hidden when Home is loaded.
-  ========================================================= */
-
-  const [homeLoading, setHomeLoading] = useState(
-    location.pathname === "/"
-  );
-
-  /* =========================================================
-     HOME TIMER
-  ========================================================= */
-
-  const homeTimerRef = useRef(null);
-
-  /* =========================================================
-     MOBILE MENU ID
-  ========================================================= */
-
-  const mobileMenuId = "mobile-navigation-menu";
-
-  /* =========================================================
-     NAVIGATION ITEMS
-  ========================================================= */
-
-  const navigationItems = [
-    {
-      label: "Home",
-      path: "/",
-    },
-    {
-      label: "Services",
-      path: "/services",
-    },
-    {
-      label: "Project",
-      path: "/project",
-    },
-    {
-      label: "Jobs",
-      path: "/jobs",
-    },
-    {
-      label: "Article",
-      path: "/article",
-    },
-    {
-      label: "Contact",
-      path: "/contact",
-      isContact: true,
-    },
-  ];
-
-  /* =========================================================
-     SCROLL LISTENER
-  ========================================================= */
-
+  // Close drawer on path change
   useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [location.pathname]);
+
+  // Initial glide expand
+  useEffect(() => {
+    if (!visible) return;
+    const timer = setTimeout(() => setIsExpanded(true), 400);
+    return () => clearTimeout(timer);
+  }, [visible]);
+
+  // Scroll listener
+  useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      setScrolled(window.scrollY > 40);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 20);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
     handleScroll();
-
-    window.addEventListener("scroll", handleScroll, {
-      passive: true,
-    });
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  /* =========================================================
-     HOME PAGE HIDE TIMER
-  ========================================================= */
-
-  useLayoutEffect(() => {
-    /* -----------------------------------------
-       CLEAR PREVIOUS TIMER
-    ----------------------------------------- */
-
-    if (homeTimerRef.current) {
-      clearTimeout(homeTimerRef.current);
-      homeTimerRef.current = null;
-    }
-
-    /* -----------------------------------------
-       HOME PAGE
-    ----------------------------------------- */
-
-    if (location.pathname === "/") {
-      setHomeLoading(true);
-
-      homeTimerRef.current = setTimeout(() => {
-        setHomeLoading(false);
-        homeTimerRef.current = null;
-      }, 2850);
+  // Desktop active pill position
+  const updatePillToActive = useCallback(() => {
+    if (!navTrackRef.current) return;
+    const activeEl = navTrackRef.current.querySelector(".navbar-link.active");
+    if (activeEl) {
+      const trackRect = navTrackRef.current.getBoundingClientRect();
+      const elRect = activeEl.getBoundingClientRect();
+      setPillStyle({
+        opacity: 1,
+        left: elRect.left - trackRect.left,
+        width: elRect.width,
+      });
     } else {
-      setHomeLoading(false);
+      setPillStyle((prev) => ({ ...prev, opacity: 0 }));
     }
+  }, []);
 
-    /* -----------------------------------------
-       CLOSE MOBILE MENU ON ROUTE CHANGE
-    ----------------------------------------- */
+  useEffect(() => {
+    if (isExpanded) {
+      const timeout = setTimeout(updatePillToActive, 100);
+      return () => clearTimeout(timeout);
+    }
+  }, [location.pathname, isExpanded, updatePillToActive]);
 
-    setMobileMenuOpen(false);
+  const handleLinkHover = (e) => {
+    if (!navTrackRef.current) return;
+    const trackRect = navTrackRef.current.getBoundingClientRect();
+    const elRect = e.currentTarget.getBoundingClientRect();
+    setPillStyle({
+      opacity: 1,
+      left: elRect.left - trackRect.left,
+      width: elRect.width,
+    });
+  };
 
-    /* -----------------------------------------
-       CLEANUP
-    ----------------------------------------- */
-
-    return () => {
-      if (homeTimerRef.current) {
-        clearTimeout(homeTimerRef.current);
-        homeTimerRef.current = null;
-      }
-    };
-  }, [location.pathname]);
-
-  /* =========================================================
-     MOBILE BODY SCROLL LOCK
-  ========================================================= */
-
+  // Lock body scroll on mobile
   useEffect(() => {
     if (mobileMenuOpen) {
       document.body.style.overflow = "hidden";
+      const handleKeyDown = (e) => {
+        if (e.key === "Escape") setMobileMenuOpen(false);
+      };
+      document.addEventListener("keydown", handleKeyDown);
+      return () => {
+        document.body.style.overflow = "";
+        document.removeEventListener("keydown", handleKeyDown);
+      };
     } else {
       document.body.style.overflow = "";
     }
-
-    return () => {
-      document.body.style.overflow = "";
-    };
   }, [mobileMenuOpen]);
 
-  /* =========================================================
-     ESCAPE KEY
-  ========================================================= */
+  const isActiveRoute = useCallback(
+    (path) => location.pathname === path,
+    [location.pathname]
+  );
 
-  useEffect(() => {
-    const handleKeyDown = (event) => {
-      if (event.key === "Escape") {
-        setMobileMenuOpen(false);
-      }
-    };
-
-    if (mobileMenuOpen) {
-      document.addEventListener("keydown", handleKeyDown);
-    }
-
-    return () => {
-      document.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [mobileMenuOpen]);
-
-  /* =========================================================
-     TOGGLE MOBILE MENU
-  ========================================================= */
-
-  const toggleMobileMenu = () => {
-    setMobileMenuOpen((previous) => !previous);
-  };
-
-  /* =========================================================
-     CLOSE MOBILE MENU
-  ========================================================= */
-
-  const closeMobileMenu = () => {
+  const closeMobileMenu = useCallback(() => {
     setMobileMenuOpen(false);
-  };
+  }, []);
 
-  /* =========================================================
-     CHECK ACTIVE ROUTE
-  ========================================================= */
-
-  const isActiveRoute = (path) => {
-    if (path === "/") {
-      return location.pathname === "/";
+  const handleLogoClick = useCallback(() => {
+    closeMobileMenu();
+    if (location.pathname === "/") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
+  }, [location.pathname, closeMobileMenu]);
 
-    return location.pathname === path;
-  };
-
-  /* =========================================================
-     FINAL NAVBAR VISIBILITY
-  ========================================================= */
-
-  const shouldHideNavbar =
-    !visible ||
-    homeLoading;
-
-  /* =========================================================
-     NAVBAR CLASS
-  ========================================================= */
-
-  const navbarClassName = [
-    "navbar",
-
-    shouldHideNavbar
-      ? "navbar-hidden"
-      : "navbar-visible",
-
-    scrolled
-      ? "navbar-scrolled"
-      : "",
-
-    mobileMenuOpen
-      ? "navbar-menu-open"
-      : "",
-  ]
-    .filter(Boolean)
-    .join(" ");
-
-  /* =========================================================
-     RENDER
-  ========================================================= */
+  if (!visible) return null;
 
   return (
     <header
       ref={ref}
-      className={navbarClassName}
+      className={`navbar ${scrolled ? "navbar-scrolled" : ""} ${
+        isExpanded ? "navbar-expanded" : "navbar-collapsed"
+      }`}
     >
+      <div className="navbar-shell">
+        <div className="navbar-ambient-aura" aria-hidden="true" />
 
-      <div className="navbar-container">
+        <div className="navbar-container">
+          <Link
+            to="/"
+            className="navbar-brand"
+            aria-label="Yuktic Homepage"
+            onClick={handleLogoClick}
+          >
+            <div className="logo-pod">
+              <img
+                src={Yuktic}
+                alt="Yuktic"
+                className="navbar-logo-img"
+                loading="eager"
+              />
+            </div>
+            <span className="brand-name">YUKTIC</span>
+          </Link>
 
-        {/* =====================================================
-            LOGO
-        ===================================================== */}
-
-        <Link
-          to="/"
-          className="navbar-logo"
-          aria-label="Yuktic Home"
-          onClick={closeMobileMenu}
-        >
-          <img
-            src={Yuktic}
-            alt="Yuktic"
-          />
-        </Link>
-
-
-        {/* =====================================================
-            DESKTOP NAVIGATION
-        ===================================================== */}
-
-        <nav
-          className="navbar-links"
-          aria-label="Main navigation"
-        >
-
-          {navigationItems.map((item) => (
-            <Link
-              key={item.path}
-              to={item.path}
-              className={[
-                isActiveRoute(item.path)
-                  ? "active"
-                  : "",
-
-                item.isContact
-                  ? "contact-link"
-                  : "",
-              ]
-                .filter(Boolean)
-                .join(" ")}
+          {/* Desktop Links */}
+          <nav className="navbar-links" aria-label="Main navigation">
+            <div
+              className="links-track"
+              ref={navTrackRef}
+              onMouseLeave={updatePillToActive}
             >
-              {item.label}
+              <div
+                className="magic-pill"
+                style={{
+                  transform: `translateX(${pillStyle.left}px)`,
+                  width: `${pillStyle.width}px`,
+                  opacity: pillStyle.opacity,
+                }}
+              />
+
+              {NAVIGATION_ITEMS.map((item) => {
+                const active = isActiveRoute(item.path);
+                return (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    className={`navbar-link ${active ? "active" : ""}`}
+                    onMouseEnter={handleLinkHover}
+                  >
+                    <span className="link-text">{item.label}</span>
+                  </Link>
+                );
+              })}
+            </div>
+          </nav>
+
+          {/* CTA + Mobile Toggle */}
+          <div className="navbar-actions">
+            <Link
+              to="/contact"
+              className={`navbar-cta ${isActiveRoute("/contact") ? "active" : ""}`}
+              onClick={closeMobileMenu}
+            >
+              <span className="cta-border-sheen" />
+              <span className="cta-content">
+                
+                <span>Contact</span>
+               
+              </span>
             </Link>
-          ))}
 
-        </nav>
-
-
-        {/* =====================================================
-            MOBILE MENU BUTTON
-        ===================================================== */}
-
-        <button
-          className={[
-            "navbar-menu-button",
-            mobileMenuOpen
-              ? "is-open"
-              : "",
-          ]
-            .filter(Boolean)
-            .join(" ")}
-          aria-label={
-            mobileMenuOpen
-              ? "Close navigation menu"
-              : "Open navigation menu"
-          }
-          aria-expanded={mobileMenuOpen}
-          aria-controls={mobileMenuId}
-          type="button"
-          onClick={toggleMobileMenu}
-        >
-
-          <span></span>
-          <span></span>
-          <span></span>
-
-        </button>
-
+            <button
+              type="button"
+              className={`navbar-hamburger ${mobileMenuOpen ? "is-open" : ""}`}
+              aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={mobileMenuOpen}
+              onClick={() => setMobileMenuOpen((prev) => !prev)}
+            >
+              <div className="hamburger-box">
+                <span className="hamburger-line line-1" />
+                <span className="hamburger-line line-2" />
+              </div>
+            </button>
+          </div>
+        </div>
       </div>
 
-
-      {/* =======================================================
-          MOBILE MENU
-      ======================================================= */}
-
-      <div
-        id={mobileMenuId}
-        className={[
-          "mobile-navigation",
-          mobileMenuOpen
-            ? "mobile-navigation-open"
-            : "",
-        ]
-          .filter(Boolean)
-          .join(" ")}
-      >
-
-        {/* =====================================================
-            MOBILE BACKDROP
-        ===================================================== */}
-
-        <button
-          className="mobile-navigation-backdrop"
-          type="button"
-          aria-label="Close navigation menu"
+      {/* Clean Mobile Card (Zero extra full-screen blue overlay) */}
+      <div className={`mobile-navigation ${mobileMenuOpen ? "open" : ""}`}>
+        <div
+          className="mobile-backdrop"
+          aria-hidden="true"
           onClick={closeMobileMenu}
         />
-
-
-        {/* =====================================================
-            MOBILE PANEL
-        ===================================================== */}
-
-        <div className="mobile-navigation-panel">
-
-          <nav
-            className="mobile-navigation-links"
-            aria-label="Mobile navigation"
-          >
-
-            {navigationItems.map((item) => (
+        <div className="mobile-panel">
+          <nav className="mobile-links">
+            {NAVIGATION_ITEMS.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
-                className={[
-                  isActiveRoute(item.path)
-                    ? "active"
-                    : "",
-
-                  item.isContact
-                    ? "contact-link"
-                    : "",
-                ]
-                  .filter(Boolean)
-                  .join(" ")}
+                className={`mobile-link-item ${isActiveRoute(item.path) ? "active" : ""}`}
                 onClick={closeMobileMenu}
               >
-
-                <span>
-                  {item.label}
-                </span>
-
-                {!item.isContact && (
-                  <span
-                    className="mobile-link-arrow"
-                    aria-hidden="true"
-                  >
-                    →
-                  </span>
-                )}
-
+                <span className="mobile-item-title">{item.label}</span>
+                
+                <span className="mobile-item-arrow" aria-hidden="true"></span>
               </Link>
             ))}
-
           </nav>
 
+          <div className="mobile-footer">
+            <Link
+              to="/contact"
+              className="mobile-primary-action"
+              onClick={closeMobileMenu}
+            >
+              <span>Contact Us</span>
+              <span className="btn-icon">→</span>
+            </Link>
+          </div>
         </div>
-
       </div>
-
     </header>
   );
 });
 
 Navbar.displayName = "Navbar";
-
 export default Navbar;

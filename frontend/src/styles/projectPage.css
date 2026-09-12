@@ -47,35 +47,6 @@
 }
 
 
-/* =========================================================
-   PROJECT PAGE — NAVBAR
-   Only active while ProjectPage is mounted
-   ========================================================= */
-
-body.project-page-active nav,
-body.project-page-active .navbar,
-body.project-page-active .nav,
-body.project-page-active header {
-  text-shadow: none !important;
-}
-
-body.project-page-active nav button,
-body.project-page-active nav span,
-body.project-page-active nav li,
-body.project-page-active .navbar a,
-body.project-page-active .navbar button,
-body.project-page-active .nav-link {
-  color: #123f6b !important;
-
-  text-shadow: none !important;
-}
-
-body.project-page-active .navbar-brand,
-body.project-page-active .navbar-logo-text {
-  color: #123f6b !important;
-
-  text-shadow: none !important;
-}
 
 
 /* =========================================================

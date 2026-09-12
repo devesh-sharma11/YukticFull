@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap");
 
+
 /* =========================================================
    PAGE
 ========================================================= */
@@ -13,34 +14,35 @@
 
   font-family: "Comfortaa", sans-serif;
 
-  color: #173f50;
+  color: #dceeff;
 
   background:
     radial-gradient(
       circle at 8% 8%,
-      rgba(170, 220, 241, 0.72),
+      rgba(45, 115, 170, 0.32),
       transparent 30%
     ),
     radial-gradient(
       circle at 92% 12%,
-      rgba(191, 231, 211, 0.76),
+      rgb(3, 16, 27),
       transparent 30%
     ),
     radial-gradient(
       circle at 80% 75%,
-      rgba(186, 224, 237, 0.68),
+      rgba(35, 105, 160, 0.25),
       transparent 34%
     ),
     radial-gradient(
       circle at 10% 85%,
-      rgba(202, 235, 215, 0.72),
+      rgba(50, 125, 180, 0.20),
       transparent 32%
     ),
     linear-gradient(
       135deg,
-      #f4fbfd 0%,
-      #edf8f5 48%,
-      #f5fbf8 100%
+      #09243a 0%,
+      #0b2d47 45%,
+      #0d3551 72%,
+      #0a2941 100%
     );
 }
 
@@ -54,6 +56,7 @@
 .articles-page i {
   font-style: normal !important;
 }
+
 
 /* =========================================================
    BACKGROUND
@@ -70,6 +73,7 @@
 
   pointer-events: none;
 }
+
 
 /* =========================================================
    BIG FILLED CIRCLES
@@ -91,10 +95,11 @@
   top: -300px;
 
   background:
-    rgba(112, 190, 221, 0.17);
+    rgba(71, 157, 214, 0.12);
 
   border:
-    1px solid rgba(48, 119, 151, 0.20);
+    1px solid
+    rgba(105, 190, 235, 0.20);
 }
 
 .bg-circle-2 {
@@ -105,7 +110,8 @@
   top: -430px;
 
   border:
-    2px solid rgba(48, 119, 151, 0.15);
+    2px solid
+    rgba(85, 168, 218, 0.16);
 }
 
 .bg-circle-3 {
@@ -116,7 +122,8 @@
   top: -580px;
 
   border:
-    1px solid rgba(48, 119, 151, 0.12);
+    1px solid
+    rgba(76, 157, 207, 0.12);
 }
 
 .bg-circle-4 {
@@ -127,10 +134,11 @@
   top: 240px;
 
   background:
-    rgba(126, 198, 163, 0.16);
+    rgba(51, 129, 181, 0.12);
 
   border:
-    1px solid rgba(62, 139, 105, 0.17);
+    1px solid
+    rgba(91, 176, 224, 0.16);
 }
 
 .bg-circle-5 {
@@ -141,8 +149,10 @@
   top: 90px;
 
   border:
-    1px solid rgba(62, 139, 105, 0.13);
+    1px solid
+    rgba(77, 158, 208, 0.12);
 }
+
 
 /* =========================================================
    LARGE RINGS
@@ -168,7 +178,8 @@
   transform: translateX(-50%);
 
   border:
-    2px solid rgba(43, 112, 137, 0.16);
+    2px solid
+    rgba(91, 176, 224, 0.14);
 }
 
 .bg-ring-2 {
@@ -181,7 +192,8 @@
   transform: translateX(-50%);
 
   border:
-    1px solid rgba(43, 112, 137, 0.13);
+    1px solid
+    rgba(79, 160, 211, 0.12);
 }
 
 .bg-ring-3 {
@@ -196,7 +208,8 @@
     rotate(-7deg);
 
   border:
-    2px solid rgba(66, 148, 130, 0.11);
+    2px solid
+    rgba(72, 153, 207, 0.10);
 }
 
 .bg-ring-4 {
@@ -211,8 +224,10 @@
     rotate(7deg);
 
   border:
-    1px solid rgba(58, 139, 151, 0.11);
+    1px solid
+    rgba(80, 164, 216, 0.09);
 }
+
 
 /* =========================================================
    DOTS
@@ -227,11 +242,11 @@
   right: 4%;
   top: 80px;
 
-  opacity: 0.55;
+  opacity: 0.40;
 
   background-image:
     radial-gradient(
-      rgba(39, 107, 128, 0.28) 1.2px,
+      rgba(119, 197, 239, 0.34) 1.2px,
       transparent 1.2px
     );
 
@@ -244,6 +259,7 @@
       transparent 78%
     );
 }
+
 
 /* =========================================================
    CONTENT
@@ -266,6 +282,7 @@
     0
     90px;
 }
+
 
 /* =========================================================
    INTRO
@@ -294,14 +311,14 @@
 
   border:
     1px solid
-    rgba(42, 111, 136, 0.28);
+    rgba(100, 190, 235, 0.30);
 
   border-radius: 100px;
 
   background:
-    rgba(255, 255, 255, 0.62);
+    rgba(22, 67, 96, 0.68);
 
-  color: #255d70;
+  color: #91d4f4;
 
   font-size: 11px;
 
@@ -311,9 +328,9 @@
 
   box-shadow:
     0 8px 30px
-    rgba(44, 111, 130, 0.08);
+    rgba(0, 20, 40, 0.25);
 
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
 }
 
 .articles-intro h1 {
@@ -322,7 +339,7 @@
     0
     25px;
 
-  color: #173f50;
+  color: #e6f5ff;
 
   font-size:
     clamp(
@@ -339,7 +356,7 @@
 }
 
 .articles-intro h1 span {
-  color: #4f9484;
+  color: #6fbfe9;
 }
 
 .articles-intro p {
@@ -347,12 +364,13 @@
 
   margin: 0 auto;
 
-  color: #587682;
+  color: #a7c9dc;
 
   font-size: 18px;
 
   line-height: 1.8;
 }
+
 
 /* =========================================================
    STATES
@@ -371,7 +389,7 @@
 
   text-align: center;
 
-  color: #55727d;
+  color: #9fc2d5;
 }
 
 .articles-state p {
@@ -384,7 +402,7 @@
     0
     8px;
 
-  color: #173f50;
+  color: #e0f2ff;
 
   font-size: 24px;
 }
@@ -397,10 +415,10 @@
 
   border:
     3px solid
-    rgba(38, 105, 128, 0.13);
+    rgba(93, 176, 222, 0.15);
 
   border-top-color:
-    #276d84;
+    #67bee9;
 
   border-radius: 50%;
 
@@ -430,14 +448,20 @@
 
   border-radius: 50%;
 
-  background: #d9eee8;
+  background:
+    rgba(63, 133, 174, 0.25);
 
-  color: #277260;
+  color: #8dd4f5;
 
   font-size: 22px;
 
   font-weight: 700;
+
+  border:
+    1px solid
+    rgba(102, 191, 233, 0.18);
 }
+
 
 /* =========================================================
    FEATURED ARTICLE
@@ -458,19 +482,24 @@
 
   border:
     1px solid
-    rgba(47, 119, 139, 0.17);
+    rgba(93, 174, 220, 0.20);
 
   border-radius: 34px;
 
   background:
-    rgba(255, 255, 255, 0.67);
+    linear-gradient(
+      135deg,
+      rgba(18, 57, 82, 0.82),
+      rgba(14, 49, 73, 0.78)
+    );
 
   box-shadow:
     0 28px 80px
-    rgba(37, 100, 119, 0.13);
+    rgba(0, 15, 30, 0.35);
 
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(16px);
 }
+
 
 /* =========================================================
    FEATURED CONTENT
@@ -501,7 +530,7 @@
 
   margin-bottom: 23px;
 
-  color: #66828c;
+  color: #82aabd;
 
   font-size: 10px;
 
@@ -511,7 +540,7 @@
 }
 
 .featured-meta span:first-child {
-  color: #2f796c;
+  color: #71c3eb;
 }
 
 .featured-meta i {
@@ -520,7 +549,7 @@
 
   border-radius: 50%;
 
-  background: #8da9a9;
+  background: #56869f;
 }
 
 .featured-content h2 {
@@ -529,7 +558,7 @@
     0
     23px;
 
-  color: #173f50;
+  color: #e5f5ff;
 
   font-size:
     clamp(
@@ -550,12 +579,13 @@
 
   margin: 0;
 
-  color: #5d7883;
+  color: #a9c8d9;
 
   font-size: 18px;
 
   line-height: 1.8;
 }
+
 
 /* =========================================================
    FEATURED IMAGE
@@ -573,8 +603,8 @@
   background:
     linear-gradient(
       135deg,
-      #d7edf7,
-      #dcefe5
+      #174c70,
+      #246d96
     );
 }
 
@@ -596,6 +626,7 @@
   transform: scale(1.04);
 }
 
+
 /* =========================================================
    FEATURED PLACEHOLDER
 ========================================================= */
@@ -611,13 +642,13 @@
   background:
     radial-gradient(
       circle at 30% 25%,
-      rgba(255,255,255,0.95),
+      rgba(125, 203, 239, 0.24),
       transparent 24%
     ),
     linear-gradient(
       135deg,
-      #d8edf7,
-      #dcefe5
+      #174b6d,
+      #205e82
     );
 }
 
@@ -628,7 +659,7 @@
 
   border:
     2px solid
-    rgba(39, 109, 132, 0.20);
+    rgba(111, 196, 235, 0.22);
 
   border-radius: 50%;
 }
@@ -649,7 +680,7 @@
   top: -70px;
 
   border-color:
-    rgba(39, 109, 132, 0.14);
+    rgba(104, 186, 226, 0.15);
 }
 
 .placeholder-three {
@@ -660,10 +691,10 @@
   bottom: 65px;
 
   border-color:
-    rgba(45, 130, 105, 0.20);
+    rgba(125, 207, 242, 0.20);
 
   background:
-    rgba(255,255,255,0.20);
+    rgba(92, 173, 215, 0.12);
 }
 
 .placeholder-label {
@@ -677,7 +708,7 @@
   justify-content: center;
 
   color:
-    rgba(31, 83, 101, 0.65);
+    rgba(177, 222, 242, 0.68);
 
   font-size: 13px;
 
@@ -685,6 +716,7 @@
 
   letter-spacing: 5px;
 }
+
 
 /* =========================================================
    ARTICLES SECTION
@@ -703,7 +735,7 @@
 
   margin-bottom: 14px;
 
-  color: #337a6d;
+  color: #6ebce3;
 
   font-size: 11px;
 
@@ -715,7 +747,7 @@
 .section-heading h2 {
   margin: 0;
 
-  color: #173f50;
+  color: #e4f4ff;
 
   font-size:
     clamp(
@@ -732,8 +764,9 @@
 }
 
 .section-heading h2 span {
-  color: #4f9484;
+  color: #70bee7;
 }
+
 
 /* =========================================================
    ARTICLE GRID
@@ -751,6 +784,7 @@
   gap: 32px;
 }
 
+
 /* =========================================================
    ARTICLE CARD
 ========================================================= */
@@ -762,16 +796,20 @@
 
   border:
     1px solid
-    rgba(46, 117, 137, 0.15);
+    rgba(92, 174, 220, 0.17);
 
   border-radius: 30px;
 
   background:
-    rgba(255, 255, 255, 0.78);
+    linear-gradient(
+      145deg,
+      rgba(20, 62, 88, 0.84),
+      rgba(15, 52, 77, 0.88)
+    );
 
   box-shadow:
     0 22px 65px
-    rgba(39, 103, 121, 0.11);
+    rgba(0, 15, 30, 0.30);
 
   cursor: pointer;
 
@@ -781,6 +819,9 @@
     ease,
     box-shadow
     0.35s
+    ease,
+    border-color
+    0.35s
     ease;
 }
 
@@ -788,10 +829,14 @@
   transform:
     translateY(-8px);
 
+  border-color:
+    rgba(105, 193, 235, 0.28);
+
   box-shadow:
     0 32px 80px
-    rgba(39, 103, 121, 0.16);
+    rgba(0, 17, 33, 0.40);
 }
+
 
 /* =========================================================
    CARD IMAGE
@@ -807,8 +852,8 @@
   background:
     linear-gradient(
       135deg,
-      #dceff7,
-      #e0f2e9
+      #164968,
+      #21658a
     );
 }
 
@@ -831,6 +876,7 @@
   transform: scale(1.045);
 }
 
+
 /* =========================================================
    CARD NUMBER
 ========================================================= */
@@ -849,12 +895,16 @@
   align-items: center;
   justify-content: center;
 
+  border:
+    1px solid
+    rgba(135, 211, 243, 0.22);
+
   border-radius: 50%;
 
   background:
-    rgba(255, 255, 255, 0.86);
+    rgba(15, 55, 79, 0.82);
 
-  color: #235b70;
+  color: #9cdbf5;
 
   font-size: 12px;
 
@@ -862,10 +912,11 @@
 
   box-shadow:
     0 8px 25px
-    rgba(34, 94, 111, 0.12);
+    rgba(0, 18, 34, 0.28);
 
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(10px);
 }
+
 
 /* =========================================================
    CARD PLACEHOLDER
@@ -885,7 +936,7 @@
   overflow: hidden;
 
   color:
-    rgba(35, 91, 110, 0.58);
+    rgba(163, 215, 238, 0.62);
 
   font-size: 12px;
 
@@ -899,7 +950,7 @@
 
   border:
     2px solid
-    rgba(40, 111, 132, 0.18);
+    rgba(101, 190, 232, 0.19);
 
   border-radius: 50%;
 }
@@ -920,7 +971,7 @@
   top: -160px;
 
   border-color:
-    rgba(40, 111, 132, 0.13);
+    rgba(92, 174, 220, 0.13);
 }
 
 .mini-three {
@@ -931,11 +982,12 @@
   bottom: 45px;
 
   border-color:
-    rgba(49, 133, 108, 0.20);
+    rgba(111, 198, 235, 0.20);
 
   background:
-    rgba(255,255,255,0.20);
+    rgba(99, 183, 222, 0.10);
 }
+
 
 /* =========================================================
    CARD CONTENT
@@ -959,7 +1011,7 @@
 
   margin-bottom: 17px;
 
-  color: #728b94;
+  color: #7fa6ba;
 
   font-size: 10px;
 
@@ -969,7 +1021,7 @@
 }
 
 .card-meta span:first-child {
-  color: #317a6c;
+  color: #70bee6;
 }
 
 .card-meta i {
@@ -978,7 +1030,7 @@
 
   border-radius: 50%;
 
-  background: #9bb3b3;
+  background: #557f94;
 }
 
 .card-content h3 {
@@ -987,7 +1039,7 @@
     0
     17px;
 
-  color: #173f50;
+  color: #e1f3ff;
 
   font-size: 30px;
 
@@ -998,17 +1050,21 @@
   letter-spacing: -0.8px;
 }
 
-/* REAL DESCRIPTION ONLY */
+
+/* =========================================================
+   REAL DESCRIPTION ONLY
+========================================================= */
 
 .card-content p {
   margin: 0;
 
-  color: #5f7984;
+  color: #a5c5d7;
 
   font-size: 17px;
 
   line-height: 1.75;
 }
+
 
 /* =========================================================
    CARD FOOTER
@@ -1021,14 +1077,15 @@
 
   border-top:
     1px solid
-    rgba(48, 116, 132, 0.13);
+    rgba(90, 169, 213, 0.14);
 
-  color: #557a86;
+  color: #7ea7ba;
 
   font-size: 11px;
 
   font-weight: 600;
 }
+
 
 /* =========================================================
    REMOVE BUTTON-LIKE ELEMENTS
@@ -1043,11 +1100,13 @@
   display: none !important;
 }
 
+
 /* =========================================================
    RESPONSIVE
 ========================================================= */
 
 @media (max-width: 1000px) {
+
   .articles-content {
     width: min(
       92%,
@@ -1082,11 +1141,13 @@
   }
 }
 
+
 /* =========================================================
    MOBILE
 ========================================================= */
 
 @media (max-width: 650px) {
+
   .articles-content {
     width:
       calc(100% - 30px);
@@ -1183,7 +1244,10 @@
     line-height: 1.7;
   }
 
-  /* Keep circles visible on mobile */
+
+  /* =====================================================
+     KEEP CIRCLES VISIBLE ON MOBILE
+  ===================================================== */
 
   .bg-circle-1 {
     width: 450px;
@@ -1261,29 +1325,30 @@
   background:
     radial-gradient(
       circle at 10% 45%,
-      rgba(156, 214, 238, 0.58),
+      rgba(57, 139, 194, 0.25),
       transparent 34%
     ),
     radial-gradient(
       circle at 90% 60%,
-      rgba(168, 222, 193, 0.58),
+      rgba(79, 164, 214, 0.20),
       transparent 34%
     ),
     linear-gradient(
       135deg,
-      #edf8fc 0%,
-      #eef9f4 50%,
-      #f3faf7 100%
+      #0a2942 0%,
+      #0d3550 50%,
+      #0a2b45 100%
     );
 
   border-top:
     1px solid
-    rgba(48, 116, 138, 0.10);
+    rgba(89, 174, 218, 0.13);
 
   border-bottom:
     1px solid
-    rgba(48, 116, 138, 0.10);
+    rgba(89, 174, 218, 0.13);
 }
+
 
 /* =========================================================
    CONTACT CONTENT
@@ -1311,7 +1376,7 @@
 
   margin-bottom: 22px;
 
-  color: #438b7b;
+  color: #73c2e9;
 
   font-size: 12px;
 
@@ -1326,7 +1391,7 @@
     0
     25px;
 
-  color: #173f50;
+  color: #e5f5ff;
 
   font-size:
     clamp(
@@ -1343,7 +1408,7 @@
 }
 
 .article-contact-content h2 span {
-  color: #579889;
+  color: #78c6eb;
 }
 
 .article-contact-content p {
@@ -1354,12 +1419,13 @@
     auto
     38px;
 
-  color: #5d7883;
+  color: #a6c7d9;
 
   font-size: 18px;
 
   line-height: 1.8;
 }
+
 
 /* =========================================================
    CONTACT BUTTON
@@ -1381,13 +1447,16 @@
     8px
     27px;
 
-  border: none;
+  border:
+    1px solid
+    rgba(122, 205, 241, 0.18);
 
   border-radius: 100px;
 
-  background: #173f50;
+  background:
+    #174f70;
 
-  color: #ffffff;
+  color: #e8f7ff;
 
   font-family:
     "Comfortaa",
@@ -1401,7 +1470,7 @@
 
   box-shadow:
     0 14px 38px
-    rgba(23, 63, 80, 0.20);
+    rgba(0, 17, 33, 0.32);
 
   transition:
     transform 0.3s ease,
@@ -1413,11 +1482,12 @@
   transform:
     translateY(-4px);
 
-  background: #20576a;
+  background:
+    #21668d;
 
   box-shadow:
     0 20px 45px
-    rgba(23, 63, 80, 0.25);
+    rgba(0, 17, 33, 0.42);
 }
 
 .contact-button-arrow {
@@ -1431,9 +1501,11 @@
 
   border-radius: 50%;
 
-  background: #d9eee5;
+  background:
+    #7bc9ed;
 
-  color: #277461;
+  color:
+    #0c3854;
 
   font-size: 18px;
 
@@ -1450,8 +1522,10 @@
       -2px
     );
 
-  background: #c7e7da;
+  background:
+    #9bdcf6;
 }
+
 
 /* =========================================================
    LARGE CONTACT CIRCLES
@@ -1465,6 +1539,7 @@
   pointer-events: none;
 }
 
+
 /* Left large blue circle */
 
 .contact-circle-one {
@@ -1475,12 +1550,13 @@
   top: -250px;
 
   background:
-    rgba(122, 195, 222, 0.18);
+    rgba(64, 151, 207, 0.13);
 
   border:
     1px solid
-    rgba(45, 119, 147, 0.22);
+    rgba(93, 180, 226, 0.20);
 }
+
 
 /* Left outer ring */
 
@@ -1493,10 +1569,11 @@
 
   border:
     2px solid
-    rgba(45, 119, 147, 0.15);
+    rgba(89, 175, 221, 0.14);
 }
 
-/* Right green circle */
+
+/* Right blue circle */
 
 .contact-circle-three {
   width: 620px;
@@ -1506,12 +1583,13 @@
   bottom: -310px;
 
   background:
-    rgba(126, 202, 163, 0.17);
+    rgba(59, 139, 192, 0.12);
 
   border:
     1px solid
-    rgba(51, 133, 104, 0.18);
+    rgba(95, 183, 228, 0.17);
 }
+
 
 /* =========================================================
    CONTACT RINGS
@@ -1537,7 +1615,7 @@
 
   border:
     2px solid
-    rgba(46, 119, 143, 0.14);
+    rgba(91, 177, 222, 0.13);
 }
 
 .contact-ring-two {
@@ -1552,8 +1630,9 @@
 
   border:
     1px solid
-    rgba(46, 119, 143, 0.11);
+    rgba(83, 166, 214, 0.10);
 }
+
 
 /* =========================================================
    MOBILE CONTACT
@@ -1632,57 +1711,80 @@
 }
 
 
-
-
-
 /* =========================================================
    ARTICLE CONTENT LOAD ANIMATION
-   ========================================================= */
+========================================================= */
 
 .articles-content {
-  animation: articleContentEnter 0.9s ease-out 0.08s both;
+  animation:
+    articleContentEnter
+    0.9s
+    ease-out
+    0.08s
+    both;
 }
 
 @keyframes articleContentEnter {
+
   from {
     opacity: 0;
-    transform: translateY(28px);
+
+    transform:
+      translateY(28px);
   }
 
   to {
     opacity: 1;
-    transform: translateY(0);
+
+    transform:
+      translateY(0);
   }
 }
 
 
 /* =========================================================
    FEATURED ARTICLE ANIMATION
-   ========================================================= */
+========================================================= */
 
 .featured-article {
-  animation: articleFeaturedEnter 0.8s ease-out 0.18s both;
+  animation:
+    articleFeaturedEnter
+    0.8s
+    ease-out
+    0.18s
+    both;
 }
 
 @keyframes articleFeaturedEnter {
+
   from {
     opacity: 0;
-    transform: translateY(35px) scale(0.985);
+
+    transform:
+      translateY(35px)
+      scale(0.985);
   }
 
   to {
     opacity: 1;
-    transform: translateY(0) scale(1);
+
+    transform:
+      translateY(0)
+      scale(1);
   }
 }
 
 
 /* =========================================================
    ARTICLE CARD ANIMATION
-   ========================================================= */
+========================================================= */
 
 .article-card {
-  animation: articleCardEnter 0.7s ease-out both;
+  animation:
+    articleCardEnter
+    0.7s
+    ease-out
+    both;
 }
 
 .article-card:nth-child(1) {
@@ -1710,27 +1812,38 @@
 }
 
 @keyframes articleCardEnter {
+
   from {
     opacity: 0;
-    transform: translateY(30px);
+
+    transform:
+      translateY(30px);
   }
 
   to {
     opacity: 1;
-    transform: translateY(0);
+
+    transform:
+      translateY(0);
   }
 }
 
 
 /* =========================================================
    CONTACT SECTION ANIMATION
-   ========================================================= */
+========================================================= */
 
 .article-contact-section {
-  animation: articleContactEnter 0.9s ease-out 0.25s both;
+  animation:
+    articleContactEnter
+    0.9s
+    ease-out
+    0.25s
+    both;
 }
 
 @keyframes articleContactEnter {
+
   from {
     opacity: 0;
   }
@@ -1742,61 +1855,8 @@
 
 
 /* =========================================================
-   NAVBAR - ARTICLE PAGE
-   Force navbar text dark blue
-   ========================================================= */
-
-/*
-   Your navbar normally uses white text.
-   When ArticlePage is active, body gets:
-
-   body.article-page-active
-*/
-
-body.article-page-active .navbar,
-body.article-page-active nav {
-  color: #173f50;
-}
-
-
-/* Navbar links */
-
-body.article-page-active .navbar a,
-body.article-page-active nav a,
-body.article-page-active .navbar .nav-link,
-body.article-page-active nav .nav-link {
-  color: #173f50 !important;
-}
-
-
-/* Navbar text / buttons */
-
-body.article-page-active .navbar button,
-body.article-page-active nav button {
-  color: #173f50 !important;
-}
-
-
-/* If your navbar uses spans for its text */
-
-body.article-page-active .navbar span,
-body.article-page-active nav span {
-  color: #173f50;
-}
-
-
-/* Navbar hamburger/menu icon */
-
-body.article-page-active .navbar svg,
-body.article-page-active nav svg {
-  color: #173f50;
-  stroke: #173f50;
-}
-
-
-/* =========================================================
    REDUCE MOTION ACCESSIBILITY
-   ========================================================= */
+========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
@@ -1815,117 +1875,3 @@ body.article-page-active nav svg {
     transition: none !important;
   }
 }
-
-
-/* =========================================================
-   ARTICLE PAGE - REMOVE NAVBAR TEXT SHADOW
-   ========================================================= */
-
-body.article-page-active .navbar,
-body.article-page-active .navbar *,
-body.article-page-active nav,
-body.article-page-active nav * {
-  text-shadow: none !important;
-}
-
-
-
-/* =========================================================
-   ARTICLE PAGE — NAVBAR
-   DESKTOP ONLY
-   Mobile uses the GLOBAL navbar.css
-========================================================= */
-
-@media (min-width: 761px) {
-
-  body.article-page-active .navbar,
-  body.article-page-active nav {
-    color: #173f50;
-  }
-
-  /* Navbar links */
-  body.article-page-active .navbar a,
-  body.article-page-active nav a,
-  body.article-page-active .navbar .nav-link,
-  body.article-page-active nav .nav-link {
-    color: #173f50 !important;
-  }
-
-  /* Navbar text / buttons */
-  body.article-page-active .navbar button,
-  body.article-page-active nav button {
-    color: #173f50 !important;
-  }
-
-  /* Navbar spans */
-  body.article-page-active .navbar span,
-  body.article-page-active nav span {
-    color: #173f50;
-  }
-
-  /* Navbar hamburger/menu icon */
-  body.article-page-active .navbar svg,
-  body.article-page-active nav svg {
-    color: #173f50;
-    stroke: #173f50;
-  }
-
-  /* Remove navbar text shadow on desktop */
-  body.article-page-active .navbar,
-  body.article-page-active .navbar *,
-  body.article-page-active nav,
-  body.article-page-active nav * {
-    text-shadow: none !important;
-  }
-
-}
-
-/* =========================================================
-   ARTICLE PAGE — MOBILE NAVBAR RESET
-   Uses the same mobile navbar as every other page
-========================================================= */
-
-@media (max-width: 760px) {
-
-  body.article-page-active .mobile-navigation,
-  body.article-page-active .mobile-navigation-panel {
-    color: #fff !important;
-  }
-
-  body.article-page-active .mobile-navigation a,
-  body.article-page-active .mobile-navigation-links a {
-    color: rgba(255, 255, 255, 0.92) !important;
-    text-shadow: none !important;
-  }
-
-  body.article-page-active .mobile-navigation a.active,
-  body.article-page-active .mobile-navigation-links a.active {
-    color: #fff !important;
-  }
-
-  body.article-page-active .mobile-navigation a span,
-  body.article-page-active .mobile-navigation-links a span {
-    color: inherit !important;
-  }
-
-  body.article-page-active .mobile-navigation li,
-  body.article-page-active .mobile-navigation-links li {
-    color: #fff !important;
-  }
-
-  body.article-page-active .mobile-navigation button,
-  body.article-page-active .mobile-navigation-panel button {
-    color: #fff !important;
-  }
-
-  body.article-page-active .mobile-navigation svg,
-  body.article-page-active .mobile-navigation-panel svg {
-    color: #fff !important;
-    stroke: currentColor !important;
-  }
-
-}
-
-
-
-

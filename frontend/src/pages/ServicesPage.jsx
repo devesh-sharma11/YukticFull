@@ -1108,59 +1108,7 @@ const ServicesPage = () => {
           CAPABILITIES
       ===================================================== */}
 
-      <section className="services-capabilities">
-        <div className="capabilities-container">
-          <div className="capabilities-heading">
-            <span className="services-label">
-              OUR CAPABILITIES
-            </span>
-
-            <h2>
-              One team.
-              <br />
-              <span>Many disciplines.</span>
-            </h2>
-          </div>
-
-          <div className="capabilities-content">
-            <div className="capability-column">
-              <span>STRATEGY</span>
-
-              <p>Digital transformation</p>
-              <p>Product strategy</p>
-              <p>Technology consulting</p>
-              <p>Discovery workshops</p>
-            </div>
-
-            <div className="capability-column">
-              <span>DESIGN</span>
-
-              <p>UX research</p>
-              <p>UI design</p>
-              <p>Design systems</p>
-              <p>Prototyping</p>
-            </div>
-
-            <div className="capability-column">
-              <span>ENGINEERING</span>
-
-              <p>Web applications</p>
-              <p>Cloud platforms</p>
-              <p>API development</p>
-              <p>System integration</p>
-            </div>
-
-            <div className="capability-column">
-              <span>EXPERIENCE</span>
-
-              <p>Digital experiences</p>
-              <p>Product interfaces</p>
-              <p>Interaction design</p>
-              <p>Design language</p>
-            </div>
-          </div>
-        </div>
-      </section>
+    
 
       {/* =====================================================
           CONTACT CTA

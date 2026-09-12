@@ -292,7 +292,7 @@ const AboutYukticSection = () => {
           <h2 className="about-heading">
             Technology Expertise.{' '}
             <span className="highlight-text">
-              <br/>Flexible Teams. <br/>Reliable Delivery.
+              <br/>Reliable Delivery.<br/>Flexible Teams.
             </span>
           </h2>
 

@@ -101,10 +101,10 @@
 
     linear-gradient(
       135deg,
-      #021632 0%,
-      #042b5b 30%,
-      #053d74 62%,
-      #0f457c 100%
+      #021329 0%,
+      #011227 30%,
+      #01274e 62%,
+      #05182c 100%
     );
 
   color: #ffffff;
@@ -669,185 +669,489 @@
     translateY(-2px);
 }
 
-
 /* =========================================================
-   INTRO
-   FADED BLUE + GREEN
+   SERVICES INTRO
+   PREMIUM DARK BLUE / ATMOSPHERIC / FADED
 ========================================================= */
 
 .services-intro {
-  position:
-    relative;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
 
-  overflow:
-    hidden;
-
-  padding:
-    145px 7vw;
+  padding: 145px 7vw;
 
   background:
+    /* Soft blue glow — top right */
     radial-gradient(
-      ellipse 55% 80% at 100% 0%,
-      rgba(86, 159, 201, 0.18),
-      transparent 70%
+      ellipse 55% 65% at 100% 0%,
+      rgba(46, 112, 184, 0.28) 0%,
+      rgba(30, 75, 135, 0.14) 35%,
+      transparent 72%
     ),
 
+    /* Faded cyan glow — center */
     radial-gradient(
-      ellipse 50% 70% at 0% 100%,
-      rgba(84, 166, 117, 0.16),
-      transparent 70%
+      ellipse 50% 60% at 55% 45%,
+      rgba(36, 108, 168, 0.13),
+      transparent 72%
     ),
 
+    /* Very subtle green-blue atmosphere */
+    radial-gradient(
+      ellipse 45% 65% at 0% 100%,
+      rgba(32, 116, 112, 0.18),
+      transparent 72%
+    ),
+
+    /* Small cold blue glow */
+    radial-gradient(
+      circle at 82% 75%,
+      rgba(61, 137, 196, 0.10),
+      transparent 35%
+    ),
+
+    /* Main dark-blue gradient */
     linear-gradient(
       135deg,
-      #479a66 0%,
-      #a2bebc 48%,
-      #479a66 100%
+      #020817 0%,
+      #06132d 24%,
+      #0a1d3d 48%,
+      #071936 72%,
+      #020918 100%
     );
 }
 
 
+/* =========================================================
+   ATMOSPHERIC LIGHT LAYER
+========================================================= */
+
+.services-intro::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+
+  background:
+    linear-gradient(
+      115deg,
+      transparent 20%,
+      rgba(67, 139, 198, 0.055) 42%,
+      rgba(82, 155, 207, 0.09) 50%,
+      transparent 65%
+    );
+
+  transform: rotate(-5deg);
+
+  pointer-events: none;
+  z-index: 0;
+}
+
+
+/* =========================================================
+   FADED GRID / TECH PATTERN
+========================================================= */
+
+.services-intro::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    linear-gradient(
+      rgba(116, 170, 215, 0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(116, 170, 215, 0.035) 1px,
+      transparent 1px
+    );
+
+  background-size:
+    75px 75px;
+
+  mask-image:
+    radial-gradient(
+      ellipse at center,
+      black 0%,
+      rgba(0, 0, 0, 0.7) 35%,
+      transparent 82%
+    );
+
+  -webkit-mask-image:
+    radial-gradient(
+      ellipse at center,
+      black 0%,
+      rgba(0, 0, 0, 0.7) 35%,
+      transparent 82%
+    );
+
+  pointer-events: none;
+  z-index: 0;
+}
+
+
+/* =========================================================
+   LARGE FADED ORBIT / RINGS
+========================================================= */
+
 .services-intro-pattern {
-  position:
-    absolute;
+  position: absolute;
 
-  width:
-    650px;
+  width: 760px;
+  height: 760px;
 
-  height:
-    650px;
+  right: -330px;
+  top: -390px;
 
-  right:
-    -260px;
-
-  top:
-    -300px;
-
-  border-radius:
-    50%;
+  border-radius: 50%;
 
   border:
-    1px solid rgba(23, 92, 66, 0.09);
+    1px solid rgba(91, 164, 215, 0.12);
 
   box-shadow:
-    0 0 0 70px rgba(23, 92, 66, 0.025),
-    0 0 0 140px rgba(23, 92, 66, 0.018);
+    0 0 0 55px rgba(72, 143, 198, 0.035),
+    0 0 0 110px rgba(72, 143, 198, 0.025),
+    0 0 0 175px rgba(72, 143, 198, 0.018),
+    0 0 0 250px rgba(72, 143, 198, 0.012);
 
-  pointer-events:
-    none;
+  pointer-events: none;
+
+  z-index: 1;
 }
 
+
+/* =========================================================
+   SECOND DECORATIVE ORBIT
+========================================================= */
+
+.services-intro-pattern::before {
+  content: "";
+
+  position: absolute;
+
+  width: 430px;
+  height: 430px;
+
+  right: 110px;
+  top: 150px;
+
+  border-radius: 50%;
+
+  border:
+    1px solid rgba(94, 174, 218, 0.07);
+
+  box-shadow:
+    0 0 80px rgba(40, 116, 177, 0.06);
+
+  transform: rotate(25deg);
+}
+
+
+/* =========================================================
+   SMALL GLOWING ORBIT POINT
+========================================================= */
+
+.services-intro-pattern::after {
+  content: "";
+
+  position: absolute;
+
+  width: 9px;
+  height: 9px;
+
+  right: 245px;
+  bottom: 170px;
+
+  border-radius: 50%;
+
+  background: rgba(102, 185, 226, 0.55);
+
+  box-shadow:
+    0 0 15px rgba(75, 164, 216, 0.45),
+    0 0 40px rgba(52, 133, 192, 0.22);
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
 
 .services-intro-container {
-  position:
-    relative;
+  position: relative;
 
-  z-index:
-    2;
+  z-index: 2;
 
-  max-width:
-    1350px;
+  max-width: 1350px;
 
-  margin:
-    auto;
+  margin: auto;
 
-  display:
-    grid;
+  display: grid;
 
-  grid-template-columns:
-    1fr 1fr;
+  grid-template-columns: 1fr 1fr;
 
-  gap:
-    100px;
+  gap: 100px;
 }
 
+
+/* =========================================================
+   LABEL
+========================================================= */
 
 .services-label {
-  display:
-    inline-block;
+  display: inline-block;
 
-  font-size:
-    12px;
+  font-size: 12px;
 
-  font-weight:
-    700;
+  font-weight: 700;
 
-  letter-spacing:
-    3px;
+  letter-spacing: 3px;
 
-  color:
-    #0e3a2e;
+  color: rgba(210, 229, 245, 0.78);
+
+  text-transform: uppercase;
 }
 
+
+/* =========================================================
+   HEADING
+========================================================= */
 
 .services-intro-heading h2 {
-  margin:
-    22px 0 0;
+  margin: 22px 0 0;
 
-  font-size:
-    clamp(50px, 6vw, 82px);
+  font-size: clamp(50px, 6vw, 82px);
 
-  line-height:
-    0.94;
+  line-height: 0.94;
 
-  letter-spacing:
-    -4px;
+  letter-spacing: -4px;
 
-  font-weight:
-    300;
+  font-weight: 300;
 
-  color:
-    #123f35;
+  color: #8bb8d9;
+
+  text-shadow:
+    0 10px 35px rgba(20, 83, 130, 0.18);
 }
 
+
+/* Main highlighted word */
 
 .services-intro-heading h2 span {
-  color:
-    #1b3b36;
+  color: #4e9bd0;
+
+  text-shadow:
+    0 0 35px rgba(58, 137, 194, 0.18);
 }
 
+
+/* =========================================================
+   LARGE HIGHLIGHT
+========================================================= */
 
 .services-intro-heading h2 span2 {
-  color:
-    #177c41;
+  color: #e7edf3;
 
-  font-weight:
-    900;
+  font-weight: 900;
 
-  font-size:
-    120px;
-  
+  font-size: 120px;
+
+  text-shadow:
+    0 8px 40px rgba(0, 0, 0, 0.35);
 }
 
+
+/* =========================================================
+   TEXT SIDE
+========================================================= */
 
 .services-intro-text {
-  align-self:
-    end;
+  align-self: end;
 
-  max-width:
-    610px;
+  max-width: 610px;
+
+  position: relative;
 }
 
 
+/* Small vertical accent */
+
+.services-intro-text::before {
+  content: "";
+
+  position: absolute;
+
+  left: -28px;
+  top: 4px;
+
+  width: 2px;
+  height: 72px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(77, 157, 210, 0.8),
+      rgba(77, 157, 210, 0)
+    );
+
+  opacity: 0.65;
+}
+
+
+/* =========================================================
+   PARAGRAPH
+========================================================= */
+
 .services-intro-text p {
-  margin:
-    0 0 25px;
+  margin: 0 0 25px;
 
-  font-size:
-    17px;
+  font-size: 17px;
 
-  line-height:
-    1.85;
+  line-height: 1.85;
 
-  color:
-    #123229;
+  color: rgba(235, 242, 248, 0.82);
+
+  text-shadow:
+    0 2px 12px rgba(0, 0, 0, 0.25);
 }
 
 
 .services-intro-text p:last-child {
-  margin-bottom:
-    0;
+  margin-bottom: 0;
 }
+
+
+/* =========================================================
+   SUBTLE BOTTOM FADE
+========================================================= */
+
+.services-intro {
+  box-shadow:
+    inset 0 -90px 100px -100px rgba(65, 145, 196, 0.4);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .services-intro {
+    padding: 110px 7vw;
+
+    background:
+      radial-gradient(
+        ellipse 100% 45% at 100% 0%,
+        rgba(46, 112, 184, 0.22),
+        transparent 70%
+      ),
+
+      radial-gradient(
+        ellipse 90% 45% at 0% 100%,
+        rgba(32, 116, 112, 0.13),
+        transparent 72%
+      ),
+
+      linear-gradient(
+        145deg,
+        #020817 0%,
+        #06132d 45%,
+        #071936 75%,
+        #020918 100%
+      );
+  }
+
+
+  .services-intro-container {
+    grid-template-columns: 1fr;
+
+    gap: 55px;
+  }
+
+
+  .services-intro-pattern {
+    width: 520px;
+    height: 520px;
+
+    right: -300px;
+    top: -250px;
+
+    opacity: 0.65;
+  }
+
+
+  .services-intro-heading h2 {
+    font-size: clamp(48px, 13vw, 72px);
+
+    letter-spacing: -3px;
+  }
+
+
+  .services-intro-heading h2 span2 {
+    font-size: clamp(75px, 20vw, 110px);
+  }
+
+
+  .services-intro-text::before {
+    left: 0;
+    top: -20px;
+
+    width: 55px;
+    height: 2px;
+
+    background:
+      linear-gradient(
+        to right,
+        rgba(77, 157, 210, 0.8),
+        transparent
+      );
+  }
+
+
+  .services-intro-text {
+    padding-top: 15px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .services-intro {
+    padding: 90px 6vw;
+  }
+
+
+  .services-intro-pattern {
+    width: 420px;
+    height: 420px;
+
+    right: -275px;
+    top: -210px;
+
+    opacity: 0.45;
+  }
+
+
+  .services-intro::after {
+    background-size: 55px 55px;
+
+    opacity: 0.65;
+  }
+
+
+  .services-intro-text p {
+    font-size: 15.5px;
+
+    line-height: 1.75;
+  }
+}
+
 
 
 /* =========================================================
@@ -874,11 +1178,12 @@
 
     linear-gradient(
       135deg,
-      #00275a 0%,
-      #4f9fa9 28%,
-      #8eb4bd 52%,
-      #7dbaa4 75%,
-      #0a6543 100%
+    
+      #021329 0%,
+      #011227 30%,
+      #01274e 62%,
+      #05182c 100%
+    
     );
 }
 
@@ -930,13 +1235,13 @@
     300;
 
   color:
-    #031d51;
+    #ffffff;
 }
 
 
 .services-section-heading h2 span {
   color:
-    #05582c;
+    #5dc78e;
 }
 
 
@@ -2073,146 +2378,135 @@
 
 /* =========================================================
    HOW WE WORK
-   DARK/MEDIUM GREEN MIX
+   DEEP FOREST GREEN / ARCHITECTURAL STYLE
 ========================================================= */
 
 .services-process {
-  position:
-    relative;
+  position: relative;
 
-  width:
-    100%;
+  width: 100%;
 
-  overflow:
-    hidden;
+  overflow: hidden;
 
-  padding:
-    150px 7vw;
+  padding: 150px 7vw 165px;
+
+  color: #ffffff;
 
   background:
+    /* subtle top-right emerald atmosphere */
     radial-gradient(
-      ellipse 60% 70% at 85% 10%,
-      rgba(112, 201, 146, 0.25),
-      transparent 65%
+      ellipse 70% 85% at 92% 5%,
+      rgba(38, 111, 76, 0.22),
+      transparent 68%
     ),
 
+    /* subtle bottom-left green depth */
     radial-gradient(
-      ellipse 50% 60% at 0% 90%,
-      rgba(67, 142, 100, 0.20),
-      transparent 70%
+      ellipse 65% 75% at -10% 100%,
+      rgba(20, 91, 61, 0.28),
+      transparent 72%
     ),
 
+    /* diagonal architectural light */
+    linear-gradient(
+      118deg,
+      transparent 0%,
+      transparent 35%,
+      rgba(92, 170, 125, 0.035) 35.2%,
+      rgba(92, 170, 125, 0.035) 49%,
+      transparent 49.2%,
+      transparent 100%
+    ),
+
+    /* main dark green base */
     linear-gradient(
       135deg,
-      #0c4936 0%,
-      #145d45 38%,
-      #287356 65%,
-      #477f66 100%
+      #020b08 0%,
+      #061b13 24%,
+      #08291d 50%,
+      #0b3525 72%,
+      #04150e 100%
     );
-
-  color:
-    #ffffff;
 }
 
 
 /* =========================================================
-   PROCESS PATTERN
+   ARCHITECTURAL BACKGROUND
+   NO CIRCLES
 ========================================================= */
 
-.process-pattern {
-  position:
-    absolute;
+.services-process::before {
+  content: "";
 
-  inset:
-    0;
+  position: absolute;
 
-  pointer-events:
-    none;
+  inset: 0;
 
-  background-image:
+  pointer-events: none;
+
+  opacity: 0.55;
+
+  background:
     linear-gradient(
-      rgba(255, 255, 255, 0.025) 1px,
-      transparent 1px
+      90deg,
+      transparent 0,
+      transparent calc(50% - 0.5px),
+      rgba(137, 204, 163, 0.055) 50%,
+      transparent calc(50% + 0.5px)
     ),
 
     linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0.025) 1px,
-      transparent 1px
+      0deg,
+      transparent 0,
+      transparent calc(25% - 0.5px),
+      rgba(137, 204, 163, 0.035) 25%,
+      transparent calc(25% + 0.5px)
     );
-
-  background-size:
-    80px 80px;
 
   mask-image:
     linear-gradient(
       to bottom,
-      black,
-      transparent 90%
-    );
-
-  -webkit-mask-image:
-    linear-gradient(
-      to bottom,
-      black,
-      transparent 90%
+      transparent,
+      black 12%,
+      black 85%,
+      transparent
     );
 }
 
 
 /* =========================================================
-   PROCESS GLOWS
+   DIAGONAL ARCHITECTURAL BEAMS
 ========================================================= */
 
-.process-glow {
-  position:
-    absolute;
+.services-process::after {
+  content: "";
 
-  border-radius:
-    50%;
+  position: absolute;
 
-  pointer-events:
-    none;
-}
+  width: 850px;
 
+  height: 850px;
 
-.process-glow-one {
-  width:
-    600px;
+  top: -300px;
 
-  height:
-    600px;
+  right: -380px;
 
-  top:
-    -320px;
+  pointer-events: none;
 
-  right:
-    -170px;
+  opacity: 0.35;
 
-  border:
-    1px solid rgba(139, 211, 167, 0.12);
+  transform: rotate(28deg);
+
+  border-left:
+    1px solid rgba(145, 211, 169, 0.08);
+
+  border-bottom:
+    1px solid rgba(145, 211, 169, 0.05);
 
   box-shadow:
-    0 0 0 70px rgba(139, 211, 167, 0.025),
-    0 0 0 140px rgba(139, 211, 167, 0.018);
-}
-
-
-.process-glow-two {
-  width:
-    420px;
-
-  height:
-    420px;
-
-  left:
-    -250px;
-
-  bottom:
-    -250px;
-
-  border:
-    1px solid rgba(139, 211, 167, 0.08);
+    -45px 45px 0 rgba(111, 184, 140, 0.018),
+    -90px 90px 0 rgba(111, 184, 140, 0.014),
+    -135px 135px 0 rgba(111, 184, 140, 0.010);
 }
 
 
@@ -2221,17 +2515,13 @@
 ========================================================= */
 
 .process-container {
-  position:
-    relative;
+  position: relative;
 
-  z-index:
-    3;
+  z-index: 3;
 
-  max-width:
-    1400px;
+  max-width: 1400px;
 
-  margin:
-    auto;
+  margin: 0 auto;
 }
 
 
@@ -2240,86 +2530,154 @@
 ========================================================= */
 
 .process-intro {
-  max-width:
-    800px;
+  position: relative;
 
-  margin-bottom:
-    95px;
+  max-width: 800px;
+
+  margin-bottom: 95px;
+
+  padding-left: 25px;
 }
 
 
-.process-label {
-  display:
-    inline-block;
+/* vertical accent line */
 
-  padding:
-    9px 16px;
+.process-intro::before {
+  content: "";
 
-  border:
-    1px solid rgba(139, 211, 167, 0.30);
+  position: absolute;
 
-  border-radius:
-    999px;
+  left: 0;
 
-  color:
-    #a6dfbc;
+  top: 5px;
 
-  font-size:
-    9px;
+  width: 2px;
 
-  font-weight:
-    800;
-
-  letter-spacing:
-    3px;
+  height: 115px;
 
   background:
-    rgba(139, 211, 167, 0.06);
+    linear-gradient(
+      to bottom,
+      #8bd4aa,
+      rgba(139, 212, 170, 0.15),
+      transparent
+    );
 }
 
 
+/* =========================================================
+   PROCESS LABEL
+========================================================= */
+
+.process-label {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 9px 16px;
+
+  border:
+    1px solid rgba(137, 211, 164, 0.24);
+
+  color: #a7e1bd;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: 3px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(111, 191, 140, 0.10),
+      rgba(111, 191, 140, 0.025)
+    );
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.035);
+
+  clip-path:
+    polygon(
+      0 0,
+      calc(100% - 8px) 0,
+      100% 8px,
+      100% 100%,
+      8px 100%,
+      0 calc(100% - 8px)
+    );
+}
+
+
+/* =========================================================
+   PROCESS HEADING
+========================================================= */
+
 .process-intro h2 {
-  margin:
-    28px 0 25px;
+  margin: 28px 0 25px;
 
   font-size:
     clamp(52px, 6vw, 84px);
 
-  line-height:
-    0.91;
+  line-height: 0.91;
 
-  letter-spacing:
-    -5px;
+  letter-spacing: -5px;
 
-  font-weight:
-    300;
+  font-weight: 300;
 
-  color:
-    #ffffff;
+  color: #ffffff;
+
+  text-wrap: balance;
 }
 
 
 .process-intro h2 span {
-  color:
-    #83d2a2;
+  color: #79c998;
+
+  position: relative;
 }
 
 
+/* small underline detail */
+
+.process-intro h2 span::after {
+  content: "";
+
+  position: absolute;
+
+  left: 3px;
+
+  bottom: -9px;
+
+  width: 58%;
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #72c895,
+      transparent
+    );
+}
+
+
+/* =========================================================
+   PROCESS INTRO DESCRIPTION
+========================================================= */
+
 .process-intro > p {
-  max-width:
-    680px;
+  max-width: 680px;
 
-  margin:
-    0;
+  margin: 0;
 
-  font-size:
-    17px;
+  font-size: 17px;
 
-  line-height:
-    1.8;
+  line-height: 1.8;
 
-  color:
-    rgba(255, 255, 255, 0.66);
+  color: rgba(255, 255, 255, 0.60);
 }
 
 
@@ -2328,11 +2686,12 @@
 ========================================================= */
 
 .services-process-list {
-  width:
-    100%;
+  position: relative;
+
+  width: 100%;
 
   border-top:
-    1px solid rgba(255, 255, 255, 0.14);
+    1px solid rgba(151, 216, 174, 0.13);
 }
 
 
@@ -2341,50 +2700,114 @@
 ========================================================= */
 
 .process-row {
-  position:
-    relative;
+  position: relative;
 
-  display:
-    grid;
+  display: grid;
 
   grid-template-columns:
     220px 1fr 70px;
 
-  gap:
-    50px;
+  gap: 50px;
 
-  align-items:
-    center;
+  align-items: center;
 
-  min-height:
-    205px;
+  min-height: 205px;
 
-  padding:
-    25px 0;
+  padding: 25px 0;
 
   border-bottom:
-    1px solid rgba(255, 255, 255, 0.14);
+    1px solid rgba(151, 216, 174, 0.12);
 
   transition:
-    padding 0.4s ease,
-    background 0.4s ease;
+    padding 0.45s ease,
+    background 0.45s ease,
+    border-color 0.45s ease;
+
+  isolation: isolate;
 }
 
 
-.process-row:hover {
-  padding-left:
-    22px;
+/* =========================================================
+   ROW NUMBER / ARCHITECTURAL MARKER
+========================================================= */
 
-  padding-right:
-    22px;
+.process-row::before {
+  content: "";
+
+  position: absolute;
+
+  left: -7vw;
+
+  right: -7vw;
+
+  top: 0;
+
+  bottom: 0;
+
+  z-index: -2;
+
+  opacity: 0;
 
   background:
     linear-gradient(
       90deg,
-      rgba(139, 211, 167, 0.055),
-      rgba(139, 211, 167, 0.015),
+      rgba(62, 143, 94, 0.13),
+      rgba(42, 113, 76, 0.07) 45%,
+      transparent 100%
+    );
+
+  transition:
+    opacity 0.45s ease;
+}
+
+
+/* small vertical marker */
+
+.process-row::after {
+  content: "";
+
+  position: absolute;
+
+  left: -1px;
+
+  top: 50%;
+
+  width: 2px;
+
+  height: 0;
+
+  transform: translateY(-50%);
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent,
+      #8ad6a7,
       transparent
     );
+
+  transition:
+    height 0.45s ease;
+}
+
+
+.process-row:hover::before {
+  opacity: 1;
+}
+
+
+.process-row:hover::after {
+  height: 65%;
+}
+
+
+.process-row:hover {
+  padding-left: 22px;
+
+  padding-right: 22px;
+
+  border-bottom-color:
+    rgba(143, 215, 169, 0.20);
 }
 
 
@@ -2393,30 +2816,69 @@
 ========================================================= */
 
 .process-word {
-  font-size:
-    11px;
+  position: relative;
 
-  font-weight:
-    800;
+  font-size: 11px;
 
-  letter-spacing:
-    3px;
+  font-weight: 800;
 
-  color:
-    #88d0a5;
+  letter-spacing: 3px;
+
+  color: #73c594;
 
   transition:
-    transform 0.4s ease,
-    color 0.4s ease;
+    transform 0.45s ease,
+    color 0.45s ease;
+}
+
+
+.process-word::before {
+  content: "01";
+
+  position: absolute;
+
+  left: 0;
+
+  top: -30px;
+
+  font-size: 9px;
+
+  letter-spacing: 2px;
+
+  color: rgba(157, 220, 179, 0.30);
+
+  font-weight: 600;
+}
+
+
+.process-row:nth-child(2)
+.process-word::before {
+  content: "02";
+}
+
+
+.process-row:nth-child(3)
+.process-word::before {
+  content: "03";
+}
+
+
+.process-row:nth-child(4)
+.process-word::before {
+  content: "04";
+}
+
+
+.process-row:nth-child(5)
+.process-word::before {
+  content: "05";
 }
 
 
 .process-row:hover .process-word {
-  transform:
-    translateX(8px);
+  transform: translateX(8px);
 
-  color:
-    #ffffff;
+  color: #b1e6c5;
 }
 
 
@@ -2425,100 +2887,118 @@
 ========================================================= */
 
 .process-description {
-  max-width:
-    700px;
+  max-width: 700px;
 }
 
 
 .process-description h3 {
-  margin:
-    0 0 12px;
+  margin: 0 0 12px;
 
   font-size:
     clamp(28px, 3vw, 43px);
 
-  line-height:
-    1;
+  line-height: 1;
 
-  letter-spacing:
-    -2px;
+  letter-spacing: -2px;
 
-  font-weight:
-    300;
+  font-weight: 300;
 
-  color:
-    #ffffff;
+  color: #ffffff;
 
   transition:
-    transform 0.4s ease,
-    color 0.4s ease;
+    transform 0.45s ease,
+    color 0.45s ease;
 }
 
 
 .process-description p {
-  max-width:
-    620px;
+  max-width: 620px;
 
-  margin:
-    0;
+  margin: 0;
 
-  font-size:
-    14px;
+  font-size: 14px;
 
-  line-height:
-    1.75;
+  line-height: 1.75;
 
-  color:
-    rgba(255, 255, 255, 0.58);
+  color: rgba(255, 255, 255, 0.54);
+
+  transition:
+    color 0.45s ease;
 }
 
 
 .process-row:hover
 .process-description h3 {
-  transform:
-    translateX(7px);
+  transform: translateX(7px);
 
-  color:
-    #9be0b6;
+  color: #94dbaf;
+}
+
+
+.process-row:hover
+.process-description p {
+  color: rgba(255, 255, 255, 0.68);
 }
 
 
 /* =========================================================
    PROCESS ARROW
+   SQUARE / CUT-CORNER — NO CIRCLE
 ========================================================= */
 
 .process-arrow {
-  width:
-    54px;
+  position: relative;
 
-  height:
-    54px;
+  width: 54px;
 
-  display:
-    flex;
+  height: 54px;
 
-  align-items:
-    center;
+  display: flex;
 
-  justify-content:
-    center;
+  align-items: center;
 
-  border-radius:
-    50%;
+  justify-content: center;
 
   border:
-    1px solid rgba(255, 255, 255, 0.17);
+    1px solid rgba(159, 219, 180, 0.20);
 
   color:
-    rgba(255, 255, 255, 0.70);
+    rgba(255, 255, 255, 0.62);
 
-  font-size:
-    18px;
+  font-size: 17px;
+
+  background:
+    rgba(72, 143, 99, 0.035);
+
+  clip-path:
+    polygon(
+      0 0,
+      calc(100% - 10px) 0,
+      100% 10px,
+      100% 100%,
+      10px 100%,
+      0 calc(100% - 10px)
+    );
 
   transition:
-    transform 0.4s ease,
-    background 0.4s ease,
-    color 0.4s ease;
+    transform 0.45s ease,
+    background 0.45s ease,
+    color 0.45s ease,
+    border-color 0.45s ease;
+}
+
+
+.process-arrow::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 5px;
+
+  border:
+    1px solid rgba(135, 207, 160, 0.07);
+
+  pointer-events: none;
 }
 
 
@@ -2526,143 +3006,292 @@
   transform:
     translate(4px, -4px);
 
-  color:
-    #0b3d2c;
+  color: #062017;
 
   background:
-    #a0dfb9;
+    #8ed7a9;
+
+  border-color:
+    #8ed7a9;
+
+  box-shadow:
+    0 12px 30px rgba(92, 185, 124, 0.16);
+}
+
+
+/* =========================================================
+   BOTTOM ARCHITECTURAL LINE
+========================================================= */
+
+.services-process .process-container::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+
+  bottom: -80px;
+
+  width: 180px;
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #73c995,
+      transparent
+    );
 }
 
 
 /* =========================================================
    CAPABILITIES
-   FADED GREEN
+   DARKER GREEN / SOFT CONTRAST
 ========================================================= */
 
 .services-capabilities {
+  position: relative;
+
+  overflow: hidden;
+
   padding:
-    120px 10px 80px;
+    125px 10px 90px;
 
   background:
     radial-gradient(
-      ellipse 55% 70% at 100% 10%,
-      rgba(93, 177, 123, 0.20),
+      ellipse 65% 75% at 100% 0%,
+      rgba(69, 139, 96, 0.20),
       transparent 70%
     ),
 
     radial-gradient(
-      ellipse 45% 70% at 0% 100%,
-      rgba(40, 117, 82, 0.18),
-      transparent 70%
+      ellipse 50% 70% at 0% 100%,
+      rgba(28, 91, 61, 0.18),
+      transparent 72%
     ),
 
     linear-gradient(
       135deg,
-      #5aa17a 0%,
-      #cce5d8 42%,
-      #b2d2c1 70%,
-      #8eb59f 100%
+      #315f49 0%,
+      #507d65 38%,
+      #729a83 70%,
+      #456f59 100%
     );
 }
 
 
-.capabilities-container {
-  max-width:
-    1350px;
+/* subtle diagonal transition between sections */
 
-  margin:
-    auto;
+.services-capabilities::before {
+  content: "";
 
-  display:
-    grid;
+  position: absolute;
 
-  grid-template-columns:
-    40% 60%;
+  top: 0;
 
-  gap:
-    80px;
+  left: 0;
+
+  width: 100%;
+
+  height: 110px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #061b13 0%,
+      rgba(6, 27, 19, 0.55) 35%,
+      transparent 100%
+    );
+
+  pointer-events: none;
 }
 
 
+/* =========================================================
+   CAPABILITIES CONTAINER
+========================================================= */
+
+.capabilities-container {
+  position: relative;
+
+  z-index: 2;
+
+  max-width: 1350px;
+
+  margin: auto;
+
+  display: grid;
+
+  grid-template-columns: 40% 60%;
+
+  gap: 80px;
+}
+
+
+/* =========================================================
+   CAPABILITIES HEADING
+========================================================= */
+
 .capabilities-heading h2 {
-  margin:
-    22px 0 0;
+  margin: 22px 0 0;
 
   font-size:
     clamp(48px, 5vw, 75px);
 
-  line-height:
-    0.94;
+  line-height: 0.94;
 
-  letter-spacing:
-    -4px;
+  letter-spacing: -4px;
 
-  font-weight:
-    300;
+  font-weight: 300;
 
-  color:
-    #0c2c25;
+  color: #dceee4;
 }
 
 
 .capabilities-heading h2 span {
-  color:
-    #1c5f3a;
+  color: #163f2d;
 }
 
 
+/* =========================================================
+   CAPABILITIES CONTENT
+========================================================= */
+
 .capabilities-content {
-  display:
-    grid;
+  display: grid;
 
   grid-template-columns:
     repeat(2, 1fr);
 
-  gap:
-    45px 70px;
+  gap: 45px 70px;
 }
 
 
 .capability-column {
-  padding-top:
-    4px;
+  padding-top: 4px;
 
   border-top:
-    1px solid rgba(23, 92, 66, 0.20);
+    1px solid rgba(226, 244, 234, 0.20);
 }
 
 
 .capability-column > span {
-  display:
-    block;
+  display: block;
 
-  margin:
-    17px 0 22px;
+  margin: 17px 0 22px;
 
-  font-size:
-    12px;
+  font-size: 12px;
 
-  font-weight:
-    600;
+  font-weight: 600;
 
-  letter-spacing:
-    3px;
+  letter-spacing: 3px;
 
-  color:
-    #236b4d;
+  color: #d1e8da;
 }
 
 
 .capability-column p {
-  margin:
-    0 0 12px;
+  margin: 0 0 12px;
 
-  font-size:
-    14px;
+  font-size: 14px;
 
-  color:
-    #557267;
+  color: rgba(232, 244, 237, 0.67);
 }
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .services-process {
+    padding:
+      110px 6vw 125px;
+  }
+
+  .process-intro {
+    margin-bottom: 70px;
+
+    padding-left: 18px;
+  }
+
+  .process-row {
+    grid-template-columns:
+      150px 1fr 60px;
+
+    gap: 25px;
+
+    min-height: 180px;
+  }
+
+  .capabilities-container {
+    grid-template-columns: 1fr;
+
+    gap: 55px;
+  }
+}
+
+
+@media (max-width: 650px) {
+
+  .services-process {
+    padding:
+      90px 6vw 105px;
+  }
+
+  .process-intro h2 {
+    letter-spacing: -3px;
+  }
+
+  .process-row {
+    grid-template-columns:
+      1fr 52px;
+
+    gap: 18px;
+
+    padding: 35px 0;
+  }
+
+  .process-word {
+    grid-column: 1 / -1;
+
+    margin-bottom: -5px;
+  }
+
+  .process-description {
+    grid-column: 1;
+  }
+
+  .process-arrow {
+    grid-column: 2;
+
+    grid-row: 2;
+
+    width: 48px;
+
+    height: 48px;
+  }
+
+  .process-row:hover {
+    padding-left: 12px;
+
+    padding-right: 12px;
+  }
+
+  .services-capabilities {
+    padding:
+      95px 20px 70px;
+  }
+
+  .capabilities-content {
+    grid-template-columns: 1fr;
+
+    gap: 35px;
+  }
+}
+
 
 
 /* =========================================================
@@ -2714,10 +3343,10 @@
 
     linear-gradient(
       135deg,
-      #0b4936 0%,
-      #155d46 45%,
+      #083326 0%,
+      #0a3024 45%,
       #246e53 72%,
-      #386f5a 100%
+      #25493c 100%
     );
 
   color:
@@ -2729,45 +3358,6 @@
    CONTACT PATTERN
 ========================================================= */
 
-.contact-pattern {
-  position:
-    absolute;
-
-  inset:
-    0;
-
-  pointer-events:
-    none;
-
-  background-image:
-    linear-gradient(
-      rgba(255, 255, 255, 0.025) 1px,
-      transparent 1px
-    ),
-
-    linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0.025) 1px,
-      transparent 1px
-    );
-
-  background-size:
-    90px 90px;
-
-  mask-image:
-    radial-gradient(
-      ellipse at center,
-      black,
-      transparent 75%
-    );
-
-  -webkit-mask-image:
-    radial-gradient(
-      ellipse at center,
-      black,
-      transparent 75%
-    );
-}
 
 
 /* =========================================================
