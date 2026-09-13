@@ -97,8 +97,8 @@
   background:
     radial-gradient(circle at 12% 25%, rgba(14, 165, 233, 0.2), transparent 40%),
     radial-gradient(circle at 88% 20%, rgba(56, 189, 248, 0.18), transparent 45%),
-    radial-gradient(circle at 50% 85%, rgba(12, 74, 110, 0.35), transparent 60%),
-    linear-gradient(135deg, #030814 0%, #061528 50%, #030c1c 100%);
+    radial-gradient(circle at 50% 85%, rgba(12, 74, 110, 0.858), transparent 60%),
+    linear-gradient(135deg, #03143b 0%, #061528 50%, #030c1c 100%);
 }
 
 .project-hero-content {
@@ -460,15 +460,16 @@
   padding: 32px 38px;
   overflow: hidden;
   border-radius: 34px;
-  box-shadow: 0 28px 75px rgba(0, 0, 0, 0.55);
-  border: 1px solid rgba(56, 189, 248, 0.15);
+  box-shadow: 0 28px 75px rgba(1, 16, 28, 0.433);
+  border: 1px solid rgba(14, 93, 130, 0.942);
   transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
 }
 
 .project-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 35px 85px rgba(0, 0, 0, 0.7), 0 0 30px rgba(56, 189, 248, 0.15);
-  border-color: rgba(56, 189, 248, 0.4);
+  box-shadow: 0 35px 85px rgba(4, 32, 49, 0.7), 0 0 30px rgba(7, 57, 79, 0.501);
+  border: 1px solid rgba(24, 150, 204, 0.942);
+ 
 }
 
 .project-card-candiq {
