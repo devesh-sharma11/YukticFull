@@ -30,7 +30,7 @@
 //   organisation: string
 // ) => `Dear ${name},
 // Thank you for the opportunity to work with you and your organisation, ${organisation}.
-// At YUTIC, we are committed to delivering high-quality consultancy and exceptional client service. Your feedback helps us understand what we have done well and where we can continue to improve.
+// At Yuktic, we are committed to delivering high-quality consultancy and exceptional client service. Your feedback helps us understand what we have done well and where we can continue to improve.
 // We would be grateful if you could take a moment to complete our feedback form using the personalised link below. The questionnaire contains a small number of questions and typically takes less than two minutes to complete.
 // Your comments will be reviewed personally and will help shape how we continue to support our clients.
 // If you have any questions, please feel free to reply directly to this email.
@@ -38,7 +38,7 @@
 // Kind regards,
 // Shailesh Bansal
 // Founder/Director
-// YUTIC Limited
+// Yuktic Limited
 // `;
 
 // interface NotificationItem {
@@ -1193,7 +1193,7 @@
 
 //                           <p className="mt-0.5 break-all text-[9px] text-[#91a2ae]">
 //                             Message is sent from
-//                             info@yutic.com
+//                             info@Yuktic.com
 //                           </p>
 
 //                         </div>
@@ -1231,7 +1231,7 @@
 //                     <div className="mt-4 rounded-xl border border-dashed border-[#a9d7c0] bg-white px-3 py-2.5">
 
 //                       <p className="truncate font-mono text-[9px] text-[#738b99]">
-//                         https://yutic.com/feedback
+//                         https://Yuktic.com/feedback
 //                       </p>
 
 //                     </div>
@@ -1558,7 +1558,7 @@ const generateMessage = (
   organisation: string
 ) => `Dear ${name},
 Thank you for the opportunity to work with you and your organisation, ${organisation}.
-At YUTIC, we are committed to delivering high-quality consultancy and exceptional client service. Your feedback helps us understand what we have done well and where we can continue to improve.
+At Yuktic, we are committed to delivering high-quality consultancy and exceptional client service. Your feedback helps us understand what we have done well and where we can continue to improve.
 We would be grateful if you could take a moment to complete our feedback form using the personalised link below. The questionnaire contains a small number of questions and typically takes less than two minutes to complete.
 Your comments will be reviewed personally and will help shape how we continue to support our clients.
 If you have any questions, please feel free to reply directly to this email.
@@ -1566,7 +1566,7 @@ Thank you once again for your time and for the opportunity to work with you.
 Kind regards,
 Shailesh Bansal
 Founder/Director
-YUTIC Limited
+Yuktic Limited
 `;
 
 interface NotificationItem {
@@ -2010,13 +2010,13 @@ const Dashboard = () => {
             </div>
 
           {/* =====================================================
-              YUTIC WEBSITE — REMAINING LEFT GRID SPACE
+              Yuktic WEBSITE — REMAINING LEFT GRID SPACE
           ===================================================== */}
           <a
-            href="https://yutic.com"
+            href="https://Yuktic.com"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Visit YUTIC website"
+            aria-label="Visit Yuktic website"
             className="group relative flex min-h-[228px] flex-col items-center justify-center overflow-hidden rounded-[26px] border border-[#dcecf5] bg-white p-6 text-center shadow-[0_12px_35px_rgba(21,92,132,0.07)] transition-all duration-500 hover:-translate-y-1 hover:border-[#b9dff0] hover:shadow-[0_20px_45px_rgba(21,92,132,0.14)]"
           >
             <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-[#e8f7ff] transition-transform duration-500 group-hover:scale-110" />
@@ -2025,7 +2025,7 @@ const Dashboard = () => {
             <div className="relative z-10 flex h-24 w-24 items-center justify-center rounded-3xl border border-[#e2edf3] bg-white shadow-[0_8px_25px_rgba(21,92,132,0.08)]">
               <img
                 src={YukticLogo}
-                alt="YUTIC"
+                alt="Yuktic"
                 className="max-h-16 max-w-20 object-contain transition-transform duration-500 group-hover:scale-105"
               />
             </div>
@@ -2035,11 +2035,11 @@ const Dashboard = () => {
                 className="text-sm font-black tracking-wide text-[#173b54]"
                 style={{ fontFamily: "'Comfortaa', sans-serif" }}
               >
-                Visit YUTIC Website
+                Visit Yuktic Website
               </p>
 
               <div className="mt-2 flex items-center justify-center gap-1.5 text-[9px] font-extrabold uppercase tracking-[0.14em] text-[#1683c4]">
-                <span>yutic.com</span>
+                <span>Yuktic.com</span>
                 <ExternalLink size={12} />
               </div>
             </div>
@@ -2052,9 +2052,9 @@ const Dashboard = () => {
           {/* =====================================================
               RIGHT — NOTIFICATIONS
           ===================================================== */}
-          <div className="relative overflow-hidden rounded-[30px] border border-[#dbeaf2] bg-white shadow-[0_15px_45px_rgba(28,78,110,0.07)]">
+          <div className="relative overflow-hidden rounded-[30px] max-h-[650px] border border-[#dbeaf2] bg-white shadow-[0_15px_45px_rgba(28,78,110,0.07)]">
             <div className="absolute right-0 top-0 h-32 w-32 rounded-bl-full bg-[#eaf7ff]" />
-            <div className="relative flex h-full min-h-[500px] flex-col p-6 sm:p-8">
+            <div className="relative flex h-full min-h-[500px]  flex-col p-6 sm:p-8">
               <div className="flex items-start justify-between gap-4">
                 <div>
                   <h2 className="mt-2 text-xl font-black text-[#102a43]" style={{ fontFamily: "'Comfortaa', sans-serif" }}>
@@ -2456,7 +2456,7 @@ const Dashboard = () => {
 
                           <p className="mt-0.5 break-all text-[9px] text-[#91a2ae]">
                             Message is sent from
-                            info@yutic.com
+                            info@yuktic.com
                           </p>
 
                         </div>
@@ -2494,7 +2494,7 @@ const Dashboard = () => {
                     <div className="mt-4 rounded-xl border border-dashed border-[#a9d7c0] bg-white px-3 py-2.5">
 
                       <p className="truncate font-mono text-[9px] text-[#738b99]">
-                        https://yutic.com/feedback
+                        https://yuktic.com/feedback
                       </p>
 
                     </div>

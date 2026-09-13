@@ -15,7 +15,14 @@ const Hero = ({ onLogoAnimationComplete }) => {
   const [showLogo, setShowLogo] = useState(false);
 
   useEffect(() => {
-    // Check if it has already run in this session
+    // Always start this page from the top section
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant",
+    });
+
+    // Check if logo animation has already run in this session
     const hasAnimated = sessionStorage.getItem("yuktic_logo_animated");
 
     if (!hasAnimated) {
@@ -25,6 +32,7 @@ const Hero = ({ onLogoAnimationComplete }) => {
       const timer = setTimeout(() => {
         sessionStorage.setItem("yuktic_logo_animated", "true");
         setShowLogo(false);
+
         if (onLogoAnimationComplete) {
           onLogoAnimationComplete();
         }
@@ -40,9 +48,6 @@ const Hero = ({ onLogoAnimationComplete }) => {
 
   return (
     <main className="hero-page">
-      {/* Centered blinking & fading logo */}
-      
-
       {/* Sections */}
       <section id="home" className="hero-section-wrapper">
         <LightHeartSection />
