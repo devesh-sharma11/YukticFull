@@ -41,11 +41,7 @@ const Hero = ({ onLogoAnimationComplete }) => {
   return (
     <main className="hero-page">
       {/* Centered blinking & fading logo */}
-      {showLogo && (
-        <div className="hero-logo-center-overlay" aria-hidden="true">
-          <img src={Yuktic} alt="Yuktic" className="hero-center-logo" />
-        </div>
-      )}
+      
 
       {/* Sections */}
       <section id="home" className="hero-section-wrapper">

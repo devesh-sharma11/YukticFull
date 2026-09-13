@@ -1,0 +1,96 @@
+
+/* =========================================================
+   GLOBAL PAGE LOAD BACKGROUND
+   Prevents blue/green/white flash before React + CSS loads
+========================================================= */
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  background: #06152b !important;
+}
+
+/* Keep the initial viewport dark blue while React renders */
+html {
+  background: #06152b !important;
+}
+
+body {
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      rgba(28, 82, 145, 0.22) 0%,
+      rgba(10, 39, 78, 0.35) 32%,
+      #06152b 72%,
+      #020a18 100%
+    ) !important;
+  background-attachment: fixed;
+}
+
+/* React root should never expose another background during startup */
+#root {
+  background: transparent !important;
+}
+
+/* =========================================================
+   MOBILE
+   Same dark-blue loading color — no green flash
+========================================================= */
+
+@media (max-width: 768px) {
+  html,
+  body,
+  #root {
+    background: #06152b !important;
+  }
+
+  body {
+    background:
+      radial-gradient(
+        circle at 50% 42%,
+        rgba(30, 88, 150, 0.20) 0%,
+        rgba(8, 34, 70, 0.40) 38%,
+        #06152b 72%,
+        #020a18 100%
+      ) !important;
+  }
+}
+
+
+/* =========================================================
+   MOBILE TAP FLASH FIX
+========================================================= */
+
+@media (max-width: 768px) {
+  *,
+  *::before,
+  *::after {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+  }
+
+  button,
+  a,
+  [role="button"],
+  input,
+  textarea,
+  select {
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+  }
+
+  button:focus,
+  button:focus-visible,
+  a:focus,
+  a:focus-visible,
+  [role="button"]:focus,
+  [role="button"]:focus-visible {
+    outline: none;
+    box-shadow: none;
+  }
+}
+

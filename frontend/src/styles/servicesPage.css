@@ -4660,3 +4660,213 @@
 .service-card-tm .service-card-front .service-card-arrow {
   border-color: rgba(255, 255, 255, 0.25);
 }
+
+/* =========================================================
+   MOBILE THEME SYNC
+   Keep mobile colors EXACTLY aligned with the desktop/window
+   theme. Only layout/spacing/font sizing should change on mobile.
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .services-page {
+    background:
+      linear-gradient(
+        180deg,
+        #d9ece7 0%,
+        #c9e2e2 18%,
+        #739eaf 36%,
+        #386f7e 50%,
+        #316b57 67%,
+        #91b8a2 82%,
+        #cde3d8 100%
+      );
+  }
+
+  .services-hero {
+    background:
+      radial-gradient(
+        ellipse 70% 60% at 50% 48%,
+        rgba(66, 157, 226, 0.46),
+        rgba(26, 103, 180, 0.24) 38%,
+        transparent 72%
+      ),
+      radial-gradient(
+        ellipse 50% 70% at 0% 100%,
+        rgba(89, 171, 215, 0.18),
+        transparent 70%
+      ),
+      radial-gradient(
+        ellipse 50% 65% at 100% 5%,
+        rgba(88, 163, 220, 0.20),
+        transparent 70%
+      ),
+      linear-gradient(
+        135deg,
+        #021329 0%,
+        #011227 30%,
+        #01274e 62%,
+        #05182c 100%
+      );
+  }
+
+  .services-intro {
+    background:
+      radial-gradient(
+        ellipse 55% 65% at 100% 0%,
+        rgba(46, 112, 184, 0.28) 0%,
+        rgba(30, 75, 135, 0.14) 35%,
+        transparent 72%
+      ),
+      radial-gradient(
+        ellipse 50% 60% at 55% 45%,
+        rgba(36, 108, 168, 0.13),
+        transparent 72%
+      ),
+      radial-gradient(
+        ellipse 45% 65% at 0% 100%,
+        rgba(32, 116, 112, 0.18),
+        transparent 72%
+      ),
+      radial-gradient(
+        circle at 82% 75%,
+        rgba(61, 137, 196, 0.10),
+        transparent 35%
+      ),
+      linear-gradient(
+        135deg,
+        #020817 0%,
+        #06132d 24%,
+        #0a1d3d 48%,
+        #071936 72%,
+        #020918 100%
+      );
+  }
+
+  .services-grid-section {
+    background:
+      radial-gradient(
+        ellipse 50% 65% at 0% 15%,
+        rgba(74, 147, 201, 0.24),
+        transparent 70%
+      ),
+      radial-gradient(
+        ellipse 50% 65% at 100% 85%,
+        rgba(76, 154, 111, 0.20),
+        transparent 70%
+      ),
+      linear-gradient(
+        135deg,
+        #021329 0%,
+        #011227 30%,
+        #01274e 62%,
+        #05182c 100%
+      );
+  }
+
+  .services-process {
+    background:
+      radial-gradient(
+        ellipse 70% 85% at 92% 5%,
+        rgba(38, 111, 76, 0.22),
+        transparent 68%
+      ),
+      radial-gradient(
+        ellipse 65% 75% at -10% 100%,
+        rgba(20, 91, 61, 0.28),
+        transparent 72%
+      ),
+      linear-gradient(
+        118deg,
+        transparent 0%,
+        transparent 35%,
+        rgba(92, 170, 125, 0.035) 35.2%,
+        rgba(92, 170, 125, 0.035) 49%,
+        transparent 49.2%,
+        transparent 100%
+      ),
+      linear-gradient(
+        135deg,
+        #020b08 0%,
+        #061b13 24%,
+        #08291d 50%,
+        #0b3525 72%,
+        #04150e 100%
+      );
+  }
+
+  .services-capabilities {
+    background:
+      radial-gradient(
+        ellipse 65% 75% at 100% 0%,
+        rgba(69, 139, 96, 0.20),
+        transparent 70%
+      ),
+      radial-gradient(
+        ellipse 50% 70% at 0% 100%,
+        rgba(28, 91, 61, 0.18),
+        transparent 72%
+      ),
+      linear-gradient(
+        135deg,
+        #315f49 0%,
+        #507d65 38%,
+        #729a83 70%,
+        #456f59 100%
+      );
+  }
+
+  .services-contact {
+    background:
+      radial-gradient(
+        ellipse 60% 60% at 50% 45%,
+        rgba(104, 192, 137, 0.32),
+        rgba(45, 123, 86, 0.12) 40%,
+        transparent 72%
+      ),
+      radial-gradient(
+        ellipse 45% 65% at 100% 0%,
+        rgba(120, 195, 221, 0.12),
+        transparent 70%
+      ),
+      linear-gradient(
+        135deg,
+        #083326 0%,
+        #0a3024 45%,
+        #246e53 72%,
+        #25493c 100%
+      );
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE — SAME DESKTOP COLOR THEME
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .services-page {
+    background:
+      linear-gradient(
+        180deg,
+        #d9ece7 0%,
+        #c9e2e2 18%,
+        #739eaf 36%,
+        #386f7e 50%,
+        #316b57 67%,
+        #91b8a2 82%,
+        #cde3d8 100%
+      );
+  }
+
+  .services-hero,
+  .services-intro,
+  .services-grid-section,
+  .services-process,
+  .services-capabilities,
+  .services-contact {
+    /* Theme colors are inherited from the synced 700px rules above. */
+  }
+}
+

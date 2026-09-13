@@ -653,14 +653,34 @@
     height: 58px;
   }
 
+  /* =====================================================
+     MOBILE LOGO POD — PERFECT CIRCLE
+  ===================================================== */
   .logo-pod {
     width: 42px;
     height: 42px;
+
+    /* IMPORTANT: override desktop flex-basis */
+    flex: 0 0 42px;
+
+    min-width: 42px;
+    min-height: 42px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
   }
 
   .navbar-logo-img {
     width: 24px;
     height: 24px;
+
+    object-fit: contain;
+    flex: 0 0 auto;
   }
 }
 

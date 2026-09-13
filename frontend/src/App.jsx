@@ -9,6 +9,7 @@ import {
   Route,
   useLocation,
 } from "react-router-dom";
+import "./App.css";
 
 import Navbar from "./components/Navbar";
 import Hero from "./components/hero";

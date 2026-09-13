@@ -24,7 +24,7 @@ export default function Footer() {
               YUKTIC, Ideas Become What We Build Together
             </p>
             <p className="footer-subtext">
-              Driven by Logic. Defined by Solutions.​
+              Driven by Logic. Defined by Solutions.
             </p>
             <div className="footer-social-wrapper">
               <a
@@ -50,7 +50,7 @@ export default function Footer() {
                 <li><a href="#implementation">T&M</a></li>
                 <li><a href="#design">Staff Augmentation</a></li>
                 <li><a href="#optimisation">Recruitment</a></li>
-              
+
               </ul>
             </div>
 
@@ -58,10 +58,10 @@ export default function Footer() {
             <div className="footer-col">
               <h4>COMPANY</h4>
               <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#case-study">Job</a></li>
-                <li><a href="#contact">Article</a></li>
-              
+                <li><a href="/services">Sercices</a></li>
+                <li><a href="/jobs">Careers</a></li>
+                <li><a href="/contact">Contact</a></li>
+
               </ul>
             </div>
 
@@ -71,7 +71,7 @@ export default function Footer() {
               <ul>
                 <li><a href="#privacy">Privacy Policy</a></li>
                 <li><a href="#cookies">Cookie Policy</a></li>
-               
+
                 <li><a href="#disclaimer">Disclaimer</a></li>
               </ul>
             </div>
@@ -82,7 +82,7 @@ export default function Footer() {
         <div className="footer-divider" />
         <div className="footer-company-details">
           <p>
-            Registered in India • Company No. 1234567890 • Email Id: info@yuktic.com
+            info@yuktic.com
           </p>
           <p>
             8th Floor, Platina Heights, c-24, c block, phase 2, industrial area, sector 62, Noida, Uttar Pradesh 201301
