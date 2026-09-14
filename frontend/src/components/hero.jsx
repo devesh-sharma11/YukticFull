@@ -36,7 +36,7 @@ const Hero = ({ onLogoAnimationComplete }) => {
         if (onLogoAnimationComplete) {
           onLogoAnimationComplete();
         }
-      }, 2500);
+      },);
 
       return () => clearTimeout(timer);
     } else {

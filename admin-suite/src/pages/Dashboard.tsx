@@ -1529,14 +1529,14 @@ import { useEffect, useState } from "react";
 import {
   ShieldCheck,
   CheckCircle2,
-  Globe,
+  // Globe,
   BriefcaseBusiness,
   ExternalLink,
   ArrowRight,
   MessageSquare,
   X,
   Send,
-  SendIcon,
+  // SendIcon,
   Lock,
   Link2,
  
@@ -1544,7 +1544,7 @@ import {
   Users,
   FileText,
   Sparkles,
-  ChevronRight,
+  // ChevronRight,
 } from "lucide-react";
 
 import GoogleMail from "../assets/google-mail.png";

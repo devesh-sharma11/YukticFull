@@ -1228,11 +1228,14 @@ def delete_all_feedback_requests():
     
 def send_contact_email(data):
 
-    name = data.get("name") or "-"
-    email = data.get("email") or "-"
-    phone = data.get("phone") or "-"
-    subject = data.get("subject") or "Other"
-    message = data.get("message") or "-"
+    from html import escape
+    from datetime import datetime
+
+    name = escape(str(data.get("name") or "-"))
+    email = escape(str(data.get("email") or "-"))
+    phone = escape(str(data.get("phone") or "-"))
+    subject = escape(str(data.get("subject") or "Other"))
+    message = escape(str(data.get("message") or "-")).replace("\n", "<br>")
 
     html = f"""
     <!DOCTYPE html>
@@ -1240,303 +1243,584 @@ def send_contact_email(data):
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
         <title>New Contact Enquiry</title>
+
+        <style>
+
+            * {{
+                box-sizing: border-box;
+            }}
+
+            body {{
+                margin: 0;
+                padding: 0;
+                background: #eef4fb;
+                font-family: 'Comfortaa', sans-serif;
+            }}
+
+            .email-wrapper {{
+                width: 100%;
+                padding: 42px 18px;
+                background:
+                    radial-gradient(
+                        circle at top left,
+                        rgba(255, 174, 73, 0.15),
+                        transparent 32%
+                    ),
+                    radial-gradient(
+                        circle at bottom right,
+                        rgba(78, 157, 224, 0.16),
+                        transparent 34%
+                    ),
+                    #eef4fb;
+            }}
+
+            .email-container {{
+                width: 720px;
+                max-width: 720px;
+                margin: 0 auto;
+                background: #ffffff;
+                border-radius: 24px;
+                overflow: hidden;
+                border: 1px solid #dbe7f2;
+                box-shadow: 0 16px 45px rgba(20, 55, 90, 0.12);
+            }}
+
+            /* =====================================================
+               TOP COLOR STRIPE
+            ===================================================== */
+
+            .color-strip {{
+                height: 6px;
+                width: 100%;
+                background:
+                    linear-gradient(
+                        90deg,
+                        #2569a8 0%,
+                        #4b9cdd 32%,
+                        #ff9d38 62%,
+                        #ffd34f 80%,
+                        #62b98b 100%
+                    );
+            }}
+
+            /* =====================================================
+               HEADER
+            ===================================================== */
+
+            .header {{
+                padding: 42px 35px 40px;
+                text-align: center;
+
+                background:
+                    radial-gradient(
+                        circle at 15% 20%,
+                        rgba(78, 157, 224, 0.22),
+                        transparent 30%
+                    ),
+                    radial-gradient(
+                        circle at 85% 80%,
+                        rgba(255, 157, 56, 0.16),
+                        transparent 28%
+                    ),
+                    linear-gradient(
+                        135deg,
+                        #123b63,
+                        #175184,
+                        #123b63
+                    );
+            }}
+
+            .brand {{
+                display: inline-block;
+                padding: 11px 26px;
+                border-radius: 50px;
+
+                background: #ffffff;
+
+                font-family: 'Comfortaa', sans-serif;
+                font-size: 25px;
+                line-height: 1;
+                font-weight: 700;
+
+                letter-spacing: 2px;
+
+                color: #155486;
+
+                border: 2px solid rgba(255, 255, 255, 0.85);
+
+                box-shadow:
+                    0 7px 20px rgba(0, 0, 0, 0.12);
+            }}
+
+            .brand-dot {{
+                display: inline-block;
+                width: 8px;
+                height: 8px;
+                margin-left: 6px;
+
+                border-radius: 50%;
+
+                background: #ff9d38;
+            }}
+
+            .header-title {{
+                margin-top: 25px;
+
+                font-family: 'Comfortaa', sans-serif;
+                font-size: 30px;
+                line-height: 1.35;
+                font-weight: 700;
+
+                color: #ffffff;
+            }}
+
+            .header-subtitle {{
+                margin-top: 10px;
+
+                font-family: 'Comfortaa', sans-serif;
+                font-size: 13px;
+                line-height: 21px;
+
+                color: #dcecff;
+            }}
+
+            /* =====================================================
+               BODY
+            ===================================================== */
+
+            .content {{
+                padding: 38px 38px 35px;
+                background: #ffffff;
+            }}
+
+            .section-title {{
+                margin: 0;
+
+                font-family: 'Comfortaa', sans-serif;
+                font-size: 22px;
+                line-height: 1.4;
+                font-weight: 700;
+
+                color: #153f66;
+            }}
+
+            .section-line {{
+                width: 54px;
+                height: 4px;
+
+                margin-top: 10px;
+
+                border-radius: 10px;
+
+                background:
+                    linear-gradient(
+                        90deg,
+                        #ff9d38,
+                        #ffd34f
+                    );
+            }}
+
+            .section-spacing {{
+                height: 23px;
+            }}
+
+            /* =====================================================
+               INFORMATION CARDS
+            ===================================================== */
+
+            .info-card {{
+                width: 100%;
+
+                margin-bottom: 12px;
+
+                padding: 17px 19px;
+
+                background: #f8fbfe;
+
+                border: 1px solid #e2ebf4;
+
+                border-radius: 14px;
+
+                border-left: 4px solid #4b9cdd;
+            }}
+
+            .info-card.orange {{
+                border-left-color: #ff9d38;
+            }}
+
+            .info-card.yellow {{
+                border-left-color: #ffd34f;
+            }}
+
+            .info-card.green {{
+                border-left-color: #62b98b;
+            }}
+
+            .label {{
+                margin: 0;
+
+                font-family: 'Comfortaa', sans-serif;
+                font-size: 10px;
+                line-height: 15px;
+
+                font-weight: 700;
+
+                color: #7890a6;
+
+                text-transform: uppercase;
+                letter-spacing: 1.2px;
+            }}
+
+            .value {{
+                margin-top: 6px;
+
+                font-family: 'Comfortaa', sans-serif;
+                font-size: 15px;
+                line-height: 23px;
+
+                font-weight: 700;
+
+                color: #193f61;
+
+                word-break: break-word;
+            }}
+
+            /* =====================================================
+               MESSAGE
+            ===================================================== */
+
+            .message-section {{
+                margin-top: 30px;
+            }}
+
+            .message-box {{
+                padding: 22px 23px;
+
+                background:
+                    linear-gradient(
+                        135deg,
+                        #f8fbff,
+                        #f5fbf8
+                    );
+
+                border: 1px solid #dce8f2;
+
+                border-radius: 16px;
+
+                border-left: 5px solid #ff9d38;
+
+                font-family: 'Comfortaa', sans-serif;
+                font-size: 14px;
+                line-height: 25px;
+
+                color: #38536a;
+
+                word-break: break-word;
+            }}
+
+            /* =====================================================
+               FOOTER
+            ===================================================== */
+
+            .footer {{
+                padding: 26px 25px 30px;
+
+                text-align: center;
+
+                background: #f7fafd;
+
+                border-top: 1px solid #e5edf5;
+            }}
+
+            .footer-brand {{
+                font-family: 'Comfortaa', sans-serif;
+
+                font-size: 13px;
+                font-weight: 700;
+
+                color: #155486;
+            }}
+
+            .footer-text {{
+                margin-top: 7px;
+
+                font-family: 'Comfortaa', sans-serif;
+
+                font-size: 10px;
+                line-height: 17px;
+
+                color: #8b9cad;
+            }}
+
+            .footer-accent {{
+                width: 45px;
+                height: 3px;
+
+                margin: 0 auto 12px;
+
+                border-radius: 10px;
+
+                background:
+                    linear-gradient(
+                        90deg,
+                        #62b98b,
+                        #ffd34f,
+                        #ff9d38,
+                        #4b9cdd
+                    );
+            }}
+
+            /* =====================================================
+               MOBILE
+            ===================================================== */
+
+            @media only screen and (max-width: 600px) {{
+
+                .email-wrapper {{
+                    padding: 18px 9px;
+                }}
+
+                .email-container {{
+                    width: 100% !important;
+                    max-width: 100% !important;
+                    border-radius: 17px !important;
+                }}
+
+                .header {{
+                    padding: 30px 18px 28px !important;
+                }}
+
+                .brand {{
+                    padding: 9px 20px !important;
+                    font-size: 19px !important;
+                }}
+
+                .header-title {{
+                    margin-top: 18px !important;
+                    font-size: 21px !important;
+                    line-height: 29px !important;
+                }}
+
+                .header-subtitle {{
+                    font-size: 10px !important;
+                    line-height: 17px !important;
+                }}
+
+                .content {{
+                    padding: 25px 17px 23px !important;
+                }}
+
+                .section-title {{
+                    font-size: 17px !important;
+                    line-height: 24px !important;
+                }}
+
+                .section-spacing {{
+                    height: 17px !important;
+                }}
+
+                .info-card {{
+                    padding: 13px 14px !important;
+                    margin-bottom: 9px !important;
+                    border-radius: 11px !important;
+                }}
+
+                .label {{
+                    font-size: 8px !important;
+                    line-height: 12px !important;
+                    letter-spacing: 0.9px !important;
+                }}
+
+                .value {{
+                    margin-top: 4px !important;
+                    font-size: 12px !important;
+                    line-height: 18px !important;
+                }}
+
+                .message-section {{
+                    margin-top: 22px !important;
+                }}
+
+                .message-box {{
+                    padding: 15px 16px !important;
+                    font-size: 11px !important;
+                    line-height: 20px !important;
+                    border-radius: 12px !important;
+                }}
+
+                .footer {{
+                    padding: 21px 15px 24px !important;
+                }}
+
+                .footer-brand {{
+                    font-size: 11px !important;
+                }}
+
+                .footer-text {{
+                    font-size: 8px !important;
+                    line-height: 14px !important;
+                }}
+            }}
+
+        </style>
     </head>
 
-    <body style="margin:0;padding:0;background:#eef3f0;font-family:Arial,Helvetica,sans-serif;">
 
-        <table
-            width="100%"
-            cellpadding="0"
-            cellspacing="0"
-            style="background:#eef3f0;padding:40px 15px;"
-        >
-            <tr>
-                <td align="center">
+    <body>
 
-                    <table
-                        width="720"
-                        cellpadding="0"
-                        cellspacing="0"
-                        style="
-                            width:720px;
-                            max-width:720px;
-                            background:#ffffff;
-                            border-radius:18px;
-                            overflow:hidden;
-                        "
-                    >
+        <div class="email-wrapper">
 
-                        <!-- HEADER -->
-                        <tr>
-                            <td
-                                style="
-                                    background:linear-gradient(135deg,#2A6049,#234D3A);
-                                    padding:45px 40px;
-                                    text-align:center;
-                                "
-                            >
+            <div class="email-container">
 
-                                <div
-                                    style="
-                                        display:inline-block;
-                                        background:white;
-                                        padding:12px 26px;
-                                        border-radius:50px;
-                                        font-size:30px;
-                                        font-weight:bold;
-                                        color:#2A6049;
-                                        letter-spacing:2px;
-                                    "
-                                >
-                                    YUKTIC
-                                </div>
-
-                                <div style="height:24px;"></div>
-
-                                <div
-                                    style="
-                                        font-size:34px;
-                                        font-weight:bold;
-                                        color:white;
-                                    "
-                                >
-                                    New Contact Enquiry
-                                </div>
-
-                            </td>
-                        </tr>
+                <!-- TOP BRAND COLOR STRIPE -->
+                <div class="color-strip"></div>
 
 
-                        <!-- BODY -->
-                        <tr>
-                            <td style="padding:40px;background:white;">
+                <!-- =================================================
+                     HEADER
+                ================================================== -->
 
-                                <div
-                                    style="
-                                        font-size:27px;
-                                        font-weight:bold;
-                                        color:#2A6049;
-                                    "
-                                >
-                                    Contact Information
-                                </div>
+                <div class="header">
 
-                                <div style="height:25px;"></div>
+                    <div class="brand">
+                        YUKTIC
+                        <span class="brand-dot"></span>
+                    </div>
 
+                    <div class="header-title">
+                        New Contact Enquiry
+                    </div>
 
-                                <!-- NAME -->
-                                <div
-                                    style="
-                                        background:#F7FAF8;
-                                        border:1px solid #E3ECE7;
-                                        border-radius:14px;
-                                        padding:20px;
-                                        margin-bottom:15px;
-                                    "
-                                >
-                                    <div
-                                        style="
-                                            font-size:13px;
-                                            font-weight:bold;
-                                            color:#7B8C84;
-                                            text-transform:uppercase;
-                                            letter-spacing:1px;
-                                        "
-                                    >
-                                        Name
-                                    </div>
+                    <div class="header-subtitle">
+                        A new message has been received through your website.
+                    </div>
 
-                                    <div
-                                        style="
-                                            margin-top:8px;
-                                            font-size:18px;
-                                            font-weight:bold;
-                                            color:#234D3A;
-                                        "
-                                    >
-                                        {name}
-                                    </div>
-                                </div>
+                </div>
 
 
-                                <!-- EMAIL -->
-                                <div
-                                    style="
-                                        background:#F7FAF8;
-                                        border:1px solid #E3ECE7;
-                                        border-radius:14px;
-                                        padding:20px;
-                                        margin-bottom:15px;
-                                    "
-                                >
-                                    <div
-                                        style="
-                                            font-size:13px;
-                                            font-weight:bold;
-                                            color:#7B8C84;
-                                            text-transform:uppercase;
-                                            letter-spacing:1px;
-                                        "
-                                    >
-                                        Email
-                                    </div>
+                <!-- =================================================
+                     BODY
+                ================================================== -->
 
-                                    <div
-                                        style="
-                                            margin-top:8px;
-                                            font-size:18px;
-                                            font-weight:bold;
-                                            color:#234D3A;
-                                        "
-                                    >
-                                        {email}
-                                    </div>
-                                </div>
+                <div class="content">
+
+                    <div class="section-title">
+                        Contact Information
+                    </div>
+
+                    <div class="section-line"></div>
+
+                    <div class="section-spacing"></div>
 
 
-                                <!-- PHONE -->
-                                <div
-                                    style="
-                                        background:#F7FAF8;
-                                        border:1px solid #E3ECE7;
-                                        border-radius:14px;
-                                        padding:20px;
-                                        margin-bottom:15px;
-                                    "
-                                >
-                                    <div
-                                        style="
-                                            font-size:13px;
-                                            font-weight:bold;
-                                            color:#7B8C84;
-                                            text-transform:uppercase;
-                                            letter-spacing:1px;
-                                        "
-                                    >
-                                        Phone
-                                    </div>
+                    <!-- NAME -->
 
-                                    <div
-                                        style="
-                                            margin-top:8px;
-                                            font-size:18px;
-                                            font-weight:bold;
-                                            color:#234D3A;
-                                        "
-                                    >
-                                        {phone}
-                                    </div>
-                                </div>
+                    <div class="info-card">
+
+                        <div class="label">
+                            Name
+                        </div>
+
+                        <div class="value">
+                            {name}
+                        </div>
+
+                    </div>
 
 
-                                <!-- SUBJECT -->
-                                <div
-                                    style="
-                                        background:#F7FAF8;
-                                        border:1px solid #E3ECE7;
-                                        border-radius:14px;
-                                        padding:20px;
-                                        margin-bottom:15px;
-                                    "
-                                >
-                                    <div
-                                        style="
-                                            font-size:13px;
-                                            font-weight:bold;
-                                            color:#7B8C84;
-                                            text-transform:uppercase;
-                                            letter-spacing:1px;
-                                        "
-                                    >
-                                        Subject
-                                    </div>
+                    <!-- EMAIL -->
 
-                                    <div
-                                        style="
-                                            margin-top:8px;
-                                            font-size:18px;
-                                            font-weight:bold;
-                                            color:#234D3A;
-                                        "
-                                    >
-                                        {subject}
-                                    </div>
-                                </div>
+                    <div class="info-card orange">
+
+                        <div class="label">
+                            Email
+                        </div>
+
+                        <div class="value">
+                            {email}
+                        </div>
+
+                    </div>
 
 
-                                <!-- MESSAGE -->
-                                <div style="height:20px;"></div>
+                    <!-- PHONE -->
 
-                                <div
-                                    style="
-                                        font-size:27px;
-                                        font-weight:bold;
-                                        color:#2A6049;
-                                    "
-                                >
-                                    Message
-                                </div>
+                    <div class="info-card green">
 
-                                <div style="height:15px;"></div>
+                        <div class="label">
+                            Phone
+                        </div>
 
-                                <div
-                                    style="
-                                        background:#F8FBF9;
-                                        border:1px solid #E4ECE8;
-                                        border-left:6px solid #2A6049;
-                                        border-radius:16px;
-                                        padding:28px;
-                                        font-size:16px;
-                                        line-height:30px;
-                                        color:#394843;
-                                        white-space:pre-wrap;
-                                        word-break:break-word;
-                                    "
-                                >
-                                    {message}
-                                </div>
+                        <div class="value">
+                            {phone}
+                        </div>
 
-                            </td>
-                        </tr>
+                    </div>
 
 
-                        <!-- FOOTER -->
-                        <tr>
-                            <td
-                                style="
-                                    padding:30px;
-                                    text-align:center;
-                                    background:#ffffff;
-                                "
-                            >
-                                <div
-                                    style="
-                                        font-size:13px;
-                                        color:#8B9792;
-                                    "
-                                >
-                                    © {datetime.now().year} YUKTIC
-                                </div>
+                    <!-- SUBJECT -->
 
-                                <div style="height:8px;"></div>
+                    <div class="info-card yellow">
 
-                                <div
-                                    style="
-                                        font-size:13px;
-                                        color:#8B9792;
-                                    "
-                                >
-                                    This is an automated notification email.
-                                </div>
-                            </td>
-                        </tr>
+                        <div class="label">
+                            Subject
+                        </div>
 
-                    </table>
+                        <div class="value">
+                            {subject}
+                        </div>
 
-                </td>
-            </tr>
-        </table>
+                    </div>
+
+
+                    <!-- =================================================
+                         MESSAGE
+                    ================================================== -->
+
+                    <div class="message-section">
+
+                        <div class="section-title">
+                            Message
+                        </div>
+
+                        <div class="section-line"></div>
+
+                        <div style="height:16px;"></div>
+
+                        <div class="message-box">
+                            {message}
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     FOOTER
+                ================================================== -->
+
+                <div class="footer">
+
+                    <div class="footer-accent"></div>
+
+                    <div class="footer-brand">
+                        YUKTIC
+                    </div>
+
+                    <div class="footer-text">
+                        © {datetime.now().year} YUKTIC
+                        <br>
+                        This is an automated notification email.
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
 
     </body>
     </html>
@@ -1546,8 +1830,6 @@ def send_contact_email(data):
         "New Contact Enquiry | YUKTIC",
         html
     )
-
- 
 
 
 
