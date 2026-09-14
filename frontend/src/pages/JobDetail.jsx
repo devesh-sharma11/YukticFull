@@ -521,22 +521,24 @@ const JobDetail = () => {
                 </div>
 
                 {applyLink ? (
-                  <a
-                    href={applyLink}
-                    className="job-apply-button"
-                  >
-                    Apply Now
-                    <ExternalLink size={17} />
-                  </a>
-                ) : (
-                  <button
-                    type="button"
-                    className="job-apply-button disabled"
-                    disabled
-                  >
-                    Application Unavailable
-                  </button>
-                )}
+  <a
+    href={applyLink}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="job-apply-button"
+  >
+    Apply Now
+    <ExternalLink size={17} />
+  </a>
+) : (
+  <button
+    type="button"
+    className="job-apply-button disabled"
+    disabled
+  >
+    Application Unavailable
+  </button>
+)}
 
                 <div className="job-apply-note">
                   <CalendarDays size={14} />
