@@ -1277,7 +1277,7 @@ const ContactPage = () => {
                     value={formData.phone}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    placeholder="Enter your Phone number with ISD Code"
+                    placeholder="Enter your phone number with ISD Code"
                     autoComplete="tel"
                     required
                     disabled={submitting}
