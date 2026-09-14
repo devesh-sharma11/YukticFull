@@ -241,7 +241,7 @@ const ContactSection = () => {
 
                 <p>
                   Your message has been received.
-                  We’ll get back to you within 24 hours.
+                  We’ll get back to you within 2 working days.
                 </p>
               </div>
 

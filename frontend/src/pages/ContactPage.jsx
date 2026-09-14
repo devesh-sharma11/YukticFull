@@ -988,7 +988,7 @@ const ContactPage = () => {
               </p>
 
               <small>
-                We’ll get back to you within 24 hours.
+                We’ll get back to you within 2 working days.
               </small>
             </div>
 
@@ -1028,7 +1028,7 @@ const ContactPage = () => {
             <p>
               Have a question, an idea, or a project in mind?
               Tell us what you’re working on and our team will
-              get back to you within 24 hours.
+              get back to you within 2 working days.
             </p>
 
             <div className="contact-hero-bottom">
@@ -1039,7 +1039,7 @@ const ContactPage = () => {
 
                 <div>
                   <small>AVERAGE RESPONSE</small>
-                  <strong>Within 24 hours</strong>
+                  <strong>Within 2 working days</strong>
                 </div>
               </div>
 
@@ -1123,7 +1123,7 @@ const ContactPage = () => {
                 <div className="info-item-content">
                   <small>RESPONSE TIME</small>
 
-                  <strong>Within 24 hours</strong>
+                  <strong>Within 2 working days</strong>
                 </div>
               </div>
 
@@ -1233,7 +1233,7 @@ const ContactPage = () => {
                     value={formData.email}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    placeholder="you@example.com"
+                    placeholder="Enter Your Email ID"
                     autoComplete="email"
                     required
                     disabled={submitting}
@@ -1277,7 +1277,7 @@ const ContactPage = () => {
                     value={formData.phone}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    placeholder="+91 00000 00000"
+                    placeholder="Enter your Phone number with ISD Code"
                     autoComplete="tel"
                     required
                     disabled={submitting}
@@ -1497,7 +1497,7 @@ const ContactPage = () => {
 
                 <p>
                   We aim to respond to every genuine
-                  enquiry within 24 hours.
+                  enquiry within 2 working days.
                 </p>
               </div>
             </div>
