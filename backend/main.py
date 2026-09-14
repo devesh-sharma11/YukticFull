@@ -2246,10 +2246,56 @@ def send_feedback_email(data):
     )
 
 
+# @app.post("/case-studies")
+# def create_case_study(data: CaseStudy, user=Depends(get_current_user)):
+    
+    
+#     existing = case_studies.find_one({
+#         "slug": data.slug
+#     })
+
+#     if existing:
+#         raise HTTPException(
+#             status_code=409,
+#             detail="Slug already exists"
+#         )
+        
+        
+#     result = case_studies.insert_one(
+#         data.model_dump()
+#     )
+    
+#     images = extract_case_study_images(
+#         data.model_dump()
+#     )
+
+#     update_image_usage(
+#         images,
+#         data.slug
+#     )
+    
+#     create_notification(
+#         title="Case Study Published",
+#         message=data.title,
+#         notif_type="case-study",
+#         target_id=result.inserted_id,
+#         url="/list-edit-case-study"
+#     )
+    
+
+#     return {
+#         "success": True,
+#         "inserted_id": str(result.inserted_id),
+#         "message": "Case Study Published Successfully"
+#     }
+
+
 @app.post("/case-studies")
-def create_case_study(data: CaseStudy, user=Depends(get_current_user)):
-    
-    
+def create_case_study(
+    data: CaseStudy,
+    user=Depends(get_current_user)
+):
+
     existing = case_studies.find_one({
         "slug": data.slug
     })
@@ -2259,12 +2305,13 @@ def create_case_study(data: CaseStudy, user=Depends(get_current_user)):
             status_code=409,
             detail="Slug already exists"
         )
-        
-        
+
+    # Save Case Study
     result = case_studies.insert_one(
         data.model_dump()
     )
-    
+
+    # Update image usage
     images = extract_case_study_images(
         data.model_dump()
     )
@@ -2273,20 +2320,40 @@ def create_case_study(data: CaseStudy, user=Depends(get_current_user)):
         images,
         data.slug
     )
-    
-    create_notification(
-        title="Case Study Published",
-        message=data.title,
-        notif_type="case-study",
-        target_id=result.inserted_id,
-        url="/list-edit-case-study"
-    )
-    
+
+    # =====================================================
+    # NOTIFICATION + RESPONSE BASED ON PUBLISH STATUS
+    # =====================================================
+
+    if data.published:
+
+        create_notification(
+            title="Case Study Published",
+            message=data.title,
+            notif_type="case-study",
+            target_id=result.inserted_id,
+            url="/list-edit-case-study"
+        )
+
+        message = "Case Study Published Successfully"
+
+    else:
+
+        create_notification(
+            title="Case Study Saved as Draft",
+            message=data.title,
+            notif_type="case-study",
+            target_id=result.inserted_id,
+            url="/list-edit-case-study"
+        )
+
+        message = "Case Study Saved as Draft Successfully"
 
     return {
         "success": True,
         "inserted_id": str(result.inserted_id),
-        "message": "Case Study Published Successfully"
+        "published": data.published,
+        "message": message
     }
 
 
@@ -2566,6 +2633,119 @@ def update_case_study(
         "message": "Case Study Updated Successfully"
     }
     
+  
+  
+  
+  
+  
+  
+# =========================================================
+# PUBLISH / UNPUBLISH CASE STUDY
+# =========================================================
+
+@app.put("/case-studies/{slug}/publish")
+def publish_case_study(
+    slug: str,
+    user=Depends(get_current_user)
+):
+
+    study = case_studies.find_one({
+        "slug": slug
+    })
+
+    if not study:
+        raise HTTPException(
+            status_code=404,
+            detail="Case Study Not Found"
+        )
+
+    current_published = study.get(
+        "published",
+        False
+    )
+
+    # =====================================================
+    # UNPUBLISH
+    # =====================================================
+
+    if current_published:
+
+        case_studies.update_one(
+            {
+                "_id": study["_id"]
+            },
+            {
+                "$set": {
+                    "published": False
+                }
+            }
+        )
+
+        create_notification(
+            title="Case Study Unpublished",
+            message=study.get(
+                "title",
+                "Case Study"
+            ),
+            notif_type="case-study",
+            target_id=str(study["_id"]),
+            url="/list-edit-case-study"
+        )
+
+        return {
+            "success": True,
+            "published": False,
+            "message": "Case Study Unpublished Successfully"
+        }
+
+    # =====================================================
+    # PUBLISH
+    # =====================================================
+
+    case_studies.update_one(
+        {
+            "_id": study["_id"]
+        },
+        {
+            "$set": {
+                "published": True
+            }
+        }
+    )
+
+    create_notification(
+        title="Case Study Published",
+        message=study.get(
+            "title",
+            "Case Study"
+        ),
+        notif_type="case-study",
+        target_id=str(study["_id"]),
+        url="/list-edit-case-study"
+    )
+
+    return {
+        "success": True,
+        "published": True,
+        "message": "Case Study Published Successfully"
+    }
+  
+  
+@app.get("/admin/case-studies")
+def get_admin_case_studies(
+    user=Depends(get_current_user)
+):
+    studies = []
+
+    for item in case_studies.find(
+        {},
+        {"_id": 0}
+    ).sort("published", -1):
+
+        studies.append(item)
+
+    return studies
+  
     
 @app.get("/case-studies/{slug}")
 def get_case_study(slug: str):

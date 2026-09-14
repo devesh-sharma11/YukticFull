@@ -548,7 +548,7 @@ export default function Testimonials() {
                         }`}
                       >
                         {item.featured
-                          ? "★ Featured"
+                          ? "Featured"
                           : "☆ Featured"}
                       </button>
 

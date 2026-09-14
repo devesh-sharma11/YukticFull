@@ -132,7 +132,7 @@ export default function CreateCaseStudy() {
     specialties: "",
     landmark: "",
 
-    published: true,
+    published: false,
   });
 
 
@@ -364,7 +364,7 @@ const loadCaseStudy = async () => {
       landmark:
         data.project_summary?.landmark || "",
 
-      published: true
+      published: data.published ?? false
 
     });
 
@@ -445,181 +445,428 @@ const checkSlugExists = async (slug: string) => {
 
 
 
-  const handleSubmit = async () => {
+//   const handleSubmit = async () => {
 
-     if (!formData.slug.trim()) {
+//      if (!formData.slug.trim()) {
+//     setPopup({
+//       show: true,
+//       title: "Required Field",
+//       message: "Case Study Slug is mandatory.",
+//       type: "error",
+//     });
+//     return;
+  
+//   }
+
+
+// const slugExists = await checkSlugExists(formData.slug.trim());
+
+// console.log("isEditMode:", isEditMode);
+// console.log("slugExists:", slugExists);
+
+// if (!isEditMode && slugExists) {
+//   console.log("Duplicate popup should open");
+
+//   setPopup({
+//     show: true,
+//     title: "Duplicate Slug",
+//     message: "This slug already exists. Please choose another slug.",
+//     type: "error",
+//   });
+
+//   return;
+// }
+
+
+
+//   const icons = [
+//         "⚡",
+//         "🔒",
+//         "⏱️",
+//         "🧩",
+//         "📈",
+//         "💰",
+//         "🚀",
+//         "🎯",
+//         "🏆",
+//         "⭐"
+//       ];
+
+//     const payload = {
+//       title: formData.title,
+//       slug: formData.slug,
+//       filter_title: formData.filter_title,
+//       subtitle: formData.subtitle,
+//       landmark_banner: formData.landmark_banner,
+
+//       architecture_image: formData.architecture_image,
+
+//       workflow_image: formData.workflow_image,
+
+//       product_image: formData.product_image,
+
+//       backgrounds: formData.backgrounds.filter(Boolean),
+
+//       event_types: formData.event_types
+//         .split("\n")
+//         .filter((item) => item.trim()),
+
+//       challenges: formData.challenges.filter(Boolean),
+
+//       intervention_intro: formData.intervention_intro,
+
+//       difficult_factors: formData.difficult_factors.filter(Boolean),
+
+//       my_role_intro: formData.my_role_intro,
+
+//       steps: [
+//         formData.step_1,
+//         formData.step_2,
+//         formData.step_3,
+//         formData.step_4,
+//         formData.step_5,
+//         formData.step_6,
+//         formData.step_7,
+//         formData.step_8,
+//         formData.step_9,
+//         formData.step_10,
+//         formData.step_11,
+//         formData.step_12,
+//         formData.step_13,
+//         formData.step_14,
+//         formData.step_15,
+//       ].filter(Boolean),
+
+//       my_role_points: [
+//           formData.my_role_1,
+//           formData.my_role_2,
+//           formData.my_role_3,
+//           formData.my_role_4,
+//           formData.my_role_5,
+//           formData.my_role_6,
+//           formData.my_role_7,
+//           formData.my_role_8,
+//           formData.my_role_9,
+//           formData.my_role_10,
+//           formData.my_role_11,
+//           formData.my_role_12,
+//           formData.my_role_13,
+//           formData.my_role_14,
+//           formData.my_role_15,
+//       ].filter(Boolean),
+
+//       results: formData.results
+//         .filter(Boolean)
+//         .map((text,index)=>({
+
+//           icon: icons[index],
+
+//           text
+
+//         })),
+
+//       stats: [
+//         {
+//           number: formData.stat1_number,
+//           label: formData.stat1_label,
+//         },
+//         {
+//           number: formData.stat2_number,
+//           label: formData.stat2_label,
+//         },
+//         {
+//           number: formData.stat3_number,
+//           label: formData.stat3_label,
+//         },
+//       ],
+
+//       landmark_title: formData.landmark_title,
+//       landmark_description: formData.landmark_description,
+//       client_said: formData.client_said,
+
+//       project_summary: {
+//         organisation: formData.organisation,
+//         region: formData.region,
+
+//         service_types: formData.service_types
+//           .split(",")
+//           .map((x) => x.trim()),
+
+//         stakeholders: formData.stakeholders,
+
+//         epic_modules: formData.epic_modules
+//           .split(",")
+//           .map((x) => x.trim()),
+
+//         specialties: formData.specialties,
+//         landmark: formData.landmark,
+//       },
+
+//       published: true,
+//     };
+
+//     if (isEditMode) {
+
+//   try {
+
+//     await API.put(
+//       `/case-studies/${slug}`,
+//       payload
+//     );
+
+//     setPopup({
+//       show: true,
+//       title: "Success",
+//       message: "Case Study Updated Successfully",
+//       type: "success",
+//     });
+
+//     setTimeout(() => {
+//       navigate("/list-edit-case-study");
+//     }, 1500);
+
+//   } catch (err: any) {
+
+//     if (err.response?.status === 409) {
+
+//       setPopup({
+//         show: true,
+//         title: "Duplicate Slug",
+//         message: "This slug already exists. Please choose another slug.",
+//         type: "error",
+//       });
+
+//       return;
+//     }
+
+//     console.error(err);
+//   }
+// } else {
+
+//       await createCaseStudy(payload);
+
+//        setPopup({
+//           show: true,
+//           title: "Published",
+//           message: "Case Study Published Successfully",
+//           type: "success",
+//         });
+
+//         setTimeout(() => {
+//           navigate("/list-edit-case-study");
+//         }, 1500);
+
+//     }
+//   };
+
+
+const handleSubmit = async (publishStatus: boolean) => {
+
+  if (!formData.slug.trim()) {
     setPopup({
       show: true,
       title: "Required Field",
-      message: "Case Study Slug is mandatory.",
+      message: "Article Slug is mandatory.",
       type: "error",
     });
     return;
-  
   }
 
+  const slugExists = await checkSlugExists(
+    formData.slug.trim()
+  );
 
-const slugExists = await checkSlugExists(formData.slug.trim());
+  if (!isEditMode && slugExists) {
+    setPopup({
+      show: true,
+      title: "Duplicate Slug",
+      message:
+        "This slug already exists. Please choose another slug.",
+      type: "error",
+    });
 
-console.log("isEditMode:", isEditMode);
-console.log("slugExists:", slugExists);
-
-if (!isEditMode && slugExists) {
-  console.log("Duplicate popup should open");
-
-  setPopup({
-    show: true,
-    title: "Duplicate Slug",
-    message: "This slug already exists. Please choose another slug.",
-    type: "error",
-  });
-
-  return;
-}
-
-
+    return;
+  }
 
   const icons = [
-        "⚡",
-        "🔒",
-        "⏱️",
-        "🧩",
-        "📈",
-        "💰",
-        "🚀",
-        "🎯",
-        "🏆",
-        "⭐"
-      ];
+    "⚡",
+    "🔒",
+    "⏱️",
+    "🧩",
+    "📈",
+    "💰",
+    "🚀",
+    "🎯",
+    "🏆",
+    "⭐"
+  ];
 
-    const payload = {
-      title: formData.title,
-      slug: formData.slug,
-      filter_title: formData.filter_title,
-      subtitle: formData.subtitle,
-      landmark_banner: formData.landmark_banner,
+  const payload = {
+    title: formData.title,
+    slug: formData.slug.trim(),
+    filter_title: formData.filter_title,
+    subtitle: formData.subtitle,
+    landmark_banner: formData.landmark_banner,
 
-      architecture_image: formData.architecture_image,
+    architecture_image: formData.architecture_image,
+    workflow_image: formData.workflow_image,
+    product_image: formData.product_image,
 
-      workflow_image: formData.workflow_image,
+    backgrounds:
+      formData.backgrounds.filter(Boolean),
 
-      product_image: formData.product_image,
-
-      backgrounds: formData.backgrounds.filter(Boolean),
-
-      event_types: formData.event_types
+    event_types:
+      formData.event_types
         .split("\n")
         .filter((item) => item.trim()),
 
-      challenges: formData.challenges.filter(Boolean),
+    challenges:
+      formData.challenges.filter(Boolean),
 
-      intervention_intro: formData.intervention_intro,
+    intervention_intro:
+      formData.intervention_intro,
 
-      difficult_factors: formData.difficult_factors.filter(Boolean),
+    difficult_factors:
+      formData.difficult_factors.filter(Boolean),
 
-      my_role_intro: formData.my_role_intro,
+    my_role_intro:
+      formData.my_role_intro,
 
-      steps: [
-        formData.step_1,
-        formData.step_2,
-        formData.step_3,
-        formData.step_4,
-        formData.step_5,
-        formData.step_6,
-        formData.step_7,
-        formData.step_8,
-        formData.step_9,
-        formData.step_10,
-        formData.step_11,
-        formData.step_12,
-        formData.step_13,
-        formData.step_14,
-        formData.step_15,
-      ].filter(Boolean),
+    steps: [
+      formData.step_1,
+      formData.step_2,
+      formData.step_3,
+      formData.step_4,
+      formData.step_5,
+      formData.step_6,
+      formData.step_7,
+      formData.step_8,
+      formData.step_9,
+      formData.step_10,
+      formData.step_11,
+      formData.step_12,
+      formData.step_13,
+      formData.step_14,
+      formData.step_15,
+    ].filter(Boolean),
 
-      my_role_points: [
-          formData.my_role_1,
-          formData.my_role_2,
-          formData.my_role_3,
-          formData.my_role_4,
-          formData.my_role_5,
-          formData.my_role_6,
-          formData.my_role_7,
-          formData.my_role_8,
-          formData.my_role_9,
-          formData.my_role_10,
-          formData.my_role_11,
-          formData.my_role_12,
-          formData.my_role_13,
-          formData.my_role_14,
-          formData.my_role_15,
-      ].filter(Boolean),
+    my_role_points: [
+      formData.my_role_1,
+      formData.my_role_2,
+      formData.my_role_3,
+      formData.my_role_4,
+      formData.my_role_5,
+      formData.my_role_6,
+      formData.my_role_7,
+      formData.my_role_8,
+      formData.my_role_9,
+      formData.my_role_10,
+      formData.my_role_11,
+      formData.my_role_12,
+      formData.my_role_13,
+      formData.my_role_14,
+      formData.my_role_15,
+    ].filter(Boolean),
 
-      results: formData.results
-        .filter(Boolean)
-        .map((text,index)=>({
+    results: formData.results
+      .filter(Boolean)
+      .map((text, index) => ({
+        icon: icons[index],
+        text
+      })),
 
-          icon: icons[index],
-
-          text
-
-        })),
-
-      stats: [
-        {
-          number: formData.stat1_number,
-          label: formData.stat1_label,
-        },
-        {
-          number: formData.stat2_number,
-          label: formData.stat2_label,
-        },
-        {
-          number: formData.stat3_number,
-          label: formData.stat3_label,
-        },
-      ],
-
-      landmark_title: formData.landmark_title,
-      landmark_description: formData.landmark_description,
-      client_said: formData.client_said,
-
-      project_summary: {
-        organisation: formData.organisation,
-        region: formData.region,
-
-        service_types: formData.service_types
-          .split(",")
-          .map((x) => x.trim()),
-
-        stakeholders: formData.stakeholders,
-
-        epic_modules: formData.epic_modules
-          .split(",")
-          .map((x) => x.trim()),
-
-        specialties: formData.specialties,
-        landmark: formData.landmark,
+    stats: [
+      {
+        number: formData.stat1_number,
+        label: formData.stat1_label,
       },
+      {
+        number: formData.stat2_number,
+        label: formData.stat2_label,
+      },
+      {
+        number: formData.stat3_number,
+        label: formData.stat3_label,
+      },
+    ],
 
-      published: true,
-    };
+    landmark_title:
+      formData.landmark_title,
 
-    if (isEditMode) {
+    landmark_description:
+      formData.landmark_description,
+
+    client_said:
+      formData.client_said,
+
+    project_summary: {
+      organisation:
+        formData.organisation,
+
+      region:
+        formData.region,
+
+      service_types:
+        formData.service_types
+          .split(",")
+          .map((x) => x.trim())
+          .filter(Boolean),
+
+      stakeholders:
+        formData.stakeholders,
+
+      epic_modules:
+        formData.epic_modules
+          .split(",")
+          .map((x) => x.trim())
+          .filter(Boolean),
+
+      specialties:
+        formData.specialties,
+
+      landmark:
+        formData.landmark,
+    },
+
+    // IMPORTANT
+    published: publishStatus,
+  };
 
   try {
 
-    await API.put(
-      `/case-studies/${slug}`,
-      payload
-    );
+    if (isEditMode) {
 
-    setPopup({
-      show: true,
-      title: "Success",
-      message: "Case Study Updated Successfully",
-      type: "success",
-    });
+      await API.put(
+        `/case-studies/${slug}`,
+        payload
+      );
+
+      setPopup({
+        show: true,
+        title: publishStatus
+          ? "Article Published"
+          : "Draft Saved",
+        message: publishStatus
+          ? "Article Published Successfully"
+          : "Article Saved as Draft Successfully",
+        type: "success",
+      });
+
+    } else {
+
+      await createCaseStudy(payload);
+
+      setPopup({
+        show: true,
+        title: publishStatus
+          ? "Article Published"
+          : "Draft Saved",
+        message: publishStatus
+          ? "Article Published Successfully"
+          : "Article Saved as Draft Successfully",
+        type: "success",
+      });
+    }
 
     setTimeout(() => {
       navigate("/list-edit-case-study");
@@ -632,32 +879,25 @@ if (!isEditMode && slugExists) {
       setPopup({
         show: true,
         title: "Duplicate Slug",
-        message: "This slug already exists. Please choose another slug.",
+        message:
+          "This slug already exists. Please choose another slug.",
         type: "error",
       });
 
       return;
     }
 
-    console.error(err);
+    console.error("Save Article Error:", err);
+
+    setPopup({
+      show: true,
+      title: "Error",
+      message:
+        "Something went wrong while saving the article.",
+      type: "error",
+    });
   }
-} else {
-
-      await createCaseStudy(payload);
-
-       setPopup({
-          show: true,
-          title: "Published",
-          message: "Case Study Published Successfully",
-          type: "success",
-        });
-
-        setTimeout(() => {
-          navigate("/list-edit-case-study");
-        }, 1500);
-
-    }
-  };
+};
 
 
   return (
@@ -740,18 +980,39 @@ if (!isEditMode && slugExists) {
 
       {/* TOP BAR */}
 
-      <div className="admin-topbar ">
+      <div
+  className="admin-topbar"
+  style={{
+    display: "flex",
+    justifyContent: "flex-end",
+    alignItems: "center",
+    gap: "12px",
+    flexWrap: "wrap",
+  }}
+>
 
-        <button
-          className="btn btn-red"
-          onClick={handleSubmit}
-        >
-          {isEditMode
-          ? "Update Artcile"
-          : "Publish Artcile"}
-        </button>
+  {/* SAVE DRAFT */}
+  <button
+    className="btn"
+    onClick={() => handleSubmit(false)}
+    style={{
+      background: "#f3f4f6",
+      color: "#374151",
+      border: "1px solid #d1d5db",
+    }}
+  >
+    💾 Save Draft
+  </button>
 
-      </div>
+  {/* PUBLISH */}
+  <button
+    className="btn btn-red"
+    onClick={() => handleSubmit(true)}
+  >
+    🚀 {isEditMode ? "Publish Article" : "Publish Article"}
+  </button>
+
+</div>
 
       {/* HERO */}
 

@@ -1869,11 +1869,11 @@ const Dashboard = () => {
             LEFT: 5 metric cards in 2 columns
             RIGHT: Notifications spanning the full height
         ===================================================== */}
-        <div className="grid grid-cols-1 gap-5 xl:grid-cols-[1.15fr_0.85fr]">
+        <div className="grid min-w-0 grid-cols-1 items-stretch gap-5 xl:grid-cols-[minmax(0,1.15fr)_minmax(320px,0.85fr)]">
           {/* =====================================================
               LEFT — METRIC CARDS
           ===================================================== */}
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div className="grid min-w-0 grid-cols-1 gap-4 sm:grid-cols-2">
             {/* CASE STUDIES */}
             <div className="group relative overflow-hidden rounded-[26px] border border-[#dcecf5] bg-white p-6 shadow-[0_12px_35px_rgba(21,92,132,0.07)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_20px_45px_rgba(21,92,132,0.12)]">
               <div className="absolute right-0 top-0 h-28 w-28 rounded-bl-[100px] bg-[#e8f7ff]" />
@@ -1887,7 +1887,7 @@ const Dashboard = () => {
               </div>
               <div className="relative z-10 mt-8">
                 <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#7d91a2]">
-                  Published Case Studies
+                  Published Article
                 </p>
                 <div className="mt-2 flex items-end gap-3">
                   <h2 className="text-5xl font-black tracking-tight text-[#116b9e]" style={{ fontFamily: "'Comfortaa', sans-serif" }}>
@@ -1902,7 +1902,7 @@ const Dashboard = () => {
             </div>
 
             {/* FEEDBACK */}
-            <div className="group relative overflow-hidden rounded-[26px] border border-[#dcefe7] bg-white p-6 shadow-[0_12px_35px_rgba(27,155,97,0.06)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_20px_45px_rgba(27,155,97,0.11)]">
+            {/* <div className="group relative overflow-hidden rounded-[26px] border border-[#dcefe7] bg-white p-6 shadow-[0_12px_35px_rgba(27,155,97,0.06)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_20px_45px_rgba(27,155,97,0.11)]">
               <div className="absolute right-0 top-0 h-28 w-28 rounded-bl-[100px] bg-[#ebf9f2]" />
               <div className="relative z-10 flex items-start justify-between">
                 <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#eaf8f1] text-[#1b9b61]">
@@ -1926,7 +1926,7 @@ const Dashboard = () => {
                 </div>
               </div>
               <div className="absolute bottom-0 left-0 h-1 w-0 bg-[#1b9b61] transition-all duration-500 group-hover:w-full" />
-            </div>
+            </div> */}
 
             {/* TESTIMONIALS */}
             <div className="group relative overflow-hidden rounded-[26px] border border-[#dce7f6] bg-white p-6 shadow-[0_12px_35px_rgba(28,92,150,0.06)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_20px_45px_rgba(28,92,150,0.11)]">
@@ -2013,17 +2013,31 @@ const Dashboard = () => {
               Yuktic WEBSITE — REMAINING LEFT GRID SPACE
           ===================================================== */}
           <a
-            href="https://Yuktic.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Visit Yuktic website"
-            className="group relative flex min-h-[228px] flex-col items-center justify-center overflow-hidden rounded-[26px] border border-[#dcecf5] bg-white p-6 text-center shadow-[0_12px_35px_rgba(21,92,132,0.07)] transition-all duration-500 hover:-translate-y-1 hover:border-[#b9dff0] hover:shadow-[0_20px_45px_rgba(21,92,132,0.14)]"
-          >
+  href="https://Yuktic.com"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Visit Yuktic website"
+  className="
+    group relative col-span-1 flex w-full min-w-0
+    min-h-[220px]
+    flex-col items-center justify-center
+    overflow-hidden rounded-[26px]
+    border border-[#dcecf5]
+    bg-white p-5
+    text-center
+    shadow-[0_12px_35px_rgba(21,92,132,0.07)]
+    transition-all duration-500
+    hover:-translate-y-1
+    hover:border-[#b9dff0]
+    hover:shadow-[0_20px_45px_rgba(21,92,132,0.14)]
+    sm:col-span-2
+    sm:min-h-[228px]
+  "
+>
             <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-[#e8f7ff] transition-transform duration-500 group-hover:scale-110" />
             <div className="absolute -bottom-12 -left-12 h-28 w-28 rounded-full bg-[#eaf8f1] transition-transform duration-500 group-hover:scale-110" />
 
-            <div className="relative z-10 flex h-24 w-24 items-center justify-center rounded-3xl border border-[#e2edf3] bg-white shadow-[0_8px_25px_rgba(21,92,132,0.08)]">
-              <img
+<div className="relative z-10 flex h-20 w-20 shrink-0 items-center justify-center rounded-3xl border border-[#e2edf3] bg-white shadow-[0_8px_25px_rgba(21,92,132,0.08)] sm:h-24 sm:w-24">              <img
                 src={YukticLogo}
                 alt="Yuktic"
                 className="max-h-16 max-w-20 object-contain transition-transform duration-500 group-hover:scale-105"
