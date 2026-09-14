@@ -139,12 +139,11 @@ export interface JobPayload {
 
   min_experience: number | null;
   max_experience: number | null;
+  min_package: number | null;
+  max_package: number | null;
 
-  min_package: number;
-  max_package: number;
-
-  min_notice_period: number;
-  max_notice_period: number;
+  min_notice_period: number | null;
+  max_notice_period: number | null;
 
   description: string;
 
