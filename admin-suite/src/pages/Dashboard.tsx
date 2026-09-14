@@ -1533,7 +1533,7 @@ import {
   BriefcaseBusiness,
   ExternalLink,
   ArrowRight,
-  MessageSquare,
+  // MessageSquare,
   X,
   Send,
   // SendIcon,
@@ -1578,7 +1578,7 @@ interface NotificationItem {
 
 const Dashboard = () => {
   const [caseStudyCount, setCaseStudyCount] = useState(0);
-  const [feedbackCount, setFeedbackCount] = useState(0);
+  // const [feedbackCount, setFeedbackCount] = useState(0);
   const [contactCount, setContactCount] = useState(0);
   const [testimonialCount, setTestimonialCount] = useState(0);
   const [jobPublishedCount, setJobPublishedCount] = useState(0);
@@ -1690,13 +1690,13 @@ const Dashboard = () => {
      FETCH FEEDBACK
   ============================================================ */
 
-  useEffect(() => {
-    API.get("/feedback")
-      .then((res) => {
-        setFeedbackCount(res.data.length);
-      })
-      .catch(console.error);
-  }, []);
+  // useEffect(() => {
+  //   API.get("/feedback")
+  //     .then((res) => {
+  //       setFeedbackCount(res.data.length);
+  //     })
+  //     .catch(console.error);
+  // }, []);
 
   /* ============================================================
      FETCH CONTACTS
