@@ -137,8 +137,8 @@ export interface JobPayload {
   mandatory_skills: string[];
   optional_skills: string[];
 
-  min_experience: number;
-  max_experience: number;
+  min_experience: number | null;
+  max_experience: number | null;
 
   min_package: number;
   max_package: number;
