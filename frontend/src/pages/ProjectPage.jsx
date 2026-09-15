@@ -710,6 +710,8 @@ useLayoutEffect(() => {
 
       </section>
 
+      
+
 
       {/* =====================================================
           CANDIQ
@@ -719,6 +721,7 @@ useLayoutEffect(() => {
         className="project-detail-section project-detail-candiq"
         id="candiq"
       >
+        <br/><br/><br/><br/><br/>
 
         <div className="project-detail-container">
 
