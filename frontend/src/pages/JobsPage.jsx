@@ -400,31 +400,7 @@ const JobsPage = () => {
 
           {/* HERO BOTTOM */}
 
-          <div className="jobs-hero-bottom jobs-animate-item">
-
-            <span>
-              01
-            </span>
-
-            <span className="jobs-bottom-line"></span>
-
-            <span>
-              PEOPLE
-            </span>
-
-            <span>
-              CRAFT
-            </span>
-
-            <span>
-              GROWTH
-            </span>
-
-            <span>
-              IMPACT
-            </span>
-
-          </div>
+        
 
         </div>
 
@@ -877,7 +853,7 @@ const JobsPage = () => {
 
             <div className="culture-statement">
 
-              <span className="section-kicker">
+              <span className="section-kicker2">
                 HOW WE WORK
               </span>
 
@@ -1014,7 +990,7 @@ const JobsPage = () => {
 
         <div className="jobs-cta-inner">
 
-          <span className="section-kicker">
+          <span className="section-kicker3">
             DON'T SEE THE RIGHT ROLE?
           </span>
 

@@ -95,7 +95,7 @@
   top: -300px;
 
   background:
-    rgba(71, 157, 214, 0.12);
+    rgba(71, 157, 214, 0.16);
 
   border:
     1px solid
@@ -111,7 +111,7 @@
 
   border:
     2px solid
-    rgba(85, 168, 218, 0.16);
+    rgba(85, 167, 218, 0.448);
 }
 
 .bg-circle-3 {
@@ -134,7 +134,7 @@
   top: 240px;
 
   background:
-    rgba(51, 129, 181, 0.12);
+    rgba(12, 144, 232, 0.371);
 
   border:
     1px solid
@@ -150,7 +150,7 @@
 
   border:
     1px solid
-    rgba(77, 158, 208, 0.12);
+    rgba(77, 158, 208, 0.884);
 }
 
 
@@ -179,7 +179,7 @@
 
   border:
     2px solid
-    rgba(91, 176, 224, 0.14);
+    rgba(91, 175, 224, 0.474);
 }
 
 .bg-ring-2 {
@@ -193,7 +193,7 @@
 
   border:
     1px solid
-    rgba(79, 160, 211, 0.12);
+    rgba(79, 160, 211, 0.6);
 }
 
 .bg-ring-3 {
@@ -209,7 +209,7 @@
 
   border:
     2px solid
-    rgba(72, 153, 207, 0.10);
+    rgba(72, 153, 207, 0.182);
 }
 
 .bg-ring-4 {

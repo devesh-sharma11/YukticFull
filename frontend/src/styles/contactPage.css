@@ -115,9 +115,9 @@
     ),
     linear-gradient(
       135deg,
-      #02080f 0%,
-      #082341 46%,
-      #0a2d4c 100%
+      #05101f 0%,
+      #09305d 46%,
+      #083963 100%
     );
 
   border-bottom: 1px solid rgba(143, 220, 255, 0.12);
@@ -151,7 +151,7 @@
   background:
     radial-gradient(
       circle at 35% 35%,
-      rgba(143, 220, 255, 0.34),
+      rgba(143, 220, 255, 0.545),
       rgba(77, 187, 232, 0.12) 42%,
       transparent 72%
     );
@@ -1136,7 +1136,7 @@
 
   background: rgba(143, 220, 255, 0.07);
 
-  border: 1px solid rgba(143, 220, 255, 0.12);
+  border: 1px solid rgba(143, 220, 255, 0.315);
 }
 
 
@@ -1149,14 +1149,14 @@
 .form-field textarea {
   width: 100%;
 
-  border: 1px solid rgba(143, 220, 255, 0.13);
+  border: 1px solid rgba(143, 220, 255, 0.458);
 
   border-radius: var(--radius-sm);
 
   outline: none;
 
   background:
-    rgba(5, 25, 45, 0.68);
+    rgba(62, 101, 140, 0.195);
 
   color: var(--white);
 
@@ -1462,9 +1462,9 @@
     ),
     linear-gradient(
       145deg,
-      #062a27 0%,
-      #083630 48%,
-      #0a4038 100%
+      #041c0d 0%,
+      #032d13 48%,
+      #055e12 100%
     );
 
   border-top:
@@ -1750,9 +1750,9 @@
     ),
     linear-gradient(
       135deg,
-      #062a27 0%,
-      #083c36 45%,
-      #092f42 100%
+      #062a10 0%,
+      #033918 45%,
+      #093304 100%
     );
 
   border-top:
@@ -1775,11 +1775,11 @@
 
   border-radius: 50%;
 
-  border: 1px solid rgba(143, 220, 255, 0.10);
+  border: 1px solid rgba(168, 240, 186, 0.558);
 
   box-shadow:
-    0 0 0 60px rgba(143, 220, 255, 0.018),
-    0 0 0 120px rgba(143, 220, 255, 0.012);
+    0 0 0 60px rgba(154, 237, 158, 0.115),
+    0 0 0 120px rgba(84, 202, 102, 0.075);
 
   pointer-events: none;
 }
@@ -1838,7 +1838,7 @@
 .final-copy h2 em {
   font-style: normal;
 
-  color: var(--blue-light);
+  color: var(--green-light);
 
   text-shadow:
     0 0 40px rgba(77, 187, 232, 0.12);

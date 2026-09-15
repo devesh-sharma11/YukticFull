@@ -99,7 +99,6 @@
   letter-spacing: 1.7px;
   text-transform: uppercase;
 }
-
 .section-kicker::before {
   content: "";
 
@@ -112,6 +111,52 @@
       var(--jobs-green-dark),
       var(--jobs-green-light)
     );
+}
+
+.section-kicker2 {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  color: var(--jobs-blue-light);
+
+  font-size: 12px;
+  line-height: 1;
+
+  font-weight: 700;
+  letter-spacing: 1.7px;
+  text-transform: uppercase;
+}
+
+.section-kicker2::before {
+  content: "";
+
+  width: 23px;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--jobs-blue-dark),
+      var(--jobs-blue-light)
+    );
+}
+
+
+
+.section-kicker3 {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  color: var(--jobs-blue-light);
+
+  font-size: 12px;
+  line-height: 1;
+
+  font-weight: 700;
+  letter-spacing: 1.7px;
+  text-transform: uppercase;
 }
 
 
@@ -2193,10 +2238,10 @@
   background:
     radial-gradient(
       circle at 88% 20%,
-      rgba(42, 89, 177, 0.462),
+      rgba(42, 123, 177, 0.707),
       transparent 25%
     ),
-    #071f2d;
+    #0a2e43;
 
   border-top: 1px solid var(--jobs-border);
 }
@@ -2247,7 +2292,7 @@
 }
 
 .culture-statement h2 span {
-  color: var(--jobs-green-light);
+  color: var(--jobs-blue-light);
 
   font-weight: 400;
 }
@@ -2288,7 +2333,7 @@
 }
 
 .culture-item > span {
-  color: var(--jobs-green-light);
+  color: var(--jobs-blue-light);
 
   font-size: 11px;
   font-weight: 700;
@@ -2438,12 +2483,12 @@
 }
 
 .jobs-cta-inner h2 span {
-  color: var(--jobs-green-light);
+  color: var(--jobs-blue-light);
 
   font-weight: 400;
 
   text-shadow:
-    0 0 30px rgba(47, 143, 104, 0.12);
+    0 0 30px rgba(47, 63, 143, 0.12);
 }
 
 .jobs-cta-inner > p {
