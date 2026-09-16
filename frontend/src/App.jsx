@@ -14,7 +14,7 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import Hero from "./components/hero";
 import Footer from "./components/Footer";
-import ProjectPage from "./pages/ProjectPage";
+import ProductPage from "./pages/ProductPage";
 // import Feedback from "./pages/Feedback";
 import ServicesPage from "./pages/ServicesPage";
 import ArticlePage from "./pages/ArticlePage";
@@ -40,7 +40,7 @@ function AppContent() {
   */
   const navbarVisible =
     showRealNavbar ||
-    location.pathname === "/project" ||
+    location.pathname === "/product" ||
     location.pathname === "/services" ||
     location.pathname === "/jobs" ||
     location.pathname.startsWith("/jobs/") ||
@@ -91,8 +91,8 @@ function AppContent() {
         =============================== */}
 
         <Route
-          path="/project"
-          element={<ProjectPage />}
+          path="/Product"
+          element={<ProductPage />}
         />
 
         {/* ===============================

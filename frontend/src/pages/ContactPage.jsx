@@ -1028,40 +1028,24 @@ const ContactPage = () => {
             <p>
               Have a question, an idea, or a project in mind?
               Tell us what you’re working on and our team will
-              get back to you within 2 working days.
+              get back to you.
             </p>
 
             <div className="contact-hero-bottom">
-              <div className="hero-response">
-                <div className="response-icon">
-                  <span></span>
-                </div>
+             
 
-                <div>
-                  <small>AVERAGE RESPONSE</small>
-                  <strong>Within 2 working days</strong>
-                </div>
-              </div>
-
-              <div className="hero-email">
-                <small>WRITE TO US</small>
-
-                <a href="mailto:info@yuktic.com">
-                  info@yuktic.com
-                  <span>↗</span>
-                </a>
-              </div>
+              
             </div>
           </div>
 
           <div className="contact-hero-side">
             <div className="hero-side-card">
               <div className="side-card-top">
-                <span>01</span>
-                <span>START HERE</span>
+               
+               
               </div>
 
-              <div className="side-card-line"></div>
+              
 
               <h3>
                 Tell us a little
@@ -1074,7 +1058,7 @@ const ContactPage = () => {
                 understand how to help.
               </p>
 
-              <div className="side-arrow">↓</div>
+             
             </div>
           </div>
         </div>
@@ -1109,10 +1093,10 @@ const ContactPage = () => {
                 <div className="info-number">01</div>
 
                 <div className="info-item-content">
-                  <small>EMAIL</small>
+                  <small>CONNECT</small>
 
-                  <a href="mailto:info@yuktic.com">
-                    info@yuktic.com
+                  <a>
+                    Submit Form
                   </a>
                 </div>
               </div>
@@ -1455,7 +1439,7 @@ const ContactPage = () => {
             <div className="value-card">
               <div className="value-card-top">
                 <span className="value-number">01</span>
-                <div className="value-icon">→</div>
+              
               </div>
 
               <div className="value-card-content">
@@ -1472,7 +1456,7 @@ const ContactPage = () => {
             <div className="value-card">
               <div className="value-card-top">
                 <span className="value-number">02</span>
-                <div className="value-icon">↗</div>
+              
               </div>
 
               <div className="value-card-content">
@@ -1489,7 +1473,7 @@ const ContactPage = () => {
             <div className="value-card">
               <div className="value-card-top">
                 <span className="value-number">03</span>
-                <div className="value-icon">✦</div>
+                
               </div>
 
               <div className="value-card-content">
@@ -1510,45 +1494,7 @@ const ContactPage = () => {
           FINAL CTA
       ===================================================== */}
 
-      <section className="contact-final">
-
-        <div className="final-decoration"></div>
-
-        <div className="contact-final-container">
-
-          <div className="final-copy">
-            <h2>
-              Just say
-              <br />
-              <em>hello.</em>
-            </h2>
-          </div>
-
-          <div className="final-right">
-
-            <p>
-              No complicated process.
-              No unnecessary steps.
-              Just send us a message.
-            </p>
-
-            <a
-              href="mailto:info@yuktic.com"
-              className="final-email"
-            >
-              <span>info@yuktic.com</span>
-              <strong>↗</strong>
-            </a>
-
-          </div>
-
-        </div>
-
-        <br />
-        <br />
-        <br />
-
-      </section>
+   
 
       <Footer />
 

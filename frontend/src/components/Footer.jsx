@@ -15,30 +15,51 @@ export default function Footer() {
       </div>
 
       <div className="footer-inner">
-        {/* Main Grid */}
-        <div className="footer-main-grid">
-          {/* Brand Column */}
-          <div className="footer-brand-col">
-            <img src={yukticLogo} alt="Yuktic" className="footer-logo" />
-            <p className="footer-tagline">
-              YUKTIC, Ideas Become What We Build Together
-            </p>
-            <p className="footer-subtext">
-              Driven by Logic. Defined by Solutions.
-            </p>
-            <div className="footer-social-wrapper">
-              <a
-                href="https://www.linkedin.com/company/yuktic/posts/"
-                target="_blank"
-                rel="noreferrer"
-                className="footer-social-box-wide"
-                aria-label="LinkedIn"
-              >
-                <FaLinkedinIn />
-                <span>LinkedIn</span>
-              </a>
-            </div>
-          </div>
+  {/* Main Grid */}
+  <div className="footer-main-grid">
+    {/* Brand Column */}
+    <div className="footer-brand-col">
+
+  {/* Logo */}
+  <div className="footer-logo-wrapper">
+    <img
+      src={yukticLogo}
+      alt="Yuktic"
+      className="footer-logo"
+    />
+  </div>
+
+  {/* Content beside logo */}
+  <div className="footer-brand-content">
+
+    {/* Yuktic */}
+    <h3 className="footer-brand-title">
+      YUKTIC
+    </h3>
+
+    {/* Description */}
+    <p className="footer-subtext">
+      Driven by Logic. Defined by Solutions.
+    </p>
+
+    {/* LinkedIn */}
+    <div className="footer-social-wrapper">
+      <a
+        href="https://www.linkedin.com/company/yuktic/posts/"
+        target="_blank"
+        rel="noreferrer"
+        className="footer-social-box-wide"
+        aria-label="LinkedIn"
+      >
+        <FaLinkedinIn />
+        <span>LinkedIn</span>
+      </a>
+    </div>
+
+  </div>
+
+</div>
+
 
           {/* Navigation Columns */}
           <div className="footer-nav-grid">
@@ -58,7 +79,8 @@ export default function Footer() {
             <div className="footer-col">
               <h4>COMPANY</h4>
               <ul>
-                <li><a href="/services">Sercices</a></li>
+                <li><a href="/services">Services</a></li>
+                <li><a href="/product">Products</a></li>
                 <li><a href="/jobs">Careers</a></li>
                 <li><a href="/contact">Contact</a></li>
 
@@ -70,9 +92,9 @@ export default function Footer() {
               <h4>LEGAL</h4>
               <ul>
                 <li><a href="#privacy">Privacy Policy</a></li>
-                <li><a href="#cookies">Cookie Policy</a></li>
+                {/* <li><a href="#cookies">Cookie Policy</a></li>
 
-                <li><a href="#disclaimer">Disclaimer</a></li>
+                <li><a href="#disclaimer">Disclaimer</a></li> */}
               </ul>
             </div>
           </div>
@@ -81,11 +103,9 @@ export default function Footer() {
         {/* Legal Details */}
         <div className="footer-divider" />
         <div className="footer-company-details">
+          
           <p>
-            info@yuktic.com
-          </p>
-          <p>
-            8th Floor, Platina Heights, c-24, c block, phase 2, industrial area, sector 62, Noida, Uttar Pradesh 201301
+            Platina Heights, C-24, C Block, Phase 2, Industrial Area, Sector 62, Noida, Uttar Pradesh 201301
           </p>
         </div>
 

@@ -1050,7 +1050,7 @@ const ServicesPage = () => {
                 </p>
               </div>
 
-              <div className="process-arrow">↗</div>
+              
             </div>
 
             {/* DEFINE */}
@@ -1066,7 +1066,7 @@ const ServicesPage = () => {
                 </p>
               </div>
 
-              <div className="process-arrow">↗</div>
+             
             </div>
 
             {/* CREATE */}
@@ -1082,7 +1082,7 @@ const ServicesPage = () => {
                 </p>
               </div>
 
-              <div className="process-arrow">↗</div>
+              
             </div>
 
             {/* EVOLVE */}
@@ -1098,7 +1098,7 @@ const ServicesPage = () => {
                 </p>
               </div>
 
-              <div className="process-arrow">↗</div>
+              
             </div>
           </div>
         </div>

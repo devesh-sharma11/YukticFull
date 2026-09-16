@@ -5,7 +5,7 @@ import React, {
   useState,
 } from "react";
 
-import "../styles/projectPage.css";
+import "../styles/productPage.css";
 import Footer from "../components/Footer";
 
 /*
@@ -324,7 +324,7 @@ useLayoutEffect(() => {
   const candiQScreenshots = [
     {
       image: CandiQHome,
-      title: "CandiQ Homepage",
+      title: "CandilQ Homepage",
       description:
         "A centralized recruitment workspace for managing the hiring journey.",
     },
@@ -472,13 +472,7 @@ useLayoutEffect(() => {
       type: "blue",
     },
 
-    {
-      number: "06",
-      title: "AI Assistance",
-      text:
-        "AI assistance can support parts of the healthcare workflow, including prescription suggestions and other intelligent capabilities.",
-      type: "orange",
-    },
+    
   ];
 
 
@@ -569,7 +563,7 @@ useLayoutEffect(() => {
             <div className="project-visual-bottom">
 
               <strong>
-                CandiQ
+                CandilQ
               </strong>
 
               <strong>
@@ -621,7 +615,7 @@ useLayoutEffect(() => {
           <p>
             At Yuktic, we build digital products that solve
             real business and user challenges. From recruitment
-            and healthcare to intelligent workflows and
+            to healthcare to intelligent workflows to
             AI-powered experiences, our products are designed
             to simplify complexity and create meaningful value.
           </p>
@@ -633,7 +627,7 @@ useLayoutEffect(() => {
               href="#projects"
               className="project-primary-btn"
             >
-              Explore Projects
+              Explore Our Products
               <span>↓</span>
             </a>
 
@@ -685,7 +679,7 @@ useLayoutEffect(() => {
             <p>
               Our products are built around real workflows,
               real users and real operational challenges.
-              CandiQ and YuDiHealth are two examples of the
+              CandilQ and YuDiHealth are two examples of the
               platforms we have developed, with each product
               continuing to evolve with new capabilities and
               possibilities.
@@ -755,7 +749,7 @@ useLayoutEffect(() => {
               <div className="project-card-title">
 
                 <h2>
-                  CandiQ
+                  CandilQ
                 </h2>
 
                 <p>
@@ -770,13 +764,13 @@ useLayoutEffect(() => {
               <div className="project-card-description">
 
                 <p>
-                  CandiQ is a recruitment platform designed
+                  CandilQ is a recruitment platform designed
                   to bring the hiring lifecycle into one
                   connected environment. It supports
                   organization management, recruiters,
                   candidates, jobs, interviews, applications,
                   documents, ATS workflows, AI-powered
-                  matching and much more.
+                  profiling, matching and much more.
                 </p>
 
               </div>
@@ -831,7 +825,7 @@ useLayoutEffect(() => {
 
 
               <p>
-                CandiQ connects the different parts of
+                CandilQ connects the different parts of
                 the recruitment process into one product,
                 helping organizations manage hiring from
                 setup through candidate evaluation and offer.
@@ -855,9 +849,7 @@ useLayoutEffect(() => {
                       {feature.number}
                     </span>
 
-                    <span className="project-feature-arrow">
-                      ↗
-                    </span>
+                   
 
                   </div>
 
@@ -896,7 +888,7 @@ useLayoutEffect(() => {
                   A look inside
                   <br />
                   <span>
-                    CandiQ.
+                    CandilQ.
                   </span>
                 </h3>
 
@@ -1102,7 +1094,7 @@ useLayoutEffect(() => {
                 <span>08</span>
 
                 <strong>
-                  AI & ATS
+                  AI in ATS
                 </strong>
 
                 <p>
@@ -1124,7 +1116,7 @@ useLayoutEffect(() => {
           YUDIHEALTH
       ===================================================== */}
 
-      <section
+       <section
         className="project-detail-section project-detail-yudi"
         id="yudi"
       >
@@ -1179,10 +1171,7 @@ useLayoutEffect(() => {
                   YuDiHealth is a healthcare workflow platform
                   connecting managers, doctors and patients
                   through scheduling, appointments and
-                  healthcare case flows. The platform also
-                  brings AI assistance into the healthcare
-                  workflow, including prescription suggestions
-                  and other intelligent capabilities.
+                  healthcare case flows.
                 </p>
 
               </div>
@@ -1263,9 +1252,7 @@ useLayoutEffect(() => {
                         {feature.number}
                       </span>
 
-                      <span className="project-feature-arrow">
-                        ↗
-                      </span>
+                      
 
                     </div>
 
@@ -1323,21 +1310,19 @@ useLayoutEffect(() => {
 
               <div className="yudi-flow-card yudi-flow-manager">
 
-                <span className="yudi-flow-number">
-                  01
-                </span>
+              
 
+                
                 <div className="yudi-flow-icon">
-                  M
+                  H
                 </div>
 
                 <h4>
-                  Manager
+                 Hospital/Clinic
                 </h4>
 
                 <p>
-                  Manage daily doctor schedules and
-                  healthcare operations.
+                  Own all healthcase workflows
                 </p>
 
               </div>
@@ -1350,9 +1335,30 @@ useLayoutEffect(() => {
 
               <div className="yudi-flow-card yudi-flow-doctor">
 
-                <span className="yudi-flow-number">
-                  02
-                </span>
+               <div className="yudi-flow-icon">
+                  A
+                </div>
+
+                <h4>
+                  Admin
+                </h4>
+
+                <p>
+                  Admin daily doctor schedules and
+                  healthcare operations.
+                </p>
+
+              </div>
+
+
+              <div className="yudi-flow-connector">
+                →
+              </div>
+
+
+              <div className="yudi-flow-card yudi-flow-patient">
+
+              
 
                 <div className="yudi-flow-icon">
                   D
@@ -1369,17 +1375,14 @@ useLayoutEffect(() => {
 
               </div>
 
-
               <div className="yudi-flow-connector">
                 →
               </div>
 
 
-              <div className="yudi-flow-card yudi-flow-patient">
+              <div className="yudi-flow-card yudi-flow-ai">
 
-                <span className="yudi-flow-number">
-                  03
-                </span>
+             
 
                 <div className="yudi-flow-icon">
                   P
@@ -1394,32 +1397,7 @@ useLayoutEffect(() => {
                   according to availability.
                 </p>
 
-              </div>
-
-
-              <div className="yudi-flow-connector">
-                →
-              </div>
-
-
-              <div className="yudi-flow-card yudi-flow-ai">
-
-                <span className="yudi-flow-number">
-                  04
-                </span>
-
-                <div className="yudi-flow-icon">
-                  AI
-                </div>
-
-                <h4>
-                  AI Assistance
-                </h4>
-
-                <p>
-                  Support parts of the healthcare workflow
-                  with intelligent suggestions.
-                </p>
+             
 
               </div>
 
@@ -1457,7 +1435,7 @@ useLayoutEffect(() => {
 
 
             <p>
-              CandiQ and YuDiHealth are only a part of
+              CandilQ and YuDiHealth are only a part of
               what we build. Our product development
               approach focuses on understanding the
               problem first, designing the right workflow

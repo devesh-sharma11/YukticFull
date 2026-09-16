@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../styles/projectsSection.css";
+import "../styles/productsSection.css";
 import { FaArrowRight, FaGithub } from "react-icons/fa";
 import stoneImage from "../assets/stoneimage.png";
 
@@ -25,7 +25,7 @@ const projectData = [
     ],
     tags: ["React", "TypeScript", "Node.js", "PostgreSQL", "Tailwind CSS"],
     githubLink: "#",
-    projectPath: "/project#candiq",
+    projectPath: "/product#candiq",
   },
 
   {
@@ -49,7 +49,7 @@ const projectData = [
     ],
     tags: ["React", "FHIR API", "Redis", "WebSockets", "Docker"],
     githubLink: "#",
-    projectPath: "/project#yudi",
+    projectPath: "/product#yudi",
   },
 
   {
@@ -131,11 +131,11 @@ export default function ProjectsSection() {
           </div>
 
           <h2 className="projects-title-v2">
-            OUR PROJECTS
+            OUR PRODUCTS
           </h2>
 
           <p className="projects-subtitle-v2">
-            Specialist expertise to transform complex healthcare
+            Specialist expertise to transform complex
             programmes into confident, sustainable delivery.
           </p>
 
@@ -272,7 +272,7 @@ export default function ProjectsSection() {
                     href={project.projectPath}
                     className="project-view-btn-v2"
                   >
-                    <span>View Project</span>
+                    <span>View Products</span>
 
                     <FaArrowRight className="project-arrow-v2" />
                   </a>

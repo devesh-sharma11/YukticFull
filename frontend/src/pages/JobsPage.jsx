@@ -310,9 +310,7 @@ const JobsPage = () => {
                     Explore open roles
                   </span>
 
-                  <span className="jobs-btn-arrow">
-                    ↗
-                  </span>
+                  <br/>
                 </a>
 
 
@@ -340,7 +338,7 @@ const JobsPage = () => {
                   </span>
 
                   <span>
-                    CAREERS / 2026
+                    CAREERS
                   </span>
 
                 </div>

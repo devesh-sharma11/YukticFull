@@ -1005,7 +1005,7 @@ const CapabilitiesSection = () => {
         </h2>
 
         <p className="ykc2026-subtitle">
-          Specialist expertise to transform complex healthcare programmes
+          Specialist expertise to transform complex programmes
           into confident, sustainable delivery.
         </p>
 

@@ -1166,14 +1166,11 @@ export default function TestimonialsSection() {
           </span>
 
           <h2 className="testimonials-main-heading">
-            Trusted by Healthcare Leaders
+            Trusted by Leaders
           </h2>
 
           <p className="testimonials-subheading">
-            Discover how our specialized EHR
-            advisory and engineering teams
-            empower hospitals and healthcare
-            providers.
+           Discover how we partner with global engineering teams to solve complex challenges and drive performance.
           </p>
 
           <div className="testimonials-heading-line" />
@@ -1236,9 +1233,7 @@ export default function TestimonialsSection() {
                         {item.tag}
                       </span>
 
-                      {renderStars(
-                        item.rating
-                      )}
+                      
 
                     </div>
 
@@ -1461,11 +1456,7 @@ export default function TestimonialsSection() {
                   RATING
               ================================================= */}
 
-              <div className="modal-rating">
-                {renderStars(
-                  selectedTestimonial.rating
-                )}
-              </div>
+              
 
             </div>
 

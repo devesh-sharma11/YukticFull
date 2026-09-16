@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import Yuktic from "../assets/Yuktic.png";
 import LightHeartSection from "../sections/HeroSection";
 import CapabilitiesSection from "../sections/CapabilitiesSection";
-import ProjectsSection from "../sections/ProjectsSection";
+import ProjectsSection from "../sections/ProductsSection";
 import TestimonialsSection from "../sections/TestimonialsSection";
 import ContactSection from "../sections/ContactSection";
 import AboutYukticSection from "../sections/AboutYukticSection";
