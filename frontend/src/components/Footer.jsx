@@ -81,7 +81,7 @@ export default function Footer() {
               <ul>
                 <li><a href="/services">Services</a></li>
                 <li><a href="/product">Products</a></li>
-                <li><a href="/jobs">Careers</a></li>
+                <li><a href="/careers">Careers</a></li>
                 <li><a href="/contact">Contact</a></li>
 
               </ul>

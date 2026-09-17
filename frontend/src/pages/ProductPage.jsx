@@ -434,7 +434,7 @@ useLayoutEffect(() => {
   const yudiHealthFeatures = [
     {
       number: "01",
-      title: "Manager Scheduling",
+      title: "Doctor Scheduling",
       text:
         "Managers can organize and manage doctor schedules on a daily basis.",
       type: "green",

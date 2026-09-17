@@ -5,7 +5,7 @@ import {
   Link,
   useLocation,
 } from "react-router-dom";
-import "../styles/jobsPage.css";
+import "../styles/careersPage.css";
 
 const JobsPage = () => {
   const location = useLocation();
@@ -346,9 +346,7 @@ const JobsPage = () => {
 
                 <div className="jobs-panel-content">
 
-                  <div className="jobs-panel-number">
-                    01
-                  </div>
+                  
 
                   <h2>
                     People
@@ -661,7 +659,7 @@ const JobsPage = () => {
                      */
 
                     <Link
-                      to={`/jobs/${job.slug}`}
+                      to={`/careers/${job.slug}`}
                       className="job-item"
                       key={
                         job._id ||
@@ -839,6 +837,55 @@ const JobsPage = () => {
       </section>
 
 
+
+
+        <section className="jobs-cta jobs-reveal-section">
+
+       
+
+        <div className="jobs-cta-inner">
+
+          <span className="section-kicker3">
+            DON'T SEE THE RIGHT ROLE?
+          </span>
+
+          <h2>
+            We still want
+            <br />
+
+            <span>
+              to hear from you.
+            </span>
+          </h2>
+
+          <p>
+            If you think you could bring
+            something valuable to Yuktic,
+            send us your story. The right
+            opportunity might not have a
+            title yet.
+          </p>
+
+<br/><br/>
+<a
+  href="https://example.com"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="blue-link-btn"
+>
+  Register Now
+  <span className="blue-link-arrow">↗</span>
+</a>
+
+           
+
+        
+
+        </div>
+
+      </section>
+
+
       {/* =====================================================
           CULTURE
       ===================================================== */}
@@ -982,44 +1029,7 @@ const JobsPage = () => {
           CTA
       ===================================================== */}
 
-      <section className="jobs-cta jobs-reveal-section">
-
-       
-
-        <div className="jobs-cta-inner">
-
-          <span className="section-kicker3">
-            DON'T SEE THE RIGHT ROLE?
-          </span>
-
-          <h2>
-            We still want
-            <br />
-
-            <span>
-              to hear from you.
-            </span>
-          </h2>
-
-          <p>
-            If you think you could bring
-            something valuable to Yuktic,
-            send us your story. The right
-            opportunity might not have a
-            title yet.
-          </p>
-
-
-         
-
-
-           
-
-        
-
-        </div>
-
-      </section>
+    
 
 
       <Footer />

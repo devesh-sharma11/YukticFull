@@ -12,7 +12,7 @@ import "../styles/navbar.css";
 const NAVIGATION_ITEMS = [
   { label: "Services", path: "/services" },
   { label: "Products", path: "/product" },
-  { label: "Careers", path: "/jobs" },
+  { label: "Careers", path: "/careers" },
   { label: "Articles", path: "/article" },
 ];
 

@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 
 import { getJob } from "../services/api";
-import "../styles/jobDetail.css";
+import "../styles/careerDetail.css";
 
 const JobDetail = () => {
   const { slug } = useParams();

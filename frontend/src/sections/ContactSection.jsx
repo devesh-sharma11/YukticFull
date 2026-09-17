@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import leafImg from '../assets/leaf.png';
+
 import '../styles/contactSection.css';
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || '';

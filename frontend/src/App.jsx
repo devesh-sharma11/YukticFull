@@ -19,10 +19,10 @@ import ProductPage from "./pages/ProductPage";
 import ServicesPage from "./pages/ServicesPage";
 import ArticlePage from "./pages/ArticlePage";
 import ContactPage from "./pages/ContactPage";
-import JobPage from "./pages/JobsPage";
+import CareerPage from "./pages/CareersPage";
 // import AiBot from "./components/AiBot";
 import ArticleOpenPage from "./pages/ArticleOpenPage";
-import JobDetail from "./pages/JobDetail";
+import CareerDetail from "./pages/CareerDetail";
 
 function AppContent() {
   const navbarLogoRef = useRef(null);
@@ -42,8 +42,8 @@ function AppContent() {
     showRealNavbar ||
     location.pathname === "/product" ||
     location.pathname === "/services" ||
-    location.pathname === "/jobs" ||
-    location.pathname.startsWith("/jobs/") ||
+    location.pathname === "/careers" ||
+    location.pathname.startsWith("/careers/") ||
     location.pathname === "/contact" ||
     location.pathname === "/article" ||
     location.pathname === "/articles" ||
@@ -136,13 +136,13 @@ function AppContent() {
         =============================== */}
 
         <Route
-          path="/jobs"
-          element={<JobPage />}
+          path="/careers"
+          element={<CareerPage />}
         />
 
         <Route
-          path="/jobs/:slug"
-          element={<JobDetail />}
+          path="/careers/:slug"
+          element={<CareerDetail />}
         />
 
         {/* ===============================
